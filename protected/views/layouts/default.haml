@@ -1,0 +1,13 @@
+!!! XML
+!!! 5
+%head
+  %meta(http-equiv='Content-Type' content='text/html; charset=utf-8')
+  %meta(name='language' content='ru')
+  %title Page title
+
+  - Yii::app()->clientScript->registerCssFile($this->assetsPath . DS . 'css' . DS . 'test.css');
+  - Yii::app()->clientScript->registerCoreScript('jquery');
+
+%body
+  .class This is layout.
+    =$content
