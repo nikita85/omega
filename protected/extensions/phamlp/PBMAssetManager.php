@@ -152,7 +152,7 @@ class PBMAssetManager extends CAssetManager {
                 $dstDir = $this->getBasePath() . DIRECTORY_SEPARATOR . $dir;
 
                 if ($this->force || @filemtime($dstDir) < @filemtime($src)) {
-                    CFileHelper::copyDirectory($src, $dstDir, array('exclude' => ['.svn', '.git'], 'level' => $level));
+                    CFileHelper::copyDirectory($src, $dstDir, array('exclude' => array('.svn', '.git'), 'level' => $level));
                     $this->parseDir($dstDir);
                 }
 
