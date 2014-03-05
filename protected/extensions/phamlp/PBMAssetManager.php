@@ -152,7 +152,7 @@ class PBMAssetManager extends CAssetManager {
                 $dstDir = $this->getBasePath() . DIRECTORY_SEPARATOR . $dir;
 
                 if ($this->force || @filemtime($dstDir) < @filemtime($src)) {
-                    CFileHelper::copyDirectory($src, $dstDir, ['exclude' => ['.svn', '.git'], 'level' => $level]);
+                    CFileHelper::copyDirectory($src, $dstDir, array('exclude' => ['.svn', '.git'], 'level' => $level));
                     $this->parseDir($dstDir);
                 }
 
@@ -160,7 +160,7 @@ class PBMAssetManager extends CAssetManager {
 			}
 		}
 
-		throw new CException(Yii::t('yii','The asset "{asset}" to be published does not exist.', ['{asset}' => $path]));
+		throw new CException(Yii::t('yii','The asset "{asset}" to be published does not exist.', array('{asset}' => $path)));
 	}
 
     private function parseDir($path)
