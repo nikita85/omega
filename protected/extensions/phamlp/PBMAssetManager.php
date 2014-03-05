@@ -76,7 +76,7 @@ class PBMAssetManager extends CAssetManager {
 	/**
 	 * @var array published assets
 	 */
-	private $_published = [];
+	private $_published = array();
 
 	/**
 	 * Publishes a file or a directory.
