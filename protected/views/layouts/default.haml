@@ -4,10 +4,50 @@
   %meta(http-equiv='Content-Type' content='text/html; charset=utf-8')
   %meta(name='language' content='ru')
   %title Page title
+  %link(href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css')
+  %link(href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css')
 
   - Yii::app()->clientScript->registerCssFile($this->assetsPath . DS . 'css' . DS . 'test.css');
   - Yii::app()->clientScript->registerCoreScript('jquery');
 
 %body
-  .class This is layout.
-    =$content
+  =$content
+
+
+
+//FOOTER Classes Pages
+
+%footer
+  .footer
+    .pages
+      %h1 Pages:
+      .left-top-border
+      %ul.pages-spisok
+        %li Home
+        %li Teachers
+        %li Tutoring
+        %li Jobs
+        %li Store
+    .classes
+      %h1 Classes:
+      .middle-top-border
+      %ul.classes-spisok
+        %li Math Olympiad Training
+        %li Hillview Writing Workouts
+        %li Pre-School Mandarin
+        %li Science Fair Camp
+      %ul.classes-spisok-isee
+        %li ISEE and HSPT Classes
+        %li SAT and ACT Preparation
+        %li Summer Classes
+    .contact-us
+      %h1 Contact us
+      .right-top-border
+      %ul.contact-spisok
+        %li Omega Teaching
+        %li 1030 Curtis St. #201
+        %li Menlo Park, CA 94025
+        %li 650-322-2671
+        %li
+          %a(href="") @omegateaching.com
+

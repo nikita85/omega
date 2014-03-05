@@ -1,0 +1,112 @@
+%header#headd
+  .header
+    .logo
+      %img(src="#{$this->assetsPath}/img/omega_logo.png" )
+    .phone
+      %img(src="#{$this->assetsPath}/img/icon_phone.png" )
+      %h1 650-322-2671
+    .logins
+      %p Log in
+      %a.login-button(href="#") Sign up
+  .nav
+    %ul.header-menu
+      %li
+        %a(href="#") Home
+      %li
+        %a(href="#") Tutors
+      %li
+        %a(href="#") Classes
+      %li
+        %a(href="#") Jobs
+      %li
+        %a(href="#") Blog
+    %form
+      %input.search.rounded(placeholder="Search" type="text")
+
+
+  .clear
+
+%section
+
+  .wrap-page
+
+    .analysis
+      %img(src="#{$this->assetsPath}/img/photo_big_1.jpg" )
+      .analysis-text
+        %h1 Intro to the literary analysis
+        %ul.analysis-list
+          %li
+            %b Grades:
+          %li
+            %b Class Size:
+          %li
+            %b Times:
+            %p text
+          %li
+            %b Duration:
+        %ul.analysis-list-2
+          %li Entering 4th - 8th grades
+          %li 4-12 students per session
+          %li
+            %a half-day sessions,
+              %br AM 9:30-12:00 or PM 2-4:30
+          %li x hours
+
+    .clear
+
+
+    .courses
+
+      .course-description
+        %h1 Course description
+        %p This week long course will include one practice test under timed conditions followed by review of the most common mistakes students make. Test taking strategies will be taught such as “good, bad, neutral”, “lazy math” and “leave no bubble behind.” The week will also include a session on how to write a timed essay. Crafting the Personal Essay Statement course is also recommended if student is applying to private school.
+
+      .course-features
+        %h1 Course features
+        %ul.days
+          %li
+            %span
+              %b Day 1:
+              Practice Test under Timed Conditions
+          %li
+            %span
+              %b Day 2:
+              Review and Practice Verbal and Vocabulary Drills
+          %li
+            %span
+              %b Day 3:
+              Review and Practice Quantitative Skills and Math
+          %li
+            %span
+              %b Day 4:
+              Review and Practice Reading Comprehension and Language
+          %li
+            %span
+              %b Day 5:
+              Timed Essay Writing Session
+
+      .enroll-course
+        %h1 Enroll course
+        .begins-text
+          %h1 Begins:
+            %span 1 June
+          %p Fee per
+            %br weekly session:
+            %br
+              %span $275
+        %img(src="#{$this->assetsPath}/img/enroll_picture.png" )
+        %p Spots available:
+          %span 12
+        %a.enroll-button(href="#") enroll now
+
+      .clear
+
+      .other-summer-classes
+        %h1 Other summer classes:
+
+      .not-sure
+        .not-sure-inner
+          %img(src="#{$this->assetsPath}/img/question_sign.png" )
+            %p Not sure what class is right for you? We can help!
+              %br Call us right away for a free consultation:
+                %span 650-322-2671
