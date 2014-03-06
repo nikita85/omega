@@ -80,70 +80,70 @@ return array(
 			),
 		),
 
-        'mail' => [
+        'mail' => array(
             'class' => 'ext.yii-mail.YiiMail',
             'transportType' => 'smtp',
-            'transportOptions' => [
+            'transportOptions' => array(
                 'host' => 'smtp.gmail.com',
                 'username' => 'noreply@maximumtest.ru',
                 'password' => 'Ga3ySY=Z.',
                 'port' => '465',
                 'encryption' => 'ssl',
-            ],
+            ),
             'viewPath' => 'application.views.mail',
             'logging' => true,
             'dryRun' => false
-        ],
+        ),
 
-        'viewRenderer' => [
+        'viewRenderer' => array(
             'class' => 'ext.phamlp.Haml',
             'ugly' => false,
             'style' => 'nested',
             'debug' => 0,
             'cache' => false,
             'fileExtension' => '.haml',
-        ],
+        ),
 
-        'assetManager' => [
+        'assetManager' => array(
             'class' => 'ext.phamlp.PBMAssetManager',
             'force' => YII_DEBUG,
-            'parsers' => [
-                'sass' => [
+            'parsers' => array(
+                'sass' => array(
                     'class' => 'ext.phamlp.Sass',
                     'output' => 'css',
-                    'options' => [
+                    'options' => array(
                         'style' => 'nested',
                         'cache' => false,
-                        'extensions' => [
-                            'compass' => [
+                        'extensions' => array(
+                            'compass' => array(
                                 'project_path' => realpath(dirname(__FILE__) . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . '..'),
                                 'relative_assets' => false,
-                            ]
-                        ]
-                    ],
-                ],
-                'scss' => [
+                            )
+                        )
+                    ),
+                ),
+                'scss' => array(
                     'class' => 'ext.phamlp.Sass',
                     'output' => 'css',
-                    'options' => [
+                    'options' => array(
                         'style' => 'nested',
                         'cache' => false,
-                        'extensions' => [
-                            'compass' => [
+                        'extensions' => array(
+                            'compass' => array(
                                 'project_path' => realpath(dirname(__FILE__) . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . '..'),
                                 'relative_assets' => false,
-                            ]
-                        ]
-                    ]
-                ],
-            ]
-        ],
+                            )
+                        )
+                    )
+                ),
+            )
+        ),
 
 
 	),
 
 	// application-level parameters that can be accessed
-	// using Yii::app()->params['paramName']
+	// using Yii::app()->paramsarray('paramName')
 	'params'=>array(
 		// this is used in contact page
 		'adminEmail'=>'webmaster@example.com',
