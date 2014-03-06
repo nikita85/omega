@@ -1587,17 +1587,15 @@ section
         float: right
         width: 297px
         height: 236px
-        border-left: 1px solid #ececec
-        border-right: 1px solid #ececec
-        border-bottom: 1px solid #ececec
-        border-radius: 20px
-        /*background: #36c3b4*/
+
         h1
           margin-bottom: 10px
           font-family: 'Montserrat', sans-serif
           font-size: 18px
           color: #333333
         p
+          padding-top: 77px
+          margin-left: 20px
           font-family: 'Montserrat', sans-serif
           font-size: 18px
           color: #333333
@@ -1622,10 +1620,18 @@ section
             font-family: 'Montserrat', sans-serif
             color: #ffffff
             font-size: 16px
+        .enroll-border
+          height: 132px
+          margin-top: -67px
+          border-left: 1px solid #ececec
+          border-right: 1px solid #ececec
+          border-bottom: 1px solid #ececec
+          border-radius: 20px
+          /*background: #36c3b4*/
 
       .enroll-button
         position: relative
-        top: 48px
+        top: -9px
         left: 81px
         text-align: center
         background: #53bb4c
@@ -1657,11 +1663,78 @@ section
       .other-summer-classes
         margin-top: 20px
         height: 120px
-        background: #c01
+        /*background: #c01*/
+        h1
+          font-family: 'Montserrat', sans-serif
+          font-size: 18px
+          color: #333333
+          margin-top: 20px
+          margin-bottom: 30px
+        .borders
+          height: 46px
+          border: 1px solid #ececec
+          border-radius: 10px
+          .intro-button, .crafting-button, .myth-button, .going-button, .make-button, .power-button
+            position: relative
+            font-family: 'Montserrat', sans-serif
+            font-size: 13px
+            color: #27968a
+            background: #fcfbfb
+            background: -moz-linear-gradient(top, #fcfbfb 0%, #f1f1f1 100%)
+            background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fcfbfb), color-stop(100%,#f1f1f1))
+            background: -webkit-linear-gradient(top, #fcfbfb 0%,#f1f1f1 100%)
+            background: -o-linear-gradient(top, #fcfbfb 0%,#f1f1f1 100%)
+            background: -ms-linear-gradient(top, #fcfbfb 0%,#f1f1f1 100%)
+            background: linear-gradient(to bottom, #fcfbfb 0%,#f1f1f1 100%)
+            border-radius: 20px
+            text-decoration: none
+            &:hover
+              background: #f1f1f1
+              background: -moz-linear-gradient(top, #f1f1f1 0%, #fcfbfb 100%)
+              background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f1f1f1), color-stop(100%,#fcfbfb))
+              background: -webkit-linear-gradient(top, #f1f1f1 0%,#fcfbfb 100%)
+              background: -o-linear-gradient(top, #f1f1f1 0%,#fcfbfb 100%)
+              background: -ms-linear-gradient(top, #f1f1f1 0%,#fcfbfb 100%)
+              background: linear-gradient(to bottom, #f1f1f1 0%,#fcfbfb 100%)
+
+          .intro-button
+            top: -10px
+            margin-left: 60px
+            padding: 8px 50px
+
+          .crafting-button
+            top: -10px
+            margin-left: 15px
+            padding: 8px 12px
+
+          .myth-button
+            top: -10px
+            margin-left: 15px
+            padding: 8px 50px
+
+          .going-button
+            top: 20px
+            margin-left: 60px
+            padding: 8px 71px
+
+          .make-button
+            top: 20px
+            margin-left: 15px
+            padding: 8px 85px
+
+          .power-button
+            top: 20px
+            margin-left: 15px
+            padding: 8px 61px
+
+
+
+
 
       .not-sure
         position: relative
         margin-top: 20px
+        margin-bottom: 20px
         height: 132px
         font-family: 'Montserrat', sans-serif
         font-size: 18px
