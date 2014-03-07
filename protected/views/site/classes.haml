@@ -1,5 +1,5 @@
 //Header Classes Pages
-%header#headd
+%header#header-bg
   .header
     .logo
       %img(src="#{$this->assetsPath}/img/omega_logo.png" )
@@ -21,9 +21,10 @@
         %a(href="#") Jobs
       %li
         %a(href="#") Blog
+      %li
+        %a(href="#") Store
     %form
       %input.search.rounded(placeholder="Search" type="text")
-
 
   .clear
 
@@ -54,24 +55,15 @@
     .summer-seminars
       %h1 Summer Seminars
       %img(src="#{$this->assetsPath}/img/classes_photo_1.png" )
-      %p As the Academic Director of Omega Teaching LLC, I am very pleased to offer the following summer seminars,
-        %br including Test Prep Boot Camp. Test Prep Boot Camp will be offered at two levels: entering 4th and 5th graders,
-        %br entering 6th and 7th graders, and entering 8th graders. The 8th grade Camp will cover both ISEE and HSPT test
-        %br prep skills. Discounts are offered to Test Prep Boot Camp students who also enroll in the Crafting the Personal
-        %br Essay Statement. This class is designed to get students started on the application essays needed for private schools.
+      %p As the Academic Director of Omega Teaching LLC, I am very pleased to offer the following summer seminars, including Test Prep Boot Camp. Test Prep Boot Camp will be offered at two levels: entering 4th and 5th graders, entering 6th and 7th graders, and entering 8th graders. The 8th grade Camp will cover both ISEE and HSPT test prep skills. Discounts are offered to Test Prep Boot Camp students who also enroll in the Crafting the Personal Essay Statement. This class is designed to get students started on the application essays needed for private schools.
       %br
-      %p Other seminars include: Of Myths and Monsters, Going to the Dogs, Make ‘Em Laugh, The Power of Story and Intro
-        %br to Literary Analysis. Classes are 2.5 hours with 4-12 students divided by grade or ability levels. Discounts available
-        %br for multiple enrollment and students are encouraged to take several classes to improve their skills. If your child is a
-        %br returning student, they can repeat classes as I have multiple writing assignments for the same themes.  My
-        %br teaching experience includes tutoring and afterschool writing classes at Hillview Middle School. My degrees are
-        %br from Harvard (JD) and Stanford (BA, English and Economics).
+      %p Other seminars include: Of Myths and Monsters, Going to the Dogs, Make ‘Em Laugh, The Power of Story and Intro to Literary Analysis. Classes are 2.5 hours with 4-12 students divided by grade or ability levels. Discounts available for multiple enrollment and students are encouraged to take several classes to improve their skills. If your child is a returning student, they can repeat classes as I have multiple writing assignments for the same themes.  My teaching experience includes tutoring and afterschool writing classes at Hillview Middle School. My degrees are from Harvard (JD) and Stanford (BA, English and Economics).
 
     .clear
 
     .summer-classes
-      .title1
-        .title1-topic
+      .camp
+        .camp-topic
           %h1 Test prep boot camp
         %img(src="#{$this->assetsPath}/img/title_1.png" )
         %ul.grades
@@ -84,9 +76,9 @@
             %span Level II Entering 6th -7th
           %li
             %span Level III Entering 8th
-        %a.title1-button(href="#") read more
-      .title2
-        .title2-topic
+        %a.camp-button(href="#") read more
+      .personal
+        .personal-topic
           %h1 Crafting the personal essay statement
         %img(src="#{$this->assetsPath}/img/title_2.png" )
         %ul.grades
@@ -99,9 +91,9 @@
             %span Level II Entering 6th-8th
           %li
             %span Level III 9th -12th
-        %a.title2-button(href="#") read more
-      .title3
-        .title3-topic
+        %a.personal-button(href="#") read more
+      .myths
+        .myths-topic
           %h1 Of myths and monsters
           %img(src="#{$this->assetsPath}/img/icon_favourite_big.png" )
           %span Student favorite!
@@ -114,9 +106,9 @@
             %span Level I Entering 5th-7th
           %li
             %span Level II Entering 8th-12th
-        %a.title3-button(href="#") read more
-      .title4
-        .title4-topic
+        %a.myths-button(href="#") read more
+      .going
+        .going-topic
           %h1 Going to the dogs
           %img(src="#{$this->assetsPath}/img/icon_favourite_big.png" )
           %span Student favorite!
@@ -127,10 +119,10 @@
               %b Grades:
           %li
             %span Level I Entering 5th -8th
-        %a.title4-button(href="#") read more
+        %a.going-button(href="#") read more
       .clear
-      .title5
-        .title5-topic
+      .laugh
+        .laugh-topic
           %h1 Make‘em laugh
         %img(src="#{$this->assetsPath}/img/title_5.png" )
         %ul.grades
@@ -141,9 +133,9 @@
             %span Level I Entering 5th -7th
           %li
             %span Level II Entering 8th -12th
-        %a.title5-button(href="#") read more
-      .title6
-        .title6-topic
+        %a.laugh-button(href="#") read more
+      .story
+        .story-topic
           %h1 The power of story
         %img(src="#{$this->assetsPath}/img/title_6.png" )
         %ul.grades
@@ -154,9 +146,9 @@
             %span Level I Entering 5th -7th
           %li
             %span Level II Entering 8th -12th
-        %a.title6-button(href="#") read more
-      .title7
-        .title7-topic
+        %a.story-button(href="#") read more
+      .intro
+        .intro-topic
           %h1 Intro to literary analysis
         %img(src="#{$this->assetsPath}/img/title_7.png" )
         %ul.grades
@@ -165,14 +157,12 @@
               %b Grades:
           %li
             %span Entering 8th-12th
-        %a.title7-button(href="#") read more
-      .title8
+        %a.intro-button(href="#") read more
+      .question
         %img(src="#{$this->assetsPath}/img/icon_help.png" )
         %h6 Not sure what class is right for you?
         %br
-        %p We can help!
-          %br/Call us right away for a
-          %br/free consultation:
+        %p We can help! Call us right away for a free consultation:
         %span 650-322-2671
 
     .clear
