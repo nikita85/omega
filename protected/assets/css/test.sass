@@ -51,7 +51,7 @@ header
   .logins
     float: right
     margin-right: 20px
-    p
+    a
       float: left
       padding-top: 6px
       padding-right: 10px
@@ -59,6 +59,7 @@ header
       font-size: 10px
       color: #019140
       text-transform: uppercase
+      text-decoration: none
 
     .login-button
       position: relative
@@ -1203,6 +1204,7 @@ section
   .jobs-content
     margin: 0 auto
     width: 940px
+    height: 800px
     h1
       font-family: 'Montserrat', sans-serif
       font-size: 30px
@@ -1213,7 +1215,6 @@ section
     .opportunities
       float: left
       width: 620px
-      height: 700px
       background-image: url("../img/title_text_back.png")
       background-repeat: no-repeat
       background-position: top center
@@ -1262,75 +1263,87 @@ section
     .form-bellow
       float: right
       width: 300px
-      height: 700px
-      /*text-align: center*/
       img
         margin-top: -50px
-      h1
-        font-family: 'Montserrat', sans-serif
-        font-size: 18px
-        font-weight: bold
-        color: #333333
-        text-align: center
-      .form-caption
-        font-family: 'Montserrat', sans-serif
-        font-size: 13px
-        font-weight: bold
-        color: #333333
-        span
-          color: #139647
-      input.text, input.email, input.phone
-        border: none
-        outline: none
-        font-family: 'Open Sans', sans-serif
-        font-size: 13px
-        color: #666666
-        background-image: url("../img/input.png")
-        background-repeat: no-repeat
-        width: 212px
-        height: 24px
-        padding: 0 10px
+      .form-bellow-borders
+        margin-top: -57px
+        border-left: 1px solid #ececec
+        border-right: 1px solid #ececec
         border-bottom: 1px solid #ececec
-        margin: 0 0 0 5px
-      .drag-and-drop
-        margin-top: 20px
-        margin-bottom: 20px
-        margin-left: 40px
-        width: 212px
-        height: 76px
-        background: rgba(19, 150, 71, 0.1)
-        border-radius: 15px
-        text-align: center
-        p
-          width: 106px
-          padding-top: 16px
-          padding-left: 50px
+        border-bottom-left-radius: 10px
+        border-bottom-right-radius: 10px
+        h1
+          padding-top: 57px
+          font-family: 'Montserrat', sans-serif
+          font-size: 18px
+          font-weight: bold
+          color: #333333
+          text-align: center
+        .forms
+          margin-left: 46px
+        .form-caption
+          font-family: 'Montserrat', sans-serif
+          font-size: 13px
+          font-weight: bold
+          color: #333333
+          span
+            color: #139647
+        input.text, input.email, input.phone
+          border: none
+          outline: none
           font-family: 'Open Sans', sans-serif
           font-size: 13px
           color: #666666
-          a
-            color: #069442
-            text-decoration: none
-            &:hover
-              text-decoration: underline
+          background-image: url("../img/input.png")
+          background-repeat: no-repeat
+          width: 212px
+          height: 24px
+          padding: 0 10px
+          /*border-bottom: 1px solid #ececec*/
+          margin: 5px 0 0 5px
+          margin-bottom: 10px
+        .drag-and-drop
+          margin-top: 5px
+          margin-bottom: 27px
+          margin-left: 0px
+          width: 212px
+          height: 76px
+          background: rgba(19, 150, 71, 0.1)
+          border-radius: 15px
+          text-align: center
+          p
+            width: 106px
+            padding-top: 16px
+            padding-left: 50px
+            font-family: 'Open Sans', sans-serif
+            font-size: 13px
+            color: #666666
+            a
+              color: #069442
+              text-decoration: none
+              &:hover
+                text-decoration: underline
 
-      .form-send
-        border: none
-        outline: none
-        text-transform: uppercase
-        font-family: 'Open Sans', sans-serif
-        font-size: 14px
-        font-weight: bold
-        color: #ffffff
-        background: #53bb4c
-        background: -moz-linear-gradient(top, #53bb4c 0%, #029141 100%)
-        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#53bb4c), color-stop(100%,#029141))
-        background: -webkit-linear-gradient(top, #53bb4c 0%,#029141 100%)
-        background: -o-linear-gradient(top, #53bb4c 0%,#029141 100%)
-        background: -ms-linear-gradient(top, #53bb4c 0%,#029141 100%)
-        background: linear-gradient(to bottom, #53bb4c 0%,#029141 100%)
-        border-radius: 20px
-        padding: 10px 20px
+        .form-send-button
+          position: relative
+          top: 15px
+          left: 46px
+          border: none
+          outline: none
+          text-transform: uppercase
+          font-family: 'Open Sans', sans-serif
+          font-size: 14px
+          font-weight: bold
+          color: #ffffff
+          background: #53bb4c
+          background: -moz-linear-gradient(top, #53bb4c 0%, #029141 100%)
+          background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#53bb4c), color-stop(100%,#029141))
+          background: -webkit-linear-gradient(top, #53bb4c 0%,#029141 100%)
+          background: -o-linear-gradient(top, #53bb4c 0%,#029141 100%)
+          background: -ms-linear-gradient(top, #53bb4c 0%,#029141 100%)
+          background: linear-gradient(to bottom, #53bb4c 0%,#029141 100%)
+          border-radius: 20px
+          padding: 5px 35px
 
 /**FOOTER**/
 
