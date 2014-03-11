@@ -3,17 +3,31 @@
 class SiteController extends Controller
 {
 
+    public $layout = '//layouts/default';
+
 	/**
 	 * This is the default 'index' action that is invoked
 	 * when an action is not explicitly requested by users.
 	 */
 	public function actionIndex()
 	{
-        $this->layout = '//layouts/default';
-		// renders the view file 'protected/views/site/index.php'
-		// using the default layout 'protected/views/layouts/main.php'
-		$this->render('jobs');
+		$this->render('index');
 	}
+
+    public function actionClasses()
+    {
+        $this->render('classes');
+    }
+
+    public function actionJobs()
+    {
+        $this->render('jobs');
+    }
+
+    public function actionOpenedClass()
+    {
+        $this->render('opened_class');
+    }
 
 	/**
 	 * This is the action to handle external exceptions.
