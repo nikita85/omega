@@ -27,21 +27,27 @@
             %span Outgoing, enthusiastic, well spoken, responsible and friendly personality is a must
     .form-bellow
       %img(src="#{$this->assetsPath}/img/photo_teacher_1.png" )
-      %h1 If you are interested in a position, please fill the form bellow:
-      %form(name="form1" action="" method="post" )
-      %lable
-        Name*
-      %input(type="text" name="firstname" placeholder="enter you name" )
-      %label
-        E-mail*
-      %input(type="email"name="email" placeholder="mylogin@mail.com" )
-      %lable
-        Phone
-      %input(type="tel" name="phone" placeholder="enter your phone" )
-      .drag-and-drop
-        %p Drag and drop your resume here or
-          %a(href="#") click to attach
-      %input(type="button" class="form-send" value="send" )
+      .form-bellow-borders
+        %h1 If you are interested in a position, please fill the form bellow:
+        %form(name="form1" class="forms" action="" method="post" )
+          %lable.form-caption
+            Name
+              %span*
+          %div
+            %input(type="text" class="text" name="firstname" placeholder="enter you name" )
+          %label.form-caption
+            E-mail
+              %span*
+          %div
+            %input(type="email" class="email" name="email" placeholder="mylogin@mail.com" )
+          %lable.form-caption
+            Phone
+          %div
+            %input(type="tel" class="phone" name="phone" placeholder="enter your phone" )
+          .drag-and-drop
+            %p Drag and drop your resume here or
+              %a(href="#") click to attach
+          %input(type="button" class="form-send-button" value="send" )
 
 
 
