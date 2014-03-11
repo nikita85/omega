@@ -902,7 +902,7 @@ section
       span
         display: inline-block
         color: #fcd234
-    td.hovered
+//    td.hovered
       @include th-hovered-gradient
 
     td.select
@@ -910,15 +910,15 @@ section
       background-repeat: no-repeat
       background-position: center
       background-size: auto auto
-      background-color: #159c47
+      background-color: #159c47 !important
 
     .even
       background: #fbfbfb
-      &:hover
+      .hovered
         background-color: #b9dbc6
     .odd
       background: #ffffff
-      &:hover
+      .hovered
         background-color: #cef4dc
 
     th

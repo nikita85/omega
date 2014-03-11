@@ -9,6 +9,7 @@
 
   - Yii::app()->clientScript->registerCssFile($this->assetsPath . DS . 'css' . DS . 'test.css');
   - Yii::app()->clientScript->registerCoreScript('jquery');
+  - Yii::app()->clientScript->registerScriptFile($this->assetsPath . DS . 'js' . DS . 'main.js');
 
 %body
   - $isHomePage = ($this->action->id=='index')? true: false;
@@ -25,13 +26,13 @@
     .nav
       %ul.header-menu
         %li
-          %a(href="#") Home
+          %a(href="/") Home
         %li
           %a(href="#") Tutors
         %li
-          %a(href="#") Classes
+          %a(href="#{$this->createUrl('site/classes')}") Classes
         %li
-          %a(href="#") Jobs
+          %a(href="#{$this->createUrl('site/jobs')}") Jobs
         %li
           %a(href="#") Blog
         %li
