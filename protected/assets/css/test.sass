@@ -146,6 +146,22 @@ header
       height: 65px
       cursor: pointer
 
+  .puzzle-popup
+    position: absolute
+    top: 334px
+    left: 1006px
+    display: none
+    background-image: url("../img/button_puzzle_opened2.png")
+    background-position: top center
+    background-repeat: no-repeat
+    width: 360px
+  .popup-text
+    margin-top: 40px
+    background-color: #ffffff
+    height: 200px
+    border-bottom-right-radius: 10px
+    border-bottom-left-radius: 10px
+
 /**CONTENT**/
 
 section
@@ -421,7 +437,7 @@ header#header-bg
 
   .logo
     float: left
-    padding-top: 13px
+    padding-top: 8px
     padding-left: 12px
     padding-right: 425px
 
@@ -838,8 +854,8 @@ section
 /**TABLE**/
 .popup-messsage-table
   position: absolute
-  top: 1087px
-  left: 575px
+  bottom: 48px
+  left: 125px
   text-align: center
   /*display: none
   width: 813px
@@ -885,6 +901,7 @@ section
     @include tutoring-button-gradient
 
 .enrollment-form
+  position: relative
   margin-top: 50px
   margin-bottom: 50px
   border-bottom: 1px solid #ececec
@@ -1365,6 +1382,7 @@ section
       font-weight: bold
 
     .summer-seminar, .creative-writing, .writing-workouts
+      position: relative
       width: 218px
       height: 500px
       @include borders-left-right-bottom
@@ -1413,8 +1431,8 @@ section
       padding: 6px 13px
 
     .summer-seminar-button
-      position: relative
-      top: 55px
+      position: absolute
+      bottom: -14px
       left: 65px
       @include camp-button-gradient
       @include buttons-border-radius
@@ -1426,8 +1444,8 @@ section
         color: #1a986f
 
     .creative-writing-button
-      position: relative
-      top: 55px
+      position: absolute
+      bottom: -14px
       left: 65px
       @include tutoring-button-gradient
       @include buttons-border-radius
@@ -1437,8 +1455,8 @@ section
       h1
         color: #3899aa
     .writing-workouts-button
-      position: relative
-      top: 55px
+      position: absolute
+      bottom: -14px
       left: 65px
       @include laugh-button-gradient
       @include buttons-border-radius
