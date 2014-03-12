@@ -836,6 +836,53 @@ section
         font-weight: bold
 
 /**TABLE**/
+.popup-messsage-table
+  position: absolute
+  margin-top: 167px
+  margin-left: 116px
+  text-align: center
+  display: none
+  width: 820px
+  height: 500px
+  background: rgba(0, 153, 51, 0.2)
+  @include about-block-border-radius
+  p
+    margin-top: 200px
+    margin-left: 170px
+    width: 472px
+    font-family: 'Open Sans', sans-serif
+    font-size: 14px
+    line-height: normal
+    color: #333333
+    span
+      color: #009933
+  .popup-messsage-table-button
+    border: none
+    outline: none
+    margin-top: 50px
+    font-family: 'Open Sans', sans-serif
+    font-size: 10px
+    font-weight: bold
+    text-transform: uppercase
+    color: #ffffff
+    padding: 4px 7px
+    cursor: pointer
+    @include tutoring-button-gradient
+    @include buttons-border-radius
+  .table-button-popup
+    position: relative
+    top: 5px
+    left: 412px
+    text-align: center
+    color: #cccccc
+    font-family: 'Montserrat', sans-serif
+    font-weight: bold
+    font-size: 10px
+    text-transform: uppercase
+    text-decoration: none
+    padding: 4px 7px
+    @include buttons-border-radius
+    @include tutoring-button-gradient
 
 .enrollment-form
   margin-top: 50px
@@ -860,7 +907,7 @@ section
     font-size: 10px
     text-transform: uppercase
     text-decoration: none
-    padding: 3px 10px
+    padding: 4px 7px
     @include table-border-radius
     @include table-button-gradient
 
@@ -1202,8 +1249,7 @@ section
           font-weight: bold
     .opportunities-borders, .form-bellow-borders
       @include borders-left-right-bottom
-      border-bottom-left-radius: 10px
-      border-bottom-right-radius: 10px
+      @include border-bottom-radius
     .opportunities-borders
       margin-top: 60px
       h1
@@ -1273,8 +1319,8 @@ section
           width: 212px
           height: 76px
           background: rgba(19, 150, 71, 0.1)
-          border-radius: 15px
           text-align: center
+          @include analysis-border-radius
           p
             width: 106px
             padding-top: 16px
@@ -1299,9 +1345,9 @@ section
           font-size: 14px
           font-weight: bold
           color: #ffffff
-          border-radius: 20px
           padding: 5px 35px
           @include enroll-button-gradient
+          @include buttons-border-radius
 
 /**MAIN_CLASSES PAGE**/
 
