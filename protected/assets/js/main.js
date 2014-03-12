@@ -29,6 +29,10 @@ $(document).ready(function () {
         classesCalendar.on('click', 'tr:gt(6) td[data-col-id]', function () {
             $(this).toggleClass('select');
         });
+
+        $('.popup-messsage-table-button').on('click', function(){
+           $(this).parent().fadeOut(500);
+        });
     }
 
 });

@@ -28,6 +28,7 @@ class SiteController extends Controller
     {
         $this->render('opened_class');
     }
+
     public function actionMainClasses()
     {
         $this->render('main_classes');
