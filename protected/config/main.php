@@ -43,8 +43,11 @@ return array(
             'showScriptName' => false,
 			'rules'=>array(
 
-                '/classes' => 'site/classes',
-                '/jobs' => 'site/jobs',
+                'classes' => 'site/classes',
+                'main_classes' => 'site/mainClasses',
+                'opened_class' => 'site/openedClass',
+                'jobs' => 'site/jobs',
+                'classes' => 'site/classes',
 
 				'<controller:\w+>/<id:\d+>'=>'<controller>/view',
 				'<controller:\w+>/<action:\w+>/<id:\d+>'=>'<controller>/<action>',
