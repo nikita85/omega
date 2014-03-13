@@ -10,7 +10,7 @@
 /**VARIABLES**/
 
 $head-fonts: 'Open Sans', sans-serif
-$second-fonts: 'Montserrat', sans-serif
+$second-fonts: 'Ubuntu', sans-serif;
 $button-text-color: #ffffff
 
 /*-----------------------------------------*/
@@ -43,9 +43,9 @@ header
       padding-right: 10px
     h1
       float: left
-      font-family: 'Open Sans', sans-serif
+      font-family: $head-fonts
       font-size: 18px
-      font-weight: bold
+      font-weight: 700
       color: #666666
 
   .logins
@@ -55,7 +55,7 @@ header
       float: left
       padding-top: 6px
       padding-right: 10px
-      font-family: 'Montserrat', sans-serif
+      font-family: $second-fonts
       font-size: 10px
       color: #019140
       text-transform: uppercase
@@ -69,7 +69,7 @@ header
       color: #ffffff
       font-size: 10px
       text-decoration: none
-      font-family: 'Montserrat', sans-serif
+      font-family: $second-fonts
       text-transform: uppercase
       padding: 5px 17px 5px 17px
 
@@ -86,8 +86,8 @@ header
       a
         list-style: none
         text-decoration: none
-        font-family: 'Montserrat', sans-serif
-        font-weight: bold
+        font-family: $second-fonts
+        font-weight: 700
         font-size: 14px
         color: #333333
         padding: 4px 17px 4px 17px
@@ -103,64 +103,72 @@ header
       background-color: #ffffff
 
     input[type="text"]
-      font-family: 'Open Sans', sans-serif
+      font-family: $head-fonts
       font-size: 12px
       color: #999999
 
-.slider
-  margin: 0 auto
-  width: 940px
+.slider-bg
+  /*margin: 0 auto
+  /*width: 940px
   overflow: hidden
+  background-image: url("../img/light_big.png")
+  background-position: 347px -86px
+  background-size: auto auto
+  background-repeat: no-repeat
 
-  .slide-text
-    background-image: url("../img/light_big.png")
-    background-position: center
-    background-size: cover
-    background-repeat: no-repeat
-    float: left
-    width: 444px
-    height: 344px
-    h1
-      font-family: 'Montserrat', sans-serif
-      font-weight: bold
-      color: #007c2d
-      font-size: 48px
-      text-align: center
-      padding-top: 80px
-    p
-      margin-left: 90px
-      margin-top: 10px
-      width: 254px
-      font-family: 'Open Sans', sans-serif
-      font-size: 24px
-      color: #333333
-      text-align: center
+  .slider
+    margin: 0 auto
+    width: 940px
 
-  .puzzle
-    float: right
-    margin-top: 226px
-    margin-right: 20px
-    &:hover
-      background-image: url("../img/button_puzzle_hover.png")
-      width: 160px
-      height: 65px
-      cursor: pointer
+    .slide-text
+      /*background-image: url("../img/light_big.png")
+      /*background-position: center
+      /*background-size: cover
+      /*background-repeat: no-repeat
+      float: left
+      width: 444px
+      height: 344px
+      h1
+        font-family: $second-fonts
+        font-weight: 700
+        color: #007c2d
+        font-size: 48px
+        text-align: center
+        padding-top: 80px
+      p
+        margin-left: 90px
+        margin-top: 10px
+        width: 254px
+        font-family: $head-fonts
+        font-size: 24px
+        color: #333333
+        text-align: center
 
-  .puzzle-popup
-    position: absolute
-    top: 334px
-    left: 1006px
-    display: none
-    background-image: url("../img/button_puzzle_opened2.png")
-    background-position: top center
-    background-repeat: no-repeat
-    width: 360px
-  .popup-text
-    margin-top: 40px
-    background-color: #ffffff
-    height: 200px
-    border-bottom-right-radius: 10px
-    border-bottom-left-radius: 10px
+    .puzzle
+      float: right
+      margin-top: 226px
+      margin-right: 20px
+      &:hover
+        background-image: url("../img/button_puzzle_hover.png")
+        width: 160px
+        height: 65px
+        cursor: pointer
+
+    .puzzle-popup
+      position: absolute
+      top: 334px
+      left: 1006px
+      display: none
+      background-image: url("../img/button_puzzle_opened2.png")
+      background-position: top center
+      background-repeat: no-repeat
+      width: 360px
+    .popup-text
+      margin-top: 40px
+      background-color: #ffffff
+      height: 200px
+      border-bottom-right-radius: 10px
+      border-bottom-left-radius: 10px
 
 /**CONTENT**/
 
@@ -176,7 +184,7 @@ section
       @include cont-borders
 
       .stanford p, .academic p, .individual p
-        font-family: 'Open Sans', sans-serif
+        font-family: $head-fonts
         font-size: 13px
         line-height: 1.8em
         color: #333333
@@ -206,8 +214,8 @@ section
     .education
       margin-top: 50px
       h1
-        font-family: 'Montserrat', sans-serif
-        font-weight: bold
+        font-family: $second-fonts
+        font-weight: 700
         font-size: 18px
         color: #333333
         padding-bottom: 20px
@@ -228,7 +236,7 @@ section
         p
           margin-left: 15px
           margin-bottom: 19px
-          font-family: 'Open Sans', sans-serif
+          font-family: $head-fonts
           font-size: 13px
           line-height: normal
           color: #666666
@@ -242,7 +250,7 @@ section
           @include tutoring-button-gradient
           @include buttons-border-radius
           color: #ffffff
-          font-family: 'Montserrat', sans-serif
+          font-family: $second-fonts
           font-size: 10px
           text-transform: uppercase
           text-decoration: none
@@ -261,7 +269,7 @@ section
         p
           margin-left: 15px
           margin-bottom: 37px
-          font-family: 'Open Sans', sans-serif
+          font-family: $head-fonts
           font-size: 13px
           line-height: normal
           color: #666666
@@ -275,7 +283,7 @@ section
           @include classes-button-gradient
           @include buttons-border-radius
           color: #ffffff
-          font-family: 'Montserrat', sans-serif
+          font-family: $second-fonts
           font-size: 10px
           text-transform: uppercase
           text-decoration: none
@@ -294,7 +302,7 @@ section
         p
           margin-left: 15px
           margin-bottom: 37px
-          font-family: 'Open Sans', sans-serif
+          font-family: $head-fonts
           font-size: 13px
           line-height: normal
           color: #666666
@@ -308,7 +316,7 @@ section
           @include cat-button-gradient
           @include buttons-border-radius
           color: #ffffff
-          font-family: 'Montserrat', sans-serif
+          font-family: $second-fonts
           font-size: 10px
           text-transform: uppercase
           text-decoration: none
@@ -325,7 +333,7 @@ section
           margin-left: 15px
         p
           margin-left: 15px
-          font-family: 'Open Sans', sans-serif
+          font-family: $head-fonts
           font-size: 13px
           line-height: normal
           color: #666666
@@ -339,7 +347,7 @@ section
           @include isee-button-gradient
           @include buttons-border-radius
           color: #ffffff
-          font-family: 'Montserrat', sans-serif
+          font-family: $second-fonts
           font-size: 10px
           text-transform: uppercase
           text-decoration: none
@@ -354,9 +362,9 @@ section
         text-align: center
         h1
           padding-top: 20px
-          font-family: 'Montserrat', sans-serif
+          font-family: $second-fonts
           font-size: 18px
-          font-weight: bold
+          font-weight: 700
           color: #333333
       .date
         position: absolute
@@ -364,7 +372,7 @@ section
         left: 84px
         h2
           font-size: 18px
-          font-family: 'Montserrat', sans-serif
+          font-family: $second-fonts
           color: #ffffff
         h1
           padding-top: 10px
@@ -380,8 +388,8 @@ section
       .right-colum
         float: right
         h1
-          font-family: 'Montserrat', sans-serif
-          font-weight: bold
+          font-family: $second-fonts
+          font-weight: 700
           font-size: 18px
           color: #333333
           margin-bottom: 10px
@@ -396,7 +404,7 @@ section
           margin-top: 40px
           margin-left: 40px
           width: 292px
-          font-family: 'Open Sans', sans-serif
+          font-family: $head-fonts
           font-size: 13px
           line-height: 1.5em
           color: #666666
@@ -405,7 +413,7 @@ section
           margin-top: 40px
           margin-right: 60px
           width: 285px
-          font-family: 'Open Sans', sans-serif
+          font-family: $head-fonts
           font-size: 13px
           line-height: 1.5em
           color: #666666
@@ -414,9 +422,9 @@ section
       margin-top: 50px
       h1
         padding-bottom: 10px
-        font-family: 'Montserrat', sans-serif
+        font-family: $second-fonts
         font-size: 18px
-        font-weight: bold
+        font-weight: 700
         color: #333333
 
 /**Classes-pages**/
@@ -448,9 +456,9 @@ header#header-bg
       padding-right: 10px
     h1
       float: left
-      font-family: 'Open Sans', sans-serif
+      font-family: $head-fonts
       font-size: 18px
-      font-weight: bold
+      font-weight: 700
       color: #666666
 
   .logins
@@ -460,7 +468,7 @@ header#header-bg
       float: left
       padding-top: 6px
       padding-right: 10px
-      font-family: 'Montserrat', sans-serif
+      font-family: $second-fonts
       font-size: 10px
       color: #019140
       text-transform: uppercase
@@ -472,7 +480,7 @@ header#header-bg
       color: #ffffff
       font-size: 10px
       text-decoration: none
-      font-family: 'Montserrat', sans-serif
+      font-family: $second-fonts
       text-transform: uppercase
       padding: 5px 17px 5px 17px
 
@@ -492,8 +500,8 @@ header#header-bg
       a
         list-style: none
         text-decoration: none
-        font-family: 'Montserrat', sans-serif
-        font-weight: bold
+        font-family: $second-fonts
+        font-weight: 700
         font-size: 14px
         color: #333333
         padding: 4px 17px 4px 17px
@@ -529,7 +537,7 @@ section
       background: none
     li
       a
-        font-family: 'Montserrat', sans-serif
+        font-family: $second-fonts
         font-size: 14px
         color: #999999
         text-decoration: none
@@ -577,15 +585,15 @@ section
     h1
       margin-top: 18px
       margin-bottom: 14px
-      font-family: 'Montserrat', sans-serif
+      font-family: $second-fonts
       font-size: 30px
-      font-weight: bold
+      font-weight: 700
       color: #007c2d
     img
       float: left
       margin-right: 19px
     p
-      font-family: 'Open Sans', sans-serif
+      font-family: $head-fonts
       font-size: 13px
       color: #333333
       line-height: normal
@@ -597,19 +605,19 @@ section
     .camp, .personal, .myths, .going, .laugh, .story, .intro
       @include summer-classes-border-radius
       .grades
-        font-family: 'Montserrat', sans-serif
+        font-family: $second-fonts
         font-size: 13px
         line-height: normal
         color: #029141
         list-style: disc
-        font-weight: bold
+        font-weight: 700
         padding: 0 0 0 36px
 
     .grades
       li+li
         list-style: none
       span
-        font-weight: normal
+        font-weight: 400
         color: #666666
 
     .camp
@@ -621,7 +629,7 @@ section
         position: absolute
         margin-top: 10px
         margin-left: 29px
-        font-family: 'Montserrat', sans-serif
+        font-family: $second-fonts
         font-size: 15px
         color: #ffffff
 
@@ -631,7 +639,7 @@ section
       left: 65px
       text-align: center
       color: #ffffff
-      font-family: 'Montserrat', sans-serif
+      font-family: $second-fonts
       font-size: 10px
       text-transform: uppercase
       text-decoration: none
@@ -651,7 +659,7 @@ section
         position: absolute
         margin-top: 10px
         margin-left: 28px
-        font-family: 'Montserrat', sans-serif
+        font-family: $second-fonts
         font-size: 15px
         color: #ffffff
 
@@ -661,7 +669,7 @@ section
       left: 65px
       text-align: center
       color: #ffffff
-      font-family: 'Montserrat', sans-serif
+      font-family: $second-fonts
       font-size: 10px
       text-transform: uppercase
       text-decoration: none
@@ -680,7 +688,7 @@ section
         position: absolute
         margin-top: 10px
         margin-left: 20px
-        font-family: 'Montserrat', sans-serif
+        font-family: $second-fonts
         font-size: 15px
         color: #ffffff
         span
@@ -693,7 +701,7 @@ section
       left: 65px
       text-align: center
       color: #ffffff
-      font-family: 'Montserrat', sans-serif
+      font-family: $second-fonts
       font-size: 10px
       text-transform: uppercase
       text-decoration: none
@@ -712,7 +720,7 @@ section
         position: absolute
         margin-top: 10px
         margin-left: 22px
-        font-family: 'Montserrat', sans-serif
+        font-family: $second-fonts
         font-size: 15px
         color: #ffffff
         span
@@ -725,7 +733,7 @@ section
       left: 65px
       text-align: center
       color: #ffffff
-      font-family: 'Montserrat', sans-serif
+      font-family: $second-fonts
       font-size: 10px
       text-transform: uppercase
       text-decoration: none
@@ -743,7 +751,7 @@ section
         position: absolute
         margin-top: 10px
         margin-left: 48px
-        font-family: 'Montserrat', sans-serif
+        font-family: $second-fonts
         font-size: 15px
         color: #ffffff
 
@@ -753,7 +761,7 @@ section
       left: 65px
       text-align: center
       color: #ffffff
-      font-family: 'Montserrat', sans-serif
+      font-family: $second-fonts
       font-size: 10px
       text-transform: uppercase
       text-decoration: none
@@ -774,7 +782,7 @@ section
         position: absolute
         margin-top: 10px
         margin-left: 38px
-        font-family: 'Montserrat', sans-serif
+        font-family: $second-fonts
         font-size: 15px
         color: #ffffff
 
@@ -784,7 +792,7 @@ section
       left: 65px
       text-align: center
       color: #ffffff
-      font-family: 'Montserrat', sans-serif
+      font-family: $second-fonts
       font-size: 10px
       text-transform: uppercase
       text-decoration: none
@@ -804,7 +812,7 @@ section
         position: absolute
         margin-top: 10px
         margin-left: 20px
-        font-family: 'Montserrat', sans-serif
+        font-family: $second-fonts
         font-size: 15px
         color: #ffffff
 
@@ -814,7 +822,7 @@ section
       left: 65px
       text-align: center
       color: #ffffff
-      font-family: 'Montserrat', sans-serif
+      font-family: $second-fonts
       font-size: 10px
       text-transform: uppercase
       text-decoration: none
@@ -830,7 +838,7 @@ section
       height: 180px
       background: #e9f5fe
       border-radius: 8px
-      font-family: 'Montserrat', sans-serif
+      font-family: $second-fonts
       font-size: 14px
       color: #333333
       font-weight: 400
@@ -849,7 +857,7 @@ section
 
       span
         color: #3888c4
-        font-weight: bold
+        font-weight: 700
 
 /**TABLE**/
 .popup-messsage-table
@@ -857,16 +865,15 @@ section
   bottom: 48px
   left: 125px
   text-align: center
-  /*display: none
-  width: 813px
-  height: 500px
-  background: rgba(0, 153, 51, 0.2)
+  width: 815px
+  height: 573px
+  background-color: rgba(0, 153, 51, 0.2)
   @include about-block-border-radius
   p
     margin-top: 200px
     margin-left: 170px
     width: 472px
-    font-family: 'Open Sans', sans-serif
+    font-family: $head-fonts
     font-size: 14px
     line-height: normal
     color: #333333
@@ -876,9 +883,9 @@ section
     border: none
     outline: none
     margin-top: 50px
-    font-family: 'Open Sans', sans-serif
+    font-family: $head-fonts
     font-size: 10px
-    font-weight: bold
+    font-weight: 700
     text-transform: uppercase
     color: #ffffff
     padding: 4px 7px
@@ -891,8 +898,8 @@ section
     left: 412px
     text-align: center
     color: #cccccc
-    font-family: 'Montserrat', sans-serif
-    font-weight: bold
+    font-family: $second-fonts
+    font-weight: 700
     font-size: 10px
     text-transform: uppercase
     text-decoration: none
@@ -908,8 +915,8 @@ section
   @include enrollment-form-border-radius
   h1
     margin-bottom: 20px
-    font-family: 'Montserrat', sans-serif
-    font-weight: bold
+    font-family: $second-fonts
+    font-weight: 700
     font-size: 18px
     color: #333333
 
@@ -919,8 +926,8 @@ section
     left: 412px
     text-align: center
     color: #cccccc
-    font-family: 'Montserrat', sans-serif
-    font-weight: bold
+    font-family: $second-fonts
+    font-weight: 700
     font-size: 10px
     text-transform: uppercase
     text-decoration: none
@@ -941,6 +948,10 @@ section
       color: #ffffff
       span
         display: inline-block
+        background-image: url("../img/icon_favourite_small.png")
+        background-repeat: no-repeat
+        background-position: left
+        background-size: auto auto
         color: #fcd234
 //    td.hovered
       @include th-hovered-gradient
@@ -951,6 +962,17 @@ section
       background-position: center
       background-size: auto auto
       background-color: #159c47 !important
+
+    td.select-text
+      background-image: url("../img/tick.png")
+      background-repeat: no-repeat
+      background-position: left
+      background-size: auto auto
+      background-color: #159c47 !important
+
+    td.hovered
+      &:hover
+        background-color: #159c47 !important
 
     .even
       background: #fbfbfb
@@ -963,8 +985,8 @@ section
 
     th
       width: 111px
-      font-family: 'Montserrat', sans-serif
-      font-weight: bold
+      font-family: $second-fonts
+      font-weight: 700
       font-size: 13px
       color: #333333
       text-align: center
@@ -975,9 +997,14 @@ section
       @include th-hover-gradient
       span
         display: inline-block
+        background-image: url("../img/icon_favourite_small_.png")
+        background-repeat: no-repeat
+        background-position: left
+        background-size: auto auto
+        padding-left: 15px
         color: #009933
         font-size: 11px
-        font-weight: normal
+        font-weight: 400
 
     td
       width: 111px
@@ -986,12 +1013,12 @@ section
       border-left: 1px solid #ececec
       border-top: 1px solid #ececec
 
-      font-family: 'Open Sans', sans-serif
+      font-family: $head-fonts
       font-size: 12px
       color: #333333
       padding: 0 15px
       span
-        font-weight: bold
+        font-weight: 700
         color: #159c47
 
   .table-button
@@ -1000,8 +1027,8 @@ section
     left: 412px
     text-align: center
     color: #cccccc
-    font-family: 'Montserrat', sans-serif
-    font-weight: bold
+    font-family: $second-fonts
+    font-weight: 700
     font-size: 10px
     text-transform: uppercase
     text-decoration: none
@@ -1028,15 +1055,15 @@ section
         vertical-align: text-bottom
       h1
         padding-top: 20px
-        font-family: 'Montserrat', sans-serif
-        font-weight: bold
+        font-family: $second-fonts
+        font-weight: 700
         font-size: 30px
         color: #007c2d
       .analysis-list
         float: left
         margin-top: 20px
         margin-left: 20px
-        font-family: 'Montserrat', sans-serif
+        font-family: $second-fonts
         font-size: 14px
         color: #333333
         li
@@ -1051,7 +1078,7 @@ section
         float: left
         margin-top: 20px
         margin-left: 40px
-        font-family: 'Montserrat', sans-serif
+        font-family: $second-fonts
         font-size: 14px
         color: #333333
         li
@@ -1067,12 +1094,12 @@ section
         height: 300px
         h1
           margin-bottom: 10px
-          font-family: 'Montserrat', sans-serif
+          font-family: $second-fonts
           font-size: 18px
           color: #333333
         p
           width: 294px
-          font-family: 'Open Sans', sans-serif
+          font-family: $head-fonts
           font-size: 13px
           color: #333333
           line-height: 1.6
@@ -1083,12 +1110,12 @@ section
         height: 300px
         h1
           margin-bottom: 10px
-          font-family: 'Montserrat', sans-serif
+          font-family: $second-fonts
           font-size: 18px
           color: #333333
         .days
           width: 269px
-          font-family: 'Open Sans', sans-serif
+          font-family: $head-fonts
           font-size: 10px
           color: #019140
           span
@@ -1105,18 +1132,18 @@ section
 
         h1
           margin-bottom: 10px
-          font-family: 'Montserrat', sans-serif
+          font-family: $second-fonts
           font-size: 18px
           color: #333333
         p
           padding-top: 77px
           margin-left: 20px
-          font-family: 'Montserrat', sans-serif
+          font-family: $second-fonts
           font-size: 18px
           color: #333333
           span
             color: #019140
-            font-weight: bold
+            font-weight: 700
 
         .begins-text
           position: absolute
@@ -1126,13 +1153,13 @@ section
           margin-left: 26px
 
           h1
-            font-family: 'Montserrat', sans-serif
+            font-family: $second-fonts
             color: #ffffff
             font-size: 18px
             span
-              font-weight: bold
+              font-weight: 700
           p
-            font-family: 'Montserrat', sans-serif
+            font-family: $second-fonts
             color: #ffffff
             font-size: 16px
         .enroll-border
@@ -1147,8 +1174,8 @@ section
         left: 81px
         text-align: center
         color: #ffffff
-        font-family: 'Open Sans', sans-serif
-        font-weight: bold
+        font-family: $head-fonts
+        font-weight: 700
         font-size: 14px
         text-transform: uppercase
         text-decoration: none
@@ -1160,7 +1187,7 @@ section
         margin-top: 20px
         height: 120px
         h1
-          font-family: 'Montserrat', sans-serif
+          font-family: $second-fonts
           font-size: 18px
           color: #333333
           margin-top: 20px
@@ -1171,7 +1198,7 @@ section
           @include about-block-border-radius
           .intro-button, .crafting-button, .myth-button, .going-button, .make-button, .power-button
             position: relative
-            font-family: 'Montserrat', sans-serif
+            font-family: $second-fonts
             font-size: 13px
             color: #27968a
             @include summer-classes-buttons-gradients
@@ -1212,10 +1239,10 @@ section
         margin-top: 20px
         margin-bottom: 20px
         height: 132px
-        font-family: 'Montserrat', sans-serif
+        font-family: $second-fonts
         font-size: 18px
         color: 333333
-        font-weight: normal
+        font-weight: 400
         background: rgba(19, 150, 71, 0.1)
         @include not-sure-border-radius
 
@@ -1230,7 +1257,7 @@ section
           width: 600px
         span
           color: #02933f
-          font-weight: bold
+          font-weight: 700
 
 /**JOBS PAGE**/
 
@@ -1240,10 +1267,10 @@ section
     width: 940px
     height: 800px
     h1
-      font-family: 'Montserrat', sans-serif
+      font-family: $second-fonts
       font-size: 30px
       color: #007c2d
-      font-weight: bold
+      font-weight: 700
       margin-top: 20px
       margin-bottom: 20px
     .opportunities
@@ -1253,27 +1280,27 @@ section
       background-repeat: no-repeat
       background-position: top center
       h1
-        font-family: 'Open Sans', sans-serif
+        font-family: $head-fonts
         font-size: 18px
         color: #666666
-        font-weight: normal
+        font-weight: 400
         text-align: center
         width: 520px
         margin-top: 60px
         margin-left: 45px
         span
           color: #039241
-          font-weight: bold
+          font-weight: 700
     .opportunities-borders, .form-bellow-borders
       @include borders-left-right-bottom
       @include border-bottom-radius
     .opportunities-borders
       margin-top: 60px
       h1
-        font-family: 'Montserrat', sans-serif
+        font-family: $second-fonts
         font-weight: 18px
         color: #333333
-        font-weight: bold
+        font-weight: 700
         text-align: left
         padding-top: 50px
         margin-left: 40px
@@ -1282,8 +1309,8 @@ section
       margin-left: 55px
       margin-bottom: 40px
       width: 495px
-      font-family: 'Montserrat', sans-serif
-      font-weight: normal
+      font-family: $second-fonts
+      font-weight: 400
       font-size: 15px
       line-height: 1.8em
       li
@@ -1301,24 +1328,24 @@ section
         margin-top: -57px
         h1
           padding-top: 57px
-          font-family: 'Montserrat', sans-serif
+          font-family: $second-fonts
           font-size: 18px
-          font-weight: bold
+          font-weight: 700
           color: #333333
           text-align: center
         .forms
           margin-left: 46px
         .form-caption
-          font-family: 'Montserrat', sans-serif
+          font-family: $second-fonts
           font-size: 13px
-          font-weight: bold
+          font-weight: 700
           color: #333333
           span
             color: #139647
         input.text, input.email, input.phone
           border: none
           outline: none
-          font-family: 'Open Sans', sans-serif
+          font-family: $head-fonts
           font-size: 13px
           color: #666666
           background-image: url("../img/input.png")
@@ -1342,7 +1369,7 @@ section
             width: 106px
             padding-top: 16px
             padding-left: 50px
-            font-family: 'Open Sans', sans-serif
+            font-family: $head-fonts
             font-size: 13px
             color: #666666
             a
@@ -1358,9 +1385,9 @@ section
           border: none
           outline: none
           text-transform: uppercase
-          font-family: 'Open Sans', sans-serif
+          font-family: $head-fonts
           font-size: 14px
-          font-weight: bold
+          font-weight: 700
           color: #ffffff
           padding: 5px 35px
           @include enroll-button-gradient
@@ -1376,10 +1403,10 @@ section
     h1
       margin-top: 20px
       margin-bottom: 20px
-      font-family: 'Montserrat', sans-serif
+      font-family: $second-fonts
       font-size: 18px
       color: #333333
-      font-weight: bold
+      font-weight: 700
 
     .summer-seminar, .creative-writing, .writing-workouts
       position: relative
@@ -1391,7 +1418,7 @@ section
 
     .summer-seminar p, .creative-writing p, .writing-workouts p
       margin-top: 10px
-      font-family: 'Open Sans', sans-serif
+      font-family: $head-fonts
       font-size: 13px
       color: #666666
       padding: 0 20px
@@ -1403,14 +1430,14 @@ section
         list-style: disc
         color: #129a46
         span
-          font-family: 'Montserrat', sans-serif
+          font-family: $second-fonts
           font-size: 13px
           line-height: normal
           color: #666666
 
 
     .summer-seminar h1, .creative-writing h1, .writing-workouts h1
-      font-family: 'Montserrat', sans-serif
+      font-family: $second-fonts
       font-size: 15px
       text-align: center
       width: 135px
@@ -1423,9 +1450,9 @@ section
 
     .summer-seminar-button, .creative-writing-button, .writing-workouts-button
       color: #ffffff
-      font-family: 'Open Sans', sans-serif
+      font-family: $head-fonts
       font-size: 10px
-      font-weight: bold
+      font-weight: 700
       text-transform: uppercase
       text-decoration: none
       padding: 6px 13px
@@ -1474,12 +1501,12 @@ section
       p
         width: 170px
         margin-left: 25px
-        font-family: 'Montserrat', sans-serif
+        font-family: $second-fonts
         font-size: 16px
         color: #333333
         span
           color: #3888c4
-          font-weight: bold
+          font-weight: 700
 
 /**FOOTER**/
 
@@ -1500,16 +1527,16 @@ footer
     @include footer-border-top
 
   .pages, .classes, .contact-us
-    font-family: 'Montserrat', sans-serif
-    font-weight: bold
+    font-family: $second-fonts
+    font-weight: 700
     color: #666666
     font-size: 14px
 
   .pages-list, .classes-list, .classes-spisok-isee, .contact-list
-    font-family: 'Open Sans', sans-serif
+    font-family: $head-fonts
     font-size: 12px
     line-height: 2em
-    font-weight: normal
+    font-weight: 400
     color: #666666
 
   .classes

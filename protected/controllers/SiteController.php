@@ -34,6 +34,11 @@ class SiteController extends Controller
         $this->render('main_classes');
     }
 
+    public function actionTutors()
+    {
+        $this->render('tutors');
+    }
+
 	/**
 	 * This is the action to handle external exceptions.
 	 */

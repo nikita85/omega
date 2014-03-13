@@ -5,7 +5,7 @@
   %meta(name='language' content='ru')
   %title Page title
   %link(href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css')
-  %link(href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css')
+  %link(href='http://fonts.googleapis.com/css?family=Ubuntu:400,700' rel='stylesheet' type='text/css')
 
   - Yii::app()->clientScript->registerCssFile($this->assetsPath . DS . 'css' . DS . 'test.css');
   - Yii::app()->clientScript->registerCoreScript('jquery');
@@ -28,7 +28,7 @@
         %li
           %a(href="/") Home
         %li
-          %a(href="#") Tutors
+          %a(href="#{$this->createUrl('site/tutors')}") Tutors
         %li
           %a(href="#{$this->createUrl('site/mainClasses')}") Classes
         %li
@@ -41,15 +41,16 @@
       %form
         %input.search.rounded(placeholder="Search" type="text")
     - if ($isHomePage)
-      .slider
-        .slide-text
-          %h1 Aiming for the top universities? We Can Help!
-          %p Advanсed Teaching for Advancing Students
-        .puzzle
-          %a(href="#test-popup" )
-            %img(src="#{$this->assetsPath}/img/button_puzzle.png" )\
-        .puzzle-popup
-          .popup-text
+      .slider-bg
+        .slider
+          .slide-text
+            %h1 Aiming for the top universities? We Can Help!
+            %p Advanсed Teaching for Advancing Students
+          .puzzle
+            %a(href="#" )
+              %img(src="#{$this->assetsPath}/img/button_puzzle.png" )\
+          .puzzle-popup
+            .popup-text
       .clear
 
   =$content
