@@ -1519,7 +1519,7 @@ section
   #tutors-wrapper
     margin: 0 auto
     width: 940px
-    margin-bottom: 150px
+    margin-bottom: 100px
   #tutors-wrapper h1, .tutors-info h1
     font-family: $second-fonts
     font-size: 30px
@@ -1529,60 +1529,75 @@ section
     margin-bottom: 10px
   .our-tutors
     float: left
-    width: 300px
-    height: 504px
-    margin-right: 20px
   .tutors-info
+    float: right
     position: relative
     height: 504px
-    border: 1px solid #ececec
-    border-radius: 10px
+    width: 639px
+    border-top: 1px solid #ececec
+    border-right: 1px solid #ececec
+    border-bottom: 1px solid #ececec
+    border-top-right-radius: 10px
+    border-bottom-right-radius: 10px
     font-family: $head-fonts
     font-size: 13px
     color: #666666
+    h1
+      margin-left: 20px
     li
+      margin-left: 20px
+      list-style: inside
       color: #007c2d
       span
         color: #666666
         font-weight: 700
         font-size: 15px
     p
+      margin-left: 40px
       line-height: normal
+      padding: 0 30px 0 0
       span
         color: #069342
-  .days-times
-    height: 81px
-    width: 590px
-    margin-left: 320px
-    @include bread-gradient
-    @include analysis-border-radius
-    li
-      position: relative
-      left: 110px
-      margin-top: 15px
-      text-align: center
-      float: left
-      width: 95px
-      border-left: 1px solid #ececec
-      color: #666666 !important
-      span
-        color: #039241
-        font-weight: 400 !important
-    .our-tutors-button
-      position: absolute
-      left: 550px
-      bottom: 0px
-      border: none
-      outline: none
-      font-family: $head-fonts
-      font-size: 14px
-      font-weight: 700
-      text-transform: uppercase
-      color: #ffffff
-      padding: 5px 10px
-      cursor: pointer
-      @include  login-button-gradient
-      @include  login-button-border
+  .days-times-wrapper
+    position: absolute
+    bottom: 30px
+    .days-times
+      height: 81px
+      width: 560px
+      margin-left: 40px
+      line-height: normal
+      @include bread-gradient
+      @include analysis-border-radius
+      li
+        list-style: none
+        position: relative
+        left: 7px
+        margin-top: 15px
+        text-align: center
+        float: left
+        width: 95px
+        color: #666666 !important
+        span
+          color: #039241
+          font-weight: 400 !important
+      li+li
+        border-left: 1px solid #ececec
+        padding: 0 0 0 20px
+      .our-tutors-button
+        position: absolute
+        left: 252px
+        bottom: -15px
+        border: none
+        outline: none
+        font-family: $head-fonts
+        font-size: 14px
+        font-weight: 700
+        text-transform: uppercase
+        color: #ffffff
+        padding: 5px 10px
+        cursor: pointer
+        @include  login-button-gradient
+        @include  login-button-border
 
 
   .other-tutors
@@ -1598,19 +1613,38 @@ section
       font-family: $head-fonts
       font-size: 13px
       color: #666666
-      line-height: normal
+      line-height: 1.5
       li
+        margin-left: 20px
+        list-style: inside
         color: #007c2d
         span
           color: #666666
           font-weight: 700
           font-size: 15px
+      p
+        margin-left: 40px
+        span
+          color: #069342
       .emma-bridges, .kayla-tileman,.james-wagner, .tammy-lambert
         position: relative
         width: 218px
+        height: 560px
         float: left
         @include borders-left-right-bottom
-        @include border-bottom-radius
+        border-radius: 10px
+        .time-avalibe-wrapper
+          position: absolute
+          bottom: 0
+          padding-bottom: 30px
+          p
+            padding-bottom: 10px
+          a
+            margin-left: 40px
+            font-family: $head-fonts
+            font-size: 15px
+            color: #069442
+            text-decoration: none
       .emma-bridges h1, .kayla-tileman h1,.james-wagner h1, .tammy-lambert h1
         font-family: $second-fonts
         font-size: 24px !important
@@ -1622,7 +1656,7 @@ section
       .tutors-emma-button, .tutors-kayla-button, .tutors-james-button, .tutors-tammy-button
         position: absolute
         left: 60px
-        bottom: -9px
+        bottom: -10px
         border: none
         outline: none
         font-family: $head-fonts
@@ -1661,13 +1695,15 @@ footer
     color: #666666
     font-size: 14px
 
-  .pages-list a, .classes-list a, .classes-spisok-isee a, .contact-list a
+  .pages-list a, .classes-list a, .classes-spisok-isee a, .contact-list
     font-family: $head-fonts
     font-size: 12px
     line-height: 2em
     font-weight: 400
     color: #666666
     text-decoration: none
+
+  .pages-list a, .classes-list a, .classes-spisok-isee a
     &:hover
       text-decoration: underline
 
