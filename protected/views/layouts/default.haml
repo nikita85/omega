@@ -64,23 +64,35 @@
       %h1 Pages:
       .left-top-border
       %ul.pages-list
-        %li Home
-        %li Teachers
-        %li Tutoring
-        %li Jobs
-        %li Store
+        %li
+          %a(href="/" )Home
+        %li
+          %a(href="#" )Teachers
+        %li
+          %a(href="#" )Tutoring
+        %li
+          %a(href="#{$this->createUrl('site/jobs')}" )Jobs
+        %li
+          %a(href="#" )Store
     .classes
       %h1 Classes:
       .middle-top-border
       %ul.classes-list
-        %li Math Olympiad Training
-        %li Hillview Writing Workouts
-        %li Pre-School Mandarin
-        %li Science Fair Camp
+        %li
+          %a(href="#" )Math Olympiad Training
+        %li
+          %a(href="#" )Hillview Writing Workouts
+        %li
+          %a(href="#" )Pre-School Mandarin
+        %li
+          %a(href="#" )Science Fair Camp
       %ul.classes-spisok-isee
-        %li ISEE and HSPT Classes
-        %li SAT and ACT Preparation
-        %li Summer Classes
+        %li
+          %a(href="#" )ISEE and HSPT Classes
+        %li
+          %a(href="#" )SAT and ACT Preparation
+        %li
+          %a(href="#" )Summer Classes
     .contact-us
       %h1 Contact us
       .right-top-border

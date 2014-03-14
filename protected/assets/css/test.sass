@@ -963,17 +963,19 @@ section
       background-size: auto auto
       background-color: #159c47 !important
 
-    td.select-text
-      background-image: url("../img/tick.png")
+    td.select[data-cell-type]
       background-repeat: no-repeat
-      background-position: left
+      background-position: 5px center
       background-size: auto auto
       background-color: #159c47 !important
-      padding-left: 15px
+      padding-left: 20px
+
+      color: #ffffff
 
     td.hovered
       &:hover
         background-color: #159c47 !important
+        /*color: #ffffff
 
     .even
       background: #fbfbfb
@@ -1019,7 +1021,8 @@ section
       font-family: $head-fonts
       font-size: 12px
       color: #333333
-      padding: 0 15px
+      padding-left: 20px
+      /*padding: 0 15px
       span
         font-weight: 700
         color: #159c47
@@ -1328,7 +1331,7 @@ section
       img
         margin-top: -50px
       .form-bellow-borders
-        margin-top: -57px
+        margin-top: -39px
         h1
           padding-top: 57px
           font-family: $second-fonts
@@ -1538,7 +1541,6 @@ section
     font-family: $head-fonts
     font-size: 13px
     color: #666666
-    line-height: normal
     li
       color: #007c2d
       span
@@ -1546,12 +1548,13 @@ section
         font-weight: 700
         font-size: 15px
     p
+      line-height: normal
       span
         color: #069342
   .days-times
     height: 81px
-    /*width: 580px
-    margin-left: 300px
+    width: 590px
+    margin-left: 320px
     @include bread-gradient
     @include analysis-border-radius
     li
@@ -1569,7 +1572,7 @@ section
     .our-tutors-button
       position: absolute
       left: 550px
-      bottom: -15px
+      bottom: 0px
       border: none
       outline: none
       font-family: $head-fonts
@@ -1659,12 +1662,15 @@ footer
     color: #666666
     font-size: 14px
 
-  .pages-list, .classes-list, .classes-spisok-isee, .contact-list
+  .pages-list a, .classes-list a, .classes-spisok-isee a, .contact-list a
     font-family: $head-fonts
     font-size: 12px
     line-height: 2em
     font-weight: 400
     color: #666666
+    text-decoration: none
+    &:hover
+      text-decoration: underline
 
   .classes
     float: left
