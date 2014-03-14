@@ -1095,9 +1095,8 @@ section
     padding: 3px 10px
     @include table-button-gradient
     @include buttons-border-radius
-
-    .table-button-active
-      @include tutoring-button-gradient
+    &.table-button-active
+     @include tutoring-button-gradient
 
 /**OPENED CLASS**/
 
@@ -1736,7 +1735,8 @@ section
 /**FOOTER**/
 
 footer
-  @include footer-bg(200px)
+  @include footer-bg
+  height: 200px
 
   .footer
     margin: 0 auto
