@@ -48,9 +48,24 @@
             %p Advanсed Teaching for Advancing Students
           .puzzle
             %a(href="#" )
-              %img(src="#{$this->assetsPath}/img/button_puzzle.png" )\
+              %img(src="#{$this->assetsPath}/img/button_puzzle.png" )
           .puzzle-popup
             .popup-text
+              %a(href="#" )close
+                %img(src="#{$this->assetsPath}/img/close-button.png" )
+              %h1 February puzzle
+              %h2 Locker Puzzle
+              %p You are in your school's hallway and the wall is lined with one hundred closed lockers numbered 1 through 100. A kid passes by and opens all of them. A second student comes by and closes all the even numbered ones. A third kid passes by and "toggles" every third locker. That is, if a locker is closed, she opens it, but if she finds a locker open, she closes it.
+              %p Then, student number 4 toggles every fourth locker and student number 5 toggles every fifth one. And so on until one hundred students have passed through the hallway opening and closing lockers. Which lockers are open at the end of the process? Why?
+              %p
+                %b Hint:
+                Who will toggle locker number 15? And who will toggle locker number 16? Are they left open or closed at the end?
+              .enter-your-mail
+                %form
+                  %input(type="email" class="enter-mail" )
+                  %input(type="submit" class="enter-email-button" value="get an answer" )
+
+
       .clear
 
   =$content
