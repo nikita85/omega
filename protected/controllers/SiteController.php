@@ -49,6 +49,16 @@ class SiteController extends Controller
         $this->render('the_dogs');
     }
 
+    public function actionMakeemLaugh()
+    {
+        $this->render('make‘em_laugh');
+    }
+
+    public function actionPowerOfStory()
+    {
+        $this->render('power_of_story');
+    }
+
     public function actionMainClasses()
     {
         $this->render('main_classes');
