@@ -24,9 +24,29 @@ class SiteController extends Controller
         $this->render('jobs');
     }
 
-    public function actionOpenedClass()
+    public function actionLiteraryAnalysis()
     {
-        $this->render('opened_class');
+        $this->render('literary_analysis');
+    }
+
+    public function actionTestPrepBootCamp()
+    {
+        $this->render('test_prep_boot_camp');
+    }
+
+    public function actionEssayStatement()
+    {
+        $this->render('essay_statement');
+    }
+
+    public function actionMythsAndMonsters()
+    {
+        $this->render('myths_and_monsters');
+    }
+
+    public function actionTheDogs()
+    {
+        $this->render('the_dogs');
     }
 
     public function actionMainClasses()
