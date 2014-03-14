@@ -155,7 +155,7 @@ header
       position: absolute
       top: 334px
       left: 1011px
-      display: none
+      /*display: none
       background-image: url("../img/button_puzzle_opened2.png")
       background-position: top center
       background-repeat: no-repeat
@@ -416,10 +416,13 @@ section
           font-weight: 700
           color: #333333
       .date
-        position: absolute
-        top: 8px
-        left: 84px
+        background-image: url("../img/calendar.jpg")
+        width: 220px
+        height: 105px
+        a
+          text-decoration: none
         h2
+          padding-top: 4px
           font-size: 18px
           font-family: $second-fonts
           color: #ffffff
@@ -1091,6 +1094,21 @@ section
     text-decoration: none
     padding: 3px 10px
     @include table-button-gradient
+    @include buttons-border-radius
+
+  .table-button-active
+    position: relative
+    top: 5px
+    left: 412px
+    text-align: center
+    color: #ffffff
+    font-family: $second-fonts
+    font-weight: 700
+    font-size: 10px
+    text-transform: uppercase
+    text-decoration: none
+    padding: 3px 10px
+    @include tutoring-button-gradient
     @include buttons-border-radius
 
 /**OPENED CLASS**/
