@@ -3,32 +3,6 @@ $(document).ready(function () {
     var classesCalendar = $('.register');
 
     if (classesCalendar.length) {
-        /*
-         var curColId = null;
-
-         classesCalendar.on('mouseenter', 'td, th', function () {
-         var colId = $(this).attr('data-col-id');
-         if (colId != curColId) {
-         if ($.isNumeric(curColId)) {
-         classesCalendar.find('[data-col-id=' + curColId + ']').removeClass('hovered');
-         }
-         if (colId) {
-         classesCalendar.find('[data-col-id=' + colId + ']').addClass('hovered');
-         }
-         curColId = colId;
-         }
-         });
-
-         classesCalendar.on('mouseleave', function () {
-         if ($.isNumeric(curColId)) {
-         classesCalendar.find('[data-col-id=' + curColId + ']').removeClass('hovered');
-         curColId = null;
-         }
-         });
-
-         classesCalendar.on('click', 'tr:gt(6) td[data-col-id]', function () {
-         $(this).toggleClass('select');
-         });*/
 
         $('.popup-messsage-table-button').on('click', function () {
             $(this).parent().fadeOut(500);
@@ -52,16 +26,22 @@ $(document).ready(function () {
                             if (selection[0] == $(this)[0]) {
                                 selection.removeClass('select');
                                 curColumn[cellType + 'Selection'] = null;
+                                if (!enrollmentForm.checkForFullSelection()) {
+                                    enrollmentForm.confirmButton.removeClass('table-button-active');
+                                }
                                 return;
                             }
                         }
 
                         $(this).addClass('select');
                         curColumn[cellType + 'Selection'] = $(this);
+
+                        if (enrollmentForm.checkForFullSelection()) {
+                            enrollmentForm.confirmButton.addClass('table-button-active');
+                        }
                     };
 
                 }(column, cellType));
-
             }
         }
 
@@ -69,7 +49,21 @@ $(document).ready(function () {
             node: $('.register'),
             curColId: null,
             selectableColCount: 7,
-            columns: []
+            columns: [],
+            confirmButton: $('.table-button')
+        };
+
+        enrollmentForm.checkForFullSelection = function () {
+            var fullSelection = false;
+
+            for (var i = 0; i < enrollmentForm.columns.length; i++) {
+                if (enrollmentForm.columns[i].hasFullSelection()) {
+                    fullSelection = true;
+                    break;
+                }
+            }
+
+            return fullSelection;
         };
 
         for (var i = 1; i <= enrollmentForm.selectableColCount; i++) {
@@ -116,28 +110,11 @@ $(document).ready(function () {
 
             }(column));
 
-            /*            column.weekSelectCells.on('click', function (curColumn) {
-
-             return function () {
-             if (curColumn.weekSelection) {
-             curColumn.weekSelection.removeClass('select');
-             if(curColumn.weekSelection[0] == $(this)[0]) {
-             curColumn.weekSelection.removeClass('select');
-             curColumn.weekSelection = null;
-             return;
-             }
-             }
-
-             $(this).addClass('select');
-             curColumn.weekSelection = $(this);
-             };
-
-             }(column));*/
             attachColumnClicks(column);
 
             enrollmentForm.columns.push(column);
         }
-        // hallo();
+
         enrollmentForm.node.on('mouseleave', function () {
             deselectHoveredColumn();
             enrollmentForm.curColId = null;
@@ -153,11 +130,6 @@ $(document).ready(function () {
             }
 
         }
-
-
-        console.log(enrollmentForm);
-
-
     }
 
 });
