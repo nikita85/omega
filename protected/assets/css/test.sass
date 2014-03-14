@@ -78,7 +78,10 @@ header
         font-size: 14px
         color: #333333
         padding: 4px 17px 4px 17px
-        @include linear-gradient(#53bb4c, #029141)
+        &:hover
+          @include linear-gradient(#53bb4c, #029141)
+          @include login-button-border
+          color: #ffffff
   form
     .rounded
       @include header-search-form-rounded
