@@ -91,6 +91,16 @@ $(document).ready(function () {
                 }
             }(column);
 
+            column.hasFullSelection = function (curColumn) {
+                return function () {
+                    if (curColumn.timeSelection && curColumn.gradeSelection && curColumn.weekSelection) {
+                        return true;
+                    } else {
+                        return false;
+                    }
+                }
+            }(column);
+
             column.node.on('mouseenter', function (curColumn) {
 
                 return function () {
