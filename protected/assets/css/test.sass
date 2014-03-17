@@ -3,13 +3,11 @@
 @import "compass/css3"
 @import "compass/utilities"
 @import "compass/css3/border-radius"
-@import "compass/css3/gradient"
 /**including mixin files**/
 @import "mixin"
 /**VARIABLES**/
 $head-fonts: 'Open Sans', sans-serif
 $second-fonts: 'Ubuntu', sans-serif
-$button-text-color: #ffffff
 /*-----------------------------------------*/
 .clear
   clear: both
@@ -20,8 +18,8 @@ header
     margin: 0 auto
     width: 940px
     height: 62px
-    @include header-border-top-radius
     @include linear-gradient(#ffffff, #efefef)
+    @include border-top-radius(25px)
   .logo
     float: left
     padding-top: 8px
@@ -95,9 +93,11 @@ header
       font-size: 12px
       color: #999999
 .slider-bg
+  margin: 0 auto
+  width: 1024px
   overflow: hidden
   background-image: url("../img/light_big.png")
-  background-position: 347px -86px
+  background-position: -34px -86px
   background-size: auto auto
   background-repeat: no-repeat
   .slider
@@ -502,7 +502,7 @@ header#header-bg
         font-size: 14px
         color: #333333
         padding: 4px 17px 4px 17px
-        @include linear-gradient(#53bb4c, #029141)
+        /*@include linear-gradient(#53bb4c, #029141)
   form
     .rounded
       @include header-search-form-rounded
@@ -625,7 +625,7 @@ section
       text-transform: uppercase
       text-decoration: none
       padding: 6px 13px
-      @include camp-button-gradient
+      @include linear-gradient(#6bcb64, #019140)
       @include buttons-border-radius
     .personal
       float: left
@@ -682,7 +682,7 @@ section
       text-transform: uppercase
       text-decoration: none
       padding: 6px 13px
-      @include myths-button-gradient
+      @include linear-gradient(#30c494, #18946c)
       @include buttons-border-radius
     .going
       float: right
@@ -712,7 +712,7 @@ section
       text-transform: uppercase
       text-decoration: none
       padding: 6px 13px
-      @include going-button-gradient
+      @include linear-gradient(#36c3b4, #27968a)
       @include buttons-border-radius
     .laugh
       margin-top: 40px
@@ -738,7 +738,7 @@ section
       text-transform: uppercase
       text-decoration: none
       padding: 6px 13px
-      @include laugh-button-gradient
+      @include linear-gradient(#4ac2d6, #3797a8)
       @include buttons-border-radius
     .story
       margin-top: 40px
@@ -766,7 +766,7 @@ section
       text-transform: uppercase
       text-decoration: none
       padding: 6px 13px
-      @include story-button-gradient
+      @include linear-gradient(#4ac2d6, #4499c1)
       @include buttons-border-radius
     .intro
       margin-top: 40px
@@ -794,7 +794,7 @@ section
       text-transform: uppercase
       text-decoration: none
       padding: 6px 13px
-      @include intro-button-gradient
+      @include linear-gradient(#73c3ff, #4d9ad3)
       @include buttons-border-radius
     .question
       margin-top: 40px
@@ -953,7 +953,7 @@ section
       @include th-border-radius
       padding: 10px 2px
       vertical-align: top
-      @include linear-gradient(#6bcb64, #019140)
+      /*@include linear-gradient(#6bcb64, #019140)
       p
         text-indent: -99999px
       span
@@ -994,7 +994,7 @@ section
     @include linear-gradient(#fcfbfb, #f1f1f1)
     @include buttons-border-radius
     &.table-button-active
-      @include tutoring-button-gradient
+      @include linear-gradient(#6bcb64, #019140)
 /**OPENED CLASS**/
 section
   .wrap-page
@@ -1003,7 +1003,7 @@ section
     .analysis
       height: 277px
       margin-top: 10px
-      @include analysis-gradient
+      @include linear-gradient(#fcfbfb, #f1f1f1)
       @include analysis-border-radius
       img
         float: left
@@ -1131,7 +1131,7 @@ section
         text-decoration: none
         padding: 5px 15px
         @include buttons-border-radius
-        @include enroll-button-gradient
+        @include linear-gradient(#53bb4c, #029141)
       .other-summer-classes
         margin-top: 20px
         height: 120px
@@ -1150,7 +1150,7 @@ section
             font-family: $second-fonts
             font-size: 13px
             color: #27968a
-            @include summer-classes-buttons-gradients
+            @include linear-gradient( #fcfbfb, #f1f1f1)
             @include buttons-border-radius
             text-decoration: none
           .intro-button
@@ -1327,7 +1327,7 @@ section
           font-weight: 700
           color: #ffffff
           padding: 5px 35px
-          @include enroll-button-gradient
+          @include linear-gradient(#53bb4c, #029141)
           @include buttons-border-radius
 /**MAIN_CLASSES PAGE**/
 section
@@ -1388,7 +1388,7 @@ section
       position: absolute
       bottom: -14px
       left: 65px
-      @include camp-button-gradient
+      @include linear-gradient(#6bcb64, #019140)
       @include buttons-border-radius
     .creative-writing
       float: left
@@ -1399,7 +1399,7 @@ section
       position: absolute
       bottom: -14px
       left: 65px
-      @include tutoring-button-gradient
+      @include linear-gradient(#6bcb64, #019140)
       @include buttons-border-radius
     .writing-workouts
       float: left
@@ -1410,7 +1410,7 @@ section
       position: absolute
       bottom: -14px
       left: 65px
-      @include laugh-button-gradient
+      @include linear-gradient(#4ac2d6,  #3797a8)
       @include buttons-border-radius
     .what-class
       float: right
@@ -1484,7 +1484,7 @@ section
       width: 560px
       margin-left: 40px
       line-height: normal
-      @include bread-gradient
+      @include linear-gradient(#fcfbfb, #f1f1f1)
       @include analysis-border-radius
       li
         list-style: none
@@ -1514,7 +1514,7 @@ section
         color: #ffffff
         padding: 5px 10px
         cursor: pointer
-        @include  login-button-gradient
+        @include linear-gradient(#53bb4c, #029141)
         @include  login-button-border
   .other-tutors
     margin-top: 10px
@@ -1582,7 +1582,7 @@ section
         color: #ffffff
         padding: 5px 7px
         cursor: pointer
-        @include tutoring-button-gradient
+        @include linear-gradient(#6bcb64, #019140)
         @include  login-button-border
 /**FOOTER**/
 footer
