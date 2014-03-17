@@ -12,6 +12,16 @@ $second-fonts: 'Ubuntu', sans-serif
 .clear
   clear: both
 /**HEADER**/
+
+.all-buttons
+  text-align: center
+  color: #ffffff !important
+  font-size: 10px
+  text-decoration: none
+  font-family: $second-fonts
+  text-transform: uppercase
+  @include border-radius(20px)
+
 header
   @include header-bg-main-page(440px)
   .header
@@ -19,7 +29,7 @@ header
     width: 940px
     height: 62px
     @include linear-gradient(#ffffff, #efefef)
-    @include border-top-radius(25px)
+    @include custom-border-radius(10px, 10px, 0, 0)
   .logo
     float: left
     padding-top: 8px
@@ -48,20 +58,14 @@ header
       color: #019140
       text-transform: uppercase
       text-decoration: none
-    .login-button
-      position: relative
-      text-align: center
+    .all-buttons
       @include linear-gradient(#53bb4c, #029141)
-      @include login-button-border
-      color: #ffffff
-      font-size: 10px
-      text-decoration: none
-      font-family: $second-fonts
-      text-transform: uppercase
       padding: 5px 17px 5px 17px
+      &:hover
+        @include linear-gradient(#029141, #53bb4c)
   .nav
     @include heder-nav
-    @include nav-bottom-borders
+    @include custom-border-radius(0, 0, 10px, 10px)
   .header-menu
     padding-top: 10px
     padding-left: 12px
@@ -78,11 +82,20 @@ header
         padding: 4px 17px 4px 17px
         &:hover
           @include linear-gradient(#53bb4c, #029141)
-          @include login-button-border
+          @include border-radius(20px)
           color: #ffffff
   form
     .rounded
-      @include header-search-form-rounded
+      width: 242px
+      height: 24px
+      float: right
+      margin-right: 20px
+      margin-top: 5px
+      border: none
+      box-shadow: inset 0 1px 2px 1px #A8A8A8
+      -moz-box-shadow: inset 0 1px 2px 1px #A8A8A8
+      -webkit-box-shadow: inset 0 1px 2px 1px #A8A8A8
+      @include border-radius(20px)
     .search
       outline: none
       padding: 0 0 0 30px
@@ -195,7 +208,9 @@ header
           cursor: pointer
           padding: 4px 6px
           @include linear-gradient(#6bcb64, #019140)
-          @include borders-radius
+          @include border-radius(20px)
+          &:hover
+            @include linear-gradient(#019140, #6bcb64)
 /**CONTENT**/
 section
   .karkas
@@ -205,7 +220,7 @@ section
     .cont
       height: 115px
       @include linear-gradient(#fcfbfb, #f1f1f1)
-      @include cont-borders
+      @include custom-border-radius(0, 0, 20px, 20px)
       .stanford p, .academic p, .individual p
         font-family: $head-fonts
         font-size: 13px
@@ -238,7 +253,7 @@ section
         color: #333333
         padding-bottom: 20px
       .tutoring, .classes, .cat-and-cat, .isee-and-hspt
-        @include borders-radius
+        @include border-radius(20px)
       .tutoring
         float: left
         width: 219px
@@ -256,19 +271,14 @@ section
           line-height: normal
           color: #666666
           width: 182px
-        .tutoring-button
+        .all-buttons
           position: relative
           top: 7px
           left: 65px
-          text-align: center
           @include linear-gradient(#6bcb64, #019140)
-          @include buttons-border-radius
-          color: #ffffff
-          font-family: $second-fonts
-          font-size: 10px
-          text-transform: uppercase
-          text-decoration: none
           padding: 5px 13px
+          &:hover
+            @include linear-gradient(#019140, #6bcb64)
       .classes
         float: left
         margin-left: 20px
@@ -287,19 +297,14 @@ section
           line-height: normal
           color: #666666
           width: 180px
-        .classes-button
+        .all-buttons
           position: relative
           top: 7px
           left: 65px
-          text-align: center
           @include linear-gradient(#50cda5, #18946c)
-          @include buttons-border-radius
-          color: #ffffff
-          font-family: $second-fonts
-          font-size: 10px
-          text-transform: uppercase
-          text-decoration: none
           padding: 5px 13px
+          &:hover
+            @include linear-gradient(#18946c, #50cda5)
       .cat-and-cat
         float: left
         margin-left: 20px
@@ -318,19 +323,14 @@ section
           line-height: normal
           color: #666666
           width: 180px
-        .cat-button
+        .all-buttons
           position: relative
           top: 7px
           left: 65px
-          text-align: center
           @include linear-gradient(#62cadb, #3697a7)
-          @include buttons-border-radius
-          color: #ffffff
-          font-family: $second-fonts
-          font-size: 10px
-          text-transform: uppercase
-          text-decoration: none
           padding: 5px 13px
+          &:hover
+            @include linear-gradient(#3697a7, #62cadb)
       .isee-and-hspt
         float: right
         width: 219px
@@ -348,19 +348,14 @@ section
           color: #666666
           width: 180px
 
-        .isee-button
+        .all-buttons
           position: relative
           top: 7px
           left: 65px
-          text-align: center
           @include linear-gradient(#8cc6ef, #4a98ce)
-          @include buttons-border-radius
-          color: #ffffff
-          font-family: $second-fonts
-          font-size: 10px
-          text-transform: uppercase
-          text-decoration: none
           padding: 5px 13px
+          &:hover
+            @include linear-gradient(#4a98ce, #8cc6ef)
     .content
       position: relative
       margin-top: 80px
@@ -403,7 +398,7 @@ section
           margin-bottom: 10px
       .about-block
         border: 1px solid #e6e6e6
-        @include about-block-border-radius
+        @include border-radius(10px)
         height: 258px
         width: 700px
         .about-text
@@ -439,80 +434,6 @@ header#header-bg
   background-repeat: no-repeat
   height: 113px
   padding-top: 10px
-  .header
-    margin: 0 auto
-    width: 940px
-    height: 62px
-    @include header-border-top-radius
-    @include linear-gradient(#ffffff, #efefef)
-  .logo
-    float: left
-    padding-top: 8px
-    padding-left: 12px
-    padding-right: 425px
-  .phone
-    padding-top: 24px
-    img
-      float: left
-      padding-right: 10px
-    h1
-      float: left
-      font-family: $head-fonts
-      font-size: 18px
-      font-weight: 700
-      color: #666666
-  .logins
-    float: right
-    margin-right: 20px
-    p
-      float: left
-      padding-top: 6px
-      padding-right: 10px
-      font-family: $second-fonts
-      font-size: 10px
-      color: #019140
-      text-transform: uppercase
-    .login-button
-      position: relative
-      text-align: center
-      @include linear-gradient(#53bb4c, #029141)
-      @include login-button-border
-      color: #ffffff
-      font-size: 10px
-      text-decoration: none
-      font-family: $second-fonts
-      text-transform: uppercase
-      padding: 5px 17px 5px 17px
-  .nav
-    margin: 0 auto
-    width: 940px
-    height: 36px
-    @include heder-nav
-    @include nav-bottom-borders
-  .header-menu
-    padding-top: 10px
-    padding-left: 12px
-    float: left
-    li
-      float: left
-      a
-        list-style: none
-        text-decoration: none
-        font-family: $second-fonts
-        font-weight: 700
-        font-size: 14px
-        color: #333333
-        padding: 4px 17px 4px 17px
-        /*@include linear-gradient(#53bb4c, #029141)
-  form
-    .rounded
-      @include header-search-form-rounded
-
-    .search
-      outline: none
-      padding: 0 0 0 30px
-      background: url("../img/icon_search.png") no-repeat 8px 6px
-      background-color: #ffffff
 /**Contents Classes Page**/
 section
   .seminars
@@ -521,7 +442,7 @@ section
   .bread-crumbs
     display: inline-block
     margin-top: 18px
-    @include bread-crumbs-border-radius
+    @include custom-border-radius(10px, 5px, 5px, 10px)
     img
       padding-bottom: 2px
     li
@@ -588,8 +509,18 @@ section
   .summer-classes
     position: relative
     margin-top: 40px
-    .camp, .personal, .myths, .going, .laugh, .story, .intro
-      @include summer-classes-border-radius
+    .camp, .personal, .myths, .going, .laugh, .story, .intro, .question
+      @include border-radius(20px)
+      @include borders-left-right-bottom
+      height: 180px
+      .camp-topic, .personal-topic, .myths-topic, .going-topic, .laugh-topic, .story-topic, .intro-topic
+        position: absolute
+        margin-top: 10px
+        font-family: $second-fonts
+        font-size: 15px
+        text-align: center
+        color: #ffffff
+
       .grades
         font-family: $second-fonts
         font-size: 13px
@@ -606,15 +537,8 @@ section
         color: #666666
     .camp
       float: left
-      height: 180px
-      @include borders-left-right-bottom
       .camp-topic
-        position: absolute
-        margin-top: 10px
         margin-left: 29px
-        font-family: $second-fonts
-        font-size: 15px
-        color: #ffffff
     .camp-button
       position: relative
       top: 30px
@@ -627,21 +551,13 @@ section
       text-decoration: none
       padding: 6px 13px
       @include linear-gradient(#6bcb64, #019140)
-      @include buttons-border-radius
+      @include border-radius(20px)
     .personal
       float: left
-      height: 180px
       margin-left: 17px
-      @include borders-left-right-bottom
       .personal-topic
-        text-align: center
         width: 161px
-        position: absolute
-        margin-top: 10px
         margin-left: 28px
-        font-family: $second-fonts
-        font-size: 15px
-        color: #ffffff
     .personal-button
       position: relative
       top: 30px
@@ -653,22 +569,14 @@ section
       text-transform: uppercase
       text-decoration: none
       padding: 6px 13px
-      @include personal-button-grarient
-      @include buttons-border-radius
+      @include linear-gradient(#2cc87f, #0a9252)
+      @include border-radius(20px)
     .myths
       float: left
-      height: 180px
       margin-left: 17px
-      @include borders-left-right-bottom
       .myths-topic
-        text-align: center
         width: 180px
-        position: absolute
-        margin-top: 10px
         margin-left: 20px
-        font-family: $second-fonts
-        font-size: 15px
-        color: #ffffff
         span
           font-size: 13px
           color: #fdd749
@@ -684,20 +592,12 @@ section
       text-decoration: none
       padding: 6px 13px
       @include linear-gradient(#30c494, #18946c)
-      @include buttons-border-radius
+      @include border-radius(20px)
     .going
       float: right
-      height: 180px
-      @include borders-left-right-bottom
       .going-topic
-        text-align: center
         width: 180px
-        position: absolute
-        margin-top: 10px
         margin-left: 22px
-        font-family: $second-fonts
-        font-size: 15px
-        color: #ffffff
         span
           font-size: 13px
           color: #fdd749
@@ -714,20 +614,13 @@ section
       text-decoration: none
       padding: 6px 13px
       @include linear-gradient(#36c3b4, #27968a)
-      @include buttons-border-radius
+      @include border-radius(20px)
     .laugh
       margin-top: 40px
       margin-bottom: 40px
       float: left
-      height: 180px
-      @include borders-left-right-bottom
       .laugh-topic
-        position: absolute
-        margin-top: 10px
         margin-left: 48px
-        font-family: $second-fonts
-        font-size: 15px
-        color: #ffffff
     .laugh-button
       position: relative
       top: 47px
@@ -740,22 +633,14 @@ section
       text-decoration: none
       padding: 6px 13px
       @include linear-gradient(#4ac2d6, #3797a8)
-      @include buttons-border-radius
+      @include border-radius(20px)
     .story
       margin-top: 40px
       margin-bottom: 40px
       float: left
-      height: 180px
       margin-left: 17px
-      @include borders-left-right-bottom
       .story-topic
-        text-align: center
-        position: absolute
-        margin-top: 10px
         margin-left: 38px
-        font-family: $second-fonts
-        font-size: 15px
-        color: #ffffff
     .story-button
       position: relative
       top: 47px
@@ -768,22 +653,14 @@ section
       text-decoration: none
       padding: 6px 13px
       @include linear-gradient(#4ac2d6, #4499c1)
-      @include buttons-border-radius
+      @include border-radius(20px)
     .intro
       margin-top: 40px
       margin-bottom: 40px
       float: left
-      height: 180px
       margin-left: 17px
-      @include borders-left-right-bottom
       .intro-topic
-        text-align: center
-        position: absolute
-        margin-top: 10px
         margin-left: 20px
-        font-family: $second-fonts
-        font-size: 15px
-        color: #ffffff
     .intro-button
       position: relative
       top: 64px
@@ -796,13 +673,12 @@ section
       text-decoration: none
       padding: 6px 13px
       @include linear-gradient(#73c3ff, #4d9ad3)
-      @include buttons-border-radius
+      @include border-radius(20px)
     .question
       margin-top: 40px
       margin-bottom: 40px
       float: right
       width: 220px
-      height: 180px
       background: #e9f5fe
       border-radius: 8px
       font-family: $second-fonts
@@ -832,7 +708,7 @@ section
   width: 823px
   height: 576px
   background-color: rgba(0, 153, 51, 0.2)
-  @include about-block-border-radius
+  @include border-radius(10px)
   p
     margin-top: 200px
     margin-left: 170px
@@ -855,7 +731,7 @@ section
     padding: 4px 7px
     cursor: pointer
     @include linear-gradient(#6bcb64, #019140)
-    @include buttons-border-radius
+    @include border-radius(20px)
   .table-button-popup
     position: relative
     top: 5px
@@ -868,14 +744,14 @@ section
     text-transform: uppercase
     text-decoration: none
     padding: 4px 7px
-    @include buttons-border-radius
+    @include border-radius(20px)
     @include linear-gradient(#6bcb64, #019140)
 .enrollment-form
   position: relative
   margin-top: 50px
   margin-bottom: 50px
   border-bottom: 1px solid #ececec
-  @include enrollment-form-border-radius
+  @include custom-border-radius(0, 0, 20px, 20px)
   h1
     margin-bottom: 20px
     font-family: $second-fonts
@@ -894,7 +770,7 @@ section
     text-transform: uppercase
     text-decoration: none
     padding: 4px 7px
-    @include table-border-radius
+    @include border-radius(20px)
     @include linear-gradient(#fcfbfb, #f1f1f1)
   .register
     margin-bottom: 30px
@@ -951,7 +827,7 @@ section
       color: #333333
       text-align: center
       @include linear-gradient(#fcfbfb, #f1f1f1)
-      @include th-border-radius
+      @include custom-border-radius(10px, 10px, 0, 0)
       padding: 10px 2px
       vertical-align: top
       /*@include linear-gradient(#6bcb64, #019140)
@@ -993,7 +869,7 @@ section
     text-decoration: none
     padding: 3px 10px
     @include linear-gradient(#fcfbfb, #f1f1f1)
-    @include buttons-border-radius
+    @include border-radius(20px)
     &.table-button-active
       @include linear-gradient(#6bcb64, #019140)
 /**OPENED CLASS**/
@@ -1005,7 +881,7 @@ section
       height: 277px
       margin-top: 10px
       @include linear-gradient(#fcfbfb, #f1f1f1)
-      @include analysis-border-radius
+      @include border-radius(10px)
       img
         float: left
         margin-right: 20px
@@ -1118,7 +994,7 @@ section
           height: 132px
           margin-top: -67px
           @include borders-left-right-bottom
-          @include table-border-radius
+          @include border-radius(20px)
       .enroll-button
         position: relative
         top: -9px
@@ -1131,7 +1007,7 @@ section
         text-transform: uppercase
         text-decoration: none
         padding: 5px 15px
-        @include buttons-border-radius
+        @include border-radius(20px)
         @include linear-gradient(#53bb4c, #029141)
       .other-summer-classes
         margin-top: 20px
@@ -1145,14 +1021,14 @@ section
         .borders
           height: 46px
           border: 1px solid #ececec
-          @include about-block-border-radius
+          @include border-radius(10px)
           .intro-button, .crafting-button, .myth-button, .going-button, .make-button, .power-button
             position: relative
             font-family: $second-fonts
             font-size: 13px
             color: #27968a
             @include linear-gradient( #fcfbfb, #f1f1f1)
-            @include buttons-border-radius
+            @include border-radius(20px)
             text-decoration: none
           .intro-button
             top: -10px
@@ -1188,7 +1064,7 @@ section
         color: 333333
         font-weight: 400
         background: rgba(19, 150, 71, 0.1)
-        @include not-sure-border-radius
+        @include border-radius(10px)
       .not-sure-inner
         position: absolute
         top: 36%
@@ -1234,7 +1110,7 @@ section
           font-weight: 700
     .opportunities-borders, .form-bellow-borders
       @include borders-left-right-bottom
-      @include border-bottom-radius
+      @include custom-border-radius(0, 0, 10px, 10px)
     .opportunities-borders
       margin-top: 60px
       h1
@@ -1303,7 +1179,7 @@ section
           height: 76px
           background: rgba(19, 150, 71, 0.1)
           text-align: center
-          @include analysis-border-radius
+          @include border-radius(10px)
           p
             width: 106px
             padding-top: 16px
@@ -1329,7 +1205,7 @@ section
           color: #ffffff
           padding: 5px 35px
           @include linear-gradient(#53bb4c, #029141)
-          @include buttons-border-radius
+          @include border-radius(20px)
 /**MAIN_CLASSES PAGE**/
 section
   .main-classes
@@ -1348,7 +1224,7 @@ section
       width: 218px
       height: 500px
       @include borders-left-right-bottom
-      @include analysis-border-radius
+      @include border-radius(10px)
       line-height: normal
     .summer-seminar p, .creative-writing p, .writing-workouts p
       margin-top: 10px
@@ -1389,8 +1265,10 @@ section
       position: absolute
       bottom: -14px
       left: 65px
+      font-family: $head-fonts
+      font-weight: 700
       @include linear-gradient(#6bcb64, #019140)
-      @include buttons-border-radius
+      @include border-radius(20px)
     .creative-writing
       float: left
       margin-left: 20px
@@ -1401,7 +1279,7 @@ section
       bottom: -14px
       left: 65px
       @include linear-gradient(#6bcb64, #019140)
-      @include buttons-border-radius
+      @include border-radius(20px)
     .writing-workouts
       float: left
       margin-left: 20px
@@ -1412,7 +1290,7 @@ section
       bottom: -14px
       left: 65px
       @include linear-gradient(#4ac2d6,  #3797a8)
-      @include buttons-border-radius
+      @include border-radius(20px)
     .what-class
       float: right
       width: 220px
@@ -1456,8 +1334,7 @@ section
     border-top: 1px solid #ececec
     border-right: 1px solid #ececec
     border-bottom: 1px solid #ececec
-    border-top-right-radius: 10px
-    border-bottom-right-radius: 10px
+    @include custom-border-radius(0, 10px, 10px, 0)
     font-family: $head-fonts
     font-size: 13px
     color: #666666
@@ -1486,7 +1363,7 @@ section
       margin-left: 40px
       line-height: normal
       @include linear-gradient(#fcfbfb, #f1f1f1)
-      @include analysis-border-radius
+      @include border-radius(10px)
       li
         list-style: none
         position: relative
@@ -1516,7 +1393,9 @@ section
         padding: 5px 10px
         cursor: pointer
         @include linear-gradient(#53bb4c, #029141)
-        @include  login-button-border
+        @include border-radius(20px)
+        &:hover
+          @include linear-gradient(#029141, #53bb4c)
   .other-tutors
     margin-top: 10px
     h2
@@ -1570,21 +1449,19 @@ section
         text-align: center
       .kayla-tileman,.james-wagner, .tammy-lambert
         margin-left: 20px
-      .tutors-emma-button, .tutors-kayla-button, .tutors-james-button, .tutors-tammy-button
+      .all-buttons
         position: absolute
         left: 60px
         bottom: -10px
         border: none
         outline: none
         font-family: $head-fonts
-        font-size: 10px
         font-weight: 700
-        text-transform: uppercase
-        color: #ffffff
         padding: 5px 7px
         cursor: pointer
         @include linear-gradient(#6bcb64, #019140)
-        @include  login-button-border
+        &:hover
+          @include linear-gradient(#019140, #6bcb64)
 /**FOOTER**/
 footer
   @include footer-bg
