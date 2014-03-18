@@ -13,6 +13,10 @@ $second-fonts: 'Ubuntu', sans-serif
   clear: both
 /**HEADER**/
 
+.wrapper-page
+  margin: 0 auto
+  width: 940px
+  margin-bottom: 80px
 .all-buttons
   text-align: center
   color: #ffffff !important
@@ -221,10 +225,8 @@ header
             @include linear-gradient(#019140, #6bcb64)
 /**CONTENT**/
 section
-  .karkas
-    margin: 0 auto
-    width: 940px
-    margin-bottom: 20px
+  .wrapper-page
+    /*margin-bottom: 20px
     .cont
       height: 115px
       @include linear-gradient(#fcfbfb, #f1f1f1)
@@ -424,9 +426,6 @@ header#header-bg
   padding-top: 10px
 /**Contents Classes Page**/
 section
-  .seminars
-    margin: 0 auto
-    width: 940px
   .bread-crumbs
     display: inline-block
     margin-top: 18px
@@ -822,9 +821,9 @@ section
       @include linear-gradient(#6bcb64, #019140)
 /**OPENED CLASS**/
 section
-  .wrap-page
-    margin: 0 auto
-    width: 940px
+  .wrapper-page
+    /*margin: 0 auto
+    /*width: 940px
     .analysis
       height: 277px
       margin-top: 10px
@@ -1029,10 +1028,8 @@ section
           font-weight: 700
 /**JOBS PAGE**/
 section
-  .jobs-content
-    margin: 0 auto
-    width: 940px
-    height: 800px
+  .wrapper-page
+    /*height: 800px
     h1
       font-family: $second-fonts
       font-size: 30px
@@ -1161,10 +1158,8 @@ section
             @include linear-gradient(#029141, #53bb4c)
 /**MAIN_CLASSES PAGE**/
 section
-  .main-classes
-    margin: 0 auto
-    width: 940px
-    height: 600px
+  .wrapper-page
+    /*height: 600px
     h1
       margin-top: 20px
       margin-bottom: 20px
@@ -1265,11 +1260,7 @@ section
           font-weight: 700
 /**TUTORS PAGE**/
 section
-  #tutors-wrapper
-    margin: 0 auto
-    width: 940px
-    margin-bottom: 100px
-  #tutors-wrapper h1, .tutors-info h2
+  .wrapper-page h1, .tutors-info h2
     font-family: $second-fonts
     font-size: 30px
     font-weight: 700
@@ -1414,6 +1405,11 @@ section
         @include linear-gradient(#6bcb64, #019140)
         &:hover
           @include linear-gradient(#019140, #6bcb64)
+
+/**SUMMER CLASSES REGISTRATION FORM**/
+section
+  .wrapper-page
+    /*height: 800px
 /**FOOTER**/
 footer
   @include linear-gradient(#fbfbfb, #e3e3e3)

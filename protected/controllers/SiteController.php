@@ -69,6 +69,11 @@ class SiteController extends Controller
         $this->render('tutors');
     }
 
+    public function actionSummerClassesRegistrationForm()
+    {
+        $this->render('summer_classes_registration_form');
+    }
+
 	/**
 	 * This is the action to handle external exceptions.
 	 */
