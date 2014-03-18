@@ -254,30 +254,33 @@ section
         margin-right: 50px
     .education
       margin-top: 50px
-      h1
+      h2
         font-family: $second-fonts
         font-weight: 700
         font-size: 18px
         color: #333333
         padding-bottom: 20px
+      .tutoring h2, .classes h2, .cat-and-cat h2, .isee-and-hspt h2
+        font-family: $second-fonts
+        font-size: 24px
+        margin-top: 10px
+        margin-left: 15px
+      .tutoring p, .classes p, .cat-and-cat p, .isee-and-hspt p
+        font-family: $head-fonts
+        font-size: 13px
+        line-height: normal
+        color: #666666
       .tutoring, .classes, .cat-and-cat, .isee-and-hspt
         @include border-radius(20px)
         @include borders-left-right-bottom
       .tutoring
         float: left
         width: 219px
-        h1
-          font-size: 24px
+        h2
           color: #019140
-          margin-top: 10px
-          margin-left: 15px
         p
           margin-left: 15px
           margin-bottom: 19px
-          font-family: $head-fonts
-          font-size: 13px
-          line-height: normal
-          color: #666666
           width: 182px
         .all-buttons
           position: relative
@@ -291,18 +294,11 @@ section
         float: left
         margin-left: 20px
         width: 219px
-        h1
-          font-size: 24px
+        h2
           color: #18946c
-          margin-top: 10px
-          margin-left: 15px
         p
           margin-left: 15px
           margin-bottom: 37px
-          font-family: $head-fonts
-          font-size: 13px
-          line-height: normal
-          color: #666666
           width: 180px
         .all-buttons
           position: relative
@@ -316,18 +312,12 @@ section
         float: left
         margin-left: 20px
         width: 219px
-        h1
+        h2
           font-size: 24px
           color: #3697a7
-          margin-top: 10px
-          margin-left: 15px
         p
           margin-left: 15px
           margin-bottom: 37px
-          font-family: $head-fonts
-          font-size: 13px
-          line-height: normal
-          color: #666666
           width: 180px
         .all-buttons
           position: relative
@@ -340,17 +330,10 @@ section
       .isee-and-hspt
         float: right
         width: 219px
-        h1
-          font-size: 24px
+        h2
           color: #4a98ce
-          margin-top: 10px
-          margin-left: 15px
         p
           margin-left: 15px
-          font-family: $head-fonts
-          font-size: 13px
-          line-height: normal
-          color: #666666
           width: 180px
 
         .all-buttons
@@ -368,7 +351,7 @@ section
         float: left
         width: 220px
         text-align: center
-        h1
+        h2
           padding-top: 20px
           font-family: $second-fonts
           font-size: 18px
@@ -385,7 +368,7 @@ section
           font-size: 18px
           font-family: $second-fonts
           color: #ffffff
-        h1
+        h3
           padding-top: 10px
           font-size: 36px
           color: #333333
@@ -395,7 +378,7 @@ section
         margin-top: 10px
       .right-colum
         float: right
-        h1
+        h3
           font-family: $second-fonts
           font-weight: 700
           font-size: 18px
@@ -426,7 +409,7 @@ section
           color: #666666
     .map
       margin-top: 50px
-      h1
+      h2
         padding-bottom: 10px
         font-family: $second-fonts
         font-size: 18px
@@ -717,7 +700,7 @@ section
   margin-bottom: 50px
   border-bottom: 1px solid #ececec
   @include custom-border-radius(0, 0, 20px, 20px)
-  h1
+  h2
     margin-bottom: 20px
     font-family: $second-fonts
     font-weight: 700
@@ -974,6 +957,8 @@ section
         padding: 5px 15px
         @include border-radius(20px)
         @include linear-gradient(#53bb4c, #029141)
+        &:hover
+          @include linear-gradient(#029141, #53bb4c)
       .other-summer-classes
         margin-top: 20px
         height: 120px
@@ -1061,7 +1046,7 @@ section
       background-image: url("../img/title_text_back.png")
       background-repeat: no-repeat
       background-position: top center
-      h1
+      h2
         font-family: $head-fonts
         font-size: 18px
         color: #666666
@@ -1078,7 +1063,7 @@ section
       @include custom-border-radius(0, 0, 10px, 10px)
     .opportunities-borders
       margin-top: 60px
-      h1
+      h3
         font-family: $second-fonts
         font-size: 18px
         color: #333333
@@ -1107,7 +1092,7 @@ section
         margin-top: -50px
       .form-bellow-borders
         margin-top: -39px
-        h1
+        h2
           padding-top: 57px
           font-family: $second-fonts
           font-size: 18px
@@ -1211,15 +1196,16 @@ section
           font-size: 13px
           line-height: normal
           color: #666666
-    .summer-seminar h1, .creative-writing h1, .writing-workouts h1
+    .summer-seminar h2, .creative-writing h2, .writing-workouts h2
       font-family: $second-fonts
       font-size: 15px
       text-align: center
       width: 135px
       margin-left: 40px
+      margin-bottom: 10px
     .summer-seminar
       float: left
-      h1
+      h2
         color: #129a46
     .summer-seminar-button, .creative-writing-button, .writing-workouts-button
       position: absolute
@@ -1240,7 +1226,7 @@ section
     .creative-writing
       float: left
       margin-left: 20px
-      h1
+      h2
         color: #1a986f
     .creative-writing-button
       @include linear-gradient(#6bcb64, #019140)
@@ -1250,7 +1236,7 @@ section
     .writing-workouts
       float: left
       margin-left: 20px
-      h1
+      h2
         color: #3899aa
     .writing-workouts-button
       @include linear-gradient(#4ac2d6,  #3797a8)
