@@ -21,15 +21,37 @@
       %div.steps-content
         %div#step-1
           .step-text
-            %p text 1
-            %p text 2
+            %div#step-1-form
+              .students-info
+                %form(action="" method="post" )
+                  %p
+                    %label(for="studentname" class="stname")Name of Student *
+                    %input(id="studentname" name="studentname" required="required" type="text" placeholder="enter you name" )
+                  %p
+                    %label(for="gender" class="gender")Gender *
+                    %input(type="radio" name="gender" value="male" ) Male
+                    %input(type="radio" name="gender" value="female" ) Female
+                  %p
+                    %label(for="" class="stname")Student’s current school
+                    %input(id="" name="studentname" required="" type="text" placeholder="" )
+                  %p
+                    %label(for="" class="stname")Student Address *
+                    %input(id="" name="studentname" required="" type="text" placeholder="" )
+                  %p
+                    %label(for="" class="stname")Home phone
+                    %input(id="" name="studentname" required="" type="tel" placeholder="" )
+                  %p
+                    %label(for="" class="stname")Cell phone *
+                    %input(id="" name="studentname" required="" type="tel" placeholder="" )
+                  %p
+                    %label(for="" class="stname")Student's e-mail *
+                    %input(id="" name="studentname" required="" type="email" placeholder="" )
+                %input(type="submit" class="" value="fdgdsfg" )
         %div#step-2
           .step-text
             %p text 1
-            %p text 2
         %div#step-2
           .step-text
             %p text 1
-            %p text 2
 
     .clear
