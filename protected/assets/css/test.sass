@@ -16,7 +16,7 @@ $second-fonts: 'Ubuntu', sans-serif
 .wrapper-page
   margin: 0 auto
   width: 940px
-  margin-bottom: 80px
+  /*margin-bottom: 80px
 .all-buttons
   text-align: center
   color: #ffffff !important
@@ -225,8 +225,6 @@ header
             @include linear-gradient(#019140, #6bcb64)
 /**CONTENT**/
 section
-  .wrapper-page
-    /*margin-bottom: 20px
     .cont
       height: 115px
       @include linear-gradient(#fcfbfb, #f1f1f1)
@@ -821,9 +819,6 @@ section
       @include linear-gradient(#6bcb64, #019140)
 /**OPENED CLASS**/
 section
-  .wrapper-page
-    /*margin: 0 auto
-    /*width: 940px
     .analysis
       height: 277px
       margin-top: 10px
@@ -1028,8 +1023,6 @@ section
           font-weight: 700
 /**JOBS PAGE**/
 section
-  .wrapper-page
-    /*height: 800px
     h1
       font-family: $second-fonts
       font-size: 30px
@@ -1120,7 +1113,7 @@ section
           margin-bottom: 10px
         .drag-and-drop
           margin-top: 5px
-          margin-bottom: 27px
+          margin-bottom: 46px
           margin-left: 0px
           width: 212px
           height: 76px
@@ -1158,8 +1151,6 @@ section
             @include linear-gradient(#029141, #53bb4c)
 /**MAIN_CLASSES PAGE**/
 section
-  .wrapper-page
-    /*height: 600px
     h1
       margin-top: 20px
       margin-bottom: 20px
@@ -1260,13 +1251,13 @@ section
           font-weight: 700
 /**TUTORS PAGE**/
 section
-  .wrapper-page h1, .tutors-info h2
+  h1, .tutors-info h2
     font-family: $second-fonts
     font-size: 30px
     font-weight: 700
     color: #007c2d
-    margin-top: 10px
-    margin-bottom: 10px
+    /*margin-top: 10px
+    /*margin-bottom: 10px
   .our-tutors
     float: left
   .tutors-info
@@ -1408,8 +1399,46 @@ section
 
 /**SUMMER CLASSES REGISTRATION FORM**/
 section
-  .wrapper-page
-    /*height: 800px
+    .registration-title
+      float: left
+      width: 118px
+      height: 200px
+      line-height: normal
+      /*background: #5bc0de
+      p
+        font-family: $second-fonts
+        font-size: 14px
+        font-weight: 700
+        color: #333333
+    .registration-form-wrapper
+      float: right
+      width: 822px
+      height: 200px
+      /*background: #36c3b4
+      #steps
+        width: 100%
+      #steps ul
+        list-style: none
+        display: table-row
+      #steps ul li
+        display: table-cell
+        /*background: #cccccc
+        /*height: 40px
+        text-align: center
+      #steps ul li:first-child
+        background: rgba(19, 150, 71, 0.2)
+        @include border-radius(20px)
+      #steps ul li a
+        display: table-cell
+        width: 300px
+        height: 40px
+        line-height: normal
+        text-decoration: none
+        font-family: $second-fonts
+        font-size: 15px
+        color: #999999
+      .step-text
+        display: none
 /**FOOTER**/
 footer
   @include linear-gradient(#fbfbfb, #e3e3e3)
