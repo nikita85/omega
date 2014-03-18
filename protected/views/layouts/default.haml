@@ -47,11 +47,11 @@
             %h1 Aiming for the top universities? We Can Help!
             %p Advanсed Teaching for Advancing Students
           .puzzle
-            %a(href="#" )
+            %a(href="#" data-popup-open="puzzle-popup")
               %img(src="#{$this->assetsPath}/img/button_puzzle.png" )
           .puzzle-popup
             .popup-text
-              %a(href="#" )close
+              %a.popup-close(href="#" )close
                 %img(src="#{$this->assetsPath}/img/close-button.png" )
               %h1 February puzzle
               %br

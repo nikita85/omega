@@ -1,5 +1,16 @@
 $(document).ready(function () {
 
+
+    $('[data-popup-open]').on('click', function(e){
+        e.preventDefault();
+        $('.' + $(this).attr('data-popup-open')).fadeIn(500);
+    });
+
+    $('.popup-close').on('click', function(e){
+        e.preventDefault();
+        $(this).parent().parent().fadeOut(500);
+    });
+
     var classesCalendar = $('.register');
 
     if (classesCalendar.length) {
