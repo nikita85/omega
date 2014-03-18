@@ -46,9 +46,10 @@ $(document).ready(function () {
         }
 
         var enrollmentForm = {
-            node: $('.register'),
+            node: classesCalendar,
             curColId: null,
             selectableColCount: 7,
+            infoColumn: $('.register tr td:not([data-col-id])'),
             columns: [],
             confirmButton: $('.table-button')
         };
@@ -87,11 +88,7 @@ $(document).ready(function () {
 
             column.hasFullSelection = function (curColumn) {
                 return function () {
-                    if (curColumn.timeSelection && curColumn.gradeSelection && curColumn.weekSelection) {
-                        return true;
-                    } else {
-                        return false;
-                    }
+                    return curColumn.timeSelection && curColumn.gradeSelection && curColumn.weekSelection;
                 }
             }(column);
 
@@ -116,6 +113,11 @@ $(document).ready(function () {
         }
 
         enrollmentForm.node.on('mouseleave', function () {
+            deselectHoveredColumn();
+            enrollmentForm.curColId = null;
+        });
+
+        enrollmentForm.infoColumn.on('mouseenter', function () {
             deselectHoveredColumn();
             enrollmentForm.curColId = null;
         });
