@@ -1,5 +1,16 @@
 $(document).ready(function () {
 
+
+    $('[data-popup-open]').on('click', function(e){
+        e.preventDefault();
+        $('.' + $(this).attr('data-popup-open')).fadeIn(500);
+    });
+
+    $('.popup-close').on('click', function(e){
+        e.preventDefault();
+        $(this).parent().parent().fadeOut(500);
+    });
+
     var classesCalendar = $('.register');
 
     if (classesCalendar.length) {
@@ -10,7 +21,7 @@ $(document).ready(function () {
 
 
         function attachColumnClicks(column) {
-            var cellTypes = ['week', 'time', 'grade'];
+            var cellTypes = enrollmentForm.cellTypes;
 
             for (var i = 0; i < cellTypes.length; i++) {
 
@@ -26,8 +37,12 @@ $(document).ready(function () {
                             if (selection[0] == $(this)[0]) {
                                 selection.removeClass('select');
                                 curColumn[cellType + 'Selection'] = null;
+                                if(!curColumn.hasSelection()) {
+                                    curColumn.node.removeClass('error');
+                                }
                                 if (!enrollmentForm.checkForFullSelection()) {
                                     enrollmentForm.confirmButton.removeClass('table-button-active');
+                                    enrollmentForm.isReady = false;
                                 }
                                 return;
                             }
@@ -38,11 +53,25 @@ $(document).ready(function () {
 
                         if (enrollmentForm.checkForFullSelection()) {
                             enrollmentForm.confirmButton.addClass('table-button-active');
+                            enrollmentForm.isReady = true;
                         }
+
+                        column[cellType + 'SelectCells'].removeClass('error');
                     };
 
                 }(column, cellType));
             }
+        }
+
+        function deselectHoveredColumn() {
+            if (enrollmentForm.curColId) {
+                var hoveredColumn = enrollmentForm.columns[enrollmentForm.curColId - 1];
+
+                if (!hoveredColumn.hasSelection()) {
+                    hoveredColumn.node.removeClass('hovered');
+                }
+            }
+
         }
 
         var enrollmentForm = {
@@ -51,7 +80,9 @@ $(document).ready(function () {
             selectableColCount: 7,
             infoColumn: $('.register tr td:not([data-col-id])'),
             columns: [],
-            confirmButton: $('.table-button')
+            confirmButton: $('.table-button'),
+            isReady: false,
+            cellTypes: ['week', 'time', 'grade']
         };
 
         enrollmentForm.checkForFullSelection = function () {
@@ -92,6 +123,21 @@ $(document).ready(function () {
                 }
             }(column);
 
+            column.showErrors = function (curColumn) {
+                return function () {
+
+                    var cellTypes = enrollmentForm.cellTypes;
+
+                    for (var i = 0; i < cellTypes.length; i++) {
+                        var cellType = cellTypes[i];
+                        if(!curColumn[cellType + 'Selection']) {
+                            curColumn[cellType + 'SelectCells'].addClass('error').fadeOut(200).fadeIn(300);
+                        }
+                    }
+
+                }
+            }(column);
+
             column.node.on('mouseenter', function (curColumn) {
 
                 return function () {
@@ -122,16 +168,27 @@ $(document).ready(function () {
             enrollmentForm.curColId = null;
         });
 
-        function deselectHoveredColumn() {
-            if (enrollmentForm.curColId) {
-                var hoveredColumn = enrollmentForm.columns[enrollmentForm.curColId - 1];
+        enrollmentForm.confirmButton.on('click', function(e){
+            e.preventDefault();
+            if(enrollmentForm.isReady) {
+                var isValid = true;
 
-                if (!hoveredColumn.hasSelection()) {
-                    hoveredColumn.node.removeClass('hovered');
+                for (var i = 0; i < enrollmentForm.columns.length; i++) {
+                    var curColumn = enrollmentForm.columns[i];
+                    if (curColumn.hasSelection() && !curColumn.hasFullSelection()) {
+                        curColumn.showErrors();
+                        isValid = false;
+                    }
                 }
-            }
 
-        }
+                if(isValid) {
+                    alert('Success!');
+                }
+
+            } else {
+                console.log(false);
+            }
+        });
     }
 
 });
