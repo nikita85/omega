@@ -9,11 +9,19 @@
 $head-fonts: 'Open Sans', sans-serif
 $second-fonts: 'Ubuntu', sans-serif
 /*-----------------------------------------*/
+hr
+  color: #ececec
+  background-color: #ececec
+  border: 0px none
+  height: 1px
+  clear: both
+  width: 475px
+  margin: 5px 0
 .clear
   clear: both
 /**HEADER**/
-
 .wrapper-page
+  position: relative
   margin: 0 auto
   width: 940px
   /*margin-bottom: 80px
@@ -409,6 +417,7 @@ section
           color: #666666
     .map
       margin-top: 50px
+      margin-bottom: 50px
       h2
         padding-bottom: 10px
         font-family: $second-fonts
@@ -1023,6 +1032,8 @@ section
           font-weight: 700
 /**JOBS PAGE**/
 section
+  .wrapper-job-page
+    margin-bottom: 50px
     h1
       font-family: $second-fonts
       font-size: 30px
@@ -1151,6 +1162,8 @@ section
             @include linear-gradient(#029141, #53bb4c)
 /**MAIN_CLASSES PAGE**/
 section
+  .wrapper-main-classes-page
+    margin-bottom: 50px
     h1
       margin-top: 20px
       margin-bottom: 20px
@@ -1251,98 +1264,31 @@ section
           font-weight: 700
 /**TUTORS PAGE**/
 section
-  h1, .tutors-info h2
-    font-family: $second-fonts
-    font-size: 30px
-    font-weight: 700
-    color: #007c2d
-    /*margin-top: 10px
-    /*margin-bottom: 10px
-  .our-tutors
-    float: left
-  .tutors-info
-    float: right
-    position: relative
-    height: 504px
-    width: 639px
-    border-top: 1px solid #ececec
-    border-right: 1px solid #ececec
-    border-bottom: 1px solid #ececec
-    @include custom-border-radius(0, 10px, 10px, 0)
-    font-family: $head-fonts
-    font-size: 13px
-    color: #666666
-    h2
-      margin-left: 20px
-    li
-      margin-left: 20px
-      list-style: inside
-      color: #007c2d
-      span
-        color: #666666
-        font-weight: 700
-        font-size: 15px
-    p
-      margin-left: 40px
-      line-height: normal
-      padding: 0 30px 0 0
-      span
-        color: #069342
-  .days-times-wrapper
-    position: absolute
-    bottom: 30px
-    .days-times
-      height: 81px
-      width: 560px
-      margin-left: 40px
-      line-height: normal
-      @include linear-gradient(#fcfbfb, #f1f1f1)
-      @include border-radius(10px)
-      li
-        list-style: none
-        position: relative
-        left: 7px
-        margin-top: 15px
-        text-align: center
-        float: left
-        width: 95px
-        color: #666666 !important
-        span
-          color: #039241
-          font-weight: 400 !important
-      li+li
-        border-left: 1px solid #ececec
-        padding: 0 0 0 20px
-      .our-tutors-button
-        position: absolute
-        left: 252px
-        bottom: -15px
-        border: none
-        outline: none
-        font-family: $head-fonts
-        font-size: 14px
-        font-weight: 700
-        text-transform: uppercase
-        color: #ffffff
-        padding: 5px 10px
-        cursor: pointer
-        @include linear-gradient(#53bb4c, #029141)
-        @include border-radius(20px)
-        &:hover
-          @include linear-gradient(#029141, #53bb4c)
-  .other-tutors
-    margin-top: 10px
-    h2
-      margin-bottom: 10px
+  .wrapper-tutors-page
+    margin-bottom: 50px
+    h1, .tutors-info h2
       font-family: $second-fonts
-      font-size: 18px
+      font-size: 30px
       font-weight: 700
-      color: #333333
-    .tutors-carousel
+      color: #007c2d
+      margin-top: 10px
+      margin-bottom: 10px
+    .our-tutors
+      float: left
+    .tutors-info
+      float: right
+      position: relative
+      height: 504px
+      width: 639px
+      border-top: 1px solid #ececec
+      border-right: 1px solid #ececec
+      border-bottom: 1px solid #ececec
+      @include custom-border-radius(0, 10px, 10px, 0)
       font-family: $head-fonts
       font-size: 13px
       color: #666666
-      line-height: 1.5
+      h2
+        margin-left: 20px
       li
         margin-left: 20px
         list-style: inside
@@ -1353,49 +1299,118 @@ section
           font-size: 15px
       p
         margin-left: 40px
+        line-height: normal
+        padding: 0 30px 0 0
         span
           color: #069342
-      .emma-bridges, .kayla-tileman,.james-wagner, .tammy-lambert
-        position: relative
-        width: 218px
-        height: 560px
-        float: left
-        @include borders-left-right-bottom
-        border-radius: 10px
-        .time-avalibe-wrapper
+    .days-times-wrapper
+      position: absolute
+      bottom: 30px
+      .days-times
+        height: 81px
+        width: 560px
+        margin-left: 40px
+        line-height: normal
+        @include linear-gradient(#fcfbfb, #f1f1f1)
+        @include border-radius(10px)
+        li
+          list-style: none
+          position: relative
+          left: 7px
+          margin-top: 15px
+          text-align: center
+          float: left
+          width: 95px
+          color: #666666 !important
+          span
+            color: #039241
+            font-weight: 400 !important
+        li+li
+          border-left: 1px solid #ececec
+          padding: 0 0 0 20px
+        .our-tutors-button
           position: absolute
-          bottom: 0
-          padding-bottom: 30px
-          p
-            padding-bottom: 10px
-          a
-            margin-left: 42px
-            font-family: $head-fonts
-            font-size: 15px
-            color: #069442
-            text-decoration: none
-            &:hover
-              text-decoration: underline
-      .emma-bridges h2, .kayla-tileman h2,.james-wagner h2, .tammy-lambert h2
+          left: 252px
+          bottom: -15px
+          border: none
+          outline: none
+          font-family: $head-fonts
+          font-size: 14px
+          font-weight: 700
+          text-transform: uppercase
+          color: #ffffff
+          padding: 5px 10px
+          cursor: pointer
+          @include linear-gradient(#53bb4c, #029141)
+          @include border-radius(20px)
+          &:hover
+            @include linear-gradient(#029141, #53bb4c)
+    .other-tutors
+      margin-top: 10px
+      h2
+        margin-bottom: 10px
         font-family: $second-fonts
-        font-size: 24px !important
-        color: #007c2d
-        text-align: center
-      .kayla-tileman,.james-wagner, .tammy-lambert
-        margin-left: 20px
-      .all-buttons
-        position: absolute
-        left: 60px
-        bottom: -10px
-        border: none
-        outline: none
-        font-family: $head-fonts
+        font-size: 18px
         font-weight: 700
-        padding: 5px 7px
-        cursor: pointer
-        @include linear-gradient(#6bcb64, #019140)
-        &:hover
-          @include linear-gradient(#019140, #6bcb64)
+        color: #333333
+      .tutors-carousel
+        font-family: $head-fonts
+        font-size: 13px
+        color: #666666
+        line-height: 1.5
+        li
+          margin-left: 20px
+          list-style: inside
+          color: #007c2d
+          span
+            color: #666666
+            font-weight: 700
+            font-size: 15px
+        p
+          margin-left: 40px
+          span
+            color: #069342
+        .emma-bridges, .kayla-tileman,.james-wagner, .tammy-lambert
+          position: relative
+          width: 218px
+          height: 560px
+          float: left
+          @include borders-left-right-bottom
+          border-radius: 10px
+          .time-avalibe-wrapper
+            position: absolute
+            bottom: 0
+            padding-bottom: 30px
+            p
+              padding-bottom: 10px
+            a
+              margin-left: 42px
+              font-family: $head-fonts
+              font-size: 15px
+              color: #069442
+              text-decoration: none
+              &:hover
+                text-decoration: underline
+        .emma-bridges h2, .kayla-tileman h2,.james-wagner h2, .tammy-lambert h2
+          font-family: $second-fonts
+          font-size: 24px !important
+          color: #007c2d
+          text-align: center
+        .kayla-tileman,.james-wagner, .tammy-lambert
+          margin-left: 20px
+        .all-buttons
+          position: absolute
+          left: 60px
+          bottom: -10px
+          border: none
+          outline: none
+          font-family: $head-fonts
+          font-weight: 700
+          padding: 5px 7px
+          cursor: pointer
+          @include linear-gradient(#6bcb64, #019140)
+          &:hover
+            @include linear-gradient(#019140, #6bcb64)
 
 /**SUMMER CLASSES REGISTRATION FORM**/
 section
@@ -1411,10 +1426,14 @@ section
         font-weight: 700
         color: #333333
     .registration-form-wrapper
-      float: right
-      width: 822px
-      /*height: 200px
-      /*background: #36c3b4
+      position: relative
+      float: left
+      margin-left: 30px
+      margin-top: 35px
+      margin-bottom: 100px
+      #step-1-form
+        margin-top: 20px
+        /*float: left
       #steps
         width: 100%
       #steps ul
@@ -1425,13 +1444,17 @@ section
         /*background: #cccccc
         /*height: 40px
         text-align: center
+        &:hover
+          background: rgba(19, 150, 71, 0.2)
+          @include border-radius(20px)
       #steps ul li:first-child
         background: rgba(19, 150, 71, 0.2)
         @include border-radius(20px)
       #steps ul li a
         display: table-cell
-        width: 300px
-        height: 40px
+        /*width: 164px
+        /*height: 40px
+        padding: 5px
         line-height: normal
         text-decoration: none
         font-family: $second-fonts
@@ -1439,6 +1462,110 @@ section
         color: #999999
       .step-text
         /*display: none
+      .lable-name
+        vertical-align: middle
+        float: left
+        /*padding-right: 20px
+        /*font-weight: $second-fonts
+        font-size: 13px
+        font-weight: 700
+        color: #333333
+        span
+          color: #26a54c
+      .correct
+        display: none
+        background-image: url("../img/mark.png")
+        background-position: right
+        background-repeat: no-repeat
+        background-size: auto auto
+      .fild, .wrapper-sex
+        clear: both
+        text-align: right
+        vertical-align: middle
+        /*line-height: 25px
+      .wrapper-sex
+        margin-right: 158px
+      .people-sex
+        font-family: $second-fonts
+        font-size: 13px
+        color: #666666
+      #fild
+        border: none
+        outline: none
+        background-image: url("../img/input_form_bg.png")
+        background-repeat: no-repeat
+        width: 242px
+        height: 24px
+        padding: 0 10px
+        margin-right: 20px
+      .registration-button
+        position: absolute
+        left: 264px
+        bottom: -40px
+        border: none
+        outline: none
+        @include linear-gradient(#6bcb64, #019140)
+        @include border-radius(20px)
+        color: #ffffff
+        font-family: $second-fonts
+        font-weight: 700
+        font-size: 10px
+        text-transform: uppercase
+        padding: 7px 25px
+        cursor: pointer
+        &:hover
+          @include linear-gradient(#019140, #6bcb64)
+    .your-courses
+      position: absolute
+      top: 0
+      right: 63px
+      /*float: right
+      /*margin-right: 63px
+      margin-top: 64px
+      width: 230px
+      height: 200px
+      font-family: $second-fonts
+      font-weight: 700
+      color: #333333
+      font-size: 13px
+      line-height: normal
+      h2
+        text-align: right
+        margin-bottom: 10px
+      h3
+        font-size: 15px
+        background: rgba(19, 150, 71, 0.2)
+        @include custom-border-radius(10px, 10px, 0, 0)
+        padding: 8px 15px
+      p
+        font-weight: 400
+        padding: 8px 15px
+        span
+          color: #666666
+          font-weight: 700
+          padding-left: 10px
+      /*background: #c01
+      .make, .essay
+        border: 1px solid #ececec
+        @include border-radius(10px)
+      .essay
+        margin-top: 10px
+      .your-courses-button
+        position: absolute
+        left: 65px
+        bottom: -80px
+        border: none
+        outline: none
+        font-family: $second-fonts
+        font-size: 10px
+        font-weight: 700
+        text-transform: uppercase
+        color: #0a9643
+        padding: 5px 20px
+        @include border-radius(20px)
+        @include linear-gradient(#f6f6f6, #e9e9e9)
+        &:hover
+          @include linear-gradient(#e9e9e9, #f6f6f6)
 /**FOOTER**/
 footer
   @include linear-gradient(#fbfbfb, #e3e3e3)
