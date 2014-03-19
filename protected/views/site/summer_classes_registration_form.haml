@@ -7,151 +7,149 @@
       %div#steps
         %ul#items
           %li.active
-            %a(href="#" )
+            %a(href="#step-1")
               %b Step 1 -
               Student’s info
           %li
-            %a(href="#" )
+            %a(href="#step-2")
               %b Step 2 -
               Parents’ info
           %li
-            %a(href="#" )
+            %a(href="#step-3" )
               %b Step 3 -
               Additional info
       %div.steps-content
         %div#step-1
-          .step-text
-            %div#step-1-form
-              .students-info
-                %form(action="" method="post" )
-                  %p.fild
-                    %label(for="" class="lable-name")Name of Student
-                      %span*
-                    %input(id="fild" name="" required="required" type="text" placeholder="" )
-                    %hr
-                    %span.correct
-                      %img(src="#{$this->assetsPath}/img/mark.png" )
-                  %br
-                  %p.fild
-                    %label(for="gender" class="lable-name")Gender
-                      %span*
-                  %p.wrapper-sex
-                    %input(id="r1" type="radio" name="gender" value="male" required="required" )
-                    %lable(for="r1" class="people-sex")
-                      %span>
-                      Male
-                    %input(id="r2" type="radio" name="gender" value="female" required="required" )
-                    %lable(for="r2" class="people-sex")
-                      %span>
-                      Female
-                    %hr
-                    %span.correct
-                  %br
-                  %p.fild
-                    %label(for="" class="lable-name")Student’s current school
-                    %input(id="fild" name="" required="" type="text" placeholder="" )
-                    %hr
-                  %br
-                  %p.fild
-                    %label(for="" class="lable-name")Student Address
-                      %span*
-                    %input(id="fild" name="" required="required" type="text" placeholder="" )
-                    %hr
-                  %br
-                  %p.fild
-                    %label(for="" class="lable-name")Home phone
-                    %input(id="fild" name="" required="" type="tel" placeholder="" )
-                    %hr
-                  %br
-                  %p.fild
-                    %label(for="" class="lable-name")Cell phone
-                      %span*
-                    %input(id="fild" name="" required="required" type="tel" placeholder="" )
-                    %hr
-                  %br
-                  %p.fild
-                    %label(for="" class="lable-name")Student's e-mail
-                      %span*
-                    %input(id="fild" name="" required="required" type="email" placeholder="" )
-                    %hr
-                  %br
-                  %input(type="submit" class="registration-button" value="continue" )
+          .step-text-act
+            .students-info
+              %form(action="" method="post" )
+                %p.fild
+                  %label(for="" class="lable-name")Name of Student
+                    %span*
+                  %input(id="fild" name="" required="required" type="text" placeholder="" )
+                  %hr
+                  %span.correct
+                    %img(src="#{$this->assetsPath}/img/mark.png" )
+                %br
+                %p.fild
+                  %label(for="gender" class="lable-name")Gender
+                    %span*
+                %p.wrapper-sex
+                  %input(id="r1" type="radio" name="gender" value="male" required="required" )
+                  %lable(for="r1" class="people-sex")
+                    %span>
+                    Male
+                  %input(id="r2" type="radio" name="gender" value="female" required="required" )
+                  %lable(for="r2" class="people-sex")
+                    %span>
+                    Female
+                  %hr
+                  %span.correct
+                %br
+                %p.fild
+                  %label(for="" class="lable-name")Student’s current school
+                  %input(id="fild" name="" required="" type="text" placeholder="" )
+                  %hr
+                %br
+                %p.fild
+                  %label(for="" class="lable-name")Student Address
+                    %span*
+                  %input(id="fild" name="" required="required" type="text" placeholder="" )
+                  %hr
+                %br
+                %p.fild
+                  %label(for="" class="lable-name")Home phone
+                  %input(id="fild" name="" required="" type="tel" placeholder="" )
+                  %hr
+                %br
+                %p.fild
+                  %label(for="" class="lable-name")Cell phone
+                    %span*
+                  %input(id="fild" name="" required="required" type="tel" placeholder="" )
+                  %hr
+                %br
+                %p.fild
+                  %label(for="" class="lable-name")Student's e-mail
+                    %span*
+                  %input(id="fild" name="" required="required" type="email" placeholder="" )
+                  %hr
+                %br
+            %input(type="submit" class="registration-button" value="continue" )
         .clear
         %div#step-2
           .step-text
-            %div#step-2-form
-              .parents-info
-                %form(action="" method="post" )
-                  %p.fild
-                    %label(for="" class="lable-name")Name of Parent #1
-                      %span*
-                    %input(id="fild" name="" required="required" type="text" placeholder="" )
-                    %hr
-                    %span.correct
-                      %img(src="#{$this->assetsPath}/img/mark.png" )
-                  %br
-                  %p.fild
-                    %label(for="" class="lable-name")Email of Parent #1
-                      %span*
-                    %input(id="fild" name="" required="" type="email" placeholder="" )
-                    %hr
-                  %br
-                  %p.fild
-                    %label(for="" class="lable-name")Name of Parent #2
-                    %input(id="fild" name="" required="required" type="text" placeholder="" )
-                    %hr
-                  %br
-                  %p.fild
-                    %label(for="" class="lable-name")Email of Parent #2
-                    %input(id="fild" name="" required="" type="email" placeholder="" )
-                    %hr
-                  %br
-                  %p Parent to contact in case of emergency:
-                  %br
-                  %p.fild
-                    %label(for="" class="lable-name")Name
-                      %span*
-                    %input(id="fild" name="" required="required" type="text" placeholder="" )
-                    %hr
-                  %br
-                  %p.fild
-                    %label(for="" class="lable-name")Cell phone
-                      %span*
-                    %input(id="fild" name="" required="required" type="tel" placeholder="" )
-                    %hr
-                  %br
-                  %p.fild
-                    %label(for="" class="lable-name")Home phone
-                      %span*
-                    %input(id="fild" name="" required="required" type="tel" placeholder="" )
-                    %hr
-                  %br
-                  %p Person to contact in case of emergency and parent not available:
-                  %br
-                  %p.fild
-                    %label(for="" class="lable-name")Name
-                      %span*
-                    %input(id="fild" name="" required="required" type="text" placeholder="" )
-                    %hr
-                  %br
-                  %p.fild
-                    %label(for="" class="lable-name")Cell phone
-                      %span*
-                    %input(id="fild" name="" required="required" type="tel" placeholder="" )
-                    %hr
-                  %br
-                  %p.fild
-                    %label(for="" class="lable-name")Home phone
-                      %span*
-                    %input(id="fild" name="" required="required" type="tel" placeholder="" )
-                    %hr
-                  %br
-                  %p.fild
-                    %label(for="" class="lable-name")Relationship to student
-                      %span*
-                    %input(id="fild" name="" required="required" type="text" placeholder="" )
-                    %hr
-        %input(type="submit" class="registration-button" value="continue" )
+            .parents-info
+              %form(action="" method="post" )
+                %p.fild
+                  %label(for="" class="lable-name")Name of Parent #1
+                    %span*
+                  %input(id="fild" name="" required="required" type="text" placeholder="" )
+                  %hr
+                  %span.correct
+                    %img(src="#{$this->assetsPath}/img/mark.png" )
+                %br
+                %p.fild
+                  %label(for="" class="lable-name")Email of Parent #1
+                    %span*
+                  %input(id="fild" name="" required="" type="email" placeholder="" )
+                  %hr
+                %br
+                %p.fild
+                  %label(for="" class="lable-name")Name of Parent #2
+                  %input(id="fild" name="" required="required" type="text" placeholder="" )
+                  %hr
+                %br
+                %p.fild
+                  %label(for="" class="lable-name")Email of Parent #2
+                  %input(id="fild" name="" required="" type="email" placeholder="" )
+                  %hr
+                %br
+                %h4 Parent to contact in case of emergency:
+                %br
+                %p.fild
+                  %label(for="" class="lable-name")Name
+                    %span*
+                  %input(id="fild" name="" required="required" type="text" placeholder="" )
+                  %hr
+                %br
+                %p.fild
+                  %label(for="" class="lable-name")Cell phone
+                    %span*
+                  %input(id="fild" name="" required="required" type="tel" placeholder="" )
+                  %hr
+                %br
+                %p.fild
+                  %label(for="" class="lable-name")Home phone
+                    %span*
+                  %input(id="fild" name="" required="required" type="tel" placeholder="" )
+                  %hr
+                %br
+                %h4 Person to contact in case of emergency and parent not available:
+                %br
+                %p.fild
+                  %label(for="" class="lable-name")Name
+                    %span*
+                  %input(id="fild" name="" required="required" type="text" placeholder="" )
+                  %hr
+                %br
+                %p.fild
+                  %label(for="" class="lable-name")Cell phone
+                    %span*
+                  %input(id="fild" name="" required="required" type="tel" placeholder="" )
+                  %hr
+                %br
+                %p.fild
+                  %label(for="" class="lable-name")Home phone
+                    %span*
+                  %input(id="fild" name="" required="required" type="tel" placeholder="" )
+                  %hr
+                %br
+                %p.fild
+                  %label(for="" class="lable-name")Relationship to student
+                    %span*
+                  %input(id="fild" name="" required="required" type="text" placeholder="" )
+                  %hr
+            %input(type="submit" class="registration-button" value="continue" )
         %div#step-2
           .step-text
             //%p text 1
