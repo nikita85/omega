@@ -191,4 +191,6 @@ $(document).ready(function () {
         });
     }
 
+    //$('.drag-and-drop').UTDragDrop();
+
 });
