@@ -24,7 +24,7 @@
             .students-info
               %form(action="" method="post" )
                 %p.fild
-                  %label(for="fild" class="lable-name")Name of Student
+                  %label(for="fild" class="label-name")Name of Student
                     %span*
                   %input(id="fild" name="name" required="required" type="text")
                   %hr
@@ -32,44 +32,42 @@
                     %img(src="#{$this->assetsPath}/img/mark.png" )
                 %br
                 %p.fild
-                  %label(for="gender" class="lable-name")Gender
+                  %label(for="gender" class="label-name")Gender
                     %span*
                 %p.wrapper-sex
-                  %input(id="r1" type="radio" name="male" value="male")
-                  %lable(for="r1" class="people-sex")
-                    %span>
-                    Male
-                  %input(id="r2" type="radio" name="female" value="female")
-                  %lable(for="r2" class="people-sex")
-                    %span>
-                    Female
+                  %input(id="r1" type="radio" name="sex" value="male" class="test-radio" )
+                  %label(for="r1" class="people-sex")
+                    %span Male
+                  %input(id="r2" type="radio" name="sex" value="female" class="test-radio" )
+                  %label(for="r2" class="people-sex")
+                    %span Female
                   %hr
                   %span.correct
                 %br
                 %p.fild
-                  %label(for="fild" class="lable-name")Student’s current school
+                  %label(for="fild" class="label-name")Student’s current school
                   %input(id="fild" name="school" required="" type="text")
                   %hr
                 %br
                 %p.fild
-                  %label(for="fild" class="lable-name")Student Address
+                  %label(for="fild" class="label-name")Student Address
                     %span*
                   %input(id="fild" name="staddres" required="required" type="text" )
                   %hr
                 %br
                 %p.fild
-                  %label(for="fild" class="lable-name")Home phone
+                  %label(for="fild" class="label-name")Home phone
                   %input(id="fild" name="homephone" required="" type="tel" )
                   %hr
                 %br
                 %p.fild
-                  %label(for="fild" class="lable-name")Cell phone
+                  %label(for="fild" class="label-name")Cell phone
                     %span*
                   %input(id="fild" name="cellphone" required="required" type="tel" )
                   %hr
                 %br
                 %p.fild
-                  %label(for="fild" class="lable-name")Student's e-mail
+                  %label(for="fild" class="label-name")Student's e-mail
                     %span*
                   %input(id="fild" name="stemail" required="required" type="email")
                   %hr
@@ -81,7 +79,7 @@
             .parents-info
               %form(action="" method="post" )
                 %p.fild
-                  %label(for="fild" class="lable-name")Name of Parent #1
+                  %label(for="fild" class="label-name")Name of Parent #1
                     %span*
                   %input(id="fild" name="nameparent" required="required" type="text")
                   %hr
@@ -89,18 +87,18 @@
                     %img(src="#{$this->assetsPath}/img/mark.png" )
                 %br
                 %p.fild
-                  %label(for="fild" class="lable-name")Email of Parent #1
+                  %label(for="fild" class="label-name")Email of Parent #1
                     %span*
                   %input(id="fild" name="emailparent" required="" type="email")
                   %hr
                 %br
                 %p.fild
-                  %label(for="fild" class="lable-name")Name of Parent #2
+                  %label(for="fild" class="label-name")Name of Parent #2
                   %input(id="fild" name="nameparent" required="required" type="text")
                   %hr
                 %br
                 %p.fild
-                  %label(for="fild" class="lable-name")Email of Parent #2
+                  %label(for="fild" class="label-name")Email of Parent #2
                   %input(id="fild" name="emailparent" required="" type="email")
                   %hr
                 %br
@@ -108,19 +106,19 @@
                   %b Parent to contact in case of emergency:
                 %br
                 %p.fild
-                  %label(for="fild" class="lable-name")Name
+                  %label(for="fild" class="label-name")Name
                     %span*
                   %input(id="fild" name="name" required="required" type="text")
                   %hr
                 %br
                 %p.fild
-                  %label(for="fild" class="lable-name")Cell phone
+                  %label(for="fild" class="label-name")Cell phone
                     %span*
                   %input(id="fild" name="cellphone" required="required" type="tel" )
                   %hr
                 %br
                 %p.fild
-                  %label(for="fild" class="lable-name")Home phone
+                  %label(for="fild" class="label-name")Home phone
                     %span*
                   %input(id="fild" name="homephone" required="required" type="tel")
                   %hr
@@ -129,25 +127,25 @@
                   %b Person to contact in case of emergency and parent not available:
                 %br
                 %p.fild
-                  %label(for="fild" class="lable-name")Name
+                  %label(for="fild" class="label-name")Name
                     %span*
                   %input(id="fild" name="name" required="required" type="text")
                   %hr
                 %br
                 %p.fild
-                  %label(for="fild" class="lable-name")Cell phone
+                  %label(for="fild" class="label-name")Cell phone
                     %span*
                   %input(id="fild" name="cellphone" required="required" type="tel")
                   %hr
                 %br
                 %p.fild
-                  %label(for="fild" class="lable-name")Home phone
+                  %label(for="fild" class="label-name")Home phone
                     %span*
                   %input(id="fild" name="homephone" required="required" type="tel")
                   %hr
                 %br
                 %p.fild
-                  %label(for="fild" class="lable-name")Relationship to student
+                  %label(for="fild" class="label-name")Relationship to student
                     %span*
                   %input(id="fild" name="relstudent" required="required" type="text")
                   %hr
@@ -157,7 +155,7 @@
             .parents-info
               %form(action="fild" method="post" )
                 %p.fild
-                  %label(for="" class="lable-name")Physician’s name
+                  %label(for="" class="label-name")Physician’s name
                     %span*
                   %input(id="fild" name="phname" required="required" type="text")
                   %hr
@@ -165,44 +163,44 @@
                     %img(src="#{$this->assetsPath}/img/mark.png" )
                 %br
                 %p.fild
-                  %label(for="fild" class="lable-name")Physician’s phone
+                  %label(for="fild" class="label-name")Physician’s phone
                     %span*
                   %input(id="fild" name="phphone" required="" type="tel")
                   %hr
                 %br
                 %p.fild
-                  %label(for="fild" class="lable-name")Dentist’s name
+                  %label(for="fild" class="label-name")Dentist’s name
                     %span*
                   %input(id="fild" name="dentistsname" required="required" type="text")
                   %hr
                 %br
                 %p.fild
-                  %label(for="fild" class="lable-name")Dentist’s phone
+                  %label(for="fild" class="label-name")Dentist’s phone
                     %span*
                   %input(id="fild" name="dentistsphone" required="" type="tel")
                   %hr
                 %br
                 %p.fild
-                  %label(for="fild" class="lable-name")List any medications
+                  %label(for="fild" class="label-name")List any medications
                     %br for allergies
                   %input(id="fild" name="listmedication" required="required" type="text")
                   %hr
                 %br
                 %p.fild
-                  %label(for="fild" class="lable-name")List any medications
+                  %label(for="fild" class="label-name")List any medications
                     %br currently taken
                   %input(id="fild" name="listmedicationtaken" required="required" type="text")
                   %hr
                 %br
                 %p.fild
-                  %label(for="fild" class="lable-name")Please list
+                  %label(for="fild" class="label-name")Please list
                     %br any food allergies
                   %input(id="fild" name="pleaselist" required="required" type="text")
                   %hr
                 %br
                 %br
                 %p.fild
-                  %label(for="" class="lable-name") Date of last tetanus shot
+                  %label(for="" class="label-name") Date of last tetanus shot
                 %p.select-move
                   %select(class="select-date" name="month" )
                     %option Month
@@ -242,7 +240,7 @@
                   as appropriate.  In case of accident or acute illness, I grant permission for authorized Omega Teaching LLC personnel to arrange transportation for my child to the closest hospital or dentist.  I understand that an effort will be made to notify me before such action is taken and the expense of this service and any subsequent medical expenses will be assumed by me.  I give permission for the student enrolled to participate in the seminar and activities above and I further agree to indemnify Omega Teaching LLC, its employees and agents, and the independent consultants retained by Omega Teaching from and against any and all liability for any injury or harm suffered by the student which may arise out of or in any way be connected to the student’s participation in the above activities.  I further agree to permit the use of event or activity photography and/or video media production, which may include images of the student.
                 %br
                 %p.fild
-                  %label(for="" class="lable-name") Date
+                  %label(for="" class="label-name") Date
                     %span*
                 %p.fild
                   %select(class="select-date" name="month" )
