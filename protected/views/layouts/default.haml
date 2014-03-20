@@ -88,32 +88,36 @@
         %li
           %a(href="/" )Home
         %li
-          %a(href="#" )Teachers
+          %a(href="#{$this->createUrl('site/Tutors')}" )Tutors
         %li
-          %a(href="#" )Tutoring
+          %a(href="#{$this->createUrl('site/MainClasses')}" )Classes
         %li
-          %a(href="#{$this->createUrl('site/jobs')}" )Jobs
+          %a(href="#{$this->createUrl('site/Classes')}" )Summer Seminars
         %li
-          %a(href="#" )Store
+          %a(href="#" )blog
     .classes
       %h1 Classes:
       .middle-top-border
       %ul.classes-list
         %li
-          %a(href="#" )Math Olympiad Training
+          %a(href="#" )Creative Writing at Oak Knoll
         %li
-          %a(href="#" )Hillview Writing Workouts
+          %a(href="#" )Writing Workouts at Hillview
         %li
-          %a(href="#" )Pre-School Mandarin
+          %a(href="#{$this->createUrl('site/TestPrepBootCamp')}" )Test prep boot camp
         %li
-          %a(href="#" )Science Fair Camp
+          %a(href="#{$this->createUrl('site/EssayStatement')}" )Crafting the personal essay statement
+        %li
+          %a(href="#{$this->createUrl('site/MythsAndMonsters')}" )Of myths and monsters
       %ul.classes-spisok-isee
         %li
-          %a(href="#" )ISEE and HSPT Classes
+          %a(href="#{$this->createUrl('site/TheDogs')}" )Going to the dogs
         %li
-          %a(href="#" )SAT and ACT Preparation
+          %a(href="#{$this->createUrl('site/MakeemLaugh')}" )Make‘em laugh
         %li
-          %a(href="#" )Summer Classes
+          %a(href="#{$this->createUrl('site/PowerOfStory')}" )The power of story
+        %li
+          %a(href="#{$this->createUrl('site/LiteraryAnalysis')}" )Intro to literary analysis
     .contact-us
       %h1 Contact us
       .right-top-border
