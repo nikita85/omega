@@ -169,7 +169,7 @@ $(document).ready(function () {
         });
 
         enrollmentForm.confirmButton.on('click', function(e){
-            e.preventDefault();
+
             if(enrollmentForm.isReady) {
                 var isValid = true;
 
@@ -182,13 +182,16 @@ $(document).ready(function () {
                 }
 
                 if(isValid) {
-                    alert('Success!');
+                    return true;
                 }
 
             } else {
                 console.log(false);
             }
+            e.preventDefault();
         });
     }
+
+    //$('.drag-and-drop').UTDragDrop();
 
 });
