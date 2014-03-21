@@ -167,12 +167,13 @@ header
     .puzzle-popup
       display: none
       position: absolute
-      top: 334px
-      left: 985px
+      top: 333px
+      left: 1010px
       background-image: url("../img/button_puzzle_opened2.png")
       background-position: top center
       background-repeat: no-repeat
       width: 360px
+      z-index: 1
     .popup-text
       margin-top: 40px
       background-color: #ffffff
@@ -505,8 +506,14 @@ section
     margin-top: 40px
     .camp, .personal, .myths, .going, .laugh, .story, .intro, .question
       position: relative
+      float: left
+      margin-left: 17px
       @include border-radius(20px)
       @include borders-left-right-bottom
+      &:first-child
+        margin-left: 0
+      &:last-child
+        float: right
       height: 180px
       .camp-topic, .personal-topic, .myths-topic, .going-topic, .laugh-topic, .story-topic, .intro-topic
         position: absolute
@@ -530,7 +537,7 @@ section
         font-weight: 400
         color: #666666
     .camp
-      float: left
+      /*float: left
       .camp-topic
         margin-left: 29px
     .camp-button, .personal-button, .myths-button, .going-button, .laugh-button, .story-button, .intro-button
@@ -543,27 +550,22 @@ section
       text-transform: uppercase
       text-decoration: none
       padding: 6px 13px
+      @include border-radius(20px)
     .camp-button
       left: 65px
       @include linear-gradient(#6bcb64, #019140)
-      @include border-radius(20px)
       &:hover
         @include linear-gradient(#019140, #6bcb64)
     .personal
-      float: left
-      margin-left: 17px
       .personal-topic
         width: 161px
         margin-left: 28px
     .personal-button
       left: 65px
       @include linear-gradient(#2cc87f, #0a9252)
-      @include border-radius(20px)
       &:hover
         @include linear-gradient(#0a9252, #2cc87f)
     .myths
-      float: left
-      margin-left: 17px
       .myths-topic
         width: 180px
         margin-left: 20px
@@ -573,11 +575,9 @@ section
     .myths-button
       left: 65px
       @include linear-gradient(#30c494, #18946c)
-      @include border-radius(20px)
       &:hover
         @include linear-gradient(#18946c, #30c494)
     .going
-      float: right
       .going-topic
         width: 180px
         margin-left: 22px
@@ -587,51 +587,39 @@ section
     .going-button
       left: 65px
       @include linear-gradient(#36c3b4, #27968a)
-      @include border-radius(20px)
       &:hover
         @include linear-gradient(#27968a, #36c3b4)
     .laugh
       margin-top: 40px
-      margin-bottom: 40px
       float: left
+      margin-left: 0
       .laugh-topic
         margin-left: 48px
     .laugh-button
       left: 65px
       @include linear-gradient(#4ac2d6, #3797a8)
-      @include border-radius(20px)
       &:hover
         @include linear-gradient(#3797a8, #4ac2d6)
     .story
       margin-top: 40px
-      margin-bottom: 40px
-      float: left
-      margin-left: 17px
       .story-topic
         margin-left: 38px
     .story-button
       left: 65px
       @include linear-gradient(#4ac2d6, #4499c1)
-      @include border-radius(20px)
       &:hover
         @include linear-gradient(#4499c1, #4ac2d6)
     .intro
       margin-top: 40px
-      margin-bottom: 40px
-      float: left
-      margin-left: 17px
       .intro-topic
         margin-left: 20px
     .intro-button
       left: 65px
       @include linear-gradient(#73c3ff, #4d9ad3)
-      @include border-radius(20px)
       &:hover
         @include linear-gradient(#4d9ad3, #73c3ff)
     .question
       margin-top: 40px
-      margin-bottom: 40px
-      float: right
       width: 220px
       background: #e9f5fe
       border-radius: 8px
@@ -650,6 +638,9 @@ section
         width: 195px
         text-align: left
         margin-top: 20px
+      p
+        width: 140px
+        padding-left: 40px
       span
         color: #3888c4
         font-weight: 700
@@ -1459,7 +1450,7 @@ section
         @include border-radius(20px)
       #steps ul li a
         display: table-cell
-        /*width: 164px
+        /*width: 1px
         /*height: 40px
         padding: 5px
         line-height: normal
@@ -1491,7 +1482,7 @@ section
         width: 12px
         height: 12px
         cursor: pointer
-        margin: 0 -169px 5px 217px
+        margin: -13px -140px 5px 187px
         /*margin-left: 50px
         /*margin-bottom: 15px
       input.test-radio[type="radio"]:checked + label
@@ -1507,12 +1498,15 @@ section
         text-align: left
         span
           color: #26a54c
-      .correct
+      .correct, .correct-radio
         display: none
         background-image: url("../img/mark.png")
-        background-position: right
         background-repeat: no-repeat
-        background-size: auto auto
+        width: 14px
+        height: 11px
+        margin: -21px 0 15px 458px
+      .correct-radio
+        margin: -13px 0 7px 326px
       .fild, .wrapper-sex
         clear: both
         text-align: right
@@ -1530,14 +1524,16 @@ section
         border: none
         outline: none
         background-image: url("../img/input_form_bg.png")
+        /*@include border-radius(20px)
         background-repeat: no-repeat
         width: 242px
         height: 24px
         padding: 0 10px
-        margin-right: 20px
+        /*margin-right: 40px
         font-family: $head-fonts
         font-size: 13px
         color: #666666
+        margin: -22px 42px 2px 0
       .select-move
         float: right
         margin-right: 97px
@@ -1545,7 +1541,11 @@ section
       .select-date
         border: none
         outline: none
+        /*background: none
         background-image: url("../img/select_bg.png")
+        padding: 0 10px
+        /*border: 1px solid #ececec
+        @include border-radius(20px)
         background-repeat: no-repeat
         width: 92px
         height: 24px
@@ -1570,8 +1570,6 @@ section
       position: absolute
       top: 0
       right: 63px
-      /*float: right
-      /*margin-right: 63px
       margin-top: 64px
       width: 230px
       height: 200px
@@ -1595,11 +1593,10 @@ section
           color: #666666
           font-weight: 700
           padding-left: 10px
-      .make, .essay
+      .your-courses-data
         border: 1px solid #ececec
         @include border-radius(10px)
-      .essay
-        margin-top: 10px
+        margin: 0 0 10px 0
       .your-courses-button
         position: absolute
         left: 65px

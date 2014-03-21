@@ -27,9 +27,8 @@
                   %label(for="fild" class="label-name")Name of Student
                     %span*
                   %input(id="fild" name="name" required="required" type="text")
+                  .correct
                   %hr
-                  %span.correct
-                    %img(src="#{$this->assetsPath}/img/mark.png" )
                 %br
                 %p.fild
                   %label(for="gender" class="label-name")Gender
@@ -41,8 +40,8 @@
                   %input(id="r2" type="radio" name="sex" value="female" class="test-radio" )
                   %label(for="r2" class="people-sex")
                     %span Female
+                  .correct-radio
                   %hr
-                  %span.correct
                 %br
                 %p.fild
                   %label(for="fild" class="label-name")Student’s current school
@@ -53,6 +52,7 @@
                   %label(for="fild" class="label-name")Student Address
                     %span*
                   %input(id="fild" name="staddres" required="required" type="text" )
+                  .correct
                   %hr
                 %br
                 %p.fild
@@ -64,12 +64,14 @@
                   %label(for="fild" class="label-name")Cell phone
                     %span*
                   %input(id="fild" name="cellphone" required="required" type="tel" )
+                  .correct
                   %hr
                 %br
                 %p.fild
                   %label(for="fild" class="label-name")Student's e-mail
                     %span*
                   %input(id="fild" name="stemail" required="required" type="email")
+                  .correct
                   %hr
                 %br
             %input(type="submit" class="registration-button" value="continue" )
@@ -82,6 +84,7 @@
                   %label(for="fild" class="label-name")Name of Parent #1
                     %span*
                   %input(id="fild" name="nameparent" required="required" type="text")
+                  .correct
                   %hr
                   %span.correct
                     %img(src="#{$this->assetsPath}/img/mark.png" )
@@ -90,6 +93,7 @@
                   %label(for="fild" class="label-name")Email of Parent #1
                     %span*
                   %input(id="fild" name="emailparent" required="" type="email")
+                  .correct
                   %hr
                 %br
                 %p.fild
@@ -109,18 +113,21 @@
                   %label(for="fild" class="label-name")Name
                     %span*
                   %input(id="fild" name="name" required="required" type="text")
+                  .correct
                   %hr
                 %br
                 %p.fild
                   %label(for="fild" class="label-name")Cell phone
                     %span*
                   %input(id="fild" name="cellphone" required="required" type="tel" )
+                  .correct
                   %hr
                 %br
                 %p.fild
                   %label(for="fild" class="label-name")Home phone
                     %span*
                   %input(id="fild" name="homephone" required="required" type="tel")
+                  .correct
                   %hr
                 %br
                 %h4
@@ -130,24 +137,28 @@
                   %label(for="fild" class="label-name")Name
                     %span*
                   %input(id="fild" name="name" required="required" type="text")
+                  .correct
                   %hr
                 %br
                 %p.fild
                   %label(for="fild" class="label-name")Cell phone
                     %span*
                   %input(id="fild" name="cellphone" required="required" type="tel")
+                  .correct
                   %hr
                 %br
                 %p.fild
                   %label(for="fild" class="label-name")Home phone
                     %span*
                   %input(id="fild" name="homephone" required="required" type="tel")
+                  .correct
                   %hr
                 %br
                 %p.fild
                   %label(for="fild" class="label-name")Relationship to student
                     %span*
                   %input(id="fild" name="relstudent" required="required" type="text")
+                  .correct
                   %hr
             %input(type="submit" class="registration-button" value="continue" )
         %div#step-3
@@ -158,26 +169,28 @@
                   %label(for="" class="label-name")Physician’s name
                     %span*
                   %input(id="fild" name="phname" required="required" type="text")
+                  .correct
                   %hr
-                  %span.correct
-                    %img(src="#{$this->assetsPath}/img/mark.png" )
                 %br
                 %p.fild
                   %label(for="fild" class="label-name")Physician’s phone
                     %span*
                   %input(id="fild" name="phphone" required="" type="tel")
+                  .correct
                   %hr
                 %br
                 %p.fild
                   %label(for="fild" class="label-name")Dentist’s name
                     %span*
                   %input(id="fild" name="dentistsname" required="required" type="text")
+                  .correct
                   %hr
                 %br
                 %p.fild
                   %label(for="fild" class="label-name")Dentist’s phone
                     %span*
                   %input(id="fild" name="dentistsphone" required="" type="tel")
+                  .correct
                   %hr
                 %br
                 %p.fild
@@ -309,13 +322,13 @@
             %input(type="submit" class="registration-button" value="send form" )
     .your-courses
       %h2 Your courses
-      .make
+      .your-courses-data
         %h3 Make ‘Em Laugh
         %p Preferred week:
           %span August 25-29
         %p Entering Grade:
           %span 8th
-      .essay
+      .your-courses-data
         %h3 Crafting The Personal Essay Statement
         %p Preferred week:
           %span August 25-29
