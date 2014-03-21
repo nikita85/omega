@@ -8,6 +8,16 @@
   background-image: linear-gradient(top, $fromColor, $toColor)
   filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#{$fromColor}', EndColorStr='#{$toColor}')
 
+@mixin horizontal-gradient($from, $to, $stop: 100%)
+  background-color: $from
+  background-image: -moz-linear-gradient(left, $from 0%, $to $stop)
+  background-image: -webkit-gradient(linear, left top, right top, color-stop(0%, $from), color-stop($stop, $to))
+  background-image: -webkit-linear-gradient(left, $from 0%, $to $stop)
+  background-image: -o-linear-gradient(left, $from 0%, $to $stop)
+  background: -ms-linear-gradient(left, $from 0%, $to $stop)
+  background: linear-gradient(to right, $from 0%, $to $stop)
+  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=1  startColorstr='#{$from}', endColorstr='#{$to}')
+
 @mixin border-radius($radius)
   -moz-border-radius: $radius
   -webkit-border-radius: $radius

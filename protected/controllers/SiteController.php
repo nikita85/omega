@@ -74,6 +74,11 @@ class SiteController extends Controller
         $this->render('summer_classes_registration_form');
     }
 
+    public function actionOurMarket()
+    {
+        $this->render('our_market');
+    }
+
 	/**
 	 * This is the action to handle external exceptions.
 	 */
