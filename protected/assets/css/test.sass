@@ -9,6 +9,7 @@
 $head-fonts: 'Open Sans', sans-serif
 $second-fonts: 'Ubuntu', sans-serif
 /*-----------------------------------------*/
+/**COMMON STYLES**/
 h1
   font-family: $second-fonts
   font-weight: 700
@@ -19,6 +20,7 @@ h2
   color: #333333
 a
   font-family: $second-fonts
+/**BORDER BOTTOM**/
 hr
   color: #ececec
   background-color: #ececec
@@ -27,6 +29,7 @@ hr
   clear: both
   width: 475px
   margin: 5px 0
+/**ALL BUTTON STYLES*/
 .btn
   border: none
   outline: none
@@ -38,7 +41,7 @@ hr
   @include border-radius(20px)
 .clear
   clear: both
-/**HEADER**/
+/**WRAPPER PAGE**/
 .wrapper-page
   position: relative
   margin: 0 auto
@@ -53,6 +56,7 @@ hr
   font-family: $second-fonts
   text-transform: uppercase
   @include border-radius(20px)
+/**HEADER**/
 header
   background-image: url("../img/main_big_photo.jpg")
   background-position: center
@@ -97,6 +101,7 @@ header
       padding: 5px 17px 5px 17px
       &:hover
         @include linear-gradient(#029141, #53bb4c)
+  /**NAVIGATION MENU**/
   .nav
     margin: 0 auto
     width: 940px
@@ -120,6 +125,7 @@ header
           @include linear-gradient(#53bb4c, #029141)
           @include border-radius(20px)
           color: #ffffff
+  /**SEARCH FORM**/
   form
     .rounded
       width: 242px
@@ -141,6 +147,7 @@ header
       font-family: $head-fonts
       font-size: 12px
       color: #999999
+/**SLIDER**/
 .slider-bg
   margin: 0 auto
   width: 1024px
@@ -229,18 +236,12 @@ header
           height: 24px
           padding: 0 10px
         .enter-email-button
-          border: none
-          outline: none
           margin-top: 4px
           font-family: $head-fonts
           font-size: 10px
-          color: #ffffff
-          text-transform: uppercase
           font-weight: 700
-          cursor: pointer
           padding: 4px 6px
           @include linear-gradient(#6bcb64, #019140)
-          @include border-radius(20px)
           &:hover
             @include linear-gradient(#019140, #6bcb64)
 /**CONTENT**/
@@ -1160,6 +1161,7 @@ section
       margin-left: 45px
       margin-bottom: 10px
       line-height: normal
+      word-wrap: break-word
     .summer-seminar
       float: left
       h2
