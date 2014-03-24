@@ -9,6 +9,16 @@
 $head-fonts: 'Open Sans', sans-serif
 $second-fonts: 'Ubuntu', sans-serif
 /*-----------------------------------------*/
+h1
+  font-family: $second-fonts
+  font-weight: 700
+  color: #007c2d
+h2
+  font-family: $second-fonts
+  font-weight: 700
+  color: #333333
+a
+  font-family: $second-fonts
 hr
   color: #ececec
   background-color: #ececec
@@ -17,6 +27,15 @@ hr
   clear: both
   width: 475px
   margin: 5px 0
+.btn
+  border: none
+  outline: none
+  color: #ffffff
+  cursor: pointer
+  text-decoration: none
+  text-transform: uppercase
+  text-align: center
+  @include border-radius(20px)
 .clear
   clear: both
 /**HEADER**/
@@ -24,8 +43,9 @@ hr
   position: relative
   margin: 0 auto
   width: 940px
-  /*margin-bottom: 80px
 .all-buttons
+  border: none
+  outline: none
   text-align: center
   color: #ffffff !important
   font-size: 10px
@@ -33,7 +53,6 @@ hr
   font-family: $second-fonts
   text-transform: uppercase
   @include border-radius(20px)
-
 header
   background-image: url("../img/main_big_photo.jpg")
   background-position: center
@@ -59,10 +78,9 @@ header
       padding-right: 10px
     h1
       float: left
-      font-family: $head-fonts
+      font-family: $head-fonts !important
       font-size: 18px
-      font-weight: 700
-      color: #666666
+      color: #666666 !important
   .logins
     float: right
     margin-right: 20px
@@ -70,7 +88,6 @@ header
       float: left
       padding-top: 6px
       padding-right: 10px
-      font-family: $second-fonts
       font-size: 10px
       color: #019140
       text-transform: uppercase
@@ -95,7 +112,6 @@ header
       a
         list-style: none
         text-decoration: none
-        font-family: $second-fonts
         font-weight: 700
         font-size: 14px
         color: #333333
@@ -141,9 +157,6 @@ header
       width: 444px
       height: 344px
       h1
-        font-family: $second-fonts
-        font-weight: 700
-        color: #007c2d
         font-size: 48px
         text-align: center
         padding-top: 80px
@@ -198,9 +211,7 @@ header
         font-size: 13px
         color: #333333
       h2
-        font-family: $second-fonts
         font-size: 18px
-        font-weight: 700
         color: #0a9643
       p, .enter-your-mail
         font-family: $second-fonts
@@ -264,13 +275,9 @@ section
     .education
       margin-top: 50px
       h2
-        font-family: $second-fonts
-        font-weight: 700
         font-size: 18px
-        color: #333333
         padding-bottom: 20px
       .tutoring h2, .classes h2, .cat-and-cat h2, .isee-and-hspt h2
-        font-family: $second-fonts
         font-size: 24px
         margin-top: 10px
         margin-left: 15px
@@ -322,7 +329,6 @@ section
         margin-left: 20px
         width: 219px
         h2
-          font-size: 24px
           color: #3697a7
         p
           margin-left: 15px
@@ -362,10 +368,7 @@ section
         text-align: center
         h2
           padding-top: 20px
-          font-family: $second-fonts
           font-size: 18px
-          font-weight: 700
-          color: #333333
       .date
         background-image: url("../img/calendar.jpg")
         width: 220px
@@ -421,10 +424,7 @@ section
       margin-bottom: 50px
       h2
         padding-bottom: 10px
-        font-family: $second-fonts
         font-size: 18px
-        font-weight: 700
-        color: #333333
 /**Classes-pages**/
 header#header-bg
   background-image: url("../img/header_picture.jpg")
@@ -489,10 +489,7 @@ section
     h1
       margin-top: 18px
       margin-bottom: 14px
-      font-family: $second-fonts
       font-size: 30px
-      font-weight: 700
-      color: #007c2d
     img
       float: left
       margin-right: 19px
@@ -537,7 +534,6 @@ section
         font-weight: 400
         color: #666666
     .camp
-      /*float: left
       .camp-topic
         margin-left: 29px
     .camp-button, .personal-button, .myths-button, .going-button, .laugh-button, .story-button, .intro-button
@@ -688,7 +684,7 @@ section
     font-size: 10px
     text-transform: uppercase
     text-decoration: none
-    padding: 4px 7px
+    padding: 3px 10px
     @include border-radius(20px)
     @include linear-gradient(#6bcb64, #019140)
 .enrollment-form
@@ -703,20 +699,6 @@ section
     font-weight: 700
     font-size: 18px
     color: #333333
-  .table-button
-    position: relative
-    top: 5px
-    left: 412px
-    text-align: center
-    color: #cccccc
-    font-family: $second-fonts
-    font-weight: 700
-    font-size: 10px
-    text-transform: uppercase
-    text-decoration: none
-    padding: 4px 7px
-    @include border-radius(20px)
-    @include linear-gradient(#fcfbfb, #f1f1f1)
   .register
     margin-bottom: 30px
     width: 940px
@@ -735,9 +717,6 @@ section
         background-position: left
         background-size: auto auto
         color: #fcd234
-//    td.hovered
-      @include th-hovered-gradient
-
     td[data-col-id]
       cursor: pointer
     td.select
@@ -777,7 +756,6 @@ section
       @include custom-border-radius(10px, 10px, 0, 0)
       padding: 10px 2px
       vertical-align: top
-      /*@include linear-gradient(#6bcb64, #019140)
       p
         text-indent: -99999px
       span
@@ -806,7 +784,7 @@ section
   .table-button
     position: relative
     top: 5px
-    left: 412px
+    left: 473px
     text-align: center
     color: #cccccc
     font-family: $second-fonts
@@ -816,9 +794,9 @@ section
     text-decoration: none
     padding: 3px 10px
     @include linear-gradient(#fcfbfb, #f1f1f1)
-    @include border-radius(20px)
     &.table-button-active
       @include linear-gradient(#6bcb64, #019140)
+      @include border-radius(20px)
 /**OPENED CLASS**/
 section
     .analysis
@@ -832,10 +810,7 @@ section
         vertical-align: text-bottom
       h1
         padding-top: 20px
-        font-family: $second-fonts
-        font-weight: 700
         font-size: 30px
-        color: #007c2d
       .analysis-list
         float: left
         margin-top: 20px
@@ -869,9 +844,7 @@ section
         height: 300px
         h2
           margin-bottom: 10px
-          font-family: $second-fonts
           font-size: 18px
-          color: #333333
         p
           width: 294px
           font-family: $head-fonts
@@ -959,9 +932,7 @@ section
         margin-top: 20px
         height: 120px
         h2
-          font-family: $second-fonts
           font-size: 18px
-          color: #333333
           margin-top: 80px
           margin-bottom: 30px
         .borders
@@ -1028,10 +999,7 @@ section
   .wrapper-job-page
     margin-bottom: 50px
     h1
-      font-family: $second-fonts
       font-size: 30px
-      color: #007c2d
-      font-weight: 700
       margin-top: 20px
       margin-bottom: 20px
     .opportunities
@@ -1087,11 +1055,9 @@ section
       .form-bellow-borders
         margin-top: -39px
         h2
+          padding-bottom: 20px
           padding-top: 57px
-          font-family: $second-fonts
           font-size: 18px
-          font-weight: 700
-          color: #333333
           text-align: center
         .forms
           margin-left: 46px
@@ -1117,7 +1083,7 @@ section
           margin-bottom: 10px
         .drag-and-drop
           margin-top: 5px
-          margin-bottom: 46px
+          margin-bottom: 27px
           margin-left: 0px
           width: 212px
           height: 76px
@@ -1160,10 +1126,8 @@ section
     h1
       margin-top: 20px
       margin-bottom: 20px
-      font-family: $second-fonts
       font-size: 18px
-      color: #333333
-      font-weight: 700
+      color: #333333 !important
     .summer-seminar, .creative-writing, .writing-workouts
       position: relative
       width: 218px
@@ -1189,7 +1153,6 @@ section
           line-height: normal
           color: #666666
     .summer-seminar h2, .creative-writing h2, .writing-workouts h2
-      font-family: $second-fonts
       font-size: 15px
       text-align: center
       width: 200px
@@ -1212,11 +1175,11 @@ section
       text-transform: uppercase
       text-decoration: none
       padding: 6px 13px
+      @include border-radius(20px)
     .summer-seminar-button
       @include linear-gradient(#6bcb64, #019140)
       &:hover
         @include linear-gradient(#019140, #6bcb64)
-      @include border-radius(20px)
     .creative-writing
       float: left
       margin-left: 20px
@@ -1224,7 +1187,6 @@ section
         color: #1a986f
     .creative-writing-button
       @include linear-gradient(#6bcb64, #019140)
-      @include border-radius(20px)
       &:hover
         @include linear-gradient(#019140, #6bcb64)
     .writing-workouts
@@ -1234,7 +1196,6 @@ section
         color: #3899aa
     .writing-workouts-button
       @include linear-gradient(#4ac2d6,  #3797a8)
-      @include border-radius(20px)
       &:hover
         @include linear-gradient(#3797a8,  #4ac2d6)
     .what-class
@@ -1327,27 +1288,18 @@ section
           position: absolute
           left: 252px
           bottom: -15px
-          border: none
-          outline: none
           font-family: $head-fonts
           font-size: 14px
           font-weight: 700
-          text-transform: uppercase
-          color: #ffffff
           padding: 5px 10px
-          cursor: pointer
           @include linear-gradient(#53bb4c, #029141)
-          @include border-radius(20px)
           &:hover
             @include linear-gradient(#029141, #53bb4c)
     .other-tutors
       margin-top: 10px
       h2
         margin-bottom: 10px
-        font-family: $second-fonts
         font-size: 18px
-        font-weight: 700
-        color: #333333
       .tutors-carousel
         font-family: $head-fonts
         font-size: 13px
@@ -1387,7 +1339,6 @@ section
               &:hover
                 text-decoration: underline
         .emma-bridges h2, .kayla-tileman h2,.james-wagner h2, .tammy-lambert h2
-          font-family: $second-fonts
           font-size: 24px !important
           color: #007c2d
           text-align: center
@@ -1397,30 +1348,21 @@ section
           position: absolute
           left: 60px
           bottom: -10px
-          border: none
-          outline: none
           font-family: $head-fonts
           font-weight: 700
           padding: 5px 7px
-          cursor: pointer
           @include linear-gradient(#6bcb64, #019140)
           &:hover
             @include linear-gradient(#019140, #6bcb64)
-
 /**SUMMER CLASSES REGISTRATION FORM**/
 section
     .registration-title
       float: left
       width: 118px
-      /*height: 200px
       line-height: normal
-      /*background: #5bc0de
       h1
         margin-top: 20px
-        font-family: $second-fonts
-        font-weight: 700
         font-size: 30px
-        color: #007c2d
       p
         font-family: $second-fonts
         font-size: 14px
@@ -1439,8 +1381,6 @@ section
         display: table-row
       #steps ul li
         display: table-cell
-        /*background: #cccccc
-        /*height: 40px
         text-align: center
         &:hover
           background: rgba(19, 150, 71, 0.2)
@@ -1450,8 +1390,6 @@ section
         @include border-radius(20px)
       #steps ul li a
         display: table-cell
-        /*width: 1px
-        /*height: 40px
         padding: 5px
         line-height: normal
         text-decoration: none
@@ -1477,21 +1415,15 @@ section
       input.test-radio[type="radio"] + label
         float: left
         background: url("../img/radio_buttons.png") 0 0 no-repeat
-        /*padding-left: 12px
         display: block
         width: 12px
         height: 12px
         cursor: pointer
         margin: -13px -140px 5px 187px
-        /*margin-left: 50px
-        /*margin-bottom: 15px
       input.test-radio[type="radio"]:checked + label
         background-position: -17px 0px
       .label-name
         float: left
-        /*width: 200px
-        /*padding-right: 20px
-        /*font-weight: $second-fonts
         font-size: 13px
         font-weight: 700
         color: #333333
@@ -1510,26 +1442,22 @@ section
       .fild, .wrapper-sex
         clear: both
         text-align: right
-        /*line-height: 25px
       .wrapper-sex
         margin-right: 158px
       .people-sex
         font-family: $second-fonts
         font-size: 13px
         color: #666666
-        /*padding-left: 20px
         span
           padding-left: 20px
       #fild
         border: none
         outline: none
         background-image: url("../img/input_form_bg.png")
-        /*@include border-radius(20px)
         background-repeat: no-repeat
         width: 242px
         height: 24px
         padding: 0 10px
-        /*margin-right: 40px
         font-family: $head-fonts
         font-size: 13px
         color: #666666
@@ -1541,10 +1469,8 @@ section
       .select-date
         border: none
         outline: none
-        /*background: none
         background-image: url("../img/select_bg.png")
         padding: 0 10px
-        /*border: 1px solid #ececec
         @include border-radius(20px)
         background-repeat: no-repeat
         width: 92px
@@ -1553,17 +1479,11 @@ section
         position: absolute
         left: 264px
         bottom: -40px
-        border: none
-        outline: none
-        @include linear-gradient(#6bcb64, #019140)
-        @include border-radius(20px)
-        color: #ffffff
         font-family: $second-fonts
         font-weight: 700
         font-size: 10px
-        text-transform: uppercase
         padding: 7px 25px
-        cursor: pointer
+        @include linear-gradient(#6bcb64, #019140)
         &:hover
           @include linear-gradient(#019140, #6bcb64)
     .your-courses
@@ -1601,16 +1521,11 @@ section
         position: absolute
         left: 65px
         bottom: -80px
-        border: none
-        outline: none
         font-family: $second-fonts
         font-size: 10px
         font-weight: 700
-        text-transform: uppercase
         color: #0a9643
         padding: 5px 20px
-        cursor: pointer
-        @include border-radius(20px)
         @include linear-gradient(#f6f6f6, #e9e9e9)
         &:hover
           @include linear-gradient(#e9e9e9, #f6f6f6)
@@ -1624,10 +1539,7 @@ section
     line-height: normal
     h1
       margin-bottom: 10px
-      font-family: $second-fonts
       font-size: 30px
-      font-weight: 700
-      color: #007c2d
     p
       width: 187px
       font-family: $head-fonts
@@ -1659,9 +1571,7 @@ section
       margin-right: 30px
     h2
       width: 423px
-      font-family: $second-fonts
       font-size: 18px
-      font-weight: 700
       color: #007c2d
     p
       font-family: $head-fonts
@@ -1697,18 +1607,11 @@ section
       left: 288px
       bottom: -17px
       line-height: 0.6
-      border: none
-      outline: none
       word-wrap: break-word
-      text-decoration: none
       font-family: $head-fonts
       font-size: 14px
-      color: #ffffff
       font-weight: 700
-      text-transform: uppercase
       padding: 8px 30px
-      cursor: pointer
-      @include border-radius(20px)
       @include linear-gradient(#53bb4c, #029141)
       &:hover
         @include linear-gradient(#029141, #53bb4c)
@@ -1734,10 +1637,10 @@ footer
     margin-top: 5px
     margin-bottom: 5px
     @include linear-gradient(#019140, #4d9ad3)
-  .pages, .classes, .contact-us
+  .pages h1, .classes h1, .contact-us h1
     font-family: $second-fonts
     font-weight: 700
-    color: #666666
+    color: #666666 !important
     font-size: 14px
   .pages-list a, .classes-list a, .classes-spisok-isee a, .contact-list
     font-family: $head-fonts
