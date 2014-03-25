@@ -17,120 +17,114 @@
   - Yii::app()->clientScript->registerScriptFile($this->assetsPath . DS . 'js' . DS . 'main.js');
 
 %body
-  - $isHomePage = ($this->action->id=='index')? true: false;
-  %header(id="#{$isHomePage? '': 'header-bg'}")
-    .header
-      .logo
-        %img(src="#{$this->assetsPath}/img/omega_logo.png" )
-      .phone
-        %img(src="#{$this->assetsPath}/img/icon_phone.png" )
-        %h1 650-322-2671
-      .logins
-        %a(href="#") Log in
-        %a.all-buttons.login-button(href="#") Sign up
-    .nav
-      %ul.header-menu
-        %li
-          %a(href="/") Home
-        %li
-          %a(href="#{$this->createUrl('site/tutors')}") Tutors
-        %li
-          %a(href="#{$this->createUrl('site/mainClasses')}") Classes
-        %li
-          %a(href="#{$this->createUrl('site/jobs')}") Jobs
-        %li
-          %a(href="#") Blog
-        %li
-          %a(href="#{$this->createUrl('site/OurMarket')}") Store
+  #main-wrapper
+    - $isHomePage = ($this->action->id=='index')? true: false;
+    %header(id="#{$isHomePage? '': 'header-bg'}")
+      .wrapper-page
+        .header
+          .logo
+            %img(src="#{$this->assetsPath}/img/omega_logo.png" )
+          .phone
+            %img(src="#{$this->assetsPath}/img/icon_phone.png" )
+            %h1 650-322-2671
+          .logins
+            %a(href="#") Log in
+            %a.all-buttons.login-button(href="#") Sign up
+        .nav
+          %ul.header-menu
+            %li
+              %a(href="/") Home
+            %li
+              %a(href="#{$this->createUrl('site/tutors')}") Tutors
+            %li
+              %a(href="#{$this->createUrl('site/mainClasses')}") Classes
+            %li
+              %a(href="#{$this->createUrl('site/jobs')}") Jobs
+            %li
+              %a(href="#") Blog
+            %li
+              %a(href="#{$this->createUrl('site/OurMarket')}") Store
 
-      %form
-        %input.search.rounded(placeholder="Search" type="text")
-    - if ($isHomePage)
-      .slider-bg
-        .slider
-          .slide-text
-            %h1 Aiming for the top universities? We Can Help!
-            %p Advanсed Teaching for Advancing Students
-          .puzzle
-            %a(href="#" data-popup-open="puzzle-popup")
-              %img(src="#{$this->assetsPath}/img/button_puzzle.png" )
-          .puzzle-popup
-            .popup-text
-              %a.popup-close(href="#" )close
-                %img(src="#{$this->assetsPath}/img/close-button.png" )
-              %h1 February puzzle
-              %br
-              %h2 Locker Puzzle
-              %br
-              %p You are in your school's hallway and the wall is lined with one hundred closed lockers numbered 1 through 100. A kid passes by and opens all of them. A second student comes by and closes all the even numbered ones. A third kid passes by and "toggles" every third locker. That is, if a locker is closed, she opens it, but if she finds a locker open, she closes it.
-              %br
-              %p Then, student number 4 toggles every fourth locker and student number 5 toggles every fifth one. And so on until one hundred students have passed through the hallway opening and closing lockers. Which lockers are open at the end of the process? Why?
-              %br
-              %p
-                %b Hint:
-                Who will toggle locker number 15? And who will toggle locker number 16? Are they left open or closed at the end?
-              %br
-              .enter-your-mail
-                %form
-                  %label Enter your e-mail to recieve an answer
-                  %input(type="email" class="enter-mail" )
-                  %input(type="submit" class="btn enter-email-button" value="get an answer" )
-
-
-      .clear
-
-  =$content
-
-  //.clear
-//FOOTER Classes Pages
-
-%footer
-  .footer
-    .pages
-      %h1 Pages:
-      .left-top-border
-      %ul.pages-list
-        %li
-          %a(href="/" )Home
-        %li
-          %a(href="#{$this->createUrl('site/Tutors')}" )Tutors
-        %li
-          %a(href="#{$this->createUrl('site/MainClasses')}" )Classes
-        %li
-          %a(href="#{$this->createUrl('site/Classes')}" )Summer Seminars
-        %li
-          %a(href="#" )blog
-    .classes
-      %h1 Classes:
-      .middle-top-border
-      %ul.classes-list
-        %li
-          %a(href="#" )Creative Writing at Oak Knoll
-        %li
-          %a(href="#" )Writing Workouts at Hillview
-        %li
-          %a(href="#{$this->createUrl('site/TestPrepBootCamp')}" )Test prep boot camp
-        %li
-          %a(href="#{$this->createUrl('site/EssayStatement')}" )Crafting the personal essay statement
-        %li
-          %a(href="#{$this->createUrl('site/MythsAndMonsters')}" )Of myths and monsters
-      %ul.classes-spisok-isee
-        %li
-          %a(href="#{$this->createUrl('site/TheDogs')}" )Going to the dogs
-        %li
-          %a(href="#{$this->createUrl('site/MakeemLaugh')}" )Make‘em laugh
-        %li
-          %a(href="#{$this->createUrl('site/PowerOfStory')}" )The power of story
-        %li
-          %a(href="#{$this->createUrl('site/LiteraryAnalysis')}" )Intro to literary analysis
-    .contact-us
-      %h1 Contact us
-      .right-top-border
-      %ul.contact-list
-        %li Omega Teaching
-        %li 1030 Curtis St. #201
-        %li Menlo Park, CA 94025
-        %li 650-322-2671
-        %li
-          %a(href="") @omegateaching.com
+          %form
+            %input.search.rounded(placeholder="Search" type="text")
+        - if ($isHomePage)
+          .slider
+            .slide-text
+              %h1 Aiming for the top universities? We Can Help!
+              %p Advanсed Teaching for Advancing Students
+            .puzzle
+              %a(href="#" data-popup-open="puzzle-popup")
+                %img(src="#{$this->assetsPath}/img/button_puzzle.png" )
+            .puzzle-popup
+              .popup-text
+                %a.popup-close(href="#" )close
+                  %img(src="#{$this->assetsPath}/img/close-button.png" )
+                %h1 February puzzle
+                %br
+                %h2 Locker Puzzle
+                %br
+                %p You are in your school's hallway and the wall is lined with one hundred closed lockers numbered 1 through 100. A kid passes by and opens all of them. A second student comes by and closes all the even numbered ones. A third kid passes by and "toggles" every third locker. That is, if a locker is closed, she opens it, but if she finds a locker open, she closes it.
+                %br
+                %p Then, student number 4 toggles every fourth locker and student number 5 toggles every fifth one. And so on until one hundred students have passed through the hallway opening and closing lockers. Which lockers are open at the end of the process? Why?
+                %br
+                %p
+                  %b Hint:
+                  Who will toggle locker number 15? And who will toggle locker number 16? Are they left open or closed at the end?
+                %br
+                .enter-your-mail
+                  %form
+                    %label Enter your e-mail to recieve an answer
+                    %input(type="email" class="enter-mail" )
+                    %input(type="submit" class="btn enter-email-button" value="get an answer" )
+    =$content
+  //FOOTER Classes Pages
+    %footer
+      .footer
+        .pages
+          %h1 Pages:
+          .left-top-border
+          %ul.pages-list
+            %li.active
+              %a(href="/" )Home
+            %li
+              %a(href="#{$this->createUrl('site/Tutors')}" )Tutors
+            %li
+              %a(href="#{$this->createUrl('site/MainClasses')}" )Classes
+            %li
+              %a(href="#{$this->createUrl('site/Classes')}" )Summer Seminars
+            %li
+              %a(href="#" )blog
+        .classes
+          %h1 Classes:
+          .middle-top-border
+          %ul.classes-list
+            %li
+              %a(href="#" )Creative Writing at Oak Knoll
+            %li
+              %a(href="#" )Writing Workouts at Hillview
+            %li
+              %a(href="#{$this->createUrl('site/TestPrepBootCamp')}" )Test prep boot camp
+            %li
+              %a(href="#{$this->createUrl('site/EssayStatement')}" )Crafting the personal essay statement
+            %li
+              %a(href="#{$this->createUrl('site/MythsAndMonsters')}" )Of myths and monsters
+          %ul.classes-spisok-isee
+            %li
+              %a(href="#{$this->createUrl('site/TheDogs')}" )Going to the dogs
+            %li
+              %a(href="#{$this->createUrl('site/MakeemLaugh')}" )Make‘em laugh
+            %li
+              %a(href="#{$this->createUrl('site/PowerOfStory')}" )The power of story
+            %li
+              %a(href="#{$this->createUrl('site/LiteraryAnalysis')}" )Intro to literary analysis
+        .contact-us
+          %h1 Contact us
+          .right-top-border
+          %ul.contact-list
+            %li Omega Teaching
+            %li 1030 Curtis St. #201
+            %li Menlo Park, CA 94025
+            %li 650-322-2671
+            %li
+              %a(href="") @omegateaching.com
 

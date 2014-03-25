@@ -10,6 +10,9 @@ $head-fonts: 'Open Sans', sans-serif
 $second-fonts: 'Ubuntu', sans-serif
 /*-----------------------------------------*/
 /**COMMON STYLES**/
+#main-wrapper
+  min-height: 100%
+  margin-bottom: 210px
 h1
   font-family: $second-fonts
   font-weight: 700
@@ -41,6 +44,7 @@ hr
   @include border-radius(20px)
 .clear
   clear: both
+  height: 0px
 /**WRAPPER PAGE**/
 .wrapper-page
   position: relative
@@ -58,16 +62,15 @@ hr
   @include border-radius(20px)
 /**HEADER**/
 header
-  background-image: url("../img/main_big_photo.jpg")
+  background-image: url("../img/header_bg_light.png")
   background-position: center
   background-repeat: no-repeat
   background-size: cover
   height: 440px
   padding-top: 10px
   .header
-    margin: 0 auto
-    width: 940px
-    height: 62px
+    height: 61px
+    border-bottom: 1px solid #aac79c
     @include linear-gradient(#ffffff, #efefef)
     @include custom-border-radius(10px, 10px, 0, 0)
   .logo
@@ -103,8 +106,8 @@ header
         @include linear-gradient(#029141, #53bb4c)
   /**NAVIGATION MENU**/
   .nav
-    margin: 0 auto
-    width: 940px
+    /*margin: 0 auto
+    /*width: 940px
     height: 36px
     background-color: rgba(255, 255, 255, 0.5)
     @include custom-border-radius(0, 0, 10px, 10px)
@@ -125,6 +128,10 @@ header
           @include linear-gradient(#53bb4c, #029141)
           @include border-radius(20px)
           color: #ffffff
+    li.active
+      a
+        @include linear-gradient(#53bb4c, #029141)
+        @include border-radius(20px)
   /**SEARCH FORM**/
   form
     .rounded
@@ -147,30 +154,22 @@ header
       font-family: $head-fonts
       font-size: 12px
       color: #999999
-/**SLIDER**/
-.slider-bg
-  margin: 0 auto
-  width: 1024px
-  overflow: hidden
-  background-image: url("../img/light_big.png")
-  background-position: -38px -86px
-  background-size: auto auto
-  background-repeat: no-repeat
+  /**SLIDER**/
   .slider
-    margin: 0 auto
-    width: 940px
+    position: relative
     .slide-text
       float: left
-      width: 444px
-      height: 344px
+      width: 340px
       h1
         font-size: 48px
         text-align: center
-        padding-top: 80px
+        padding-top: 40px
+        padding-left: 15px
+        width: 385px
       p
-        margin-left: 90px
+        margin-left: 75px
         margin-top: 10px
-        width: 254px
+        width: 260px
         font-family: $head-fonts
         font-size: 24px
         color: #333333
@@ -187,8 +186,8 @@ header
     .puzzle-popup
       display: none
       position: absolute
-      top: 333px
-      left: 1010px
+      top: 225px
+      left: 560px
       background-image: url("../img/button_puzzle_opened2.png")
       background-position: top center
       background-repeat: no-repeat
@@ -246,57 +245,53 @@ header
             @include linear-gradient(#019140, #6bcb64)
 /**CONTENT**/
 section
-    .cont
+    .wrapper-index-page
       height: 115px
       @include linear-gradient(#fcfbfb, #f1f1f1)
       @include custom-border-radius(0, 0, 20px, 20px)
-      .stanford p, .academic p, .individual p
+      .information p
         font-family: $head-fonts
         font-size: 13px
         line-height: 1.8em
         color: #333333
-      .stanford img, .academic img, .individual img
+      .information img
         float: left
         margin-right: 10px
-      .stanford
+      .information
         float: left
-        width: 276px
-        margin-top: 30px
-        margin-left: 50px
-      .academic
-        float: left
-        width: 300px
-        margin-top: 30px
-        margin-left: 20px
-      .individual
-        float: right
         width: 235px
-        margin-top: 30px
-        margin-right: 50px
+        margin: 30px 0 0 60px
     .education
+      display: inline-block
+      vertical-align: top
       margin-top: 40px
+      /*background: #5bc0de
       h2
         font-size: 18px
         padding-bottom: 20px
-      .tutoring h2, .classes h2, .cat-and-cat h2, .isee-and-hspt h2
+      .maximize-way h2
         font-size: 24px
         margin-top: 10px
         margin-left: 15px
-      .tutoring p, .classes p, .cat-and-cat p, .isee-and-hspt p
+      .maximize-way p
         font-family: $head-fonts
         font-size: 13px
         line-height: normal
+        margin-left: 15px
         color: #666666
-      .tutoring, .classes, .cat-and-cat, .isee-and-hspt
+      .maximize-way
+        display: inline-block
+        vertical-align: top
+        width: 219px
+        margin: 0 18px 0 0
         @include border-radius(20px)
         @include borders-left-right-bottom
+      .maximize-way:last-child
+        margin: 0 0 0 2px
       .tutoring
-        float: left
-        width: 219px
         h2
           color: #019140
         p
-          margin-left: 15px
           margin-bottom: 19px
           width: 182px
         .all-buttons
@@ -308,13 +303,9 @@ section
           &:hover
             @include linear-gradient(#019140, #6bcb64)
       .classes
-        float: left
-        margin-left: 20px
-        width: 219px
         h2
           color: #18946c
         p
-          margin-left: 15px
           margin-bottom: 37px
           width: 180px
         .all-buttons
@@ -325,14 +316,10 @@ section
           padding: 5px 13px
           &:hover
             @include linear-gradient(#18946c, #50cda5)
-      .cat-and-cat
-        float: left
-        margin-left: 20px
-        width: 219px
+      .sat
         h2
           color: #3697a7
         p
-          margin-left: 15px
           margin-bottom: 37px
           width: 180px
         .all-buttons
@@ -343,13 +330,10 @@ section
           padding: 5px 13px
           &:hover
             @include linear-gradient(#3697a7, #62cadb)
-      .isee-and-hspt
-        float: right
-        width: 219px
+      .isee
         h2
           color: #4a98ce
         p
-          margin-left: 15px
           width: 180px
 
         .all-buttons
@@ -431,7 +415,7 @@ header#header-bg
   background-image: url("../img/header_picture.jpg")
   background-position: top center
   background-repeat: no-repeat
-  height: 113px
+  height: 108px
   padding-top: 10px
 /**Contents Classes Page**/
 section
@@ -1372,9 +1356,9 @@ section
     .registration-form-wrapper
       position: relative
       float: left
+      margin-top: 30px
       margin-left: 30px
-      margin-top: 35px
-      margin-bottom: 100px
+      /*background: #5bc0de
       #steps
         width: 100%
       #steps ul
@@ -1420,7 +1404,7 @@ section
         width: 12px
         height: 12px
         cursor: pointer
-        margin: -13px -140px 5px 187px
+        margin: -13px -165px 5px 212px
       input.test-radio[type="radio"]:checked + label
         background-position: -17px 0px
       .label-name
@@ -1431,18 +1415,36 @@ section
         text-align: left
         span
           color: #26a54c
+      /**CHECK**/
       .correct, .correct-radio
         display: none
         background-image: url("../img/mark.png")
         background-repeat: no-repeat
         width: 14px
         height: 11px
-        margin: -21px 0 15px 458px
+        margin: -20px 0 14px 463px
       .correct-radio
-        margin: -13px 0 7px 326px
-      .fild, .wrapper-sex
+        margin: -13px 0 7px 340px
+      .input-error
+        display: none
+        border: 2px solid #c01
+        @include border-radius(20px)
+        width: 240px
+        height: 24px
+        margin: -33px 0 0 214px
+        .error-message
+          position: relative
+          color: #c01
+          font-family: $head-fonts
+          font-size: 10px
+          margin: -14px 0 0 8px
+      .field, .wrapper-sex, .field-select
         clear: both
         text-align: right
+        /*margin-right: 20px
+      .field-select
+        /*float: left
+      margin: 1px 2px 3px 4px
       .wrapper-sex
         margin-right: 158px
       .people-sex
@@ -1451,18 +1453,20 @@ section
         color: #666666
         span
           padding-left: 20px
-      #fild
+      #field
         border: none
         outline: none
         background-image: url("../img/input_form_bg.png")
         background-repeat: no-repeat
-        width: 242px
+        /*border: 2px solid #c01
+        @include border-radius(20px)
+        width: 220px
         height: 24px
         padding: 0 10px
         font-family: $head-fonts
         font-size: 13px
         color: #666666
-        margin: -22px 42px 2px 0
+        margin: 0px 42px 2px 0
       .select-move
         float: right
         margin-right: 97px
@@ -1476,6 +1480,7 @@ section
         background-repeat: no-repeat
         width: 92px
         height: 24px
+        /*margin: 1px 2px 3px 4px
       .registration-button
         position: absolute
         left: 264px
@@ -1558,13 +1563,14 @@ section
   .our-products
     float: right
     width: 700px
+    margin-top: 10px
   .product
     position: relative
     line-height: normal
     border: 1px solid #ececec
-    padding: 30px 30px 0 30px
+    padding: 20px 40px 0 40px
     margin: 0 0 50px 0
-    height: 290px
+    height: 292px
     @include border-radius(10px)
     @include horizontal-gradient(#ececec, #ffffff)
     img
@@ -1593,14 +1599,14 @@ section
       font-size: 18px
       font-weight: 700
       color: #333333
-      padding: 4px 73px
+      padding: 6px 73px
       position: absolute
       left: 243px
       bottom: 16px
       background-image: url("../img/price_back.png")
       background-repeat: no-repeat
-      width: 145px
-      height: 35px
+      /*width: 145px
+      height: 30px
     .market-button
       position: absolute
       left: 288px
@@ -1622,6 +1628,7 @@ section
 footer
   @include linear-gradient(#fbfbfb, #e3e3e3)
   height: 210px
+  /*margin-top: -210px
   .footer
     margin: 0 auto
     width: 940px

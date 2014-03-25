@@ -23,14 +23,18 @@
           .step-text-act
             .students-info
               %form(action="" method="post" )
-                %p.fild
-                  %label(for="fild" class="label-name")Name of Student
+                %div.field
+                  %label(for="field" class="label-name")Name of Student
                     %span*
-                  %input(id="fild" name="name" required="required" type="text")
-                  .correct
-                  %hr
+                  %div.input_block
+                    %input(id="field" name="name" required="required" type="text")
+                    %div.correct
+                    %div.input-error
+                      .error-message
+                        %p This does not match the email enterved above
+                %hr
                 %br
-                %p.fild
+                %div.field
                   %label(for="gender" class="label-name")Gender
                     %span*
                 %p.wrapper-sex
@@ -41,283 +45,352 @@
                   %label(for="r2" class="people-sex")
                     %span Female
                   .correct-radio
-                  %hr
+                %hr
                 %br
-                %p.fild
-                  %label(for="fild" class="label-name")Student’s current school
-                  %input(id="fild" name="school" required="" type="text")
-                  %hr
+                %div.field
+                  %label(for="field" class="label-name")Student’s current school
+                  %div.input_block
+                  %input(id="field" name="school" required="" type="text")
+                %hr
                 %br
-                %p.fild
-                  %label(for="fild" class="label-name")Student Address
+                %div.field
+                  %label(for="field" class="label-name")Student Address
                     %span*
-                  %input(id="fild" name="staddres" required="required" type="text" )
-                  .correct
-                  %hr
+                  %div.input_block
+                  %input(id="field" name="staddres" required="required" type="text" )
+                  %div.correct
+                  %div.input-error
+                    .error-message
+                      %p This does not match the email enterved above
+                %hr
                 %br
-                %p.fild
-                  %label(for="fild" class="label-name")Home phone
-                  %input(id="fild" name="homephone" required="" type="tel" )
-                  %hr
+                %div.field
+                  %label(for="field" class="label-name")Home phone
+                  %div.input_block
+                  %input(id="field" name="homephone" required="" type="tel" )
+                %hr
                 %br
-                %p.fild
-                  %label(for="fild" class="label-name")Cell phone
+                %div.field
+                  %label(for="field" class="label-name")Cell phone
                     %span*
-                  %input(id="fild" name="cellphone" required="required" type="tel" )
-                  .correct
-                  %hr
+                  %div.input_block
+                  %input(id="field" name="cellphone" required="required" type="tel" )
+                  %div.correct
+                  %div.input-error
+                    .error-message
+                      %p This does not match the email enterved above
+                %hr
                 %br
-                %p.fild
-                  %label(for="fild" class="label-name")Student's e-mail
+                %div.field
+                  %label(for="field" class="label-name")Student's e-mail
                     %span*
-                  %input(id="fild" name="stemail" required="required" type="email")
-                  .correct
-                  %hr
+                  %div.input_block
+                  %input(id="field" name="stemail" required="required" type="email")
+                  %div.correct
+                  %div.input-error
+                    .error-message
+                      %p This does not match the email enterved above
+                %hr
                 %br
             %input(type="submit" class="btn registration-button" value="continue" )
         .clear
         %div#step-2
-          .step-text
+          .step-text-act
             .parents-info
               %form(action="" method="post" )
-                %p.fild
-                  %label(for="fild" class="label-name")Name of Parent #1
+                %div.field
+                  %label(for="field" class="label-name")Name of Parent #1
                     %span*
-                  %input(id="fild" name="nameparent" required="required" type="text")
-                  .correct
-                  %hr
-                  %span.correct
-                    %img(src="#{$this->assetsPath}/img/mark.png" )
+                  %div.input_block
+                  %input(id="field" name="nameparent" required="required" type="text")
+                  %div.correct
+                  %div.input-error
+                    .error-message
+                      %p This does not match the email enterved above
+                %hr
                 %br
-                %p.fild
-                  %label(for="fild" class="label-name")Email of Parent #1
+                %div.field
+                  %label(for="field" class="label-name")Email of Parent #1
                     %span*
-                  %input(id="fild" name="emailparent" required="" type="email")
-                  .correct
+                  %div.input_block
+                  %input(id="field" name="emailparent" required="" type="email")
+                  %div.correct
+                  %div.input-error
+                    .error-message
+                      %p This does not match the email enterved above
+                %hr
+                %br
+                %div.field
+                  %label(for="field" class="label-name")Name of Parent #2
+                  %div.input_block
+                  %input(id="field" name="nameparent" required="required" type="text")
                   %hr
                 %br
-                %p.fild
-                  %label(for="fild" class="label-name")Name of Parent #2
-                  %input(id="fild" name="nameparent" required="required" type="text")
-                  %hr
-                %br
-                %p.fild
-                  %label(for="fild" class="label-name")Email of Parent #2
-                  %input(id="fild" name="emailparent" required="" type="email")
-                  %hr
+                %div.field
+                  %label(for="field" class="label-name")Email of Parent #2
+                  %div.input_block
+                  %input(id="field" name="emailparent" required="" type="email")
+                %hr
                 %br
                 %h4
                   %b Parent to contact in case of emergency:
                 %br
-                %p.fild
-                  %label(for="fild" class="label-name")Name
+                %div.field
+                  %label(for="field" class="label-name")Name
                     %span*
-                  %input(id="fild" name="name" required="required" type="text")
-                  .correct
-                  %hr
+                  %div.input_block
+                  %input(id="field" name="name" required="required" type="text")
+                  %div.correct
+                  %div.input-error
+                    .error-message
+                      %p This does not match the email enterved above
+                %hr
                 %br
-                %p.fild
-                  %label(for="fild" class="label-name")Cell phone
+                %div.field
+                  %label(for="field" class="label-name")Cell phone
                     %span*
-                  %input(id="fild" name="cellphone" required="required" type="tel" )
-                  .correct
-                  %hr
+                  %div.input_block
+                  %input(id="field" name="cellphone" required="required" type="tel" )
+                  %div.correct
+                  %div.input-error
+                    .error-message
+                      %p This does not match the email enterved above
+                %hr
                 %br
-                %p.fild
-                  %label(for="fild" class="label-name")Home phone
+                %div.field
+                  %label(for="field" class="label-name")Home phone
                     %span*
-                  %input(id="fild" name="homephone" required="required" type="tel")
-                  .correct
-                  %hr
+                  %div.input_block
+                  %input(id="field" name="homephone" required="required" type="tel")
+                  %div.correct
+                  %div.input-error
+                    .error-message
+                      %p This does not match the email enterved above
+                %hr
                 %br
                 %h4
                   %b Person to contact in case of emergency and parent not available:
                 %br
-                %p.fild
-                  %label(for="fild" class="label-name")Name
+                %div.field
+                  %label(for="field" class="label-name")Name
                     %span*
-                  %input(id="fild" name="name" required="required" type="text")
-                  .correct
-                  %hr
+                  %div.input_block
+                  %input(id="field" name="name" required="required" type="text")
+                  %div.correct
+                  %div.input-error
+                    .error-message
+                      %p This does not match the email enterved above
+                %hr
                 %br
-                %p.fild
-                  %label(for="fild" class="label-name")Cell phone
+                %div.field
+                  %label(for="field" class="label-name")Cell phone
                     %span*
-                  %input(id="fild" name="cellphone" required="required" type="tel")
-                  .correct
-                  %hr
+                  %div.input_block
+                  %input(id="field" name="cellphone" required="required" type="tel")
+                  %div.correct
+                  %div.input-error
+                    .error-message
+                      %p This does not match the email enterved above
+                %hr
                 %br
-                %p.fild
-                  %label(for="fild" class="label-name")Home phone
+                %div.field
+                  %label(for="field" class="label-name")Home phone
                     %span*
-                  %input(id="fild" name="homephone" required="required" type="tel")
-                  .correct
-                  %hr
+                  %div.input_block
+                  %input(id="field" name="homephone" required="required" type="tel")
+                  %div.correct
+                  %div.input-error
+                    .error-message
+                      %p This does not match the email enterved above
+                %hr
                 %br
-                %p.fild
-                  %label(for="fild" class="label-name")Relationship to student
+                %div.field
+                  %label(for="field" class="label-name")Relationship to student
                     %span*
-                  %input(id="fild" name="relstudent" required="required" type="text")
-                  .correct
-                  %hr
+                  %div.input_block
+                  %input(id="field" name="relstudent" required="required" type="text")
+                  %div.correct
+                  %div.input-error
+                    .error-message
+                      %p This does not match the email enterved above
+                %hr
             %input(type="submit" class="btn registration-button" value="continue" )
         %div#step-3
-          .step-text
+          .step-text-act
             .parents-info
-              %form(action="fild" method="post" )
-                %p.fild
+              %form(action="field" method="post" )
+                %div.field
                   %label(for="" class="label-name")Physician’s name
                     %span*
-                  %input(id="fild" name="phname" required="required" type="text")
-                  .correct
-                  %hr
+                  %div.input_block
+                  %input(id="field" name="phname" required="required" type="text")
+                  %div.correct
+                  %div.input-error
+                    .error-message
+                      %p This does not match the email enterved above
+                %hr
                 %br
-                %p.fild
-                  %label(for="fild" class="label-name")Physician’s phone
+                %div.field
+                  %label(for="field" class="label-name")Physician’s phone
                     %span*
-                  %input(id="fild" name="phphone" required="" type="tel")
-                  .correct
-                  %hr
+                  %div.input_block
+                  %input(id="field" name="phphone" required="" type="tel")
+                  %div.correct
+                  %div.input-error
+                    .error-message
+                      %p This does not match the email enterved above
+                %hr
                 %br
-                %p.fild
-                  %label(for="fild" class="label-name")Dentist’s name
+                %div.field
+                  %label(for="field" class="label-name")Dentist’s name
                     %span*
-                  %input(id="fild" name="dentistsname" required="required" type="text")
-                  .correct
-                  %hr
+                  %div.input_block
+                  %input(id="field" name="dentistsname" required="required" type="text")
+                  %div.correct
+                  %div.input-error
+                    .error-message
+                      %p This does not match the email enterved above
+                %hr
                 %br
-                %p.fild
-                  %label(for="fild" class="label-name")Dentist’s phone
+                %div.field
+                  %label(for="field" class="label-name")Dentist’s phone
                     %span*
-                  %input(id="fild" name="dentistsphone" required="" type="tel")
-                  .correct
-                  %hr
+                  %div.input_block
+                  %input(id="field" name="dentistsphone" required="" type="tel")
+                  %div.correct
+                  %div.input-error
+                    .error-message
+                      %p This does not match the email enterved above
+                %hr
                 %br
-                %p.fild
-                  %label(for="fild" class="label-name")List any medications
+                %div.field
+                  %label(for="field" class="label-name")List any medications
                     %br for allergies
-                  %input(id="fild" name="listmedication" required="required" type="text")
-                  %hr
+                  %div.input_block
+                  %input(id="field" name="listmedication" required="required" type="text")
+                %hr
                 %br
-                %p.fild
-                  %label(for="fild" class="label-name")List any medications
+                %div.field
+                  %label(for="field" class="label-name")List any medications
                     %br currently taken
-                  %input(id="fild" name="listmedicationtaken" required="required" type="text")
-                  %hr
+                  %div.input_block
+                  %input(id="field" name="listmedicationtaken" required="required" type="text")
+                %hr
                 %br
-                %p.fild
-                  %label(for="fild" class="label-name")Please list
+                %div.field
+                  %label(for="field" class="label-name")Please list
                     %br any food allergies
-                  %input(id="fild" name="pleaselist" required="required" type="text")
-                  %hr
+                  %div.input_block
+                  %input(id="field" name="pleaselist" required="required" type="text")
+                %hr
                 %br
                 %br
-                %p.fild
+                %div.field
                   %label(for="" class="label-name") Date of last tetanus shot
-                %p.select-move
-                  %select(class="select-date" name="month" )
-                    %option Month
-                    %option January
-                    %option February
-                    %option March
-                    %option April
-                    %option May
-                    %option June
-                    %option July
-                    %option August
-                    %option September
-                    %option October
-                    %option November
-                    %option December
-                  %select(class="select-date" name="year" )
-                    %option Year
-                    %option 2003
-                    %option 2004
-                    %option 2005
-                    %option 2006
-                    %option 2007
-                    %option 2008
-                    %option 2009
-                    %option 2010
-                    %option 2011
-                    %option 2012
-                    %option 2013
-                    %option 2014
-                  %hr
+                  %div.select-move
+                    %select(class="select-date" name="month" )
+                      %option Month
+                      %option January
+                      %option February
+                      %option March
+                      %option April
+                      %option May
+                      %option June
+                      %option July
+                      %option August
+                      %option September
+                      %option October
+                      %option November
+                      %option December
+                    %select(class="select-date" name="year" )
+                      %option Year
+                      %option 2003
+                      %option 2004
+                      %option 2005
+                      %option 2006
+                      %option 2007
+                      %option 2008
+                      %option 2009
+                      %option 2010
+                      %option 2011
+                      %option 2012
+                      %option 2013
+                      %option 2014
+                %hr
                 %br
-                %p.text-form(style="width: 375px" )
+                %div.text-form(style="width: 375px" )
                   %b I grant permission to authorized Omega Teaching personnel to administer basic first aid to:
                 %br
-                %p.text-form(style="width: 488px" )
+                %div.text-form(style="width: 488px" )
                   %span Name of Student
                   as appropriate.  In case of accident or acute illness, I grant permission for authorized Omega Teaching LLC personnel to arrange transportation for my child to the closest hospital or dentist.  I understand that an effort will be made to notify me before such action is taken and the expense of this service and any subsequent medical expenses will be assumed by me.  I give permission for the student enrolled to participate in the seminar and activities above and I further agree to indemnify Omega Teaching LLC, its employees and agents, and the independent consultants retained by Omega Teaching from and against any and all liability for any injury or harm suffered by the student which may arise out of or in any way be connected to the student’s participation in the above activities.  I further agree to permit the use of event or activity photography and/or video media production, which may include images of the student.
                 %br
-                %p.fild
+                %div.field
                   %label(for="" class="label-name") Date
                     %span*
-                %p.fild
-                  %select(class="select-date" name="month" )
-                    %option Month
-                    %option January
-                    %option February
-                    %option March
-                    %option April
-                    %option May
-                    %option June
-                    %option July
-                    %option August
-                    %option September
-                    %option October
-                    %option November
-                    %option December
-                  %select(class="select-date" name="date" )
-                    %option date
-                    %option 1
-                    %option 2
-                    %option 3
-                    %option 4
-                    %option 5
-                    %option 6
-                    %option 7
-                    %option 8
-                    %option 9
-                    %option 10
-                    %option 11
-                    %option 12
-                    %option 13
-                    %option 14
-                    %option 15
-                    %option 16
-                    %option 17
-                    %option 18
-                    %option 19
-                    %option 20
-                    %option 21
-                    %option 22
-                    %option 23
-                    %option 24
-                    %option 25
-                    %option 26
-                    %option 27
-                    %option 28
-                    %option 29
-                    %option 30
-                    %option 31
-                  %select(class="select-date" name="year" )
-                    %option Year
-                    %option 2003
-                    %option 2004
-                    %option 2005
-                    %option 2006
-                    %option 2007
-                    %option 2008
-                    %option 2009
-                    %option 2010
-                    %option 2011
-                    %option 2012
-                    %option 2013
-                    %option 2014
-                  %hr
+                  %div.select-move
+                    %select(class="select-date" name="month" )
+                      %option Month
+                      %option January
+                      %option February
+                      %option March
+                      %option April
+                      %option May
+                      %option June
+                      %option July
+                      %option August
+                      %option September
+                      %option October
+                      %option November
+                      %option December
+                    %select(class="select-date" name="date" )
+                      %option date
+                      %option 1
+                      %option 2
+                      %option 3
+                      %option 4
+                      %option 5
+                      %option 6
+                      %option 7
+                      %option 8
+                      %option 9
+                      %option 10
+                      %option 11
+                      %option 12
+                      %option 13
+                      %option 14
+                      %option 15
+                      %option 16
+                      %option 17
+                      %option 18
+                      %option 19
+                      %option 20
+                      %option 21
+                      %option 22
+                      %option 23
+                      %option 24
+                      %option 25
+                      %option 26
+                      %option 27
+                      %option 28
+                      %option 29
+                      %option 30
+                      %option 31
+                    %select(class="select-date" name="year" )
+                      %option Year
+                      %option 2003
+                      %option 2004
+                      %option 2005
+                      %option 2006
+                      %option 2007
+                      %option 2008
+                      %option 2009
+                      %option 2010
+                      %option 2011
+                      %option 2012
+                      %option 2013
+                      %option 2014
+                %hr
                 %br
             %input(type="submit" class="btn registration-button" value="send form" )
     .your-courses
