@@ -1362,10 +1362,12 @@ section
       #steps
         width: 100%
       #steps ul
-        list-style: none
+        /*list-style: none
         display: table-row
       #steps ul li
-        display: table-cell
+        float: left
+        /*display: table-cell
+        margin: 30px 0 10px 0
         text-align: center
         &:hover
           background: rgba(19, 150, 71, 0.2)
@@ -1375,7 +1377,7 @@ section
         @include border-radius(20px)
       #steps ul li a
         display: table-cell
-        padding: 5px
+        padding: 5px 20px
         line-height: normal
         text-decoration: none
         font-family: $second-fonts
@@ -1404,7 +1406,7 @@ section
         width: 12px
         height: 12px
         cursor: pointer
-        margin: -13px -165px 5px 212px
+        margin: -13px -172px 5px 215px
       input.test-radio[type="radio"]:checked + label
         background-position: -17px 0px
       .label-name
@@ -1431,13 +1433,13 @@ section
         @include border-radius(20px)
         width: 240px
         height: 24px
-        margin: -33px 0 0 214px
+        margin: -28px 0 0 214px
         .error-message
           position: relative
           color: #c01
           font-family: $head-fonts
           font-size: 10px
-          margin: -14px 0 0 8px
+          margin: -14px 8px 0 0
       .field, .wrapper-sex, .field-select
         clear: both
         text-align: right
@@ -1466,10 +1468,10 @@ section
         font-family: $head-fonts
         font-size: 13px
         color: #666666
-        margin: 0px 42px 2px 0
+        margin: 0px 132px 2px 0
       .select-move
         float: right
-        margin-right: 97px
+        margin: 0 185px 5px 0
         padding: 0 0 5px
       .select-date
         border: none
@@ -1494,8 +1496,8 @@ section
           @include linear-gradient(#019140, #6bcb64)
     .your-courses
       position: absolute
-      top: 0
-      right: 63px
+      top: -7px
+      right: 85px
       margin-top: 64px
       width: 230px
       height: 200px
