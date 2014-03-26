@@ -79,6 +79,11 @@ class SiteController extends Controller
         $this->render('our_market');
     }
 
+    public function actionknoll()
+    {
+        $this->render('knoll');
+    }
+
 	/**
 	 * This is the action to handle external exceptions.
 	 */

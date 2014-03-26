@@ -27,56 +27,47 @@
                   %label(class="label-name")Name of Student
                     %span*
                   %div.input_block.cl
-                    %input(class="text_input" name="name" required="required" type="text")
-                    %div.correct
                     %div.error-message
-                %hr
+                    %input(class="text_input" name="name" required="required" type="text")
                 %div.input-row
                   %label(class="label-name")Gender
                     %span*
-                %div.wrapper-sex
-                  %input(id="r1" type="radio" name="sex" value="male" class="test-radio" )
-                    %label(for="r1" class="people-sex")
-                      %span Male
-                  %input(id="r2" type="radio" name="sex" value="female" class="test-radio" )
-                    %label(for="r2" class="people-sex")
-                      %span Female
-                      .correct-radio
-                %hr
+                  %div.wrapper-sex
+                    %div.input-text-radio.correct
+                      %input(id="r1" type="radio" name="sex" value="male" class="test-radio" )
+                        %label(for="r1" class="people-sex")
+                          %span Male
+                      %input(id="r2" type="radio" name="sex" value="female" class="test-radio" )
+                        %label(for="r2" class="people-sex")
+                          %span Female
                 %div.input-row
                   %label(class="label-name")Student’s current school
                   %div.input_block.cl
+                    %div.error-message
                     %input(class="text_input" name="school" required="" type="text")
-                %hr
                 %div.input-row
                   %label(class="label-name")Student Address
                     %span*
                   %div.input_block.cl
-                    %input(class="text_input" name="staddres" required="required" type="text" )
-                    %div.correct
                     %div.error-message
-                %hr
+                    %input(class="text_input" name="staddres" required="required" type="text" )
                 %div.input-row
                   %label(class="label-name")Home phone
                   %div.input_block.cl
+                    %div.error-message
                     %input(class="text_input" name="homephone" required="" type="tel" )
-                %hr
                 %div.input-row
                   %label(class="label-name")Cell phone
                     %span*
                   %div.input_block.cl
-                    %input(class="text_input" name="cellphone" required="required" type="tel" )
-                    %div.correct
                     %div.error-message
-                %hr
+                    %input(class="text_input" name="cellphone" required="required" type="tel" )
                 %div.input-row
                   %label(class="label-name")Student's e-mail
                     %span*
                   %div.input_block.cl
-                    %input(class="text_input" name="stemail" required="required" type="email")
-                    %div.correct
                     %div.error-message
-                %hr
+                    %input(class="text_input" name="stemail" required="required" type="email")
             %input(type="submit" class="btn registration-button" value="continue" )
         .clear
         %div#step-2
@@ -87,28 +78,24 @@
                   %label(class="label-name")Name of Parent #1
                     %span*
                   %div.input_block.cl
-                    %input(class="text_input" name="nameparent" required="required" type="text")
-                    %div.correct
                     %div.error-message
-                %hr
+                    %input(class="text_input" name="nameparent" required="required" type="text")
                 %div.input-row
                   %label(class="label-name")Email of Parent #1
                     %span*
                   %div.input_block.cl
-                    %input(class="text_input" name="emailparent" required="" type="email")
-                    %div.correct
                     %div.error-message
-                %hr
+                    %input(class="text_input" name="emailparent" required="" type="email")
                 %div.input-row
                   %label(class="label-name")Name of Parent #2
                   %div.input_block.cl
+                    %div.error-message
                     %input(class="text_input" name="nameparent" required="required" type="text")
-                  %hr
                 %div.input-row
                   %label(class="label-name")Email of Parent #2
                   %div.input_block.cl
+                    %div.error-message
                     %input(class="text_input" name="emailparent" required="" type="email")
-                %hr
                 %h4
                   %b Parent to contact in case of emergency:
                 %br
@@ -116,26 +103,20 @@
                   %label(class="label-name")Name
                     %span*
                   %div.input_block.cl
-                    %input(class="text_input" name="name" required="required" type="text")
-                    %div.correct
                     %div.error-message
-                %hr
+                    %input(class="text_input" name="name" required="required" type="text")
                 %div.input-row
                   %label(class="label-name")Cell phone
                     %span*
                   %div.input_block.cl
-                    %input(class="text_input" name="cellphone" required="required" type="tel" )
-                    %div.correct
                     %div.error-message
-                %hr
+                    %input(class="text_input" name="cellphone" required="required" type="tel" )
                 %div.input-row
                   %label(class="label-name")Home phone
                     %span*
                   %div.input_block.cl
-                    %input(class="text_input" name="homephone" required="required" type="tel")
-                    %div.correct
                     %div.error-message
-                %hr
+                    %input(class="text_input" name="homephone" required="required" type="tel")
                 %h4
                   %b Person to contact in case of emergency and parent not available:
                 %br
@@ -143,34 +124,26 @@
                   %label(class="label-name")Name
                     %span*
                   %div.input_block.cl
-                    %input(class="text_input" name="name" required="required" type="text")
-                    %div.correct
                     %div.error-message
-                %hr
+                    %input(class="text_input" name="name" required="required" type="text")
                 %div.input-row
                   %label(class="label-name")Cell phone
                     %span*
                   %div.input_block.cl
-                    %input(class="text_input" name="cellphone" required="required" type="tel")
-                    %div.correct
                     %div.error-message
-                %hr
+                    %input(class="text_input" name="cellphone" required="required" type="tel")
                 %div.input-row
                   %label(class="label-name")Home phone
                     %span*
                   %div.input_block.cl
-                    %input(class="text_input" name="homephone" required="required" type="tel")
-                    %div.correct
                     %div.error-message
-                %hr
+                    %input(class="text_input" name="homephone" required="required" type="tel")
                 %div.input-row
                   %label(class="label-name")Relationship to student
                     %span*
                   %div.input_block.cl
-                    %input(class="text_input" name="relstudent" required="required" type="text")
-                    %div.correct
                     %div.error-message
-                %hr
+                    %input(class="text_input" name="relstudent" required="required" type="text")
             %input(type="submit" class="btn registration-button" value="continue" )
         %div#step-3
           .step-text-act
@@ -180,52 +153,44 @@
                   %label(class="label-name")Physician’s name
                     %span*
                   %div.input_block.cl
-                    %input(class="text_input" name="phname" required="required" type="text")
-                    %div.correct
                     %div.error-message
-                %hr
+                    %input(class="text_input" name="phname" required="required" type="text")
                 %div.input-row
                   %label(class="label-name")Physician’s phone
                     %span*
                   %div.input_block.cl
-                    %input(class="text_input" name="phphone" required="" type="tel")
-                    %div.correct
                     %div.error-message
-                %hr
+                    %input(class="text_input" name="phphone" required="" type="tel")
                 %div.input-row
                   %label(class="label-name")Dentist’s name
                     %span*
                   %div.input_block.cl
-                    %input(class="text_input" name="dentistsname" required="required" type="text")
-                    %div.correct
                     %div.error-message
-                %hr
+                    %input(class="text_input" name="dentistsname" required="required" type="text")
                 %div.input-row
                   %label(class="label-name")Dentist’s phone
                     %span*
                   %div.input_block.cl
-                    %input(class="text_input" name="dentistsphone" required="" type="tel")
-                    %div.correct
                     %div.error-message
-                %hr
+                    %input(class="text_input" name="dentistsphone" required="" type="tel")
                 %div.input-row
                   %label(class="label-name")List any medications
                     %br for allergies
                   %div.input_block.cl
+                    %div.error-message
                     %input(class="text_input" name="listmedication" required="required" type="text")
-                %hr
                 %div.input-row
                   %label(class="label-name")List any medications
                     %br currently taken
                   %div.input_block.cl
+                    %div.error-message
                     %input(class="text_input" name="listmedicationtaken" required="required" type="text")
-                %hr
                 %div.input-row
                   %label(class="label-name")Please list
                     %br any food allergies
                   %div.input_block.cl
+                    %div.error-message
                     %input(class="text_input" name="pleaselist" required="required" type="text")
-                %hr
                 %div.input-row
                   %label(for="" class="label-name") Date of last tetanus shot
                   %div.select-move
@@ -257,7 +222,6 @@
                       %option 2012
                       %option 2013
                       %option 2014
-                %hr
                 %div.text-form(style="width: 375px" )
                   %b I grant permission to authorized Omega Teaching personnel to administer basic first aid to:
                 %div.text-form(style="width: 488px" )
@@ -328,7 +292,6 @@
                       %option 2012
                       %option 2013
                       %option 2014
-                %hr
             %input(type="submit" class="btn registration-button" value="send form" )
     .your-courses
       %h2 Your courses

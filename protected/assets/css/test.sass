@@ -12,7 +12,7 @@ $second-fonts: 'Ubuntu', sans-serif
 /**COMMON STYLES**/
 #main-wrapper
   min-height: 100%
-  margin-bottom: 210px
+  /*margin-bottom: 210px
 h1
   font-family: $second-fonts
   font-weight: 700
@@ -23,15 +23,6 @@ h2
   color: #333333
 a
   font-family: $second-fonts
-/**BORDER BOTTOM**/
-hr
-  color: #ececec
-  background-color: #ececec
-  border: 0px none
-  height: 1px
-  clear: both
-  width: 460px
-  margin: 5px 0
 /**ALL BUTTON STYLES*/
 .btn
   border: none
@@ -422,7 +413,7 @@ header#header-bg
   background-image: url("../img/header_picture.jpg")
   background-position: top center
   background-repeat: no-repeat
-  height: 108px
+  height: 105px
   padding-top: 10px
 /**Contents Classes Page**/
 section
@@ -791,7 +782,7 @@ section
       @include border-radius(20px)
 /**OPENED CLASS**/
 section
-    .analysis
+    .analysis, .analysis-knoll
       height: 277px
       margin-top: 10px
       @include linear-gradient(#fcfbfb, #f1f1f1)
@@ -803,7 +794,7 @@ section
       h1
         padding-top: 20px
         font-size: 30px
-      .analysis-list
+      .analysis-list, .analysis-list-knoll
         float: left
         margin-top: 20px
         margin-left: 20px
@@ -817,7 +808,7 @@ section
             text-indent: -99999px
           a
             line-height: normal !important
-      .analysis-list-2
+      .analysis-list-2, .analysis-list-2-knoll
         float: left
         margin-top: 20px
         margin-left: 40px
@@ -828,9 +819,9 @@ section
           line-height: 2em
         a
           line-height: normal !important
-    .courses
+    .courses, .courses-knoll
       margin-top: 20px
-      .course-description
+      .course-description, .course-description-knoll
         float: left
         width: 300px
         height: 300px
@@ -843,7 +834,16 @@ section
           font-size: 13px
           color: #333333
           line-height: 1.6
-      .course-features
+      .course-description-knoll
+        width: 620px
+        height: 0
+        p
+          width: 100%
+        a
+          text-decoration: none
+          color: #25a345
+          font-family: $head-fonts
+      .course-features, .course-features-knoll
         float: left
         margin-left: 20px
         width: 300px
@@ -864,7 +864,7 @@ section
           li
             list-style: circle
             line-height: 2
-      .enroll-course
+      .enroll-course, .enroll-course-knoll
         position: relative
         float: right
         width: 297px
@@ -883,7 +883,7 @@ section
           span
             color: #019140
             font-weight: 700
-        .begins-text
+        .begins-text, .begins-text-knoll
           position: absolute
           text-align: center
           line-height: normal
@@ -899,11 +899,20 @@ section
             font-family: $second-fonts
             color: #ffffff
             font-size: 16px
-        .enroll-border
+        .begins-text-knoll
+          text-align: left
+          p
+            font-size: 15px
+            height: 20px
+            padding-top: 0px
+            margin-left: 0px
+        .enroll-border, .enroll-border-knoll
           height: 132px
           margin-top: -67px
           @include borders-left-right-bottom
           @include border-radius(20px)
+        .enroll-border-knoll
+          height: 80px
       .enroll-button
         position: relative
         top: -9px
@@ -920,14 +929,17 @@ section
         @include linear-gradient(#53bb4c, #029141)
         &:hover
           @include linear-gradient(#029141, #53bb4c)
-      .other-summer-classes
+      .enroll-course-knoll
+        width: 300px
+        height: 100%
+      .other-summer-classes, .other-summer-classes-knoll
         margin-top: 20px
         height: 120px
         h2
           font-size: 18px
           margin-top: 80px
           margin-bottom: 30px
-        .borders
+        .borders, .borders-knoll
           height: 46px
           border: 1px solid #ececec
           @include border-radius(10px)
@@ -963,7 +975,23 @@ section
             top: 20px
             margin-left: 15px
             padding: 8px 61px
-      .not-sure
+        .borders-knoll
+          height: 0
+          border: none
+          border-top: 1px solid #ececec
+          .intro-button
+            top: -10px
+            margin-left: 185px
+            padding: 8px 50px
+          .crafting-button
+            top: -10px
+            margin-left: 15px
+            padding: 8px 12px
+      .other-summer-classes-knoll
+        height: 80px
+        h2
+          margin-top: 20px
+      .not-sure, .not-sure-knoll
         position: relative
         margin-top: 20px
         margin-bottom: 20px
@@ -974,7 +1002,7 @@ section
         font-weight: 400
         background: rgba(19, 150, 71, 0.1)
         @include border-radius(10px)
-      .not-sure-inner
+      .not-sure-inner, .not-sure-inner-knoll
         position: absolute
         top: 36%
         left: 19%
@@ -1411,18 +1439,34 @@ section
         width: 12px
         height: 12px
         cursor: pointer
-        margin: -13px -150px 5px 195px
+        margin: -13px -155px 14px 204px
       input.test-radio[type="radio"]:checked + label
         background-position: -17px 0px
+      /*.input-text-holder, .correct
+        width: 100%
+        position: relative
+        display: inline-block
+        &:after
+          background: url("../img/mark.png") no-repeat
+          width: 14px
+          height: 11px
+          content: ""
+          position: absolute
+          right: -22px
+          bottom: 7px
+          display: none
+      /*.correct
+        &:after
+          display: block
       .input_block
         display: inline-block
         /*height: 40px
         width: 240px
         padding-top: 20px
+        padding-right: 20px
       .label-name
         /*width: 200px
-        padding-top: 24px
-        display: inline-block
+        padding-top: 40px
         float: left
         font-size: 13px
         font-weight: 700
@@ -1431,31 +1475,22 @@ section
         span
           color: #26a54c
       /**CHECK**/
-      .correct, .correct-radio
-        display: none
-        background-image: url("../img/mark.png")
-        background-repeat: no-repeat
-        width: 14px
-        height: 11px
-        margin: -18px 0 4px 250px
-      .correct-radio
-        margin: -12px 0 0 80px
       .input-error
         box-shadow: 0 0 5px rgba(255, 0, 0, 1)
       .error-message
-        margin:  -42px 0 0 7px
+        margin:  0 0 5px 7px
         color: #c01
         font-family: $head-fonts
         font-size: 10px
         height: 10px
-        float: left
+        text-align: center
       .input-row, .wrapper-sex, .field-select
         clear: both
         text-align: right
-        width: 435px
-        margin: 0 0 -8px 0
+        width: 460px
+      .input-row
+        border-bottom: 1px solid #ececec
       .wrapper-sex
-        margin-right: 158px
         height: 5px
       .people-sex
         font-family: $second-fonts
