@@ -30,8 +30,57 @@
         %img(src="#{$this->assetsPath}/img/photo_teacher_1.png" )
         .form-bellow-borders
           %h2 If you are interested in a position, please fill the form bellow:
-          %form(name="form1" class="forms" action="" method="post" )
-            %lable.form-caption
+          //%form(name="form1" class="forms" action="" method="post" )
+            :php
+              $form = $this->beginWidget('CActiveForm',array(
+                'id'=>'applicant-form',
+                'enableClientValidation'=>true,
+                'enableAjaxValidation'=>true,
+                'clientOptions'=>array(
+                  'validateOnType'=>true,
+                  ),
+                'action'=>$this->createUrl('site/jobs'),
+              ));
+            %label.form-caption
+              =$form->labelEx($model,'name')
+              =$form->error($model,'name');
+            %div
+              =$form->textField($model,'name', ['class' => 'text'])
+            %label.form-caption
+              =$form->labelEx($model,'email')
+              =$form->error($model,'email')
+            %div
+              =$form->textField($model,'email', ['class' => 'text'])
+            %label.form-caption
+              =$form->labelEx($model,'phone')
+              =$form->error($model,'phone')
+            %div
+              =$form->textField($model,'phone', ['class' => 'text'])
+            :php
+              echo CHtml::ajaxSubmitButton('SEND',CHtml::normalizeUrl(array('site/jobs')),
+                array(
+                  'dataType'=>'json',
+                  'type'=>'post',
+                  'success'=>'function(data)
+                    {
+                      if(data.status=="success")
+                      {
+                        $("#success").html("Вы подписаны на обновления.");
+                        $("#subscribe-form")[0].reset();
+                      }
+                      else
+                      {
+                        $.each(data, function(key, val)
+                        {
+                          $("#subscribe-form #"+key+"_em_").text(val);
+                          $("#subscribe-form #"+key+"_em_").show();
+                        });
+                      }
+                    }'
+                  ),
+                  ['class' => 'form-send-button']);
+              $this->endWidget();
+            %label.form-caption
               Name
                 %span*
             %div
@@ -45,8 +94,43 @@
               Phone
             %div
               %input(type="tel" class="phone" name="phone" placeholder="enter your phone" )
-            .drag-and-drop
-              %p Drag and drop your resume here or
-                %a(href="#") click to attach
+            -#.drag-and-drop
+            -#  %p Drag and drop your resume here or
+            -#    %a.click_attach(href="#") click to attach
+            %input.cv_file_name(type="hidden" name="cv")
+            :php
+              $this->widget('ext.EAjaxUpload.EAjaxUpload',
+                array(
+                  'id'=>'uploadFile',
+                  'config'=>array(
+                    'action'=>'/site/uploadCV',
+                    'allowedExtensions'=>array("doc", "docx", "pdf", "rtf", "odt"),
+                    'sizeLimit'=>20*1024*1024,
+                    'minSizeLimit'=>1*1024,
+                    'multiple' => false,
+                    'template'=>'<div class="qq-uploader">
+                                    <div class="qq-upload-drop-area">
+                                      <span></span>
+                                    </div>
+                                    <div class="qq-default-box-text">Drag and drop your resume here or
+                                      <div class="qq-upload-button">click to attach</div>
+                                    </div>
+                                    <ul class="qq-upload-list"></ul>
+                                  </div>',
+                    'onSubmit' => "js:function(){
+                      $('#uploadFile .qq-default-box-text').hide();
+                      $('#uploadFile .qq-upload-list').html('');
+                    }",
+                    'onComplete'=>"js:function(id, fileName, responseJSON){ $('.cv_file_name').val(responseJSON.filename); $('.qq-upload-remove').show(); }",
+                    //'messages'=>array(
+                    //                  'typeError'=>"{file} has invalid extension. Only {extensions} are allowed.",
+                    //                  'sizeError'=>"{file} is too large, maximum file size is {sizeLimit}.",
+                    //                  'minSizeError'=>"{file} is too small, minimum file size is {minSizeLimit}.",
+                    //                  'emptyError'=>"{file} is empty, please select files again without it.",
+                    //                  'onLeave'=>"The files are being uploaded, if you leave now the upload will be cancelled."
+                    //                 ),
+                    //'showMessage'=>"js:function(message){ alert(message); }"
+                  )
+              ));
             %input(type="submit" class="form-send-button" value="send" )
       .clear

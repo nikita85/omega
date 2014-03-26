@@ -21,7 +21,30 @@ class SiteController extends Controller
 
     public function actionJobs()
     {
-        $this->render('jobs');
+        $model = new Applicant();
+
+        if(isset($_POST['ajax']) && $_POST['ajax']==='subscribe-form')
+        {
+            echo CActiveForm::validate($model);
+            Yii::app()->end();
+        }
+
+        if(isset($_POST['Applicant']))
+        {
+            $model->attributes=$_POST['Applicant'];
+            $valid=$model->validate();
+            if($valid)
+            {
+                //Здесь обрабатываем данные формы (сохранение, обновление ...)
+            } else {
+
+            }
+            Yii::app()->end();
+        }
+
+        $this->render('jobs', [
+            'model' => $model
+        ]);
     }
 
     public function actionLiteraryAnalysis()
@@ -77,6 +100,30 @@ class SiteController extends Controller
     public function actionOurMarket()
     {
         $this->render('our_market');
+    }
+
+    public function actionUploadCv()
+    {
+        Yii::import("ext.EAjaxUpload.qqFileUploader");
+
+        // folder for uploaded files
+        $folder = Yii::getPathOfAlias('webroot') . '/uploads/';
+
+        //array("jpg","jpeg","gif","exe","mov" and etc...
+        $allowedExtensions = array("docx", "doc", "pdf", "rtf", "odt");
+
+        // maximum file size in bytes
+        $sizeLimit = 20 * 1024 * 1024;
+
+        $uploader = new qqFileUploader($allowedExtensions, $sizeLimit);
+        $result = $uploader->handleUpload($folder);
+
+        $return = htmlspecialchars(json_encode($result), ENT_NOQUOTES);
+
+        // it's array
+        echo $return;
+
+        Yii::app()->end();
     }
 
 	/**

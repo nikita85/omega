@@ -193,5 +193,8 @@ $(document).ready(function () {
     }
 
     //$('.drag-and-drop').UTDragDrop();
+    $('.click_attach').on('click', function(e){
+        $('#uploadFile').find('input').trigger('click');
+    })
 
 });
