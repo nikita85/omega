@@ -23,21 +23,22 @@ class SiteController extends Controller
     {
         $model = new Applicant();
 
-        if(isset($_POST['ajax']) && $_POST['ajax']==='subscribe-form')
-        {
-            echo CActiveForm::validate($model);
-            Yii::app()->end();
-        }
-
         if(isset($_POST['Applicant']))
         {
             $model->attributes=$_POST['Applicant'];
             $valid=$model->validate();
             if($valid)
             {
-                //Здесь обрабатываем данные формы (сохранение, обновление ...)
-            } else {
-
+                $model->save();
+                echo CJSON::encode(array(
+                    'status'=>'success'
+                ));
+            } else
+            {
+                $error = CActiveForm::validate($model);
+                if($error!='[]')
+                    echo $error;
+                Yii::app()->end();
             }
             Yii::app()->end();
         }

@@ -38,10 +38,10 @@ class Applicant extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-            array('name, email, phone, cv', 'required'),
+            array('name, email, phone', 'required'),
+            array('cv', 'required', 'message'=>'Please attach a resume.'),
             array('email', 'length', 'max' => 255),
             array('email', 'email'),
-            array('cv', 'file', 'types'=>'doc, docx, pdf, rtf', 'maxSize' => 2097152, 'tooLarge' => 'Изображение превышает допустимый размер', 'wrongType' => 'JPG или PNG'),
 		);
 	}
 
