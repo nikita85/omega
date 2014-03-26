@@ -127,6 +127,11 @@ class SiteController extends Controller
         Yii::app()->end();
     }
 
+    public function actionknoll()
+    {
+        $this->render('knoll');
+    }
+
 	/**
 	 * This is the action to handle external exceptions.
 	 */
