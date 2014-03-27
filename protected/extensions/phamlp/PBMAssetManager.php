@@ -196,7 +196,9 @@ class PBMAssetManager extends CAssetManager {
 
                         file_put_contents($path . DIRECTORY_SEPARATOR . $fileName, $parser->parse($filePath));
 
-                        unlink($filePath);
+                        if (file_exists($filePath)) {
+                            unlink($filePath);
+                        }
 
                     }
 

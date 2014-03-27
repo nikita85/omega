@@ -193,6 +193,9 @@ $(document).ready(function () {
     }
 
     //$('.drag-and-drop').UTDragDrop();
+    $('.click_attach').on('click', function(e){
+        $('#uploadFile').find('input').trigger('click');
+    })
 
     var link = window.location.pathname;
     $('.header-menu li a[href="'+link+'"]').parent().addClass('active');
