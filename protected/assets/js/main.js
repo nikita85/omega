@@ -194,4 +194,7 @@ $(document).ready(function () {
 
     //$('.drag-and-drop').UTDragDrop();
 
+    var link = window.location.pathname;
+    $('.header-menu li a[href="'+link+'"]').parent().addClass('active');
+
 });

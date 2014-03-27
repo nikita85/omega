@@ -30,7 +30,8 @@
     .clear
 
     .summer-classes
-      .camp
+      %h2 All summer classes:
+      .seminars
         .camp-topic
           %h3 Test prep boot camp
         %img(src="#{$this->assetsPath}/img/title_1.png" )
@@ -44,8 +45,8 @@
             %span Level II Entering 6th -7th
           %li
             %span Level III Entering 8th
-        %a.camp-button(href="#{$this->createUrl('site/TestPrepBootCamp')}") read more
-      .personal
+        %a.btn.camp-button(href="#{$this->createUrl('site/TestPrepBootCamp')}") read more
+      .seminars
         .personal-topic
           %h3 Crafting the personal essay statement
         %img(src="#{$this->assetsPath}/img/title_2.png" )
@@ -59,8 +60,8 @@
             %span Level II Entering 6th-8th
           %li
             %span Level III 9th -12th
-        %a.personal-button(href="#{$this->createUrl('site/EssayStatement')}") read more
-      .myths
+        %a.btn.personal-button(href="#{$this->createUrl('site/EssayStatement')}") read more
+      .seminars
         .myths-topic
           %h3 Of myths and monsters
           %img(src="#{$this->assetsPath}/img/icon_favourite_big.png" )
@@ -74,8 +75,8 @@
             %span Level I Entering 5th-7th
           %li
             %span Level II Entering 8th-12th
-        %a.myths-button(href="#{$this->createUrl('site/MythsAndMonsters')}") read more
-      .going
+        %a.btn.myths-button(href="#{$this->createUrl('site/MythsAndMonsters')}") read more
+      .seminars
         .going-topic
           %h3 Going to the dogs
           %img(src="#{$this->assetsPath}/img/icon_favourite_big.png" )
@@ -87,9 +88,8 @@
               %b Grades:
           %li
             %span Level I Entering 5th -8th
-        %a.going-button(href="#{$this->createUrl('site/TheDogs')}") read more
-      .clear
-      .laugh
+        %a.btn.going-button(href="#{$this->createUrl('site/TheDogs')}") read more
+      .seminars
         .laugh-topic
           %h3 Make‘em laugh
         %img(src="#{$this->assetsPath}/img/title_5.png" )
@@ -101,8 +101,8 @@
             %span Level I Entering 5th -7th
           %li
             %span Level II Entering 8th -12th
-        %a.laugh-button(href="#{$this->createUrl('site/MakeemLaugh')}") read more
-      .story
+        %a.btn.laugh-button(href="#{$this->createUrl('site/MakeemLaugh')}") read more
+      .seminars
         .story-topic
           %h3 The power of story
         %img(src="#{$this->assetsPath}/img/title_6.png" )
@@ -114,8 +114,8 @@
             %span Level I Entering 5th -7th
           %li
             %span Level II Entering 8th -12th
-        %a.story-button(href="#{$this->createUrl('site/PowerOfStory')}") read more
-      .intro
+        %a.btn.story-button(href="#{$this->createUrl('site/PowerOfStory')}") read more
+      .seminars
         .intro-topic
           %h3 Intro to literary analysis
         %img(src="#{$this->assetsPath}/img/title_7.png" )
@@ -125,7 +125,7 @@
               %b Grades:
           %li
             %span Entering 8th-12th
-        %a.intro-button(href="#{$this->createUrl('site/LiteraryAnalysis')}") read more
+        %a.btn.intro-button(href="#{$this->createUrl('site/LiteraryAnalysis')}") read more
       .question
         %img(src="#{$this->assetsPath}/img/icon_help.png" )
         %h6 Not sure what class is right for you?
