@@ -1,9 +1,6 @@
 @import "compass"
 @import "compass/reset"
 @import "compass/css3"
-@import "compass/utilities"
-@import "compass/css3/border-radius"
-/**including mixin files**/
 @import "mixin"
 /**VARIABLES**/
 $head-fonts: 'Open Sans', sans-serif
@@ -12,7 +9,6 @@ $second-fonts: 'Ubuntu', sans-serif
 /**COMMON STYLES**/
 #main-wrapper
   min-height: 100%
-  /*margin-bottom: 210px
 h1
   font-family: $second-fonts
   font-weight: 700
@@ -104,8 +100,6 @@ header
         @include linear-gradient(#029141, #53bb4c)
   /**NAVIGATION MENU**/
   .nav
-    /*margin: 0 auto
-    /*width: 940px
     height: 36px
     background-color: rgba(255, 255, 255, 0.5)
     @include custom-border-radius(0, 0, 10px, 10px)
@@ -844,6 +838,7 @@ section
           font-family: $second-fonts
           font-size: 18px
           color: #333333
+          font-weight: 700
         .days
           width: 269px
           font-family: $head-fonts
@@ -1049,7 +1044,7 @@ section
         padding-bottom: 5px
     .opportunities-list
       margin-left: 55px
-      margin-bottom: 40px
+      margin-bottom: 58px
       width: 495px
       font-family: $second-fonts
       font-weight: 400
