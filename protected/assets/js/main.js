@@ -192,9 +192,13 @@ $(document).ready(function () {
         });
     }
 
-    //$('.drag-and-drop').UTDragDrop();
-    $('.click_attach').on('click', function(e){
-        $('#uploadFile').find('input').trigger('click');
+    /* Apploicant Form */
+    $('.cv_file_name').val('');
+
+    $('.applicant_back_to_form').on('click', function(e){
+        e.preventDefault();
+        $('.applicant_form_success').hide();
+        $('#applicant-form').show();
     })
 
 });

@@ -1723,14 +1723,42 @@ footer
     a
       color: #4d9ad3
       text-decoration: none
-#applicant-form
-  //input
-    //padding-bottom: 10px
-  .form-send-button
-    margin-top: 18px
-.errorMessage[style]
-  margin-top: -10px
-  color: #c01
-  font-family: $head-fonts
-  font-size: 10px
-  height: 1em
+.applicant_form_wrapper
+  color: #666666
+  font-family: 'Open Sans',sans-serif
+  font-size: 13px
+  position: relative
+  a.applicant_back_to_form
+    color: #069442
+    text-decoration: none
+  .applicant_form_success, .applicant_form_in_progress
+    display: none
+    height: 206px
+    padding-top: 80px
+    text-align: center
+    width: 210px
+    margin: 0 auto
+  #applicant-form
+    .form-send-button
+      margin-top: 8px
+  .errorMessage[style]
+    margin-top: -10px
+    color: #c01
+    font-family: $head-fonts
+    font-size: 10px
+    height: 1em
+#loading
+  background: rgba(0,0,0, 0.5)
+  display: none
+  height: 100%
+  left: 0
+  position: fixed
+  top: 0
+  width: 100%
+  z-index: 100
+  img
+    margin: 0 auto
+    position: relative
+    top: 50%
+    margin-top: -64px
+    display: block

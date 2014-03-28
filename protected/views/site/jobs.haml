@@ -30,91 +30,109 @@
         %img(src="#{$this->assetsPath}/img/photo_teacher_1.png" )
         .form-bellow-borders
           %h2 If you are interested in a position, please fill the form bellow:
-          :php
-            $form = $this->beginWidget('CActiveForm',array(
-              'id'=>'applicant-form',
-              'enableClientValidation'=>true,
-              'enableAjaxValidation'=>true,
-              'action'=>$this->createUrl('site/jobs'),
-              'htmlOptions'=>array(
-                  'class'=>'forms',
-              ),
-            ));
-          %label.form-caption
-            =$form->labelEx($model,'name')
-          %div
-            =$form->textField($model,'name', ['class' => 'text', 'placeholder' => 'enter your name'])
-            =$form->error($model,'name');
-          %label.form-caption
-            =$form->labelEx($model,'email')
-          %div
-            =$form->textField($model,'email', ['class' => 'text', 'placeholder' => 'mylogin@gmail.com'])
-            =$form->error($model,'email')
-          %label.form-caption
-            =$form->labelEx($model,'phone')
-          %div
-            =$form->textField($model,'phone', ['class' => 'text', 'placeholder' => 'enter your phone'])
-            =$form->error($model,'phone')
-          =$form->hiddenField($model,'cv', ['class' => 'cv_file_name'])
-          :php
-            $this->widget('ext.EAjaxUpload.EAjaxUpload',
-              array(
-                'id'=>'uploadFile',
-                'config'=>array(
-                  'action'=>'/site/uploadCV',
-                  'allowedExtensions'=>array("doc", "docx", "pdf", "rtf", "odt"),
-                  'sizeLimit'=>20*1024*1024,
-                  'minSizeLimit'=>1*1024,
-                  'multiple' => false,
-                  'template'=>'<div class="qq-uploader">
-                                  <div class="qq-upload-drop-area">
-                                    <span></span>
-                                  </div>
-                                  <div class="qq-default-box-text">Drag and drop your resume here or
-                                    <div class="qq-upload-button">click to attach</div>
-                                  </div>
-                                  <ul class="qq-upload-list"></ul>
-                                </div>',
-                  'onSubmit' => "js:function(){
-                    $('#uploadFile .qq-default-box-text').hide();
-                    $('#uploadFile .qq-upload-list').html('');
-                  }",
-                  'onComplete'=>"js:function(id, fileName, responseJSON){ $('.cv_file_name').val(responseJSON.filename); $('.qq-upload-remove').show();$('.cv_file_name').trigger('change'); }",
-                  //'messages'=>array(
-                  //                  'typeError'=>"{file} has invalid extension. Only {extensions} are allowed.",
-                  //                  'sizeError'=>"{file} is too large, maximum file size is {sizeLimit}.",
-                  //                  'minSizeError'=>"{file} is too small, minimum file size is {minSizeLimit}.",
-                  //                  'emptyError'=>"{file} is empty, please select files again without it.",
-                  //                  'onLeave'=>"The files are being uploaded, if you leave now the upload will be cancelled."
-                  //                 ),
-                  //'showMessage'=>"js:function(message){ alert(message); }"
-                )
-            ));
-
-            echo $form->error($model,'cv');
-
-            echo CHtml::ajaxSubmitButton('SEND',CHtml::normalizeUrl(array('site/jobs')),
-              array(
-                'dataType'=>'json',
-                'type'=>'post',
-                'beforeSend' => 'function(){}',
-                'success'=>'function(data)
-                  {
-                    if(data.status=="success")
-                    {
-                      $("#applicant-form")[0].reset();
-                    }
-                    else
-                    {
-                      $.each(data, function(key, val)
-                      {
-                        $("#applicant-form #"+key+"_em_").text(val);
-                        $("#applicant-form #"+key+"_em_").show();
-                      });
-                    }
-                  }'
+          .applicant_form_wrapper
+            .applicant_form_success
+              Thank you for submitting
+              %br
+              your resume to Omega Teaching.
+              %br
+              We will contact you for any further
+              %br
+              required information.
+              %br
+              %br
+              %a.applicant_back_to_form(href="#") Back to form
+            :php
+              $form = $this->beginWidget('CActiveForm',array(
+                'id'=>'applicant-form',
+                'enableClientValidation'=>true,
+                'enableAjaxValidation'=>true,
+                'action'=>$this->createUrl('site/jobs'),
+                'htmlOptions'=>array(
+                    'class'=>'forms',
                 ),
-                ['class' => 'btn form-send-button']);
-            $this->endWidget();
+              ));
+            %label.form-caption
+              =$form->labelEx($applicant,'name')
+            %div
+              =$form->textField($applicant,'name', ['class' => 'text', 'placeholder' => 'enter your name'])
+              =$form->error($applicant,'name');
+            %label.form-caption
+              =$form->labelEx($applicant,'email')
+            %div
+              =$form->textField($applicant,'email', ['class' => 'text', 'placeholder' => 'mylogin@gmail.com'])
+              =$form->error($applicant,'email')
+            %label.form-caption
+              =$form->labelEx($applicant,'phone')
+            %div
+              =$form->textField($applicant,'phone', ['class' => 'text', 'placeholder' => 'enter your phone'])
+              =$form->error($applicant,'phone')
+            =$form->hiddenField($applicant,'cv', ['class' => 'cv_file_name'])
+            :php
+              $this->widget('ext.EAjaxUpload.EAjaxUpload',
+                array(
+                  'id'=>'uploadFile',
+                  'config'=>array(
+                    'action'=>'/site/uploadCV',
+                    'allowedExtensions'=>array("doc", "docx", "pdf", "rtf", "odt"),
+                    'sizeLimit'=>20*1024*1024,
+                    'minSizeLimit'=>1*1024,
+                    'multiple' => false,
+                    'template'=>'<div class="qq-uploader">
+                                    <div class="qq-upload-drop-area">
+                                      <span></span>
+                                    </div>
+                                    <div class="qq-default-box-text">Drag and drop your resume here or
+                                      <div class="qq-upload-button">click to attach</div>
+                                    </div>
+                                    <ul class="qq-upload-list"></ul>
+                                  </div>',
+                    'onSubmit' => "js:function(){
+                      $('#uploadFile .qq-default-box-text').hide();
+                      $('#uploadFile .qq-upload-list').html('');
+                    }",
+                    'onComplete'=>"js:function(id, fileName, responseJSON){ $('.cv_file_name').val(responseJSON.filename); $('.qq-upload-remove').show();$('.cv_file_name').trigger('change'); }",
+                    //'messages'=>array(
+                    //                  'typeError'=>"{file} has invalid extension. Only {extensions} are allowed.",
+                    //                  'sizeError'=>"{file} is too large, maximum file size is {sizeLimit}.",
+                    //                  'minSizeError'=>"{file} is too small, minimum file size is {minSizeLimit}.",
+                    //                  'emptyError'=>"{file} is empty, please select files again without it.",
+                    //                  'onLeave'=>"The files are being uploaded, if you leave now the upload will be cancelled."
+                    //                 ),
+                    //'showMessage'=>"js:function(message){ alert(message); }"
+                  )
+              ));
+
+              echo $form->error($applicant,'cv');
+
+              echo CHtml::ajaxSubmitButton('SEND',CHtml::normalizeUrl(array('site/jobs')),
+                array(
+                  'dataType'=>'json',
+                  'type'=>'post',
+                  'beforeSend' => 'function(){$("#loading").show();}',
+                  'success'=>'function(data)
+                    {
+                      $("#loading").hide();
+                      if(data.status=="success")
+                      {
+                        $("#applicant-form").hide();
+                        $("#applicant-form")[0].reset();
+                        $(".applicant_form_success").show();
+                        $("#uploadFile .qq-default-box-text").show();
+                        $("#uploadFile .qq-upload-list").html("");
+                        $(".cv_file_name").val("");
+                      }
+                      else
+                      {
+                        $.each(data, function(key, val)
+                        {
+                          $("#applicant-form #"+key+"_em_").text(val);
+                          $("#applicant-form #"+key+"_em_").show();
+                        });
+                      }
+                    }'
+                  ),
+                  ['class' => 'btn form-send-button']);
+              $this->endWidget();
 
       .clear
