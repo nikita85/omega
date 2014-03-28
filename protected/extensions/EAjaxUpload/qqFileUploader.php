@@ -136,7 +136,7 @@ class qqFileUploader {
         if(!$replaceOldFile){
             /// don't overwrite previous files that were uploaded
             while (file_exists($uploadDirectory . $filename . '.' . $ext)) {
-                $filename .= rand(10, 99);
+                $filename .= time();
             }
         }
 

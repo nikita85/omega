@@ -17,6 +17,8 @@
   - Yii::app()->clientScript->registerScriptFile($this->assetsPath . DS . 'js' . DS . 'main.js');
 
 %body
+  #loading
+    %img(src="#{$this->assetsPath}/img/preloader.gif")
   #main-wrapper
     - $isHomePage = ($this->action->id=='index')? true: false;
     %header(id="#{$isHomePage? '': 'header-bg'}")

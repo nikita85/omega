@@ -40,7 +40,7 @@ class Applicant extends CActiveRecord
 		return array(
             array('name, email, phone', 'required'),
             array('cv', 'required', 'message'=>'Please attach a resume.'),
-            array('email', 'length', 'max' => 255),
+            array('email, name, phone', 'length', 'max' => 255),
             array('email', 'email'),
 		);
 	}
