@@ -611,16 +611,18 @@ section
 /**TABLE**/
 .popup-messsage-table
   position: absolute
-  bottom: 46px
-  right: 0
+  display: inline-block
+  top: 39px
+  right: 0px
   text-align: center
-  width: 823px
-  height: 576px
+  width: 100%
+  height: 638px
   background-color: rgba(0, 153, 51, 0.2)
   @include border-radius(10px)
+  box-sizing: border-box
   p
-    margin-top: 200px
-    margin-left: 170px
+    margin-top: 260px
+    margin-left: 240px
     width: 472px
     font-family: $head-fonts
     font-size: 14px
@@ -641,6 +643,8 @@ section
     cursor: pointer
     @include linear-gradient(#6bcb64, #019140)
     @include border-radius(20px)
+    &:hover
+      @include linear-gradient(#019140, #6bcb64)
   .table-button-popup
     position: relative
     top: 5px
@@ -714,7 +718,7 @@ section
       .hovered
         background-color: #cef4dc
     th
-      width: 111px
+      /*width: 210px
       font-family: $second-fonts
       font-weight: 700
       font-size: 13px
@@ -722,7 +726,7 @@ section
       text-align: center
       @include linear-gradient(#fcfbfb, #f1f1f1)
       @include custom-border-radius(10px, 10px, 0, 0)
-      padding: 10px 2px
+      padding: 10px 0
       vertical-align: top
       p
         text-indent: -99999px
@@ -737,22 +741,23 @@ section
         font-size: 11px
         font-weight: 400
     td
-      width: 111px
+      /*width: 111px
       height: 20px
-      border-right: 1px solid #ececec
+      /*border-right: 1px solid #ececec
       border-left: 1px solid #ececec
       border-top: 1px solid #ececec
       font-family: $head-fonts
       font-size: 12px
       color: #333333
-      padding-left: 20px
+      /*padding-left: 20px
+      padding: 0 20px
       span
         font-weight: 700
         color: #159c47
   .table-button
     position: relative
     top: 5px
-    left: 473px
+    left: 417px
     text-align: center
     color: #cccccc
     font-family: $second-fonts
@@ -762,9 +767,9 @@ section
     text-decoration: none
     padding: 3px 10px
     @include linear-gradient(#fcfbfb, #f1f1f1)
+    @include border-radius(20px)
     &.table-button-active
       @include linear-gradient(#6bcb64, #019140)
-      @include border-radius(20px)
 /**OPENED CLASS**/
 section
     .analysis
