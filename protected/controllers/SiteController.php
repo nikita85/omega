@@ -132,6 +132,11 @@ class SiteController extends Controller
         $this->render('knoll');
     }
 
+    public function actionhillview()
+    {
+        $this->render('hillview');
+    }
+
 	/**
 	 * This is the action to handle external exceptions.
 	 */
