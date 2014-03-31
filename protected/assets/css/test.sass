@@ -256,7 +256,6 @@ header
   display: inline-block
   vertical-align: top
   margin-top: 40px
-  /*background: #5bc0de
   h2
     font-size: 18px
     padding-bottom: 20px
@@ -736,13 +735,11 @@ header#header-bg
         font-weight: 400
     td
       height: 20px
-      /*border-right: 1px solid #ececec
       border-left: 1px solid #ececec
       border-top: 1px solid #ececec
       font-family: $head-fonts
       font-size: 12px
       color: #333333
-      /*padding-left: 20px
       padding: 0 16px 0 17px
       span
         font-weight: 700
@@ -1080,10 +1077,13 @@ header#header-bg
         font-size: 13px
         color: #666666
         background: url("../img/input.png") no-repeat
-        width: 212px
+        @include border-radius(20px)
+        width: 192px
         height: 24px
         padding: 0 10px
         margin: 5px 0 10px 0
+        &:focus
+          box-shadow: 0 0 0 2px rgba(0, 124, 45, 1)
       .drag-and-drop
         margin-top: 5px
         margin-bottom: 10px
@@ -1435,7 +1435,7 @@ header#header-bg
     margin-top: 8px
   /**CHECK**/
   .input-error
-    box-shadow: 0 0 5px rgba(255, 0, 0, 1)
+    box-shadow: 0 0 0 2px rgba(255, 0, 0, 1)
   .error-message
     margin:  0 0 5px 7px
     color: #c01
@@ -1469,8 +1469,7 @@ header#header-bg
     font-size: 13px
     color: #666666
     &:focus
-      box-shadow: 0 0 5px rgba(0, 124, 45, 1)
-      /*border: 1px solid #007c2d
+      box-shadow: 0 0 0 2px rgba(0, 124, 45, 1)
   .select-move, .select-move-date
     margin: 20px 76px 0 0
     padding: 0 0 5px
