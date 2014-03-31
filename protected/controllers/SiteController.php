@@ -21,30 +21,41 @@ class SiteController extends Controller
 
     public function actionJobs()
     {
-        $model = new Applicant();
+        $applicant = new Applicant();
+
+        if(isset($_POST['ajax']) && $_POST['ajax']==='applicant-form')
+        {
+            echo CActiveForm::validate($applicant);
+            Yii::app()->end();
+        }
 
         if(isset($_POST['Applicant']))
         {
-            $model->attributes=$_POST['Applicant'];
-            $valid=$model->validate();
+            $applicant->attributes=$_POST['Applicant'];
+            $valid=$applicant->validate();
             if($valid)
             {
-                $model->save();
+                $applicant->save();
+
+                $tempFolder = Yii::getPathOfAlias('webroot') . '/uploads/temp_cv/';
+                $cvSaveFolder = Yii::getPathOfAlias('webroot') . '/uploads/saved_cv/';
+
+                rename($tempFolder.$applicant->cv, $cvSaveFolder.$applicant->cv);
+
                 echo CJSON::encode(array(
                     'status'=>'success'
                 ));
             } else
             {
-                $error = CActiveForm::validate($model);
+                $error = CActiveForm::validate($applicant);
                 if($error!='[]')
                     echo $error;
-                Yii::app()->end();
             }
             Yii::app()->end();
         }
 
         $this->render('jobs', [
-            'model' => $model
+            'applicant' => $applicant
         ]);
     }
 
@@ -108,7 +119,7 @@ class SiteController extends Controller
         Yii::import("ext.EAjaxUpload.qqFileUploader");
 
         // folder for uploaded files
-        $folder = Yii::getPathOfAlias('webroot') . '/uploads/';
+        $folder = Yii::getPathOfAlias('webroot') . '/uploads/temp_cv/';
 
         //array("jpg","jpeg","gif","exe","mov" and etc...
         $allowedExtensions = array("docx", "doc", "pdf", "rtf", "odt");
