@@ -57,9 +57,8 @@ a
   @include border-radius(20px)
 /**HEADER**/
 header
-  background-image: url("../img/header_bg_light.png")
+  background: url("../img/header_bg_light.png") no-repeat
   background-position: center
-  background-repeat: no-repeat
   background-size: cover
   height: 440px
   padding-top: 10px
@@ -177,14 +176,14 @@ header
         width: 160px
         height: 65px
         cursor: pointer
+    /**POPUP**/
     .puzzle-popup
       display: none
       position: absolute
       top: 225px
       left: 560px
-      background-image: url("../img/button_puzzle_opened2.png")
+      background: url("../img/button_puzzle_opened2.png") no-repeat
       background-position: top center
-      background-repeat: no-repeat
       width: 360px
       z-index: 1
     .popup-text
@@ -223,8 +222,7 @@ header
           border: none
           outline: none
           margin-top: 5px
-          background-image: url("../img/input.png")
-          background-repeat: no-repeat
+          background: url("../img/input.png") no-repeat
           width: 212px
           height: 24px
           padding: 0 10px
@@ -238,377 +236,375 @@ header
           &:hover
             @include linear-gradient(#019140, #6bcb64)
 /**CONTENT**/
-section
-    .wrapper-index-page
-      height: 115px
-      @include linear-gradient(#fcfbfb, #f1f1f1)
-      @include custom-border-radius(0, 0, 20px, 20px)
-      .information p
-        font-family: $head-fonts
-        font-size: 13px
-        line-height: 1.8em
-        color: #333333
-      .information img
-        float: left
-        margin-right: 10px
-      .information
-        float: left
-        width: 235px
-        margin: 30px 0 0 60px
-    .education
-      display: inline-block
-      vertical-align: top
-      margin-top: 40px
-      /*background: #5bc0de
-      h2
-        font-size: 18px
-        padding-bottom: 20px
-      .maximize-way h2
-        font-size: 24px
-        margin-top: 10px
-        margin-left: 15px
-      .maximize-way p
-        font-family: $head-fonts
-        font-size: 13px
-        line-height: normal
-        margin-left: 15px
-        color: #666666
-      .maximize-way
-        display: inline-block
-        vertical-align: top
-        width: 219px
-        margin: 0 18px 0 0
-        @include border-radius(20px)
-        @include borders-left-right-bottom
-      .maximize-way:last-child
-        margin: 0 0 0 2px
-      .tutoring
-        h2
-          color: #019140
-        p
-          margin-bottom: 19px
-          width: 182px
-        .all-buttons
-          position: relative
-          top: 7px
-          left: 65px
-          @include linear-gradient(#6bcb64, #019140)
-          padding: 5px 13px
-          &:hover
-            @include linear-gradient(#019140, #6bcb64)
-      .classes
-        h2
-          color: #18946c
-        p
-          margin-bottom: 37px
-          width: 180px
-        .all-buttons
-          position: relative
-          top: 7px
-          left: 65px
-          @include linear-gradient(#50cda5, #18946c)
-          padding: 5px 13px
-          &:hover
-            @include linear-gradient(#18946c, #50cda5)
-      .sat
-        h2
-          color: #3697a7
-        p
-          margin-bottom: 37px
-          width: 180px
-        .all-buttons
-          position: relative
-          top: 7px
-          left: 65px
-          @include linear-gradient(#62cadb, #3697a7)
-          padding: 5px 13px
-          &:hover
-            @include linear-gradient(#3697a7, #62cadb)
-      .isee
-        h2
-          color: #4a98ce
-        p
-          width: 180px
-
-        .all-buttons
-          position: relative
-          top: 7px
-          left: 65px
-          @include linear-gradient(#8cc6ef, #4a98ce)
-          padding: 5px 13px
-          &:hover
-            @include linear-gradient(#4a98ce, #8cc6ef)
-    .content
-      position: relative
-      margin-top: 80px
-      .left-colum
-        float: left
-        width: 220px
-        text-align: center
-        h2
-          padding-top: 20px
-          font-size: 18px
-      .date
-        background-image: url("../img/calendar.jpg")
-        width: 220px
-        height: 105px
-        a
-          text-decoration: none
-        h2
-          padding-top: 4px
-          font-size: 18px
-          font-family: $second-fonts
-          color: #ffffff
-        h3
-          padding-top: 10px
-          font-size: 36px
-          color: #333333
-      .app-store
-        margin-top: 10px
-      .google-play
-        margin-top: 10px
-      .right-colum
-        float: right
-        h3
-          font-family: $second-fonts
-          font-weight: 700
-          font-size: 18px
-          color: #333333
-          margin-bottom: 10px
-      .about-block
-        border: 1px solid #e6e6e6
-        @include border-radius(10px)
-        height: 258px
-        width: 700px
-        .about-text
-          float: left
-          margin-top: 40px
-          margin-left: 40px
-          width: 292px
-          font-family: $head-fonts
-          font-size: 13px
-          line-height: 1.5em
-          color: #666666
-        .about-text-r
-          float: right
-          margin-top: 40px
-          margin-right: 60px
-          width: 285px
-          font-family: $head-fonts
-          font-size: 13px
-          line-height: 1.5em
-          color: #666666
-    .map
-      margin-top: 50px
-      margin-bottom: 50px
-      h2
-        padding-bottom: 10px
-        font-size: 18px
-/**Classes-pages**/
-header#header-bg
-  background-image: url("../img/header_picture.jpg")
-  background-position: top center
-  background-repeat: no-repeat
-  height: 105px
-  padding-top: 10px
-/**Contents Classes Page**/
-section
-  .bread-crumbs
+.wrapper-index-page
+  height: 115px
+  @include linear-gradient(#fcfbfb, #f1f1f1)
+  @include custom-border-radius(0, 0, 20px, 20px)
+  .information p
+    font-family: $head-fonts
+    font-size: 13px
+    line-height: 1.8em
+    color: #333333
+  .information img
+    float: left
+    margin-right: 10px
+  .information
+    float: left
+    width: 235px
+    margin: 30px 0 0 60px
+.education
+  display: inline-block
+  vertical-align: top
+  margin-top: 40px
+  /*background: #5bc0de
+  h2
+    font-size: 18px
+    padding-bottom: 20px
+  .maximize-way h2
+    font-size: 24px
+    margin-top: 10px
+    margin-left: 15px
+  .maximize-way p
+    font-family: $head-fonts
+    font-size: 13px
+    line-height: normal
+    margin-left: 15px
+    color: #666666
+  .maximize-way
     display: inline-block
-    margin-top: 18px
-    @include custom-border-radius(10px, 5px, 5px, 10px)
-    border: 1px solid #ececec
-    img
-      padding-bottom: 2px
-    li
-      float: left
-      position: relative
-      @include linear-gradient(#fcfbfb, #f1f1f1)
-      @include custom-border-radius(10px, 0, 0, 10px)
-    li+li
-      background: none
-    li
-      a
-        font-family: $second-fonts
-        font-size: 14px
-        color: #999999
-        text-decoration: none
-        padding: 7px 7px
-        span
-          color: #007c2d
-        &:first-child
-          %a:hover
-            border-radius: 4px 0 0 4px
-            -webkit-border-radius: 4px 0 0 4px
-            -moz-border-radius: 4px 0 0 4px
-  .bread-crumbs li ul
-    display: none
-  .bread-crumbs li:hover ul
-    display: block
-    position: absolute
-    top: 15px
-    border-radius: 0 0 4px 4px
-    -webkit-border-radius: 0 0 4px 4px
-    -moz-border-radius: 0 0 4px 4px
-    background-color: #e0dfe3
-    z-index: 1000
-  .bread-crumbs li:hover ul li
-    float: none
-    width: 135px
-    border-right: none
-  .bread-crumbs li:hover ul li a
-    border-right: none
-    padding: 6px 20px 8px
-  .bread-crumbs li:hover ul li a:hover
-    background-color: transparent
-    color: #999999
-  .bread-crumbs li:hover ul li:first-child a:hover
-    border-radius: 0
-    -webkit-border-radius: 0
-    -moz-border-radius: 0
-  .summer-seminars
-    h1
-      margin-top: 18px
-      margin-bottom: 14px
-      font-size: 30px
-    img
-      float: left
-      margin-right: 19px
-    p
-      font-family: $head-fonts
-      font-size: 13px
-      color: #333333
-      line-height: normal
-  .summer-classes
+    vertical-align: top
+    width: 219px
+    margin: 0 18px 0 0
+    @include border-radius(20px)
+    @include borders-left-right-bottom
+  .maximize-way:last-child
+    margin: 0 0 0 2px
+  .tutoring
     h2
-      margin-bottom: 20px
-    position: relative
-    margin-top: 40px
-    .seminars, .question
+      color: #019140
+    p
+      margin-bottom: 19px
+      width: 182px
+    .all-buttons
       position: relative
-      float: left
-      @include border-radius(20px)
-      @include borders-left-right-bottom
-      height: 180px
-    .seminars, .question:last-child
-      margin: 0 13px 35px 0
-      .camp-topic, .personal-topic, .myths-topic, .going-topic, .laugh-topic, .story-topic, .intro-topic
-        position: absolute
-        margin-top: 10px
-        font-family: $second-fonts
-        font-size: 15px
-        text-align: center
-        color: #ffffff
-      .grades
-        font-family: $second-fonts
-        font-size: 13px
-        line-height: normal
-        color: #029141
-        list-style: disc
-        font-weight: 700
-        padding: 0 0 0 36px
-    .grades
-      li+li
-        list-style: none
-      span
-        font-weight: 400
-        color: #666666
-    .seminars
-      .camp-topic
-        margin-left: 29px
-    .camp-button, .personal-button, .myths-button, .going-button, .laugh-button, .story-button, .intro-button
-      position: absolute
-      bottom: -10px
-      font-family: $second-fonts
-      font-size: 10px
-      padding: 6px 13px
-    .camp-button
+      top: 7px
       left: 65px
       @include linear-gradient(#6bcb64, #019140)
+      padding: 5px 13px
       &:hover
         @include linear-gradient(#019140, #6bcb64)
-    .personal
-      .personal-topic
-        width: 161px
-        margin-left: 28px
-    .personal-button
+  .classes
+    h2
+      color: #18946c
+    p
+      margin-bottom: 37px
+      width: 180px
+    .all-buttons
+      position: relative
+      top: 7px
       left: 65px
-      @include linear-gradient(#2cc87f, #0a9252)
+      @include linear-gradient(#50cda5, #18946c)
+      padding: 5px 13px
       &:hover
-        @include linear-gradient(#0a9252, #2cc87f)
-    .seminars
-      .myths-topic
-        width: 180px
-        margin-left: 20px
-        span
-          font-size: 13px
-          color: #fdd749
-    .myths-button
+        @include linear-gradient(#18946c, #50cda5)
+  .sat
+    h2
+      color: #3697a7
+    p
+      margin-bottom: 37px
+      width: 180px
+    .all-buttons
+      position: relative
+      top: 7px
       left: 65px
-      @include linear-gradient(#30c494, #18946c)
+      @include linear-gradient(#62cadb, #3697a7)
+      padding: 5px 13px
       &:hover
-        @include linear-gradient(#18946c, #30c494)
-    .seminars
-      .going-topic
-        width: 180px
-        margin-left: 22px
-        span
-          font-size: 13px
-          color: #fdd749
-    .going-button
+        @include linear-gradient(#3697a7, #62cadb)
+  .isee
+    h2
+      color: #4a98ce
+    p
+      width: 180px
+
+    .all-buttons
+      position: relative
+      top: 7px
       left: 65px
-      @include linear-gradient(#36c3b4, #27968a)
+      @include linear-gradient(#8cc6ef, #4a98ce)
+      padding: 5px 13px
       &:hover
-        @include linear-gradient(#27968a, #36c3b4)
-    .seminars
-      .laugh-topic
-        margin-left: 48px
-    .laugh-button
-      left: 65px
-      @include linear-gradient(#4ac2d6, #3797a8)
-      &:hover
-        @include linear-gradient(#3797a8, #4ac2d6)
-    .seminars
-      .story-topic
-        margin-left: 38px
-    .story-button
-      left: 65px
-      @include linear-gradient(#4ac2d6, #4499c1)
-      &:hover
-        @include linear-gradient(#4499c1, #4ac2d6)
-    .seminars
-      .intro-topic
-        margin-left: 20px
-    .intro-button
-      left: 65px
-      @include linear-gradient(#73c3ff, #4d9ad3)
-      &:hover
-        @include linear-gradient(#4d9ad3, #73c3ff)
-    .question
-      width: 220px
-      background: #e9f5fe
-      border-radius: 8px
+        @include linear-gradient(#4a98ce, #8cc6ef)
+.content
+  position: relative
+  margin-top: 80px
+  .left-colum
+    float: left
+    width: 220px
+    text-align: center
+    h2
+      padding-top: 20px
+      font-size: 18px
+  .date
+    background-image: url("../img/calendar.jpg")
+    width: 220px
+    height: 105px
+    a
+      text-decoration: none
+    h2
+      padding-top: 4px
+      font-size: 18px
+      font-family: $second-fonts
+      color: #ffffff
+    h3
+      padding-top: 10px
+      font-size: 36px
+      color: #333333
+  .app-store
+    margin-top: 10px
+  .google-play
+    margin-top: 10px
+  .right-colum
+    float: right
+    h3
+      font-family: $second-fonts
+      font-weight: 700
+      font-size: 18px
+      color: #333333
+      margin-bottom: 10px
+  .about-block
+    border: 1px solid #e6e6e6
+    @include border-radius(10px)
+    height: 258px
+    width: 700px
+    .about-text
+      float: left
+      margin-top: 40px
+      margin-left: 40px
+      width: 292px
+      font-family: $head-fonts
+      font-size: 13px
+      line-height: 1.5em
+      color: #666666
+    .about-text-r
+      float: right
+      margin-top: 40px
+      margin-right: 60px
+      width: 285px
+      font-family: $head-fonts
+      font-size: 13px
+      line-height: 1.5em
+      color: #666666
+.map
+  margin-top: 50px
+  margin-bottom: 50px
+  h2
+    padding-bottom: 10px
+    font-size: 18px
+/**CLASSES PAGE**/
+header#header-bg
+  background-image: url("../img/header_picture.jpg")
+  background-repeat: no-repeat
+  background-position: top center
+  height: 105px
+  padding-top: 10px
+/**CONTENT CLASSES PAGE**/
+.bread-crumbs
+  display: inline-block
+  margin-top: 18px
+  @include custom-border-radius(10px, 5px, 5px, 10px)
+  border: 1px solid #ececec
+  img
+    padding-bottom: 2px
+  li
+    float: left
+    position: relative
+    @include linear-gradient(#fcfbfb, #f1f1f1)
+    @include custom-border-radius(10px, 0, 0, 10px)
+  li+li
+    background: none
+  li
+    a
       font-family: $second-fonts
       font-size: 14px
-      color: #333333
-      font-weight: 400
-      text-align: center
-      line-height: normal
-      img
-        float: left
-        margin-top: 25px
-        margin-left: 20px
-        margin-right: 10px
-      h6
-        width: 195px
-        text-align: left
-        margin-top: 20px
-      p
-        width: 140px
-        padding-left: 40px
+      color: #999999
+      text-decoration: none
+      padding: 7px 7px
       span
-        color: #3888c4
-        font-weight: 700
+        color: #007c2d
+      &:first-child
+        %a:hover
+          border-radius: 4px 0 0 4px
+          -webkit-border-radius: 4px 0 0 4px
+          -moz-border-radius: 4px 0 0 4px
+.bread-crumbs li ul
+  display: none
+.bread-crumbs li:hover ul
+  display: block
+  position: absolute
+  top: 15px
+  border-radius: 0 0 4px 4px
+  -webkit-border-radius: 0 0 4px 4px
+  -moz-border-radius: 0 0 4px 4px
+  background-color: #e0dfe3
+  z-index: 1000
+.bread-crumbs li:hover ul li
+  float: none
+  width: 135px
+  border-right: none
+.bread-crumbs li:hover ul li a
+  border-right: none
+  padding: 6px 20px 8px
+.bread-crumbs li:hover ul li a:hover
+  background-color: transparent
+  color: #999999
+.bread-crumbs li:hover ul li:first-child a:hover
+  border-radius: 0
+  -webkit-border-radius: 0
+  -moz-border-radius: 0
+.summer-seminars
+  h1
+    margin-top: 18px
+    margin-bottom: 14px
+    font-size: 30px
+  img
+    float: left
+    margin-right: 19px
+  p
+    font-family: $head-fonts
+    font-size: 13px
+    color: #333333
+    line-height: normal
+.summer-classes
+  h2
+    margin-bottom: 20px
+  position: relative
+  margin-top: 40px
+  .seminars, .question
+    position: relative
+    float: left
+    @include border-radius(20px)
+    @include borders-left-right-bottom
+    height: 180px
+  .seminars, .question:last-child
+    margin: 0 13px 35px 0
+    .camp-topic, .personal-topic, .myths-topic, .going-topic, .laugh-topic, .story-topic, .intro-topic
+      position: absolute
+      margin-top: 10px
+      font-family: $second-fonts
+      font-size: 15px
+      text-align: center
+      color: #ffffff
+    .grades
+      font-family: $second-fonts
+      font-size: 13px
+      line-height: normal
+      color: #029141
+      list-style: disc
+      font-weight: 700
+      padding: 0 0 0 36px
+  .grades
+    li+li
+      list-style: none
+    span
+      font-weight: 400
+      color: #666666
+  .seminars
+    .camp-topic
+      margin-left: 29px
+  .camp-button, .personal-button, .myths-button, .going-button, .laugh-button, .story-button, .intro-button
+    position: absolute
+    bottom: -10px
+    font-family: $second-fonts
+    font-size: 10px
+    padding: 6px 13px
+  .camp-button
+    left: 65px
+    @include linear-gradient(#6bcb64, #019140)
+    &:hover
+      @include linear-gradient(#019140, #6bcb64)
+  .personal
+    .personal-topic
+      width: 161px
+      margin-left: 28px
+  .personal-button
+    left: 65px
+    @include linear-gradient(#2cc87f, #0a9252)
+    &:hover
+      @include linear-gradient(#0a9252, #2cc87f)
+  .seminars
+    .myths-topic
+      width: 180px
+      margin-left: 20px
+      span
+        font-size: 13px
+        color: #fdd749
+  .myths-button
+    left: 65px
+    @include linear-gradient(#30c494, #18946c)
+    &:hover
+      @include linear-gradient(#18946c, #30c494)
+  .seminars
+    .going-topic
+      width: 180px
+      margin-left: 22px
+      span
+        font-size: 13px
+        color: #fdd749
+  .going-button
+    left: 65px
+    @include linear-gradient(#36c3b4, #27968a)
+    &:hover
+      @include linear-gradient(#27968a, #36c3b4)
+  .seminars
+    .laugh-topic
+      margin-left: 48px
+  .laugh-button
+    left: 65px
+    @include linear-gradient(#4ac2d6, #3797a8)
+    &:hover
+      @include linear-gradient(#3797a8, #4ac2d6)
+  .seminars
+    .story-topic
+      margin-left: 38px
+  .story-button
+    left: 65px
+    @include linear-gradient(#4ac2d6, #4499c1)
+    &:hover
+      @include linear-gradient(#4499c1, #4ac2d6)
+  .seminars
+    .intro-topic
+      margin-left: 20px
+  .intro-button
+    left: 65px
+    @include linear-gradient(#73c3ff, #4d9ad3)
+    &:hover
+      @include linear-gradient(#4d9ad3, #73c3ff)
+  .question
+    width: 220px
+    background: #e9f5fe
+    border-radius: 8px
+    font-family: $second-fonts
+    font-size: 14px
+    color: #333333
+    font-weight: 400
+    text-align: center
+    line-height: normal
+    img
+      float: left
+      margin-top: 25px
+      margin-left: 20px
+      margin-right: 10px
+    h6
+      width: 195px
+      text-align: left
+      margin-top: 20px
+    p
+      width: 140px
+      padding-left: 40px
+    span
+      color: #3888c4
+      font-weight: 700
 /**TABLE**/
 .popup-messsage-table
   position: absolute
@@ -617,7 +613,7 @@ section
   right: 0px
   text-align: center
   width: 100%
-  height: 638px
+  height: 590px
   background-color: rgba(0, 153, 51, 0.2)
   @include border-radius(10px)
   box-sizing: border-box
@@ -685,25 +681,23 @@ section
       color: #ffffff
       span
         display: inline-block
-        background-image: url("../img/icon_favourite_small.png")
-        background-repeat: no-repeat
+        background: url("../img/icon_favourite_small.png") no-repeat
         background-position: left
         background-size: auto auto
         color: #fcd234
     td[data-col-id]
       cursor: pointer
     td.select
-      background-image: url("../img/tick.png")
-      background-repeat: no-repeat
+      background: url("../img/tick.png") no-repeat
       background-position: center
       background-size: auto auto
       background-color: #159c47 !important
     td.select[data-cell-type]
       background-repeat: no-repeat
-      background-position: 5px center
+      background-position: 3px center
       background-size: auto auto
       background-color: #159c47 !important
-      padding-left: 20px
+      padding: 0 0 0 17px
       color: #ffffff
     td.hovered
       &:hover
@@ -719,7 +713,7 @@ section
       .hovered
         background-color: #cef4dc
     th
-      /*width: 210px
+      width: 115px
       font-family: $second-fonts
       font-weight: 700
       font-size: 13px
@@ -733,8 +727,7 @@ section
         text-indent: -99999px
       span
         display: inline-block
-        background-image: url("../img/icon_favourite_small_.png")
-        background-repeat: no-repeat
+        background: url("../img/icon_favourite_small_.png") no-repeat
         background-position: left
         background-size: auto auto
         padding-left: 15px
@@ -742,7 +735,6 @@ section
         font-size: 11px
         font-weight: 400
     td
-      /*width: 111px
       height: 20px
       /*border-right: 1px solid #ececec
       border-left: 1px solid #ececec
@@ -751,7 +743,7 @@ section
       font-size: 12px
       color: #333333
       /*padding-left: 20px
-      padding: 0 20px
+      padding: 0 16px 0 17px
       span
         font-weight: 700
         color: #159c47
@@ -772,481 +764,536 @@ section
     &.table-button-active
       @include linear-gradient(#6bcb64, #019140)
 /**OPENED CLASS**/
-section
-    .analysis
-      height: 277px
+.analysis
+  height: 277px
+  margin-top: 10px
+  @include linear-gradient(#fcfbfb, #f1f1f1)
+  @include border-radius(10px)
+  img
+    float: left
+    margin-right: 20px
+    vertical-align: text-bottom
+  h1
+    padding-top: 20px
+    font-size: 30px
+  .analysis-list, .analysis-list-knoll
+    float: left
+    margin-top: 20px
+    margin-left: 20px
+    font-family: $second-fonts
+    font-size: 14px
+    color: #333333
+    li
+      list-style-image: url("../img/point_description.png")
+      line-height: 2em
+      p
+        text-indent: -99999px
+      a
+        line-height: normal !important
+  .analysis-list-2, .analysis-list-2-knoll
+    float: left
+    margin-top: 20px
+    margin-left: 40px
+    font-family: $second-fonts
+    font-size: 14px
+    color: #333333
+    li
+      line-height: 2em
+    a
+      line-height: normal !important
+.courses, .courses-knoll
+  margin-top: 20px
+  .course-description, .course-description-knoll
+    float: left
+    width: 300px
+    height: 300px
+    h2
+      margin-bottom: 10px
+      font-size: 18px
+    p
+      width: 294px
+      font-family: $head-fonts
+      font-size: 13px
+      color: #333333
+      line-height: 1.6
+  .course-description-knoll
+    width: 620px
+    height: 0
+    p
+      width: 100%
+    a
+      text-decoration: none
+      color: #25a345
+      font-family: $head-fonts
+  .course-features, .course-features-knoll
+    float: left
+    margin-left: 20px
+    width: 300px
+    height: 300px
+    h3
+      margin-bottom: 10px
+      font-family: $second-fonts
+      font-size: 18px
+      color: #333333
+      font-weight: 700
+    .days
+      width: 269px
+      font-family: $head-fonts
+      font-size: 10px
+      color: #019140
+      span
+        color: #333333
+        font-size: 13px
+      li
+        list-style: circle
+        line-height: 2
+  .enroll-course, .enroll-course-knoll
+    position: relative
+    float: right
+    width: 297px
+    height: 236px
+    h4
+      margin-bottom: 10px
+      font-family: $second-fonts
+      font-size: 18px
+      color: #333333
+    p
+      padding-top: 77px
+      margin-left: 20px
+      font-family: $second-fonts
+      font-size: 18px
+      color: #333333
+      span
+        color: #019140
+        font-weight: 700
+    .begins-text, .begins-text-knoll
+      position: absolute
+      text-align: center
+      line-height: normal
       margin-top: 10px
-      @include linear-gradient(#fcfbfb, #f1f1f1)
+      margin-left: 26px
+      h5
+        font-family: $second-fonts
+        color: #ffffff
+        font-size: 18px
+        span
+          font-weight: 700
+      p
+        font-family: $second-fonts
+        color: #ffffff
+        font-size: 16px
+    .begins-text-knoll
+      text-align: left
+      p
+        font-size: 15px
+        height: 20px
+        padding-top: 0px
+        margin-left: 0px
+    .enroll-border, .enroll-border-knoll
+      height: 132px
+      margin-top: -67px
+      @include borders-left-right-bottom
+      @include border-radius(20px)
+    .enroll-border-knoll
+      height: 80px
+  .enroll-button
+    position: relative
+    top: -9px
+    left: 81px
+    text-align: center
+    color: #ffffff
+    font-family: $head-fonts
+    font-weight: 700
+    font-size: 14px
+    text-transform: uppercase
+    text-decoration: none
+    padding: 5px 15px
+    @include border-radius(20px)
+    @include linear-gradient(#53bb4c, #029141)
+    &:hover
+      @include linear-gradient(#029141, #53bb4c)
+  .enroll-course-knoll
+    width: 300px
+    height: 100%
+  .other-summer-classes, .other-summer-classes-knoll
+    margin-top: 20px
+    height: 120px
+    h2
+      font-size: 18px
+      margin-top: 80px
+      margin-bottom: 30px
+    .borders, .borders-knoll
+      height: 46px
+      border: 1px solid #ececec
       @include border-radius(10px)
-      img
-        float: left
-        margin-right: 20px
-        vertical-align: text-bottom
-      h1
-        padding-top: 20px
-        font-size: 30px
-      .analysis-list, .analysis-list-knoll
-        float: left
-        margin-top: 20px
-        margin-left: 20px
+      .intro-button, .crafting-button, .myth-button, .going-button, .make-button, .power-button
+        position: relative
         font-family: $second-fonts
-        font-size: 14px
-        color: #333333
-        li
-          list-style-image: url("../img/point_description.png")
-          line-height: 2em
-          p
-            text-indent: -99999px
-          a
-            line-height: normal !important
-      .analysis-list-2, .analysis-list-2-knoll
-        float: left
-        margin-top: 20px
-        margin-left: 40px
-        font-family: $second-fonts
-        font-size: 14px
-        color: #333333
-        li
-          line-height: 2em
-        a
-          line-height: normal !important
-    .courses, .courses-knoll
+        font-size: 13px
+        color: #27968a
+        font-weight: 700
+        @include linear-gradient( #fcfbfb, #f1f1f1)
+        @include border-radius(20px)
+        text-decoration: none
+      .intro-button
+        top: -10px
+        margin-left: 60px
+        padding: 8px 50px
+      .crafting-button
+        top: -10px
+        margin-left: 15px
+        padding: 8px 12px
+      .myth-button
+        top: -10px
+        margin-left: 15px
+        padding: 8px 50px
+      .going-button
+        top: 20px
+        margin-left: 60px
+        padding: 8px 71px
+      .make-button
+        top: 20px
+        margin-left: 15px
+        padding: 8px 83px
+      .power-button
+        top: 20px
+        margin-left: 15px
+        padding: 8px 61px
+    .borders-knoll
+      font-weight: 700
+      height: 0
+      border: none
+      border-top: 1px solid #ececec
+      .intro-button
+        top: -10px
+        margin-left: 230px
+        padding: 8px 50px
+      .crafting-button
+        top: -10px
+        margin-left: 15px
+        padding: 8px 12px
+  .other-summer-classes-knoll
+    height: 80px
+    h2
       margin-top: 20px
-      .course-description, .course-description-knoll
-        float: left
-        width: 300px
-        height: 300px
-        h2
-          margin-bottom: 10px
-          font-size: 18px
+  .not-sure, .not-sure-knoll
+    position: relative
+    margin-top: 20px
+    margin-bottom: 20px
+    height: 132px
+    font-family: $second-fonts
+    font-size: 18px
+    color: 333333
+    font-weight: 400
+    background: rgba(19, 150, 71, 0.1)
+    @include border-radius(10px)
+  .not-sure-inner, .not-sure-inner-knoll
+    position: absolute
+    top: 36%
+    left: 19%
+    img
+      float: left
+      margin-right: 20px
+    p
+      width: 600px
+    span
+      color: #02933f
+      font-weight: 700
+/**JOBS PAGE**/
+.wrapper-job-page
+  margin-bottom: 50px
+  h1
+    font-size: 30px
+    margin-top: 20px
+    margin-bottom: 20px
+  .opportunities
+    float: left
+    width: 620px
+    background: url("../img/title_text_back.png") no-repeat
+    background-position: top center
+    h2
+      font-family: $head-fonts
+      font-size: 18px
+      color: #666666
+      font-weight: 400
+      text-align: center
+      width: 520px
+      margin-top: 60px
+      margin-left: 45px
+      span
+        color: #039241
+        font-weight: 700
+  .opportunities-borders, .form-bellow-borders
+    @include borders-left-right-bottom
+    @include custom-border-radius(0, 0, 10px, 10px)
+  .opportunities-borders
+    margin-top: 60px
+    h3
+      font-family: $second-fonts
+      font-size: 18px
+      color: #333333
+      font-weight: 700
+      text-align: left
+      padding-top: 50px
+      margin-left: 40px
+      padding-bottom: 5px
+  .opportunities-list
+    margin-left: 55px
+    margin-bottom: 58px
+    width: 495px
+    font-family: $second-fonts
+    font-weight: 400
+    font-size: 15px
+    line-height: 1.8em
+    li
+      list-style: outside circle
+      color: #1c9d4f
+      span
+        color: #666666
+  .form-bellow
+    float: right
+    width: 300px
+    img
+      margin-top: -50px
+    .form-bellow-borders
+      margin-top: -39px
+      h2
+        width: 200px
+        padding-bottom: 20px
+        padding-top: 57px
+        padding-left: 46px
+        font-size: 18px
+        text-align: center
+      .forms
+        margin-left: 46px
+      .form-caption
+        font-family: $second-fonts
+        font-size: 13px
+        font-weight: 700
+        color: #333333
+        span
+          color: #139647
+      input.text, input.email, input.phone
+        border: none
+        outline: none
+        font-family: $head-fonts
+        font-size: 13px
+        color: #666666
+        background: url("../img/input.png") no-repeat
+        width: 212px
+        height: 24px
+        padding: 0 10px
+        margin: 5px 0 10px 0
+      .drag-and-drop
+        margin-top: 5px
+        margin-bottom: 10px
+        width: 212px
+        height: 76px
+        background: rgba(19, 150, 71, 0.1)
+        text-align: center
+        @include border-radius(10px)
         p
-          width: 294px
+          width: 106px
+          padding-top: 16px
+          padding-left: 50px
           font-family: $head-fonts
           font-size: 13px
-          color: #333333
-          line-height: 1.6
-      .course-description-knoll
-        width: 620px
-        height: 0
-        p
-          width: 100%
-        a
-          text-decoration: none
-          color: #25a345
-          font-family: $head-fonts
-      .course-features, .course-features-knoll
-        float: left
-        margin-left: 20px
-        width: 300px
-        height: 300px
-        h3
-          margin-bottom: 10px
-          font-family: $second-fonts
-          font-size: 18px
-          color: #333333
-          font-weight: 700
-        .days
-          width: 269px
-          font-family: $head-fonts
-          font-size: 10px
-          color: #019140
-          span
-            color: #333333
-            font-size: 13px
-          li
-            list-style: circle
-            line-height: 2
-      .enroll-course, .enroll-course-knoll
+          color: #666666
+          a
+            color: #069442
+            text-decoration: none
+            &:hover
+              text-decoration: underline
+      .form-send-button
         position: relative
-        float: right
-        width: 297px
-        height: 236px
-        h4
-          margin-bottom: 10px
-          font-family: $second-fonts
-          font-size: 18px
-          color: #333333
-        p
-          padding-top: 77px
-          margin-left: 20px
-          font-family: $second-fonts
-          font-size: 18px
-          color: #333333
-          span
-            color: #019140
-            font-weight: 700
-        .begins-text, .begins-text-knoll
-          position: absolute
-          text-align: center
-          line-height: normal
-          margin-top: 10px
-          margin-left: 26px
-          h5
-            font-family: $second-fonts
-            color: #ffffff
-            font-size: 18px
-            span
-              font-weight: 700
-          p
-            font-family: $second-fonts
-            color: #ffffff
-            font-size: 16px
-        .begins-text-knoll
-          text-align: left
-          p
-            font-size: 15px
-            height: 20px
-            padding-top: 0px
-            margin-left: 0px
-        .enroll-border, .enroll-border-knoll
-          height: 132px
-          margin-top: -67px
-          @include borders-left-right-bottom
-          @include border-radius(20px)
-        .enroll-border-knoll
-          height: 80px
-      .enroll-button
-        position: relative
-        top: -9px
-        left: 81px
-        text-align: center
-        color: #ffffff
+        top: 15px
+        left: 46px
         font-family: $head-fonts
-        font-weight: 700
         font-size: 14px
-        text-transform: uppercase
-        text-decoration: none
-        padding: 5px 15px
-        @include border-radius(20px)
+        font-weight: 700
+        padding: 5px 35px
         @include linear-gradient(#53bb4c, #029141)
         &:hover
           @include linear-gradient(#029141, #53bb4c)
-      .enroll-course-knoll
-        width: 300px
-        height: 100%
-      .other-summer-classes, .other-summer-classes-knoll
-        margin-top: 20px
-        height: 120px
-        h2
-          font-size: 18px
-          margin-top: 80px
-          margin-bottom: 30px
-        .borders, .borders-knoll
-          height: 46px
-          border: 1px solid #ececec
-          @include border-radius(10px)
-          .intro-button, .crafting-button, .myth-button, .going-button, .make-button, .power-button
-            position: relative
-            font-family: $second-fonts
-            font-size: 13px
-            color: #27968a
-            font-weight: 700
-            @include linear-gradient( #fcfbfb, #f1f1f1)
-            @include border-radius(20px)
-            text-decoration: none
-          .intro-button
-            top: -10px
-            margin-left: 60px
-            padding: 8px 50px
-          .crafting-button
-            top: -10px
-            margin-left: 15px
-            padding: 8px 12px
-          .myth-button
-            top: -10px
-            margin-left: 15px
-            padding: 8px 50px
-          .going-button
-            top: 20px
-            margin-left: 60px
-            padding: 8px 71px
-          .make-button
-            top: 20px
-            margin-left: 15px
-            padding: 8px 83px
-          .power-button
-            top: 20px
-            margin-left: 15px
-            padding: 8px 61px
-        .borders-knoll
-          font-weight: 700
-          height: 0
-          border: none
-          border-top: 1px solid #ececec
-          .intro-button
-            top: -10px
-            margin-left: 230px
-            padding: 8px 50px
-          .crafting-button
-            top: -10px
-            margin-left: 15px
-            padding: 8px 12px
-      .other-summer-classes-knoll
-        height: 80px
-        h2
-          margin-top: 20px
-      .not-sure, .not-sure-knoll
-        position: relative
-        margin-top: 20px
-        margin-bottom: 20px
-        height: 132px
+/**MAIN_CLASSES PAGE**/
+.wrapper-main-classes-page
+  margin-bottom: 50px
+  h1
+    margin-top: 20px
+    margin-bottom: 20px
+    font-size: 18px
+    color: #333333 !important
+  .our-classes, .what-class
+    position: relative
+    width: 218px
+    height: 470px
+    float: left
+    @include borders-left-right-bottom
+    @include border-radius(10px)
+  .our-classes, .what-class:first-child
+    margin: 0 20px 0 0
+  .our-classes p
+    position: absolute
+    top: 300px
+    margin-top: 10px
+    font-family: $head-fonts
+    font-size: 13px
+    color: #666666
+    padding: 0 20px
+  .our-classes-list
+    margin-top: 20px
+    margin-left: 30px
+    padding: 3px
+    li
+      font-size: 10px
+      list-style: disc
+      color: #129a46
+      span
         font-family: $second-fonts
-        font-size: 18px
-        color: 333333
-        font-weight: 400
-        background: rgba(19, 150, 71, 0.1)
-        @include border-radius(10px)
-      .not-sure-inner, .not-sure-inner-knoll
-        position: absolute
-        top: 36%
-        left: 19%
-        img
-          float: left
-          margin-right: 20px
-        p
-          width: 600px
-        span
-          color: #02933f
-          font-weight: 700
-/**JOBS PAGE**/
-section
-  .wrapper-job-page
-    margin-bottom: 50px
-    h1
-      font-size: 30px
-      margin-top: 20px
-      margin-bottom: 20px
-    .opportunities
-      float: left
-      width: 620px
-      background-image: url("../img/title_text_back.png")
-      background-repeat: no-repeat
-      background-position: top center
-      h2
-        font-family: $head-fonts
-        font-size: 18px
+        font-size: 13px
+        line-height: normal
         color: #666666
-        font-weight: 400
+  .our-classes h2
+    font-size: 15px
+    text-align: center
+    margin-top: 10px
+    margin-left: 45px
+    margin-bottom: 10px
+    line-height: normal
+    word-wrap: break-word
+  .summer-seminar
+    color: #129a46
+    width: 127px
+  .summer-seminar-button, .creative-writing-button, .writing-workouts-button
+    position: absolute
+    bottom: -14px
+    left: 65px
+    font-family: $head-fonts
+    font-size: 10px
+    font-weight: 700
+    padding: 6px 13px
+  .summer-seminar-button
+    @include linear-gradient(#6bcb64, #019140)
+    &:hover
+      @include linear-gradient(#019140, #6bcb64)
+  .creative-writing
+    color: #1a986f
+    width: 130px
+  .creative-writing-button
+    @include linear-gradient(#6bcb64, #019140)
+    &:hover
+      @include linear-gradient(#019140, #6bcb64)
+  .writing-workouts
+    color: #3899aa
+    width: 130px
+  .writing-workouts-button
+    @include linear-gradient(#4ac2d6,  #3797a8)
+    &:hover
+      @include linear-gradient(#3797a8,  #4ac2d6)
+  .what-class
+    background: rgba(41, 159, 246, 0.1)
+    text-align: center
+    line-height: normal
+    img
+      margin-top: 100px
+      margin-bottom: 5px
+    p
+      width: 160px
+      margin-left: 25px
+      font-family: $second-fonts
+      font-size: 16px
+      color: #333333
+      span
+        color: #3888c4
+        font-weight: 700
+/**TUTORS PAGE**/
+.wrapper-tutors-page
+  margin-bottom: 50px
+  h1, .tutors-info h2
+    font-family: $second-fonts
+    font-size: 30px
+    font-weight: 700
+    color: #007c2d
+    margin-top: 20px
+    margin-bottom: 10px
+  .our-tutors
+    float: left
+  .tutors-info
+    float: right
+    position: relative
+    height: 502px
+    width: 639px
+    border-top: 1px solid #ececec
+    border-right: 1px solid #ececec
+    border-bottom: 1px solid #ececec
+    @include custom-border-radius(0, 10px, 10px, 0)
+    font-family: $head-fonts
+    font-size: 13px
+    color: #666666
+    h2
+      margin-left: 20px
+    li
+      margin-left: 20px
+      list-style: inside
+      color: #007c2d
+      span
+        color: #666666
+        font-weight: 700
+        font-size: 15px
+    p
+      margin-left: 40px
+      line-height: normal
+      padding: 0 30px 0 0
+      span
+        color: #069342
+  .days-times-wrapper
+    position: absolute
+    bottom: 30px
+    .days-times
+      height: 81px
+      width: 560px
+      margin-left: 40px
+      line-height: normal
+      @include linear-gradient(#fcfbfb, #f1f1f1)
+      @include border-radius(10px)
+      li
+        list-style: none
+        position: relative
+        left: 7px
+        margin-top: 15px
         text-align: center
-        width: 520px
-        margin-top: 60px
-        margin-left: 45px
+        float: left
+        width: 95px
+        color: #666666 !important
         span
           color: #039241
-          font-weight: 700
-    .opportunities-borders, .form-bellow-borders
-      @include borders-left-right-bottom
-      @include custom-border-radius(0, 0, 10px, 10px)
-    .opportunities-borders
-      margin-top: 60px
-      h3
-        font-family: $second-fonts
-        font-size: 18px
-        color: #333333
+          font-weight: 400 !important
+      li+li
+        border-left: 1px solid #ececec
+        padding: 0 0 0 20px
+      .our-tutors-button
+        position: absolute
+        left: 252px
+        bottom: -15px
+        font-family: $head-fonts
+        font-size: 14px
         font-weight: 700
-        text-align: left
-        padding-top: 50px
-        margin-left: 40px
-        padding-bottom: 5px
-    .opportunities-list
-      margin-left: 55px
-      margin-bottom: 58px
-      width: 495px
-      font-family: $second-fonts
-      font-weight: 400
-      font-size: 15px
-      line-height: 1.8em
-      li
-        list-style: outside circle
-        color: #1c9d4f
-        span
-          color: #666666
-    .form-bellow
-      float: right
-      width: 300px
-      img
-        margin-top: -50px
-      .form-bellow-borders
-        margin-top: -39px
-        h2
-          width: 200px
-          padding-bottom: 20px
-          padding-top: 57px
-          padding-left: 46px
-          font-size: 18px
-          text-align: center
-        .forms
-          margin-left: 46px
-        .form-caption
-          font-family: $second-fonts
-          font-size: 13px
-          font-weight: 700
-          color: #333333
-          span
-            color: #139647
-        input.text, input.email, input.phone
-          border: none
-          outline: none
-          font-family: $head-fonts
-          font-size: 13px
-          color: #666666
-          background-image: url("../img/input.png")
-          background-repeat: no-repeat
-          width: 212px
-          height: 24px
-          padding: 0 10px
-          margin: 5px 0 10px 0
-        .drag-and-drop
-          margin-top: 5px
-          margin-bottom: 10px
-          width: 212px
-          height: 76px
-          background: rgba(19, 150, 71, 0.1)
-          text-align: center
-          @include border-radius(10px)
-          p
-            width: 106px
-            padding-top: 16px
-            padding-left: 50px
-            font-family: $head-fonts
-            font-size: 13px
-            color: #666666
-            a
-              color: #069442
-              text-decoration: none
-              &:hover
-                text-decoration: underline
-        .form-send-button
-          position: relative
-          top: 15px
-          left: 46px
-          font-family: $head-fonts
-          font-size: 14px
-          font-weight: 700
-          padding: 5px 35px
-          @include linear-gradient(#53bb4c, #029141)
-          &:hover
-            @include linear-gradient(#029141, #53bb4c)
-/**MAIN_CLASSES PAGE**/
-section
-  .wrapper-main-classes-page
-    margin-bottom: 50px
-    h1
-      margin-top: 20px
-      margin-bottom: 20px
+        padding: 5px 10px
+        @include linear-gradient(#53bb4c, #029141)
+        &:hover
+          @include linear-gradient(#029141, #53bb4c)
+  .other-tutors
+    margin-top: 70px
+    h2
+      margin-bottom: 10px
       font-size: 18px
-      color: #333333 !important
-    .our-classes, .what-class
-      position: relative
-      width: 218px
-      height: 470px
-      float: left
-      @include borders-left-right-bottom
-      @include border-radius(10px)
-    .our-classes, .what-class:first-child
-      margin: 0 20px 0 0
-    .our-classes p
-      position: absolute
-      top: 300px
-      margin-top: 10px
+    .tutors-carousel
       font-family: $head-fonts
       font-size: 13px
       color: #666666
-      padding: 0 20px
-    .our-classes-list
-      margin-top: 20px
-      margin-left: 30px
-      padding: 3px
+      line-height: 1.5
       li
-        font-size: 10px
-        list-style: disc
-        color: #129a46
-        span
-          font-family: $second-fonts
-          font-size: 13px
-          line-height: normal
-          color: #666666
-    .our-classes h2
-      font-size: 15px
-      text-align: center
-      margin-top: 10px
-      margin-left: 45px
-      margin-bottom: 10px
-      line-height: normal
-      word-wrap: break-word
-    .summer-seminar
-      color: #129a46
-      width: 127px
-    .summer-seminar-button, .creative-writing-button, .writing-workouts-button
-      position: absolute
-      bottom: -14px
-      left: 65px
-      font-family: $head-fonts
-      font-size: 10px
-      font-weight: 700
-      padding: 6px 13px
-    .summer-seminar-button
-      @include linear-gradient(#6bcb64, #019140)
-      &:hover
-        @include linear-gradient(#019140, #6bcb64)
-    .creative-writing
-      color: #1a986f
-      width: 130px
-    .creative-writing-button
-      @include linear-gradient(#6bcb64, #019140)
-      &:hover
-        @include linear-gradient(#019140, #6bcb64)
-    .writing-workouts
-      color: #3899aa
-      width: 130px
-    .writing-workouts-button
-      @include linear-gradient(#4ac2d6,  #3797a8)
-      &:hover
-        @include linear-gradient(#3797a8,  #4ac2d6)
-    .what-class
-      background: rgba(41, 159, 246, 0.1)
-      text-align: center
-      line-height: normal
-      img
-        margin-top: 100px
-        margin-bottom: 5px
-      p
-        width: 160px
-        margin-left: 25px
-        font-family: $second-fonts
-        font-size: 16px
-        color: #333333
-        span
-          color: #3888c4
-          font-weight: 700
-/**TUTORS PAGE**/
-section
-  .wrapper-tutors-page
-    margin-bottom: 50px
-    h1, .tutors-info h2
-      font-family: $second-fonts
-      font-size: 30px
-      font-weight: 700
-      color: #007c2d
-      margin-top: 20px
-      margin-bottom: 10px
-    .our-tutors
-      float: left
-    .tutors-info
-      float: right
-      position: relative
-      height: 502px
-      width: 639px
-      border-top: 1px solid #ececec
-      border-right: 1px solid #ececec
-      border-bottom: 1px solid #ececec
-      @include custom-border-radius(0, 10px, 10px, 0)
-      font-family: $head-fonts
-      font-size: 13px
-      color: #666666
-      h2
-        margin-left: 20px
-      li
+        width: 220px
         margin-left: 20px
         list-style: inside
         color: #007c2d
@@ -1255,297 +1302,233 @@ section
           font-weight: 700
           font-size: 15px
       p
-        margin-left: 40px
-        line-height: normal
-        padding: 0 30px 0 0
+        margin-left: 34px
+        padding: 0 5px 0 0
         span
           color: #069342
-    .days-times-wrapper
-      position: absolute
-      bottom: 30px
-      .days-times
-        height: 81px
-        width: 560px
-        margin-left: 40px
-        line-height: normal
-        @include linear-gradient(#fcfbfb, #f1f1f1)
-        @include border-radius(10px)
-        li
-          list-style: none
-          position: relative
-          left: 7px
-          margin-top: 15px
-          text-align: center
-          float: left
-          width: 95px
-          color: #666666 !important
-          span
-            color: #039241
-            font-weight: 400 !important
-        li+li
-          border-left: 1px solid #ececec
-          padding: 0 0 0 20px
-        .our-tutors-button
+      .teachers
+        position: relative
+        width: 218px
+        height: 580px
+        float: left
+        margin: 0 18px 0 0
+        @include borders-left-right-bottom
+        @include border-radius(20px)
+        .time-avalibe-wrapper
           position: absolute
-          left: 252px
-          bottom: -15px
-          font-family: $head-fonts
-          font-size: 14px
-          font-weight: 700
-          padding: 5px 10px
-          @include linear-gradient(#53bb4c, #029141)
-          &:hover
-            @include linear-gradient(#029141, #53bb4c)
-    .other-tutors
-      margin-top: 70px
-      h2
-        margin-bottom: 10px
-        font-size: 18px
-      .tutors-carousel
-        font-family: $head-fonts
-        font-size: 13px
-        color: #666666
-        line-height: 1.5
-        li
-          width: 220px
-          margin-left: 20px
-          list-style: inside
-          color: #007c2d
-          span
-            color: #666666
-            font-weight: 700
+          bottom: 0
+          padding-bottom: 30px
+          p+p+p+p
+            padding-bottom: 50px
+          a
+            margin-left: 34px
+            font-family: $head-fonts
             font-size: 15px
-        p
-          margin-left: 34px
-          padding: 0 5px 0 0
-          span
-            color: #069342
-        .teachers
-          position: relative
-          width: 218px
-          height: 580px
-          float: left
-          margin: 0 18px 0 0
-          @include borders-left-right-bottom
-          @include border-radius(20px)
-          .time-avalibe-wrapper
-            position: absolute
-            bottom: 0
-            padding-bottom: 30px
-            p+p+p+p
-              padding-bottom: 50px
-            a
-              margin-left: 34px
-              font-family: $head-fonts
-              font-size: 15px
-              color: #069442
-              text-decoration: none
-              &:hover
-                text-decoration: underline
-          &:last-child
-            margin: 0 0 0 2px
-        .teachers h2
-          font-size: 24px !important
-          color: #007c2d
-          text-align: center
-        .all-buttons
-          position: absolute
-          left: 60px
-          bottom: -10px
-          font-family: $head-fonts
-          font-weight: 700
-          padding: 5px 7px
-          @include linear-gradient(#6bcb64, #019140)
-          &:hover
-            @include linear-gradient(#019140, #6bcb64)
-/**SUMMER CLASSES REGISTRATION FORM**/
-section
-    .registration-title
-      float: left
-      width: 118px
-      line-height: normal
-      h1
-        margin-top: 20px
-        font-size: 30px
-      p
-        font-family: $second-fonts
-        font-size: 14px
-        font-weight: 700
-        color: #333333
-    .registration-form-wrapper
-      position: relative
-      float: left
-      margin-bottom: 100px
-      margin-left: 30px
-      #steps
-        width: 100%
-      #steps ul
-        display: table-row
-      #steps ul li
-        float: left
-        margin: 30px 0 10px 0
+            color: #069442
+            text-decoration: none
+            &:hover
+              text-decoration: underline
+        &:last-child
+          margin: 0 0 0 2px
+      .teachers h2
+        font-size: 24px !important
+        color: #007c2d
         text-align: center
-        &:hover
-          background: rgba(19, 150, 71, 0.2)
-          @include border-radius(20px)
-      #steps ul li:first-child
-        background: rgba(19, 150, 71, 0.2)
-        @include border-radius(20px)
-      #steps ul li a
-        display: table-cell
-        padding: 5px 20px
-        line-height: normal
-        text-decoration: none
-        font-family: $second-fonts
-        font-size: 15px
-        color: #999999
-      .step-text-act
-        display: block
-      .step-text
-        display: none
-      h4, .text-form
-        font-family: $second-fonts
-        font-size: 13px
-        color: #333333
-        line-height: normal
-        padding-top: 30px
-        width: 440px
-        span
-          color: #2ba510
-          border-bottom: 1px solid  #000000
-      input.test-radio[type="radio"]
-        display: none
-      input.test-radio[type="radio"] + label
-        float: left
-        background: url("../img/radio_buttons.png") 0 0 no-repeat
-        display: block
-        width: 12px
-        height: 12px
-        cursor: pointer
-        margin: -13px -155px 14px 204px
-      input.test-radio[type="radio"]:checked + label
-        background-position: -17px 0px
-      .input_block
-        display: inline-block
-        width: 240px
-        padding-top: 5pxf
-        padding-right: 20px
-      .label-name, .label-name-select
-        float: left
-        margin-top: 20px
-        font-size: 13px
-        font-weight: 700
-        color: #333333
-        text-align: left
-        span
-          color: #26a54c
-      .label-name-select
-        margin-top: 8px
-      /**CHECK**/
-      .input-error
-        box-shadow: 0 0 5px rgba(255, 0, 0, 1)
-      .error-message
-        margin:  0 0 5px 7px
-        color: #c01
-        font-family: $head-fonts
-        font-size: 10px
-        height: 10px
-        text-align: center
-      .input-row, .wrapper-sex, .field-select
-        clear: both
-        text-align: right
-        width: 460px
-      .input-row
-        border-bottom: 1px solid #ececec
-      .wrapper-sex
-        height: 5px
-      .people-sex
-        font-family: $second-fonts
-        font-size: 13px
-        color: #666666
-        span
-          padding-left: 20px
-      .text_input
-        border: none
-        outline: none
-        background-image: url("../img/input_form_bg.png")
-        background-repeat: no-repeat
-        @include border-radius(20px)
-        width: 220px
-        height: 24px
-        padding: 0 10px
-        font-family: $head-fonts
-        font-size: 13px
-        color: #666666
-      .select-move, .select-move-date
-        margin: 20px 76px 0 0
-        padding: 0 0 5px
-      .select-move-date
-        margin-right: 30px
-      .select-date
-        border: none
-        outline: none
-        background-image: url("../img/select_bg.png")
-        padding: 0 10px
-        margin: 0 -10px 0 18px
-        @include border-radius(20px)
-        background-repeat: no-repeat
-        width: 92px
-        height: 24px
-      .registration-button
+      .all-buttons
         position: absolute
-        left: 264px
-        bottom: -40px
-        font-family: $second-fonts
+        left: 60px
+        bottom: -10px
+        font-family: $head-fonts
         font-weight: 700
-        font-size: 10px
-        padding: 7px 25px
+        padding: 5px 7px
         @include linear-gradient(#6bcb64, #019140)
         &:hover
           @include linear-gradient(#019140, #6bcb64)
-    .your-courses
-      position: absolute
-      top: -10px
-      right: 90px
-      margin-top: 64px
-      width: 230px
-      height: 200px
-      font-family: $second-fonts
+/**SUMMER CLASSES REGISTRATION FORM**/
+.registration-title
+  float: left
+  width: 118px
+  line-height: normal
+  h1
+    margin-top: 20px
+    font-size: 30px
+  p
+    font-family: $second-fonts
+    font-size: 14px
+    font-weight: 700
+    color: #333333
+.registration-form-wrapper
+  position: relative
+  float: left
+  margin-bottom: 100px
+  margin-left: 30px
+  #steps
+    width: 100%
+  #steps ul
+    display: table-row
+  #steps ul li
+    float: left
+    margin: 30px 0 10px 0
+    text-align: center
+    &:hover
+      background: rgba(19, 150, 71, 0.2)
+      @include border-radius(20px)
+  #steps ul li:first-child
+    background: rgba(19, 150, 71, 0.2)
+    @include border-radius(20px)
+  #steps ul li a
+    display: table-cell
+    padding: 5px 20px
+    line-height: normal
+    text-decoration: none
+    font-family: $second-fonts
+    font-size: 15px
+    color: #999999
+  .step-text-act
+    display: block
+  .step-text
+    display: none
+  h4, .text-form
+    font-family: $second-fonts
+    font-size: 13px
+    color: #333333
+    line-height: normal
+    padding-top: 30px
+    width: 440px
+    span
+      color: #2ba510
+      border-bottom: 1px solid  #000000
+  input.test-radio[type="radio"]
+    display: none
+  input.test-radio[type="radio"] + label
+    float: left
+    background: url("../img/radio_buttons.png") 0 0 no-repeat
+    display: block
+    width: 12px
+    height: 12px
+    cursor: pointer
+    margin: -13px -155px 14px 204px
+  input.test-radio[type="radio"]:checked + label
+    background-position: -17px 0px
+  .input_block
+    display: inline-block
+    width: 240px
+    padding-top: 5pxf
+    padding-right: 20px
+  .label-name, .label-name-select
+    float: left
+    margin-top: 20px
+    font-size: 13px
+    font-weight: 700
+    color: #333333
+    text-align: left
+    span
+      color: #26a54c
+  .label-name-select
+    margin-top: 8px
+  /**CHECK**/
+  .input-error
+    box-shadow: 0 0 5px rgba(255, 0, 0, 1)
+  .error-message
+    margin:  0 0 5px 7px
+    color: #c01
+    font-family: $head-fonts
+    font-size: 10px
+    height: 10px
+    text-align: center
+  .input-row, .wrapper-sex, .field-select
+    clear: both
+    text-align: right
+    width: 460px
+  .input-row
+    border-bottom: 1px solid #ececec
+  .wrapper-sex
+    height: 5px
+  .people-sex
+    font-family: $second-fonts
+    font-size: 13px
+    color: #666666
+    span
+      padding-left: 20px
+  .text_input
+    border: none
+    outline: none
+    background: url("../img/input_form_bg.png") no-repeat
+    @include border-radius(20px)
+    width: 220px
+    height: 24px
+    padding: 0 10px
+    font-family: $head-fonts
+    font-size: 13px
+    color: #666666
+  .select-move, .select-move-date
+    margin: 20px 76px 0 0
+    padding: 0 0 5px
+  .select-move-date
+    margin-right: 30px
+  .select-date
+    border: none
+    outline: none
+    background: url("../img/select_bg.png") no-repeat
+    padding: 0 10px
+    margin: 0 -10px 0 18px
+    @include border-radius(20px)
+    width: 92px
+    height: 24px
+  .registration-button
+    position: absolute
+    left: 264px
+    bottom: -40px
+    font-family: $second-fonts
+    font-weight: 700
+    font-size: 10px
+    padding: 7px 25px
+    @include linear-gradient(#6bcb64, #019140)
+    &:hover
+      @include linear-gradient(#019140, #6bcb64)
+.your-courses
+  position: absolute
+  top: -10px
+  right: 90px
+  margin-top: 64px
+  width: 230px
+  height: 200px
+  font-family: $second-fonts
+  font-weight: 700
+  color: #333333
+  font-size: 13px
+  line-height: normal
+  h2
+    text-align: right
+    margin-bottom: 10px
+  h3
+    font-size: 15px
+    background: rgba(19, 150, 71, 0.2)
+    @include custom-border-radius(10px, 10px, 0, 0)
+    padding: 8px 15px
+  p
+    font-weight: 400
+    padding: 8px 15px
+    span
+      color: #666666
       font-weight: 700
-      color: #333333
-      font-size: 13px
-      line-height: normal
-      h2
-        text-align: right
-        margin-bottom: 10px
-      h3
-        font-size: 15px
-        background: rgba(19, 150, 71, 0.2)
-        @include custom-border-radius(10px, 10px, 0, 0)
-        padding: 8px 15px
-      p
-        font-weight: 400
-        padding: 8px 15px
-        span
-          color: #666666
-          font-weight: 700
-          padding-left: 10px
-      .your-courses-data
-        border: 1px solid #ececec
-        @include border-radius(10px)
-        margin: 0 0 10px 0
-      .your-courses-button
-        position: absolute
-        left: 65px
-        bottom: -80px
-        font-family: $second-fonts
-        font-size: 10px
-        font-weight: 700
-        color: #0a9643
-        padding: 5px 20px
-        @include linear-gradient(#f6f6f6, #e9e9e9)
-        &:hover
-          @include linear-gradient(#e9e9e9, #f6f6f6)
+      padding-left: 10px
+  .your-courses-data
+    border: 1px solid #ececec
+    @include border-radius(10px)
+    margin: 0 0 10px 0
+  .your-courses-button
+    position: absolute
+    left: 65px
+    bottom: -80px
+    font-family: $second-fonts
+    font-size: 10px
+    font-weight: 700
+    color: #0a9643
+    padding: 5px 20px
+    @include linear-gradient(#f6f6f6, #e9e9e9)
+    &:hover
+      @include linear-gradient(#e9e9e9, #f6f6f6)
 /**MARKET PAGE**/
 .wrapper-market-page
   margin-top: 20px
@@ -1614,8 +1597,7 @@ section
       position: absolute
       left: 243px
       bottom: 16px
-      background-image: url("../img/price_back.png")
-      background-repeat: no-repeat
+      background: url("../img/price_back.png") no-repeat
       height: 30px
     .market-button
       position: absolute
