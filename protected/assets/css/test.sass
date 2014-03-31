@@ -1345,7 +1345,7 @@ header#header-bg
         &:hover
           @include linear-gradient(#019140, #6bcb64)
 /**SUMMER CLASSES REGISTRATION FORM**/
-.registration-title
+.registration-title, .registration-title-knoll
   float: left
   width: 118px
   line-height: normal
@@ -1357,11 +1357,17 @@ header#header-bg
     font-size: 14px
     font-weight: 700
     color: #333333
+.registration-title-knoll
+  width: 150px
 .registration-form-wrapper
   position: relative
   float: left
   margin-bottom: 100px
   margin-left: 30px
+  h2
+    font-size: 18px
+    margin-left: 200px
+    margin-top: 30px
   #steps
     width: 100%
   #steps ul
@@ -1422,6 +1428,7 @@ header#header-bg
     font-weight: 700
     color: #333333
     text-align: left
+    line-height: normal
     span
       color: #26a54c
   .label-name-select
@@ -1461,12 +1468,15 @@ header#header-bg
     font-family: $head-fonts
     font-size: 13px
     color: #666666
+    &:focus
+      box-shadow: 0 0 5px rgba(0, 124, 45, 1)
+      /*border: 1px solid #007c2d
   .select-move, .select-move-date
     margin: 20px 76px 0 0
     padding: 0 0 5px
   .select-move-date
     margin-right: 30px
-  .select-date
+  .select-date, .select-date-knoll
     border: none
     outline: none
     background: url("../img/select_bg.png") no-repeat
@@ -1475,7 +1485,9 @@ header#header-bg
     @include border-radius(20px)
     width: 92px
     height: 24px
-  .registration-button
+  .select-date-knoll
+    margin: 0 91px 0 0
+  .registration-button, .registration-button-knoll
     position: absolute
     left: 264px
     bottom: -40px
@@ -1486,6 +1498,8 @@ header#header-bg
     @include linear-gradient(#6bcb64, #019140)
     &:hover
       @include linear-gradient(#019140, #6bcb64)
+  .registration-button-knoll
+    left: 246px
 .your-courses
   position: absolute
   top: -10px
@@ -1709,3 +1723,16 @@ footer
     top: 50%
     margin-top: -64px
     display: block
+.textarea-input
+  border: none
+  outline: none
+  overflow: auto
+  width: 242px
+  height: 85px
+  resize: none
+  padding: 5px 0 0 7px
+  font-family: $head-fonts
+  font-size: 13px
+  color: #666666
+  white-space: nowrap
+  background: url("../img/textarea-bg.png") no-repeat

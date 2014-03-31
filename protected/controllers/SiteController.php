@@ -109,6 +109,16 @@ class SiteController extends Controller
         $this->render('summer_classes_registration_form');
     }
 
+    public function actionknollregistrationform()
+    {
+        $this->render('knoll_registration_form');
+    }
+
+    public function actionhillviewregistrationform()
+    {
+        $this->render('hillview_registration_form');
+    }
+
     public function actionOurMarket()
     {
         $this->render('our_market');
