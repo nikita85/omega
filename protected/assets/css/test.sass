@@ -9,9 +9,11 @@ $second-fonts: 'Ubuntu', sans-serif
 /**COMMON STYLES**/
 body, html
   line-height: normal
+  height: 100%
 #main-wrapper
   min-height: 100%
-  margin-bottom: 150px
+.inner-wrap
+  padding-bottom: 210px
 h1
   font-family: $second-fonts
   font-weight: 700
@@ -1631,6 +1633,7 @@ header#header-bg
 footer
   @include linear-gradient(#fbfbfb, #e3e3e3)
   height: 210px
+  margin-top: -210px
   .footer
     margin: 0 auto
     width: 940px
