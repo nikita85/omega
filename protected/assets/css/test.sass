@@ -413,12 +413,14 @@ header#header-bg
   img
     padding-bottom: 2px
   li
+    border-right: 1px solid #ececec
     float: left
     position: relative
     @include linear-gradient(#fcfbfb, #f1f1f1)
     @include custom-border-radius(10px, 0, 0, 10px)
   li+li
-    background: none
+    /*background: none
+    @include custom-border-radius(0, 0, 0, 0)
   li
     a
       font-family: $second-fonts
@@ -430,27 +432,26 @@ header#header-bg
         color: #007c2d
       &:first-child
         %a:hover
-          border-radius: 4px 0 0 4px
-          -webkit-border-radius: 4px 0 0 4px
-          -moz-border-radius: 4px 0 0 4px
+          @include custom-border-radius(4px, 0, 0, 4px)
 .bread-crumbs li ul
   display: none
 .bread-crumbs li:hover ul
   display: block
   position: absolute
-  top: 15px
-  border-radius: 0 0 4px 4px
-  -webkit-border-radius: 0 0 4px 4px
-  -moz-border-radius: 0 0 4px 4px
-  background-color: #e0dfe3
-  z-index: 1000
+  top: 20px
+  @include custom-border-radius(4px, 0, 0, 4px)
+  border: 1px solid #ececec
+  background-color: #ffffff
+  z-index: 200
 .bread-crumbs li:hover ul li
   float: none
   width: 135px
   border-right: none
+  background: none
 .bread-crumbs li:hover ul li a
   border-right: none
-  padding: 6px 20px 8px
+  /*padding: 0 0 0
+  color: #007c2d
 .bread-crumbs li:hover ul li a:hover
   background-color: transparent
   color: #999999
