@@ -7,6 +7,8 @@ $head-fonts: 'Open Sans', sans-serif
 $second-fonts: 'Ubuntu', sans-serif
 /*-----------------------------------------*/
 /**COMMON STYLES**/
+body, html
+  line-height: normal
 #main-wrapper
   min-height: 100%
   margin-bottom: 150px
@@ -191,8 +193,8 @@ header
       background-color: #ffffff
       line-height: normal
       padding: 0 10px 0 10px
-      border-bottom-right-radius: 10px
-      border-bottom-left-radius: 10px
+      @include custom-border-radius(0, 0, 10px, 10px)
+      /*box-shadow: 0 4px 3px 1px rgba(50, 150, 49, 0.8)
       a
         position: relative
         bottom: 20px
@@ -344,6 +346,7 @@ header
     h2
       padding-top: 20px
       font-size: 18px
+      text-align: left
   .date
     background-image: url("../img/calendar.jpg")
     width: 220px
@@ -351,10 +354,11 @@ header
     a
       text-decoration: none
     h2
-      padding-top: 4px
+      padding-top: 6px
       font-size: 18px
       font-family: $second-fonts
       color: #ffffff
+      text-align: center
     h3
       padding-top: 10px
       font-size: 36px
@@ -381,15 +385,6 @@ header
       margin-top: 40px
       margin-left: 40px
       width: 292px
-      font-family: $head-fonts
-      font-size: 13px
-      line-height: 1.5em
-      color: #666666
-    .about-text-r
-      float: right
-      margin-top: 40px
-      margin-right: 60px
-      width: 285px
       font-family: $head-fonts
       font-size: 13px
       line-height: 1.5em
@@ -469,6 +464,7 @@ header#header-bg
   img
     float: left
     margin-right: 19px
+    margin-top: 3px
   p
     font-family: $head-fonts
     font-size: 13px
@@ -755,15 +751,16 @@ header#header-bg
     font-size: 10px
     text-transform: uppercase
     text-decoration: none
-    padding: 3px 10px
+    padding: 7px 10px
     @include linear-gradient(#fcfbfb, #f1f1f1)
     @include border-radius(20px)
     &.table-button-active
       @include linear-gradient(#6bcb64, #019140)
+      color: #ffffff
 /**OPENED CLASS**/
 .analysis
   height: 277px
-  margin-top: 10px
+  margin-top: 20px
   @include linear-gradient(#fcfbfb, #f1f1f1)
   @include border-radius(10px)
   img
@@ -799,7 +796,7 @@ header#header-bg
     a
       line-height: normal !important
 .courses, .courses-knoll
-  margin-top: 20px
+  margin-top: 30px
   .course-description, .course-description-knoll
     float: left
     width: 300px
@@ -824,7 +821,7 @@ header#header-bg
       font-family: $head-fonts
   .course-features, .course-features-knoll
     float: left
-    margin-left: 20px
+    margin-left: 40px
     width: 300px
     height: 300px
     h3
@@ -1031,12 +1028,12 @@ header#header-bg
       color: #333333
       font-weight: 700
       text-align: left
-      padding-top: 50px
+      padding-top: 20px
       margin-left: 40px
       padding-bottom: 5px
   .opportunities-list
     margin-left: 55px
-    margin-bottom: 58px
+    margin-bottom: 77px
     width: 495px
     font-family: $second-fonts
     font-weight: 400
@@ -1126,8 +1123,9 @@ header#header-bg
   .our-classes, .what-class
     position: relative
     width: 218px
-    height: 470px
+    height: 530px
     float: left
+    line-height: 1.5
     @include borders-left-right-bottom
     @include border-radius(10px)
   .our-classes, .what-class:first-child
@@ -1135,7 +1133,7 @@ header#header-bg
   .our-classes p
     position: absolute
     top: 300px
-    margin-top: 10px
+    margin-top: 40px
     font-family: $head-fonts
     font-size: 13px
     color: #666666
@@ -1151,7 +1149,6 @@ header#header-bg
       span
         font-family: $second-fonts
         font-size: 13px
-        line-height: normal
         color: #666666
   .our-classes h2
     font-size: 15px
@@ -1283,7 +1280,7 @@ header#header-bg
         &:hover
           @include linear-gradient(#029141, #53bb4c)
   .other-tutors
-    margin-top: 70px
+    margin-top: 50px
     h2
       margin-bottom: 10px
       font-size: 18px
@@ -1554,7 +1551,7 @@ header#header-bg
       margin-bottom: 10px
       font-size: 30px
     p
-      width: 180px
+      /*width: 180px
       font-family: $head-fonts
       font-size: 13px
       color: #666666
@@ -1577,12 +1574,13 @@ header#header-bg
     border: 1px solid #ececec
     padding: 20px 40px 0 40px
     margin: 0 0 50px 0
-    height: 292px
+    height: 295px
     @include border-radius(10px)
     @include horizontal-gradient(#ececec, #ffffff)
     img
       float: left
       margin-right: 30px
+      margin-top: 3px
     h2
       width: 423px
       font-size: 18px
