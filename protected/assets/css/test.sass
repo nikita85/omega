@@ -81,6 +81,7 @@ header
     img
       float: left
       padding-right: 10px
+      margin-top: 5px
     h1
       float: left
       font-family: $head-fonts !important
@@ -411,6 +412,7 @@ header#header-bg
   @include custom-border-radius(10px, 5px, 5px, 10px)
   border: 1px solid #ececec
   li
+    display: block
     border-right: 1px solid #ececec
     float: left
     position: relative
@@ -420,29 +422,35 @@ header#header-bg
       background: #ffffff
   li+li
     @include custom-border-radius(0, 0, 0, 0)
+  li:last-child
+    font-weight: 700
   li
     a
+      display: block
       font-family: $second-fonts
       font-size: 14px
-      color: #999999
+      color: #007c2d
       text-decoration: none
-      padding: 7px
-      font-weight: 700
-      span
-        display: inline-block
-        background: url("../img/arrow_down.png") no-repeat
-        background-position: right
-        background-size: auto auto
-        padding-right: 10px
-        color: #007c2d
-        &:hover
-          display: inline-block
-          background: url("../img/arrow_up.png") no-repeat
-          background-position: right
-          background-size: auto auto
+      padding: 1px 20px 1px 7px
+      line-height: 17px
       &:first-child
         %a:hover
           @include custom-border-radius(4px, 0, 0, 4px)
+  .bread-ico:after
+    position: absolute
+    right: 5px
+    top: 45%
+    content: ""
+    display: block
+    background: url("../img/arrow_down.png") no-repeat
+    background-position: right
+    width: 7px
+    height: 4px
+  .bread-ico:hover:after
+    background-image: url("../img/arrow_up.png")
+    background-repeat: no-repeat
+    background-position: right
+    background-size: auto auto
 .bread-crumbs li ul
   display: none
 .bread-crumbs li:hover ul
@@ -453,9 +461,9 @@ header#header-bg
   @include borders-left-right-bottom
   background-color: #ffffff
   z-index: 200
+  width: 100%
 .bread-crumbs li:hover ul li
   float: none
-  width: 210px
   border-right: none
   background: none
   padding: 5px 0px 5px 0
@@ -464,7 +472,7 @@ header#header-bg
     background: #ececec
 .bread-crumbs li:hover ul li a
   border-right: none
-  padding: 0 0 0 7px
+  padding: 3px 7px 0
   color: #007c2d
   font-weight: normal
 .bread-crumbs li:hover ul li:first-child a:hover
