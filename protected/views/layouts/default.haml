@@ -6,6 +6,9 @@
   %title Page title
   %link(href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css')
   %link(href='http://fonts.googleapis.com/css?family=Ubuntu:400,700' rel='stylesheet' type='text/css')
+  <!--[if IE]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
 
   - Yii::app()->clientScript->registerCssFile($this->assetsPath . DS . 'css' . DS . 'test.css');
 
@@ -48,8 +51,8 @@
               %li
                 %a(href="#{$this->createUrl('site/OurMarket')}") Store
 
-            %form(action="" method="post" )
-              %input.search.rounded(placeholder="Search" type="text")
+            //%form(action="" method="post" )
+              //%input.search.rounded(type="text"name="search" )
           - if ($isHomePage)
             .slider
               .slide-text
@@ -84,22 +87,28 @@
         %ul.bread-crumbs
           %li
             %a(href="#" )Classes
-          %li
+          %li.bread-ico
             %a(href="#" )Summer Seminars
-          %li
-            %a(href="#" )
-              %span Intro to the literary analysis
             %ul
               %li
-                %a(href="#")list of courses
+                %a(href="#")Creative Writing at Oak Knoll
               %li
-                %a(href="#")list of courses
+                %a(href="#")Writing Workouts at Hillview
+          %li.bread-ico
+            %a(href="#" )Crafting the personal essay statement
+            %ul
               %li
-                %a(href="#")list of courses
+                %a(href="#")Test prep boot camp
               %li
-                %a(href="#")list of courses
+                %a(href="#")Of myths and monsters
               %li
-                %a(href="#")list of courses
+                %a(href="#")Going to the dogs
+              %li
+                %a(href="#")Make‘em laugh
+              %li
+                %a(href="#")The power of story
+              %li
+                %a(href="#")Intro to literary analysis
 
         .clear
 
@@ -153,5 +162,5 @@
           %li Menlo Park, CA 94025
           %li 650-322-2671
           %li
-            %a(href="") @omegateaching.com
+            %a(href="mailto:info@omegateaching.com")info@omegateaching.com
 

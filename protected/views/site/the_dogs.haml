@@ -67,13 +67,13 @@
       .other-summer-classes
         %h2 Other summer classes:
         .borders
-          %a.intro-button(href="#") Intro to Literary Analysis
-          %a.crafting-button(href="#") Crafting The Personal Essay Statement
-          %a.myth-button(href="#") Of Myth and Monsters
+          %a.intro-button(href="#{$this->createUrl('site/LiteraryAnalysis')}") Intro to Literary Analysis
+          %a.crafting-button(href="#{$this->createUrl('site/EssayStatement')}") Crafting The Personal Essay Statement
+          %a.myth-button(href="#{$this->createUrl('site/MythsAndMonsters')}") Of Myth and Monsters
           .clear
-          %a.going-button(href="#") Going to the dogs
-          %a.make-button(href="#") Make ’Em Laugh
-          %a.power-button(href="#") The Power of Story
+          %a.going-button(href="#{$this->createUrl('site/TheDogs')}") Going to the dogs
+          %a.make-button(href="#{$this->createUrl('site/MakeemLaugh')}") Make ’Em Laugh
+          %a.power-button(href="#{$this->createUrl('site/PowerOfStory')}") The Power of Story
       .not-sure
         .not-sure-inner
           %img(src="#{$this->assetsPath}/img/question_sign.png" )

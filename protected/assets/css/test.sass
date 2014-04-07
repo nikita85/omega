@@ -8,7 +8,6 @@ $second-fonts: 'Ubuntu', sans-serif
 /*-----------------------------------------*/
 /**COMMON STYLES**/
 body, html
-  line-height: normal
   height: 100%
 #main-wrapper
   min-height: 100%
@@ -106,6 +105,7 @@ header
   .nav
     height: 36px
     background-color: rgba(255, 255, 255, 0.5)
+    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#4cffffff', endColorstr='#4cffffff')
     @include custom-border-radius(0, 0, 10px, 10px)
   .header-menu
     padding-top: 10px
@@ -196,7 +196,6 @@ header
       line-height: normal
       padding: 0 10px 0 10px
       @include custom-border-radius(0, 0, 10px, 10px)
-      /*box-shadow: 0 4px 3px 1px rgba(50, 150, 49, 0.8)
       a
         position: relative
         bottom: 20px
@@ -411,6 +410,7 @@ header#header-bg
   @include custom-border-radius(10px, 5px, 5px, 10px)
   border: 1px solid #ececec
   li
+    display: block
     border-right: 1px solid #ececec
     float: left
     position: relative
@@ -420,29 +420,35 @@ header#header-bg
       background: #ffffff
   li+li
     @include custom-border-radius(0, 0, 0, 0)
+  li:last-child
+    font-weight: 700
   li
     a
+      display: block
       font-family: $second-fonts
       font-size: 14px
-      color: #999999
+      color: #007c2d
       text-decoration: none
-      padding: 7px
-      font-weight: 700
-      span
-        display: inline-block
-        background: url("../img/arrow_down.png") no-repeat
-        background-position: right
-        background-size: auto auto
-        padding-right: 10px
-        color: #007c2d
-        &:hover
-          display: inline-block
-          background: url("../img/arrow_up.png") no-repeat
-          background-position: right
-          background-size: auto auto
+      padding: 1px 20px 1px 7px
+      line-height: 17px
       &:first-child
         %a:hover
           @include custom-border-radius(4px, 0, 0, 4px)
+  .bread-ico:after
+    position: absolute
+    right: 5px
+    top: 45%
+    content: ""
+    display: block
+    background: url("../img/arrow_down.png") no-repeat
+    background-position: right
+    width: 7px
+    height: 4px
+  .bread-ico:hover:after
+    background-image: url("../img/arrow_up.png")
+    background-repeat: no-repeat
+    background-position: right
+    background-size: auto auto
 .bread-crumbs li ul
   display: none
 .bread-crumbs li:hover ul
@@ -453,9 +459,9 @@ header#header-bg
   @include borders-left-right-bottom
   background-color: #ffffff
   z-index: 200
+  width: 100%
 .bread-crumbs li:hover ul li
   float: none
-  width: 210px
   border-right: none
   background: none
   padding: 5px 0px 5px 0
@@ -464,7 +470,7 @@ header#header-bg
     background: #ececec
 .bread-crumbs li:hover ul li a
   border-right: none
-  padding: 0 0 0 7px
+  padding: 3px 7px 0
   color: #007c2d
   font-weight: normal
 .bread-crumbs li:hover ul li:first-child a:hover
@@ -785,7 +791,7 @@ header#header-bg
     font-size: 30px
   .analysis-list, .analysis-list-knoll
     float: left
-    margin-top: 20px
+    margin-top: 10px
     margin-left: 20px
     font-family: $second-fonts
     font-size: 14px
@@ -799,7 +805,7 @@ header#header-bg
         line-height: normal !important
   .analysis-list-2, .analysis-list-2-knoll
     float: left
-    margin-top: 20px
+    margin-top: 10px
     margin-left: 40px
     font-family: $second-fonts
     font-size: 14px
@@ -1010,11 +1016,15 @@ header#header-bg
 /**JOBS PAGE**/
 .wrapper-job-page
   margin-bottom: 50px
+  position: relative
   h1
     font-size: 30px
     margin-top: 20px
     margin-bottom: 20px
   .opportunities
+    position: relative
+    overflow: hidden
+    display: block
     float: left
     width: 620px
     background: url("../img/title_text_back.png") no-repeat
@@ -1035,97 +1045,78 @@ header#header-bg
     @include borders-left-right-bottom
     @include custom-border-radius(0, 0, 10px, 10px)
   .opportunities-borders
-    margin-top: 60px
     h3
       font-family: $second-fonts
       font-size: 18px
       color: #333333
       font-weight: 700
       text-align: left
-      padding-top: 20px
-      margin-left: 40px
-      padding-bottom: 5px
+      padding-top: 102px
+      padding-left: 45px
   .opportunities-list
-    margin-left: 55px
-    margin-bottom: 77px
+    display: inline-block
+    padding-left: 59px
+    padding-top: 10px
+    padding-bottom: 55px
     width: 495px
     font-family: $second-fonts
     font-weight: 400
     font-size: 15px
-    line-height: 1.8em
+    line-height: 27px
     li
       list-style: outside circle
       color: #1c9d4f
       span
         color: #666666
   .form-bellow
+    display: block
+    position: relative
+    bottom: 50px
     float: right
     width: 300px
-    img
-      margin-top: -50px
-    .form-bellow-borders
-      margin-top: -39px
-      h2
-        width: 200px
-        padding-bottom: 20px
-        padding-top: 57px
-        padding-left: 46px
-        font-size: 18px
-        text-align: center
-      .forms
-        margin-left: 46px
-      .form-caption
-        font-family: $second-fonts
-        font-size: 13px
-        font-weight: 700
-        color: #333333
-        span
-          color: #139647
-      input.text, input.email, input.phone
-        border: none
-        outline: none
-        font-family: $head-fonts
-        font-size: 13px
-        color: #666666
-        background: url("../img/input.png") no-repeat
-        @include border-radius(20px)
-        width: 192px
-        height: 24px
-        padding: 0 10px
-        margin: 5px 0 10px 0
-        &:focus
-          box-shadow: 0 0 0 2px rgba(0, 124, 45, 1)
-      .drag-and-drop
-        margin-top: 5px
-        margin-bottom: 10px
-        width: 212px
-        height: 76px
-        background: rgba(19, 150, 71, 0.1)
-        text-align: center
-        @include border-radius(10px)
-        p
-          width: 106px
-          padding-top: 16px
-          padding-left: 50px
-          font-family: $head-fonts
-          font-size: 13px
-          color: #666666
-          a
-            color: #069442
-            text-decoration: none
-            &:hover
-              text-decoration: underline
-      .form-send-button
-        position: relative
-        top: 15px
-        left: 46px
-        font-family: $head-fonts
-        font-size: 14px
-        font-weight: 700
-        padding: 5px 35px
-        @include linear-gradient(#53bb4c, #029141)
-        &:hover
-          @include linear-gradient(#029141, #53bb4c)
+  .form-bellow-borders
+    /*margin-top: -38px
+    h2
+      width: 200px
+      padding-bottom: 20px
+      padding-top: 12px
+      padding-left: 46px
+      font-size: 18px
+      text-align: center
+    .forms
+      margin-left: 46px
+    .form-caption
+      font-family: $second-fonts
+      font-size: 13px
+      font-weight: 700
+      color: #333333
+      span
+        color: #139647
+    input.text, input.email, input.phone
+      border: none
+      outline: none
+      font-family: $head-fonts
+      font-size: 13px
+      color: #666666
+      background: url("../img/input.png") no-repeat
+      @include border-radius(20px)
+      width: 192px
+      height: 24px
+      padding: 0 10px
+      margin: 5px 0 10px 0
+      &:focus
+        box-shadow: 0 0 0 2px rgba(0, 124, 45, 1)
+    .form-send-button
+      position: relative
+      top: 15px
+      left: 46px
+      font-family: $head-fonts
+      font-size: 14px
+      font-weight: 700
+      padding: 5px 35px
+      @include linear-gradient(#53bb4c, #029141)
+      &:hover
+        @include linear-gradient(#029141, #53bb4c)
 /**MAIN_CLASSES PAGE**/
 .wrapper-main-classes-page
   margin-bottom: 50px
@@ -1243,6 +1234,7 @@ header#header-bg
     color: #666666
     h2
       margin-left: 20px
+      margin-top: 10px
     li
       margin-left: 20px
       list-style: inside
@@ -1253,7 +1245,7 @@ header#header-bg
         font-size: 15px
     p
       margin-left: 40px
-      line-height: normal
+      line-height: 20px
       padding: 0 30px 0 0
       span
         color: #069342
@@ -1500,7 +1492,7 @@ header#header-bg
   .registration-button, .registration-button-knoll
     position: absolute
     left: 264px
-    bottom: -40px
+    bottom: -50px
     font-family: $second-fonts
     font-weight: 700
     font-size: 10px
@@ -1565,7 +1557,6 @@ header#header-bg
       margin-bottom: 10px
       font-size: 30px
     p
-      /*width: 180px
       font-family: $head-fonts
       font-size: 13px
       color: #666666
@@ -1618,7 +1609,7 @@ header#header-bg
       font-size: 18px
       font-weight: 700
       color: #333333
-      padding: 6px 73px
+      padding: 5px 73px
       position: absolute
       left: 253px
       bottom: 16px
