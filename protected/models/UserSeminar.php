@@ -44,7 +44,7 @@ class UserSeminar extends CActiveRecord
 		return array(
             array('title, price, favourite, active, type', 'required'),
             array('title', 'length', 'max' => 255),
-            array('price', 'numeric',),
+            array('price', 'numerical',),
 		);
 	}
 

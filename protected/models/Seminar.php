@@ -44,7 +44,7 @@ class Seminar extends CActiveRecord
 		return array(
             array('title, price, favourite, active, type', 'required'),
             array('title', 'length', 'max' => 255),
-            array('price', 'numeric',),
+            array('price', 'numerical',),
 		);
 	}
 
@@ -65,6 +65,18 @@ class Seminar extends CActiveRecord
         );
     }
 
+    public function search()
+    {
+        $criteria=new CDbCriteria;
+
+        $criteria->compare('id',$this->id);
+        $criteria->compare('title',$this->title,true);
+
+        return new CActiveDataProvider($this, array(
+            'criteria'=>$criteria,
+        ));
+    }
+
 	/**
 	 * @return array customized attribute labels (name=>label)
 	 */
@@ -80,5 +92,10 @@ class Seminar extends CActiveRecord
 
 		);
 	}
+
+    public static function getTypes()
+    {
+        return [self::TYPE_SUMMER => 'summer', self::TYPE_TRIMESTER => 'trimester'];
+    }
 
 }

@@ -48,7 +48,7 @@ class Seminar extends CActiveRecord
 		return array(
             array('user_id, amount, email, name, details, state, user_seminar_id', 'required'),
             array('email, name', 'length', 'max' => 255),
-            array('amount', 'numeric',),
+            array('amount', 'numerical',),
 		);
 	}
 

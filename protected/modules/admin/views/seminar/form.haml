@@ -1,0 +1,28 @@
+:php
+  $form = $this->beginWidget('bootstrap.widgets.TbActiveForm', [
+    'id' => 'education-subject-form',
+    'htmlOptions' => ['class' => 'well generalForm'],
+  ]);
+
+%fileset
+  = $form->textFieldRow($model, 'title', ['class' => 'span6']);
+  = $form->textFieldRow($model, 'price', ['class' => 'span6']);
+  %br
+  = $form->label($model, 'favourite')
+  = $form->checkBox($model, 'favourite')
+  %br
+  = $form->label($model, 'active')
+  = $form->checkBox($model, 'active')
+  %br
+  = $form->dropDownListRow($model, 'type', $model->getTypes())
+  %br
+  %br
+  Available time:
+  = $form->timepickerRow($model, 'title', ['options' => ['showMeridian' => true, 'showSeconds' => false, 'defaultTime' => '9:00 AM']])
+
+
+.form-actions
+:php
+  $this->widget('bootstrap.widgets.TbButton', ['buttonType' => 'submit', 'htmlOptions'=>array('class'=>'newStyleContentButton'), 'type' => 'primary', 'label' => 'Save']);
+  $this->widget('bootstrap.widgets.TbButton', ['buttonType' => 'reset', 'htmlOptions'=>array('class'=>'newStyleSecondaryButton marginLeft'), 'label' => 'Clear Form']);
+  $this->endWidget();
