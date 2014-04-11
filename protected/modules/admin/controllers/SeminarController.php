@@ -35,35 +35,93 @@ class SeminarController extends AdminController
      */
     public function actionCreate()
     {
-        $model = new Seminar();
+        $seminarModel = new Seminar();
 
         $this->layout = '/layouts/column1';
         $this->actionTitle = 'New Seminar';
         $this->pushBreadcrumb('Seminar', ['/admin/seminar/index']);
         $this->pushBreadcrumb('New Seminar', ['/admin/seminar/create']);
 
-        $this->handleForm($model);
+        $this->handleForm($seminarModel);
     }
 
     /**
      * @param Seminar $model
      */
-    protected function handleForm(Seminar $model)
+    protected function handleForm(Seminar $seminarModel)
     {
-        $this->initEntityActions($model);
+        $this->initEntityActions($seminarModel);
+        $timeModel = new Time();
 
         if (isset($_POST['Seminar'])) {
 
-            $model->attributes = $_POST['Seminar'];
+            $transaction = Yii::app()->db->beginTransaction();
 
-            if ($model->save()) {
+            try {
+                $seminarModel->attributes = $_POST['Seminar'];
 
-                $this->redirect(['view', 'id' => $model->id]);
+
+                if (!empty($_POST['Time'])) {
+
+                    $times = [];
+
+                    foreach ($_POST['Time'] as $id => $attributes) {
+                        $time = preg_match('/^new\-.+/', $id) ? new Time() : Time::model()->findByPk($id);
+
+                        $time->attributes = $attributes;
+
+                        $times[] = $time;
+                    }
+
+                    $seminarModel->times = $times;
+
+                }
+
+                if (!$seminarModel->save()) {
+                    throw new Exception;
+                }
+
+                $transaction->commit();
+
+                Yii::app()->user->setFlash('success', 'Saved Successfully');
+                //$this->redirect(['index']);
+                $this->redirect(['index']);
+
+            } catch (Exception $e) {
+                Yii::app()->user->setFlash('error', 'Error occurred');
+                $transaction->rollback();
             }
+
+            $seminarModel->attributes = $_POST['Seminar'];
+
+
+/*            if (!empty($_POST['Time'])) {
+
+                $times = [];
+
+                foreach ($_POST['Time'] as $id => $attributes) {
+                    $time = preg_match('/^new\-.+/', $id) ? new Time() : Time::model()->findByPk($id);
+
+                    $time->attributes = $attributes;
+
+                    $times[] = $time;
+                }
+
+                $seminarModel->times = $times;
+
+            }*/
+
+
+//            if ($seminarModel->save()) {
+//
+//                $this->redirect(['view', 'id' => $seminarModel->id]);
+//            }
+
         }
 
         $this->render('form', [
-            'model' => $model,
+            'seminarModel' => $seminarModel,
+            'timeModel' => $timeModel,
         ]);
     }
 

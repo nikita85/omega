@@ -30,4 +30,34 @@ class Controller extends CController
         $this->assetsPath = Yii::app()->assetManager->publish(Yii::getPathOfAlias('application.assets'));
     }
 
+    /**
+     * @param string  $file
+     * @param bool    $force
+     *
+     * @return AppController $this
+     */
+    public function registerScriptFile($file, $force = false)
+    {
+        if (!Yii::app()->request->isAjaxRequest || $force) {
+            Yii::app()->getClientScript()->registerScriptFile($file);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @param string  $file
+     * @param bool    $force
+     *
+     * @return AppController $this
+     */
+    public function registerCssFile($file, $force = false)
+    {
+        if (!Yii::app()->request->isAjaxRequest || $force) {
+            Yii::app()->getClientScript()->registerCssFile($file);
+        }
+
+        return $this;
+    }
+
 }

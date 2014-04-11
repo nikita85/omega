@@ -53,10 +53,14 @@ class AdminController extends Controller
         $this->assetsPath = Yii::app()->assetManager->publish(Yii::getPathOfAlias('application.assets'));
 
         /* JS Scripts */
-       // $this->registerScriptFile($this->module->assetsPath . '/js/main.js');
+        $this->registerScriptFile($this->module->assetsPath . '/js/main.js');
+        $this->registerScriptFile($this->module->assetsPath . '/js/jqwidgets/jqxcore.js');
+        $this->registerScriptFile($this->module->assetsPath . '/js/jqwidgets/jqxcalendar.js');
+        $this->registerScriptFile($this->module->assetsPath . '/js/jqwidgets/jqxdatetimeinput.js');
+        $this->registerScriptFile($this->module->assetsPath . '/js/jqwidgets/globalize.js');
 
         /* CSS Scripts */
-      //  $this->registerCssFile($this->module->assetsPath . '/css/main.css', 'screen, projection');
+        $this->registerCssFile($this->module->assetsPath . '/css/main.css', 'screen, projection');
     }
 
     /**

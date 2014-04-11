@@ -36,9 +36,44 @@ $(document).ready(function(){
 //      location.reload();
    });
 
+    $('.timeRow').not('.timeRowTemplate').find('.jqxWidget').each(function(){
+        $(this).jqxDateTimeInput({ width: '100px', height: '25px', formatString: 'T', showCalendarButton: false});
+    });
 
+    $('.addTimeRow').on('click', function(e){
+        addTimeRow();
+    });
 
-    $(".checkbox-column input").change(emulationButtonEnable);
+    $('.removeTimeRow').on('click', function(e){
+        $(this).parent().remove();
+    });
+
+    function addTimeRow(){
+        var timeRow = $('.timeRowTemplate').clone(true).removeClass('timeRowTemplate').show(),
+            uiid = guid();
+
+        timeRow.find('.jqxWidget').each(function(){
+            var nameAttr = $(this).attr('name');
+            $(this).attr('name' , nameAttr.replace('##uid##', uiid));
+            $(this).jqxDateTimeInput({ width: '100px', height: '25px', formatString: 'T', showCalendarButton: false});
+           // console.log(nameAttr.replace('##uid##', guid()));
+        });
+        timeRow.insertBefore($('.addTimeRow'));
+    }
+
+    function guid() {
+        function s4() {
+            return Math.floor((1 + Math.random()) * 0x10000)
+                .toString(16)
+                .substring(1);
+        }
+        return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
+            s4() + '-' + s4() + s4() + s4();
+    }
+
+    //addTimeRow();
+
+/*    $(".checkbox-column input").change(emulationButtonEnable);
 
 
     window.alert = function(message, title) {
@@ -51,7 +86,7 @@ $(document).ready(function(){
 
     window.alert.error = function(message) {
         window.alert(message, 'Ошибка');
-    };
+    };*/
 
 });
 

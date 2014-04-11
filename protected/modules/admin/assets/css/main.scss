@@ -101,6 +101,18 @@
   }
 }
 
+.time_select_block {
+  label, .jqxWidget{
+    display: inline-block;
+  }
+  .timeRowTemplate{
+    display: none;
+  }
+  .jqxWidget{
+    margin-right: 15px;
+  }
+}
+
 
 
 
