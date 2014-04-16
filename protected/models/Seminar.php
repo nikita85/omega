@@ -10,7 +10,11 @@
  * @property boolean $favourite
  * @property boolean $active
  * @property string $type
+ *
+ *  The followings are the available model relations:
+ * @property Grade[] $grades
  */
+
 class Seminar extends CActiveRecord
 {
     const TYPE_SUMMER = 'summer';
@@ -45,8 +49,16 @@ class Seminar extends CActiveRecord
             array('title, price, favourite, active, type', 'required'),
             array('title', 'length', 'max' => 255),
             array('price', 'numerical',),
+            ['grades', 'validateGrades'],
 		);
 	}
+
+    public function validateGrades()
+    {
+        if (empty($this->grades)) {
+            $this->addError('grades', 'Please, select at least one grade');
+        }
+    }
 
     /**
      * @return array relational rules.
@@ -57,7 +69,7 @@ class Seminar extends CActiveRecord
         // class name for the relations automatically generated below.
         return array(
             'times'=>array(self::HAS_MANY, 'Time', 'seminar_id'),
-            'date_periods'=>array(self::HAS_MANY, 'DatePeriod', 'seminar_id'),
+            'date_periods'=>array(self::HAS_MANY, 'DatePeriods', 'seminar_id'),
 /*            'seminarGrades' => array(self::HAS_MANY, 'SeminarGrade', 'seminar_id'),
             'grades' => array(self::HAS_MANY, 'Grade', 'grade_id', 'through' => 'seminarGrades'),*/
             'grades'=>array(self::MANY_MANY, 'Grade', 'seminar_grade(seminar_id, grade_id)'),
@@ -75,6 +87,30 @@ class Seminar extends CActiveRecord
         return new CActiveDataProvider($this, array(
             'criteria'=>$criteria,
         ));
+    }
+
+    public function getGradesIDs()
+    {
+
+        return array_map(function ($item) {
+
+            return $item->id;
+        }, ($this->grades ?: []));
+    }
+
+    protected function afterSave(){
+        parent::afterSave();
+
+        foreach($this->times as $time) {
+            $time->seminar_id = $this->id;
+            $time->save();
+        }
+
+        foreach($this->date_periods as $datePeriod) {
+
+            $datePeriod->seminar_id = $this->id;
+            $datePeriod->save();
+        }
     }
 
 	/**

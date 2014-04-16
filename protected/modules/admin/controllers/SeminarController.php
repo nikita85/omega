@@ -50,16 +50,17 @@ class SeminarController extends AdminController
      */
     protected function handleForm(Seminar $seminarModel)
     {
+        $seminarModel->attachBehavior('ManyToManyBehavior', new ManyToManyBehavior);
+        //var_dump($seminarModel->grades);die;
         $this->initEntityActions($seminarModel);
-        $timeModel = new Time();
 
         if (isset($_POST['Seminar'])) {
 
             $transaction = Yii::app()->db->beginTransaction();
 
             try {
-                $seminarModel->attributes = $_POST['Seminar'];
 
+                $params = $_POST['Seminar'];
 
                 if (!empty($_POST['Time'])) {
 
@@ -68,14 +69,51 @@ class SeminarController extends AdminController
                     foreach ($_POST['Time'] as $id => $attributes) {
                         $time = preg_match('/^new\-.+/', $id) ? new Time() : Time::model()->findByPk($id);
 
-                        $time->attributes = $attributes;
+                        $time->start_time =  date('H:i:s', strtotime($attributes['start_time']));
+                        $time->end_time =  date('H:i:s', strtotime($attributes['end_time']));
 
-                        $times[] = $time;
+                        $times[$id] = $time;
+                    }
+
+                    foreach($seminarModel->times as $time) {
+                        if(!array_key_exists($time->id, $times)) {
+                            $time->delete();
+                        }
                     }
 
                     $seminarModel->times = $times;
-
                 }
+
+                if (!empty($_POST['DatePeriod'])) {
+
+                    $datePeriods = [];
+                    //var_dump($_POST['DatePeriod']);die;
+                    foreach ($_POST['DatePeriod'] as $id => $attributes) {
+
+                        $datePeriod = preg_match('/^new\-.+/', $id) ? new DatePeriods() : DatePeriods::model()->findByPk($id);
+
+                        $datePeriod->start_date = $attributes['start_date'];
+                        $datePeriod->end_date =  $attributes['end_date'];
+                        $datePeriod->description = $attributes['description'];
+
+                        $datePeriods[$id] = $datePeriod;
+                    }
+                    //var_dump($datePeriods);die;
+                    foreach($seminarModel->date_periods as $datePeriod) {
+                        if(!array_key_exists($datePeriod->id, $datePeriods)) {
+                            $datePeriod->delete();
+                        }
+                    }
+
+                    $seminarModel->date_periods = $datePeriods;
+                   // var_dump($seminarModel->date_periods);die;
+                }
+
+                if (array_key_exists('gradesIDs', $params)) {
+                    $seminarModel->grades = $params['gradesIDs'];
+                }
+
+                $seminarModel->attributes = $params;
 
                 if (!$seminarModel->save()) {
                     throw new Exception;
@@ -84,45 +122,37 @@ class SeminarController extends AdminController
                 $transaction->commit();
 
                 Yii::app()->user->setFlash('success', 'Saved Successfully');
-                //$this->redirect(['index']);
+
                 $this->redirect(['index']);
 
             } catch (Exception $e) {
-                Yii::app()->user->setFlash('error', 'Error occurred');
+                //Yii::app()->user->setFlash('error', 'Error occurred');
                 $transaction->rollback();
             }
 
-            $seminarModel->attributes = $_POST['Seminar'];
-
-
-/*            if (!empty($_POST['Time'])) {
-
-                $times = [];
-
-                foreach ($_POST['Time'] as $id => $attributes) {
-                    $time = preg_match('/^new\-.+/', $id) ? new Time() : Time::model()->findByPk($id);
-
-                    $time->attributes = $attributes;
-
-                    $times[] = $time;
-                }
-
-                $seminarModel->times = $times;
-
-            }*/
-
-
-//            if ($seminarModel->save()) {
-//
-//                $this->redirect(['view', 'id' => $seminarModel->id]);
-//            }
 
         }
 
         $this->render('form', [
             'seminarModel' => $seminarModel,
-            'timeModel' => $timeModel,
         ]);
+    }
+
+
+    /**
+     * Update seminar information
+     * @param integer $id
+     */
+    public function actionUpdate($id)
+    {
+        $model = $this->loadModel($id, 'Seminar');
+
+        $this->layout = '/layouts/column2';
+        $this->actionTitle = 'Edit Seminar';
+        $this->pushBreadcrumb('Seminar', ['/admin/seminar/index']);
+        $this->pushBreadcrumb('Edit Seminar', ['/admin/seminar/create']);
+
+        $this->handleForm($model);
     }
 
     /**
@@ -130,13 +160,16 @@ class SeminarController extends AdminController
      */
     public function actionDelete($id)
     {
-        $educationVideo = EducationVideo::model()->findByPk($id);
-        if (!empty($educationVideo)) {
+        $seminar = Seminar::model()->findByPk($id);
+        if (!empty($seminar)) {
 
-            $educationVideo->delete();
+            $seminar->delete();
         }
 
-        return $this->redirect(['index']);
+        // if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
+        if (!isset($_GET['ajax'])) {
+            $this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('index'));
+        }
     }
 
     /**

@@ -10,6 +10,14 @@ $menu = [
         'url' => ['/admin/seminar/index'],
     ],
     [
+        'label' => AdminModule::t('ui', 'Day Off'),
+        'url' => ['/admin/dayOff/index'],
+    ],
+    [
+        'label' => AdminModule::t('ui', 'Grade'),
+        'url' => ['/admin/grade/index'],
+    ],
+    [
         'label' => AdminModule::t('ui', 'Admin Logout'),
         'url'=>['/user/logout'],
     ],

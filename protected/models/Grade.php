@@ -50,6 +50,18 @@ class Grade extends CActiveRecord
         );
     }
 
+    public function search()
+    {
+        $criteria=new CDbCriteria;
+
+        $criteria->compare('id',$this->id);
+        $criteria->compare('title',$this->title, true);
+
+        return new CActiveDataProvider($this, array(
+            'criteria'=>$criteria,
+        ));
+    }
+
 	/**
 	 * @return array customized attribute labels (name=>label)
 	 */

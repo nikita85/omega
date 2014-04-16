@@ -41,6 +41,19 @@ class DayOff extends CActiveRecord
 		);
 	}
 
+    public function search()
+    {
+        $criteria=new CDbCriteria;
+
+        $criteria->compare('id',$this->id);
+        $criteria->compare('date',$this->date, true);
+        $criteria->compare('description',$this->description, true);
+
+        return new CActiveDataProvider($this, array(
+            'criteria'=>$criteria,
+        ));
+    }
+
 	/**
 	 * @return array customized attribute labels (name=>label)
 	 */

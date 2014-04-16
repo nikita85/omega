@@ -10,7 +10,7 @@
  * @property string $description
  * @property integer $seminar_id
  */
-class DatePeriod extends CActiveRecord
+class DatePeriods extends CActiveRecord
 {
 	/**
 	 * Returns the static model of the specified AR class.
@@ -52,8 +52,24 @@ class DatePeriod extends CActiveRecord
         // class name for the relations automatically generated below.
         return array(
             'seminar'=>array(self::BELONGS_TO, 'Seminar', 'seminar_id'),
-            'user_seminars'=>array(self::HAS_MANY, 'UserSeminar', 'date_period_id'),
+            'user_seminars'=>array(self::HAS_MANY, 'UserSeminar', 'date_periods_id'),
         );
+    }
+
+    /**
+     * Retrieves a list of models based on the current search/filter conditions.
+     * @return CActiveDataProvider the data provider that can return the models based on the search/filter conditions.
+     */
+    public function search()
+    {
+        $criteria=new CDbCriteria;
+
+        $criteria->compare('id',$this->id);
+        $criteria->compare('description',$this->description);
+
+        return new CActiveDataProvider($this, array(
+            'criteria'=>$criteria,
+        ));
     }
 
 	/**
@@ -63,9 +79,9 @@ class DatePeriod extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'start_time' => 'Start time',
-            'end_time' => 'End time',
-            'weekday' => 'Weekday',
+			'start_date' => 'Start date',
+            'end_date' => 'End date',
+            'description' => 'Description',
             'seminar_id' => 'Seminar',
 		);
 	}

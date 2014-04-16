@@ -54,13 +54,16 @@ class AdminController extends Controller
 
         /* JS Scripts */
         $this->registerScriptFile($this->module->assetsPath . '/js/main.js');
-        $this->registerScriptFile($this->module->assetsPath . '/js/jqwidgets/jqxcore.js');
-        $this->registerScriptFile($this->module->assetsPath . '/js/jqwidgets/jqxcalendar.js');
-        $this->registerScriptFile($this->module->assetsPath . '/js/jqwidgets/jqxdatetimeinput.js');
-        $this->registerScriptFile($this->module->assetsPath . '/js/jqwidgets/globalize.js');
+        $this->registerScriptFile($this->module->assetsPath . '/jqwidgets/jqxcore.js');
+        $this->registerScriptFile($this->module->assetsPath . '/jqwidgets/jqxcalendar.js');
+        $this->registerScriptFile($this->module->assetsPath . '/jqwidgets/jqxdatetimeinput.js');
+        $this->registerScriptFile($this->module->assetsPath . '/jqwidgets/jqxinput.js');
+        $this->registerScriptFile($this->module->assetsPath . '/jqwidgets/globalize.js');
 
         /* CSS Scripts */
+        $this->registerCssFile($this->module->assetsPath . '/jqwidgets/jqx.base.css');
         $this->registerCssFile($this->module->assetsPath . '/css/main.css', 'screen, projection');
+
     }
 
     /**
@@ -94,6 +97,28 @@ class AdminController extends Controller
     public function setPageTitle($title)
     {
         parent::setPageTitle(Yii::app()->name . ' | ' . $this->module->getName() . ' | ' . $title);
+    }
+
+    /**
+     * @param integer|string $id
+     * @param string $modelClass
+     *
+     * @return CActiveRecord
+     * @throws CHttpException
+     */
+    public function loadModel($id, $modelClass)
+    {
+        if (!class_exists($modelClass)) {
+            throw new CHttpException(404, 'The requested entity does not exist.');
+        }
+
+        $model = CActiveRecord::model($modelClass)->findByPk($id);
+
+        if ($model === null) {
+            throw new CHttpException(404, 'The requested page does not exist.');
+        }
+
+        return $model;
     }
 
 

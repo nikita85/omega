@@ -7,7 +7,7 @@
  * @property integer $id
  * @property string $info
  */
-class Grade extends CActiveRecord
+class User extends CActiveRecord
 {
 	/**
 	 * Returns the static model of the specified AR class.
