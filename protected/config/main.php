@@ -11,14 +11,28 @@ return array(
 
 	// preloading 'log' component
 	'preload'=>array('log'),
+    'language' => 'en',
 
 	// autoloading model and component classes
 	'import'=>array(
 		'application.models.*',
+        'application.models.behaviors.*',
 		'application.components.*',
 	),
 
 	'modules'=>array(
+
+        'admin' => [
+            'defaultController' => 'index',
+            'layout' => 'main',
+            'preload' => ['bootstrap'],
+            'components' => [
+                'bootstrap'=> [
+                    'class'=>'ext.bootstrap.components.Bootstrap',
+                    'responsiveCss' => true,
+                ],
+            ],
+        ],
 		// uncomment the following to enable the Gii tool
 		/*
 		'gii'=>array(
@@ -48,6 +62,15 @@ return array(
                 'opened_class' => 'site/openedClass',
                 'jobs' => 'site/jobs',
                 'classes' => 'site/classes',
+
+                /*
+                   Admin module
+               */
+
+                'admin'                                         => 'admin/index/index',
+                'admin/<controller:\w+>'                        => 'admin/<controller>/index',
+                'admin/<controller:\w+>/<action:\w+>/<id:\d+>'  => 'admin/<controller>/<action>',
+                'admin/<controller:\w+>/<action:\w+>'           => 'admin/<controller>/<action>',
 
 				'<controller:\w+>/<id:\d+>'=>'<controller>/view',
 				'<controller:\w+>/<action:\w+>/<id:\d+>'=>'<controller>/<action>',

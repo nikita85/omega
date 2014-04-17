@@ -1,0 +1,16 @@
+:php
+  $form = $this->beginWidget('bootstrap.widgets.TbActiveForm', [
+    'id' => 'grade-form',
+    'htmlOptions' => ['class' => 'well generalForm'],
+  ]);
+
+%fileset
+  = $form->textFieldRow($grade, 'title', ['class' => 'span6']);
+  %br
+  %br
+
+.form-actions
+:php
+  $this->widget('bootstrap.widgets.TbButton', ['buttonType' => 'submit', 'htmlOptions'=>array('class'=>'newStyleContentButton'), 'type' => 'primary', 'label' => 'Save']);
+  $this->widget('bootstrap.widgets.TbButton', ['buttonType' => 'reset', 'htmlOptions'=>array('class'=>'newStyleSecondaryButton marginLeft'), 'label' => 'Clear Form']);
+  $this->endWidget();

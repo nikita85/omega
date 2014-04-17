@@ -1,0 +1,81 @@
+!!! XML
+!!! 5
+%head
+  %meta{:http-equiv => 'Content-Type', :content => 'text/html; charset=utf-8'}
+  %meta{:name => 'language', :content => 'en'}
+
+  %link{:rel => 'shortcut icon', :href => '/images/favicon.ico', :type => "image/x-icon"}
+
+  %title
+    = CHtml::encode($this->pageTitle)
+%body
+  #layer_container
+    %img(id="layer_image" src="#{$this->assetsPath}/img/preloader_big.gif")
+  %section#heading
+    #main-menu
+      :php
+        $this->widget('bootstrap.widgets.TbNavbar', [
+          'type' => 'inverse',
+          'brand' => $this->module->name,
+          'brandUrl' => [
+            '/admin/index/index'
+          ],
+          'fixed' => 'top',
+          'fluid' => false,
+          'collapse' => true,
+          'items' => [[ 'class' => 'bootstrap.widgets.TbMenu', 'items' => $this->module->menu,]]
+        ]);
+
+    #breadcrumbs
+      :php
+        $lastBreadcrumbKey = end(array_keys($this->breadcrumbs));
+        if (!empty($lastBreadcrumbKey))
+          array_pop($this->breadcrumbs);
+          $this->breadcrumbs[] = $lastBreadcrumbKey;
+      .breadcrumbsNavigation
+        :php
+          $this->widget('bootstrap.widgets.TbBreadcrumbs', [
+            'links' => $this->breadcrumbs,
+            'homeLink' => CHtml::link('Dashboard', ['/admin/index/index'])]
+          );
+
+  %section#content
+    :php
+      $this->widget('bootstrap.widgets.TbAlert', [
+        'block' => true,
+        'fade' => true,
+        'closeText'=>'&times;',
+        'alerts' => [
+          'success' => [
+            'block' => true,
+            'fade' => true,
+            'closeText' => '&times;'
+          ],
+          'error' => [
+            'block' => true,
+            'fade' => true,
+            'closeText' => '&times;'
+          ],
+        ]
+      ]);
+
+    .page-header
+      %h1.customizedHeader = AdminModule::t('ui', $this->getActionTitle())
+
+    %div(id="#{$this->id}")
+      = $content;
+
+    .clear
+
+  %section#footer
+    .row-fluid
+
+  .modals
+    .modal.hide.fade#error-alert-window
+      .modal-header
+        %button.close(type="button" data-dismiss="modal" aria-hidden="true")&times;
+        %h3
+          Ошибка
+      .modal-body
+      .modal-footer
+        %button.btn(href="#" type="button" data-dismiss="modal" aria-hidden="true") OK

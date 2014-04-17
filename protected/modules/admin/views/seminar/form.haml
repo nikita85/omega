@@ -1,0 +1,79 @@
+:php
+  $form = $this->beginWidget('bootstrap.widgets.TbActiveForm', [
+    'id' => 'seminar-form',
+    'htmlOptions' => ['class' => 'well generalForm'],
+  ]);
+
+%fileset
+  = $form->error($seminarModel, 'grades')
+  = $form->textFieldRow($seminarModel, 'title', ['class' => 'span6']);
+  = $form->textFieldRow($seminarModel, 'price', ['class' => 'span6']);
+  %br
+  = $form->label($seminarModel, 'favourite')
+  = $form->checkBox($seminarModel, 'favourite')
+  %br
+  = $form->label($seminarModel, 'active')
+  = $form->checkBox($seminarModel, 'active')
+  %br
+  = $form->dropDownListRow($seminarModel, 'type', $seminarModel->getTypes())
+  %br
+  = $form->checkBoxListRow($seminarModel, 'gradesIDs', CHtml::listData(Grade::model()->findAll(), 'id', 'title'));
+  %br
+  .time_select_block
+    Available time:
+    %br
+    %br
+    -#= $form->timepickerRow($timeModel, 'start_time', ['options' => ['showMeridian' => true, 'showSeconds' => false, 'defaultTime' => '9:00 AM']])
+    -#= $form->timepickerRow($timeModel, 'end_time', ['options' => ['showMeridian' => true, 'showSeconds' => false, 'defaultTime' => '10:00 AM']])
+    - foreach ($seminarModel->times as $key => $time)
+      - $key = $time->isNewRecord ? $key : $time->id;
+      .timeRow
+        %label Start Time
+        .jqxWidget(name = "Time[#{$key}][start_time]" value="#{$time->start_time}")
+        %label End Time
+        .jqxWidget(name = "Time[#{$key}][end_time]" value="#{$time->end_time}")
+        - $this->widget('bootstrap.widgets.TbButton', ['buttonType' => 'button', 'size' => 'mini', 'htmlOptions'=>array('class'=>'newStyleSecondaryButton marginLeft removeTimeRow'), 'label' => 'Remove']);
+    .timeRowTemplate.timeRow
+      %label Start Time
+      .jqxWidget(name = "Time[new-##uid##][start_time]")
+      %label End Time
+      .jqxWidget(name = "Time[new-##uid##][end_time]")
+      - $this->widget('bootstrap.widgets.TbButton', ['buttonType' => 'button', 'size' => 'mini', 'htmlOptions'=>array('class'=>'newStyleSecondaryButton marginLeft removeTimeRow'), 'label' => 'Remove']);
+      %br
+    - $this->widget('bootstrap.widgets.TbButton', ['buttonType' => 'button', 'htmlOptions'=>array('class'=>'newStyleSecondaryButton marginLeft addTimeRow'), 'label' => 'Add Time']);
+  %br
+  .date_period_block
+    Date periods:
+    -#- foreach ($seminarModel->date_periods as $key => $datePeriod)
+    -#  - $key = $datePeriod->isNewRecord ? $key : $datePeriod->id;
+    -#    .datePeriodRow
+    -#      %label Start Date
+    -#        %span.required *
+    -#      .jqxWidget.date(name = "DatePeriod[#{$key}][start_date]" value="#{$datePeriod->start_date}")
+    -#      %label End Date
+    -#        %span.required *
+    -#      .jqxWidget.date(name = "DatePeriod[#{$key}][end_date]" value="#{$datePeriod->end_date}")
+    -#      %label Description
+    -#      %input.jqxWidget.text(name = "DatePeriod[#{$key}][description]" value="#{$datePeriod->description}")
+    -#      - $this->widget('bootstrap.widgets.TbButton', ['buttonType' => 'button', 'size' => 'mini', 'htmlOptions'=>array('class'=>'newStyleSecondaryButton marginLeft removeDatePeriodRow'), 'label' => 'Remove']);
+    -#      %br
+    %br
+    %br
+    .datePeriodRowTemplate.datePeriodRow
+      %label Start Date
+        %span.required *
+      .jqxWidget.date(name = "DatePeriod[new-##uid##][start_date]")
+      %label End Date
+        %span.required *
+      .jqxWidget.date(name = "DatePeriod[new-##uid##][end_date]")
+      %label Description
+      %input.jqxWidget.text(name = "DatePeriod[new-##uid##][description]")
+      - $this->widget('bootstrap.widgets.TbButton', ['buttonType' => 'button', 'size' => 'mini', 'htmlOptions'=>array('class'=>'newStyleSecondaryButton marginLeft removeDatePeriodRow'), 'label' => 'Remove']);
+      %br
+    - $this->widget('bootstrap.widgets.TbButton', ['buttonType' => 'button', 'htmlOptions'=>array('class'=>'newStyleSecondaryButton marginLeft addDatePeriodRow'), 'label' => 'Add Date Period']);
+
+.form-actions
+:php
+  $this->widget('bootstrap.widgets.TbButton', ['buttonType' => 'submit', 'htmlOptions'=>array('class'=>'newStyleContentButton'), 'type' => 'primary', 'label' => 'Save']);
+  $this->widget('bootstrap.widgets.TbButton', ['buttonType' => 'reset', 'htmlOptions'=>array('class'=>'newStyleSecondaryButton marginLeft'), 'label' => 'Clear Form']);
+  $this->endWidget();

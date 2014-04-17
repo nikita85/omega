@@ -1,0 +1,16 @@
+- $this->beginContent('/layouts/main')
+
+- if (!empty($this->menu))
+  .well
+    .btn-group
+      - foreach ($this->menu as $menuItem)
+        %a.btn.btn-big(href="#{$this->createUrl($menuItem['url'][0])}")
+          - if (!empty($menuItem['icon']))
+            %i(class="icon-#{$menuItem['icon']}")
+            = "&nbsp;"
+          = $menuItem['label']
+
+
+= $content
+
+- $this->endContent()

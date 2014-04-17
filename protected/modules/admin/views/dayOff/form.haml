@@ -1,0 +1,17 @@
+:php
+  $form = $this->beginWidget('bootstrap.widgets.TbActiveForm', [
+    'id' => 'dayOff-form',
+    'htmlOptions' => ['class' => 'well generalForm'],
+  ]);
+
+%fileset
+  = $form->datepickerRow($dayOff, 'date', ['options' => ['format' => 'yyyy-mm-dd'], 'prepend'=>'<i class="icon-calendar" style="cursor:pointer"></i>'])
+  = $form->textFieldRow($dayOff, 'description', ['class' => 'span6']);
+  %br
+  %br
+
+.form-actions
+:php
+  $this->widget('bootstrap.widgets.TbButton', ['buttonType' => 'submit', 'htmlOptions'=>array('class'=>'newStyleContentButton'), 'type' => 'primary', 'label' => 'Save']);
+  $this->widget('bootstrap.widgets.TbButton', ['buttonType' => 'reset', 'htmlOptions'=>array('class'=>'newStyleSecondaryButton marginLeft'), 'label' => 'Clear Form']);
+  $this->endWidget();
