@@ -44,6 +44,8 @@
   %br
   .date_period_block
     Date periods:
+    %br
+    %br
     - foreach ($seminarModel->date_periods as $key => $datePeriod)
       - $key = $datePeriod->isNewRecord ? $key : $datePeriod->id;
         .datePeriodRow
