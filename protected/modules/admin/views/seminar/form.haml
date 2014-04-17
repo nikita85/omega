@@ -44,21 +44,19 @@
   %br
   .date_period_block
     Date periods:
-    -#- foreach ($seminarModel->date_periods as $key => $datePeriod)
-    -#  - $key = $datePeriod->isNewRecord ? $key : $datePeriod->id;
-    -#    .datePeriodRow
-    -#      %label Start Date
-    -#        %span.required *
-    -#      .jqxWidget.date(name = "DatePeriod[#{$key}][start_date]" value="#{$datePeriod->start_date}")
-    -#      %label End Date
-    -#        %span.required *
-    -#      .jqxWidget.date(name = "DatePeriod[#{$key}][end_date]" value="#{$datePeriod->end_date}")
-    -#      %label Description
-    -#      %input.jqxWidget.text(name = "DatePeriod[#{$key}][description]" value="#{$datePeriod->description}")
-    -#      - $this->widget('bootstrap.widgets.TbButton', ['buttonType' => 'button', 'size' => 'mini', 'htmlOptions'=>array('class'=>'newStyleSecondaryButton marginLeft removeDatePeriodRow'), 'label' => 'Remove']);
-    -#      %br
-    %br
-    %br
+    - foreach ($seminarModel->date_periods as $key => $datePeriod)
+      - $key = $datePeriod->isNewRecord ? $key : $datePeriod->id;
+        .datePeriodRow
+          %label Start Date
+            %span.required *
+          .jqxWidget.date(name = "DatePeriod[#{$key}][start_date]" value="#{$datePeriod->start_date}")
+          %label End Date
+            %span.required *
+          .jqxWidget.date(name = "DatePeriod[#{$key}][end_date]" value="#{$datePeriod->end_date}")
+          %label Description
+          %input.jqxWidget.text(name = "DatePeriod[#{$key}][description]" value="#{$datePeriod->description}")
+          - $this->widget('bootstrap.widgets.TbButton', ['buttonType' => 'button', 'size' => 'mini', 'htmlOptions'=>array('class'=>'newStyleSecondaryButton marginLeft removeDatePeriodRow'), 'label' => 'Remove']);
+          %br
     .datePeriodRowTemplate.datePeriodRow
       %label Start Date
         %span.required *

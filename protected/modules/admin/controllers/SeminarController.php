@@ -82,6 +82,10 @@ class SeminarController extends AdminController
                     }
 
                     $seminarModel->times = $times;
+                } else {
+                    foreach($seminarModel->times as $time) {
+                        $time->delete();
+                    }
                 }
 
                 if (!empty($_POST['DatePeriod'])) {
@@ -98,7 +102,7 @@ class SeminarController extends AdminController
 
                         $datePeriods[$id] = $datePeriod;
                     }
-                    //var_dump($datePeriods);die;
+
                     foreach($seminarModel->date_periods as $datePeriod) {
                         if(!array_key_exists($datePeriod->id, $datePeriods)) {
                             $datePeriod->delete();
@@ -106,7 +110,11 @@ class SeminarController extends AdminController
                     }
 
                     $seminarModel->date_periods = $datePeriods;
-                   // var_dump($seminarModel->date_periods);die;
+
+                } else {
+                    foreach($seminarModel->date_periods as $datePeriod) {
+                        $datePeriod->delete();
+                    }
                 }
 
                 if (array_key_exists('gradesIDs', $params)) {
