@@ -4,294 +4,287 @@
       %h1 Summer Classes
       %p Registration form
     .registration-form-wrapper
-      %div#steps
-        %ul#items
-          %li.active
-            %a(href="#step-1")
+      %div.steps
+        %ul.tabs
+          %li.actived
+            %a(href="#tab1")
               %b Step 1 -
               Student’s info
           %li
-            %a(href="#step-2")
+            %a(href="#tab2")
               %b Step 2 -
               Parents’ info
           %li
-            %a(href="#step-3" )
+            %a(href="#tab3" )
               %b Step 3 -
               Additional info
-      %div.steps-content
-        %div#step-1
-          .step-text
-            .students-info
-              %form(action="" method="post" )
-                %div.input-row
-                  %label(class="label-name")Name of Student
-                    %span*
-                  %div.input_block.cl
-                    %div.error-message
-                    %input(class="text_input" name="name" required="required" type="text" placeholder="enter you name" )
-                %div.input-row
-                  %label(class="label-name")Gender
-                    %span*
-                  %div.wrapper-sex
-                    %div.input-text-radio.correct
-                      %input(id="r1" type="radio" name="sex" value="male" class="test-radio" )
-                        %label(for="r1" class="people-sex")
-                          %span Male
-                      %input(id="r2" type="radio" name="sex" value="female" class="test-radio" )
-                        %label(for="r2" class="people-sex")
-                          %span Female
-                %div.input-row
-                  %label(class="label-name")Student’s current school
-                  %div.input_block.cl
-                    %div.error-message
-                    %input(class="text_input" name="school" required="" type="text")
-                %div.input-row
-                  %label(class="label-name")Student Address
-                    %span*
-                  %div.input_block.cl
-                    %div.error-message
-                    %input(class="text_input" name="staddres" required="required" type="text" )
-                %div.input-row
-                  %label(class="label-name")Home phone
-                  %div.input_block.cl
-                    %div.error-message
-                    %input(class="text_input" name="homephone" required="" type="tel" )
-                %div.input-row
-                  %label(class="label-name")Cell phone
-                    %span*
-                  %div.input_block.cl
-                    %div.error-message
-                    %input(class="text_input" name="cellphone" required="required" type="tel" )
-                %div.input-row
-                  %label(class="label-name")Student's e-mail
-                    %span*
-                  %div.input_block.cl
-                    %div.error-message
-                    %input(class="text_input" name="stemail" required="required" type="email")
+      .steps-content
+        %div.tab_content#tab1
+          %form(action="" method="post" )
+            %div.input-row
+              %label(class="label-name")Name of Student
+                %span*
+              %div.input_block.cl
+                %div.error-message
+                %input(class="text_input" name="name" required="required" type="text")
+            %div.input-row
+              %label(class="label-name")Gender
+                %span*
+              %div.wrapper-sex
+                %div.input-text-radio.correct
+                  %input(id="r1" type="radio" name="sex" value="male" class="test-radio" )
+                    %label(for="r1" class="people-sex")
+                      %span Male
+                  %input(id="r2" type="radio" name="sex" value="female" class="test-radio" )
+                    %label(for="r2" class="people-sex")
+                      %span Female
+            %div.input-row
+              %label(class="label-name")Student’s current school
+              %div.input_block.cl
+                %div.error-message
+                %input(class="text_input" name="school" required="" type="text")
+            %div.input-row
+              %label(class="label-name")Student Address
+                %span*
+              %div.input_block.cl
+                %div.error-message
+                %input(class="text_input" name="staddres" required="required" type="text" )
+            %div.input-row
+              %label(class="label-name")Home phone
+              %div.input_block.cl
+                %div.error-message
+                %input(class="text_input" name="homephone" required="" type="tel" )
+            %div.input-row
+              %label(class="label-name")Cell phone
+                %span*
+              %div.input_block.cl
+                %div.error-message
+                %input(class="text_input" name="cellphone" required="required" type="tel" )
+            %div.input-row
+              %label(class="label-name")Student's e-mail
+                %span*
+              %div.input_block.cl
+                %div.error-message
+                %input(class="text_input" name="stemail" required="required" type="email")
             %input(type="submit" class="btn registration-button" value="continue" )
-        .clear
-        %div#step-2
-          .step-text
-            .parents-info
-              %form(action="" method="post" )
-                %div.input-row
-                  %label(class="label-name")Name of Parent #1
-                    %span*
-                  %div.input_block.cl
-                    %div.error-message
-                    %input(class="text_input" name="nameparent" required="required" type="text")
-                %div.input-row
-                  %label(class="label-name")Email of Parent #1
-                    %span*
-                  %div.input_block.cl
-                    %div.error-message
-                    %input(class="text_input" name="emailparent" required="" type="email")
-                %div.input-row
-                  %label(class="label-name")Name of Parent #2
-                  %div.input_block.cl
-                    %div.error-message
-                    %input(class="text_input" name="nameparent" required="required" type="text")
-                %div.input-row
-                  %label(class="label-name")Email of Parent #2
-                  %div.input_block.cl
-                    %div.error-message
-                    %input(class="text_input" name="emailparent" required="" type="email")
-                %h4
-                  %b Parent to contact in case of emergency:
-                %br
-                %div.input-row
-                  %label(class="label-name")Name
-                    %span*
-                  %div.input_block.cl
-                    %div.error-message
-                    %input(class="text_input" name="name" required="required" type="text")
-                %div.input-row
-                  %label(class="label-name")Cell phone
-                    %span*
-                  %div.input_block.cl
-                    %div.error-message
-                    %input(class="text_input" name="cellphone" required="required" type="tel" )
-                %div.input-row
-                  %label(class="label-name")Home phone
-                    %span*
-                  %div.input_block.cl
-                    %div.error-message
-                    %input(class="text_input" name="homephone" required="required" type="tel")
-                %h4
-                  %b Person to contact in case of emergency and parent not available:
-                %br
-                %div.input-row
-                  %label(class="label-name")Name
-                    %span*
-                  %div.input_block.cl
-                    %div.error-message
-                    %input(class="text_input" name="name" required="required" type="text")
-                %div.input-row
-                  %label(class="label-name")Cell phone
-                    %span*
-                  %div.input_block.cl
-                    %div.error-message
-                    %input(class="text_input" name="cellphone" required="required" type="tel")
-                %div.input-row
-                  %label(class="label-name")Home phone
-                    %span*
-                  %div.input_block.cl
-                    %div.error-message
-                    %input(class="text_input" name="homephone" required="required" type="tel")
-                %div.input-row
-                  %label(class="label-name")Relationship to student
-                    %span*
-                  %div.input_block.cl
-                    %div.error-message
-                    %input(class="text_input" name="relstudent" required="required" type="text")
+        %div.tab_content#tab2
+          %form(action="" method="post" )
+            %div.input-row
+              %label(class="label-name")Name of Parent #1
+                %span*
+              %div.input_block.cl
+                %div.error-message
+                %input(class="text_input" name="nameparent" required="required" type="text")
+            %div.input-row
+              %label(class="label-name")Email of Parent #1
+                %span*
+              %div.input_block.cl
+                %div.error-message
+                %input(class="text_input" name="emailparent" required="" type="email")
+            %div.input-row
+              %label(class="label-name")Name of Parent #2
+              %div.input_block.cl
+                %div.error-message
+                %input(class="text_input" name="nameparent" required="required" type="text")
+            %div.input-row
+              %label(class="label-name")Email of Parent #2
+              %div.input_block.cl
+                %div.error-message
+                %input(class="text_input" name="emailparent" required="" type="email")
+            %h4
+              %b Parent to contact in case of emergency:
+            %br
+            %div.input-row
+              %label(class="label-name")Name
+                %span*
+              %div.input_block.cl
+                %div.error-message
+                %input(class="text_input" name="name" required="required" type="text")
+            %div.input-row
+              %label(class="label-name")Cell phone
+                %span*
+              %div.input_block.cl
+                %div.error-message
+                %input(class="text_input" name="cellphone" required="required" type="tel" )
+            %div.input-row
+              %label(class="label-name")Home phone
+                %span*
+              %div.input_block.cl
+                %div.error-message
+                %input(class="text_input" name="homephone" required="required" type="tel")
+            %h4
+              %b Person to contact in case of emergency and parent not available:
+            %br
+            %div.input-row
+              %label(class="label-name")Name
+                %span*
+              %div.input_block.cl
+                %div.error-message
+                %input(class="text_input" name="name" required="required" type="text")
+            %div.input-row
+              %label(class="label-name")Cell phone
+                %span*
+              %div.input_block.cl
+                %div.error-message
+                %input(class="text_input" name="cellphone" required="required" type="tel")
+            %div.input-row
+              %label(class="label-name")Home phone
+                %span*
+              %div.input_block.cl
+                %div.error-message
+                %input(class="text_input" name="homephone" required="required" type="tel")
+            %div.input-row
+              %label(class="label-name")Relationship to student
+                %span*
+              %div.input_block.cl
+                %div.error-message
+                %input(class="text_input" name="relstudent" required="required" type="text")
             %input(type="submit" class="btn registration-button" value="continue" )
-        %div#step-3
-          .step-text-act
-            .parents-info
-              %form(action="" method="post" )
-                %div.input-row
-                  %label(class="label-name")Physician’s name
-                    %span*
-                  %div.input_block.cl
-                    %div.error-message
-                    %input(class="text_input" name="phname" required="required" type="text")
-                %div.input-row
-                  %label(class="label-name")Physician’s phone
-                    %span*
-                  %div.input_block.cl
-                    %div.error-message
-                    %input(class="text_input" name="phphone" required="" type="tel")
-                %div.input-row
-                  %label(class="label-name")Dentist’s name
-                    %span*
-                  %div.input_block.cl
-                    %div.error-message
-                    %input(class="text_input" name="dentistsname" required="required" type="text")
-                %div.input-row
-                  %label(class="label-name")Dentist’s phone
-                    %span*
-                  %div.input_block.cl
-                    %div.error-message
-                    %input(class="text_input" name="dentistsphone" required="" type="tel")
-                %div.input-row
-                  %label(class="label-name")List any medications
-                    %br for allergies
-                  %div.input_block.cl
-                    %div.error-message
-                    %input(class="text_input" name="listmedication" required="required" type="text")
-                %div.input-row
-                  %label(class="label-name")List any medications
-                    %br currently taken
-                  %div.input_block.cl
-                    %div.error-message
-                    %input(class="text_input" name="listmedicationtaken" required="required" type="text")
-                %div.input-row
-                  %label(class="label-name")Please list
-                    %br any food allergies
-                  %div.input_block.cl
-                    %div.error-message
-                    %input(class="text_input" name="pleaselist" required="required" type="text")
-                %div.input-row
-                  %label(for="" class="label-name-select") Date of last tetanus shot
-                  %div.select-move
-                    %select(class="select-date" name="month" )
-                      %option Month
-                      %option January
-                      %option February
-                      %option March
-                      %option April
-                      %option May
-                      %option June
-                      %option July
-                      %option August
-                      %option September
-                      %option October
-                      %option November
-                      %option December
-                    %select(class="select-date" name="year" )
-                      %option Year
-                      %option 2003
-                      %option 2004
-                      %option 2005
-                      %option 2006
-                      %option 2007
-                      %option 2008
-                      %option 2009
-                      %option 2010
-                      %option 2011
-                      %option 2012
-                      %option 2013
-                      %option 2014
-                %div.text-form
-                  %b I grant permission to authorized Omega Teaching personnel to administer basic first aid to:
-                %div.text-form
-                  %span Name of Student
-                  as appropriate.  In case of accident or acute illness, I grant permission for authorized Omega Teaching LLC personnel to arrange transportation for my child to the closest hospital or dentist.  I understand that an effort will be made to notify me before such action is taken and the expense of this service and any subsequent medical expenses will be assumed by me.  I give permission for the student enrolled to participate in the seminar and activities above and I further agree to indemnify Omega Teaching LLC, its employees and agents, and the independent consultants retained by Omega Teaching from and against any and all liability for any injury or harm suffered by the student which may arise out of or in any way be connected to the student’s participation in the above activities.  I further agree to permit the use of event or activity photography and/or video media production, which may include images of the student.
-                %div.input-row
-                  %label(for="" class="label-name-select") Date
-                    %span*
-                  %div.select-move-date
-                    %select(class="select-date" name="month" )
-                      %option Month
-                      %option January
-                      %option February
-                      %option March
-                      %option April
-                      %option May
-                      %option June
-                      %option July
-                      %option August
-                      %option September
-                      %option October
-                      %option November
-                      %option December
-                    %select(class="select-date" name="date" )
-                      %option date
-                      %option 1
-                      %option 2
-                      %option 3
-                      %option 4
-                      %option 5
-                      %option 6
-                      %option 7
-                      %option 8
-                      %option 9
-                      %option 10
-                      %option 11
-                      %option 12
-                      %option 13
-                      %option 14
-                      %option 15
-                      %option 16
-                      %option 17
-                      %option 18
-                      %option 19
-                      %option 20
-                      %option 21
-                      %option 22
-                      %option 23
-                      %option 24
-                      %option 25
-                      %option 26
-                      %option 27
-                      %option 28
-                      %option 29
-                      %option 30
-                      %option 31
-                    %select(class="select-date" name="year" )
-                      %option Year
-                      %option 2003
-                      %option 2004
-                      %option 2005
-                      %option 2006
-                      %option 2007
-                      %option 2008
-                      %option 2009
-                      %option 2010
-                      %option 2011
-                      %option 2012
-                      %option 2013
-                      %option 2014
+        %div.tab_content#tab3
+          %form(action="" method="post" )
+            %div.input-row
+              %label(class="label-name")Physician’s name
+                %span*
+              %div.input_block.cl
+                %div.error-message
+                %input(class="text_input" name="phname" required="required" type="text")
+            %div.input-row
+              %label(class="label-name")Physician’s phone
+                %span*
+              %div.input_block.cl
+                %div.error-message
+                %input(class="text_input" name="phphone" required="" type="tel")
+            %div.input-row
+              %label(class="label-name")Dentist’s name
+                %span*
+              %div.input_block.cl
+                %div.error-message
+                %input(class="text_input" name="dentistsname" required="required" type="text")
+            %div.input-row
+              %label(class="label-name")Dentist’s phone
+                %span*
+              %div.input_block.cl
+                %div.error-message
+                %input(class="text_input" name="dentistsphone" required="" type="tel")
+            %div.input-row
+              %label(class="label-name")List any medications
+                %br for allergies
+              %div.input_block.cl
+                %div.error-message
+                %input(class="text_input" name="listmedication" required="required" type="text")
+            %div.input-row
+              %label(class="label-name")List any medications
+                %br currently taken
+              %div.input_block.cl
+                %div.error-message
+                %input(class="text_input" name="listmedicationtaken" required="required" type="text")
+            %div.input-row
+              %label(class="label-name")Please list
+                %br any food allergies
+              %div.input_block.cl
+                %div.error-message
+                %input(class="text_input" name="pleaselist" required="required" type="text")
+            %div.input-row
+              %label(for="" class="label-name-select") Date of last tetanus shot
+              %div.select-move
+                %select(class="select-date" name="month" )
+                  %option Month
+                  %option January
+                  %option February
+                  %option March
+                  %option April
+                  %option May
+                  %option June
+                  %option July
+                  %option August
+                  %option September
+                  %option October
+                  %option November
+                  %option December
+                %select(class="select-date" name="year" )
+                  %option Year
+                  %option 2003
+                  %option 2004
+                  %option 2005
+                  %option 2006
+                  %option 2007
+                  %option 2008
+                  %option 2009
+                  %option 2010
+                  %option 2011
+                  %option 2012
+                  %option 2013
+                  %option 2014
+            %div.text-form
+              %b I grant permission to authorized Omega Teaching personnel to administer basic first aid to:
+            %div.text-form
+              %span Name of Student
+              as appropriate.  In case of accident or acute illness, I grant permission for authorized Omega Teaching LLC personnel to arrange transportation for my child to the closest hospital or dentist.  I understand that an effort will be made to notify me before such action is taken and the expense of this service and any subsequent medical expenses will be assumed by me.  I give permission for the student enrolled to participate in the seminar and activities above and I further agree to indemnify Omega Teaching LLC, its employees and agents, and the independent consultants retained by Omega Teaching from and against any and all liability for any injury or harm suffered by the student which may arise out of or in any way be connected to the student’s participation in the above activities.  I further agree to permit the use of event or activity photography and/or video media production, which may include images of the student.
+            %div.input-row
+              %label(for="" class="label-name-select") Date
+                %span*
+              %div.select-move-date
+                %select(class="select-date" name="month" )
+                  %option Month
+                  %option January
+                  %option February
+                  %option March
+                  %option April
+                  %option May
+                  %option June
+                  %option July
+                  %option August
+                  %option September
+                  %option October
+                  %option November
+                  %option December
+                %select(class="select-date" name="date" )
+                  %option date
+                  %option 1
+                  %option 2
+                  %option 3
+                  %option 4
+                  %option 5
+                  %option 6
+                  %option 7
+                  %option 8
+                  %option 9
+                  %option 10
+                  %option 11
+                  %option 12
+                  %option 13
+                  %option 14
+                  %option 15
+                  %option 16
+                  %option 17
+                  %option 18
+                  %option 19
+                  %option 20
+                  %option 21
+                  %option 22
+                  %option 23
+                  %option 24
+                  %option 25
+                  %option 26
+                  %option 27
+                  %option 28
+                  %option 29
+                  %option 30
+                  %option 31
+                %select(class="select-date" name="year" )
+                  %option Year
+                  %option 2003
+                  %option 2004
+                  %option 2005
+                  %option 2006
+                  %option 2007
+                  %option 2008
+                  %option 2009
+                  %option 2010
+                  %option 2011
+                  %option 2012
+                  %option 2013
+                  %option 2014
             %input(type="submit" class="btn registration-button" value="send form" )
     .your-courses
       %h2 Your courses

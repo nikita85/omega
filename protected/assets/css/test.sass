@@ -102,7 +102,7 @@ header
       &:hover
         @include linear-gradient(#029141, #53bb4c)
   /**NAVIGATION MENU**/
-  .nav
+  nav
     height: 36px
     background-color: rgba(255, 255, 255, 0.5)
     filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#4cffffff', endColorstr='#4cffffff')
@@ -1371,32 +1371,34 @@ header#header-bg
     font-size: 18px
     margin-left: 200px
     margin-top: 30px
-  #steps
+  .steps
     width: 100%
-  #steps ul
-    display: table-row
-  #steps ul li
+  ul.tabs
+    list-style: none
+  ul.tabs li
     float: left
     margin: 30px 0 10px 0
     text-align: center
-    &:hover
-      background: rgba(19, 150, 71, 0.2)
-      @include border-radius(20px)
-  #steps ul li:first-child
-    background: rgba(19, 150, 71, 0.2)
-    @include border-radius(20px)
-  #steps ul li a
-    display: table-cell
+    /*overflow: hidden*/
+    /*position: relative*/
+  ul.tabs li a
+    display: block
     padding: 5px 20px
     line-height: normal
     text-decoration: none
     font-family: $second-fonts
     font-size: 15px
     color: #999999
-  .step-text-act
-    display: block
-  .step-text
-    display: none
+    outline: none
+    &:hover
+      background: rgba(19, 150, 71, 0.2)
+      @include border-radius(20px)
+  ul.tabs li.actived, ul.tabs li.actived a:hover
+    background: rgba(19, 150, 71, 0.2)
+    @include border-radius(20px)
+  .tab_content
+    padding: 10px
+    font-size: 1.2em
   h4, .text-form
     font-family: $second-fonts
     font-size: 13px
