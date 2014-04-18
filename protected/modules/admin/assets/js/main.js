@@ -33,9 +33,9 @@ function emulationButtonEnable(){
 $(document).ready(function(){
    $(".logoImage").click(function(){
       location.pathname="/";
-//      location.reload();
    });
-    var myForm = document.getElementById('seminar-form');
+
+/*    var myForm = document.getElementById('seminar-form');
     myForm.onsubmit = function() {
         var allInputs = myForm.getElementsByTagName('input');
         var input, i;
@@ -45,7 +45,11 @@ $(document).ready(function(){
                 input.setAttribute('name', '');
             }
         }
-    };
+    };*/
+
+    $('#seminar-form').on('submit', function(){
+       $('.datePeriodRowTemplate input.text').attr('name', '');
+    });
 
     /*TIME ROW*/
     $('.timeRow').not('.timeRowTemplate').find('.jqxWidget').each(function(){
@@ -81,16 +85,20 @@ $(document).ready(function(){
 
     /*DATE PERIOD ROW*/
 
-    $('.datePeriodRow').not('.datePeriodRowTemplate').find('.jqxWidget.date').each(function(){
-        var row = $(this);
+    $('.datePeriodRow').not('.datePeriodRowTemplate').each(function(){
+        var row = $(this); console.log(this);
         row.find('.jqxWidget.date').each(function(){
-            var nameAttr = $(this).attr('name');
-            $(this).attr('name' , nameAttr.replace('##uid##', uiid));
+            var dateValue = $(this).attr('value');
+
             $(this).jqxDateTimeInput({width: '200px', height: '25px', formatString: 'yyyy-MM-dd'});
+/*            console.log('asd');
+            if(dateValue){
+                $(this).jqxDateTimeInput('setDate', new Date(ConvertToDate(timeValue)));
+            }*/
         });
         row.find('.jqxWidget.text').each(function(){
-            var nameAttr = $(this).attr('name');
-            $(this).attr('name' , nameAttr.replace('##uid##', uiid));
+/*            var nameAttr = $(this).attr('name');
+            $(this).attr('name' , nameAttr.replace('##uid##', uiid));*/
             $(this).jqxInput({height: 25, width: 200 });
         });
     });
@@ -146,22 +154,6 @@ $(document).ready(function(){
         return date;
     }
 
-    //addTimeRow();
-
-/*    $(".checkbox-column input").change(emulationButtonEnable);
-
-
-    window.alert = function(message, title) {
-        $('#error-alert-window .modal-header h3').html(title);
-        $('#error-alert-window .modal-body').html(message);
-
-        $('#error-alert-window').modal();
-
-    };
-
-    window.alert.error = function(message) {
-        window.alert(message, 'Ошибка');
-    };*/
 
 });
 
