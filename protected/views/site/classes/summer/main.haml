@@ -1,0 +1,311 @@
+%section
+  .wrapper-page
+    .summer-seminars
+      %h1 Summer Seminars
+      %img(src="#{$this->assetsPath}/img/classes_photo_1.png" )
+      %p As the Academic Director of Omega Teaching LLC, I am very pleased to offer the following summer seminars, including Test Prep Boot Camp. Test Prep Boot Camp will be offered at two levels: entering 4th and 5th graders, entering 6th and 7th graders, and entering 8th graders. The 8th grade Camp will cover both ISEE and HSPT test prep skills. Discounts are offered to Test Prep Boot Camp students who also enroll in the Crafting the Personal Essay Statement. This class is designed to get students started on the application essays needed for private schools.
+      %br
+      %p Other seminars include: Of Myths and Monsters, Going to the Dogs, Make ‘Em Laugh, The Power of Story and Intro to Literary Analysis. Classes are 2.5 hours with 4-12 students divided by grade or ability levels. Discounts available for multiple enrollment and students are encouraged to take several classes to improve their skills. If your child is a returning student, they can repeat classes as I have multiple writing assignments for the same themes.  My teaching experience includes tutoring and afterschool writing classes at Hillview Middle School. My degrees are from Harvard (JD) and Stanford (BA, English and Economics).
+
+    .clear
+
+    .summer-classes
+      %h2 All summer classes:
+      .seminars
+        .camp-topic
+          %h3 Test prep boot camp
+        %img(src="#{$this->assetsPath}/img/title_1.png" )
+        %ul.grades
+          %li
+            %span
+              %b Grades:
+          %li
+            %span Level I Entering 4th-5th
+          %li
+            %span Level II Entering 6th -7th
+          %li
+            %span Level III Entering 8th
+        %a.btn.camp-button(href="#{$this->createUrl('site/TestPrepBootCamp')}") read more
+      .seminars
+        .personal-topic
+          %h3 Crafting the personal essay statement
+        %img(src="#{$this->assetsPath}/img/title_2.png" )
+        %ul.grades
+          %li
+            %span
+              %b Grades:
+          %li
+            %span Level I Entering 4th-5th
+          %li
+            %span Level II Entering 6th-8th
+          %li
+            %span Level III 9th -12th
+        %a.btn.personal-button(href="#{$this->createUrl('site/EssayStatement')}") read more
+      .seminars
+        .myths-topic
+          %h3 Of myths and monsters
+          %img(src="#{$this->assetsPath}/img/icon_favourite_big.png" )
+          %span Student favorite!
+        %img(src="#{$this->assetsPath}/img/title_3.png" )
+        %ul.grades
+          %li
+            %span
+              %b Grades:
+          %li
+            %span Level I Entering 5th-7th
+          %li
+            %span Level II Entering 8th-12th
+        %a.btn.myths-button(href="#{$this->createUrl('site/MythsAndMonsters')}") read more
+      .seminars
+        .going-topic
+          %h3 Going to the dogs
+          %img(src="#{$this->assetsPath}/img/icon_favourite_big.png" )
+          %span Student favorite!
+        %img(src="#{$this->assetsPath}/img/title_4.png" )
+        %ul.grades
+          %li
+            %span
+              %b Grades:
+          %li
+            %span Level I Entering 5th -8th
+        %a.btn.going-button(href="#{$this->createUrl('site/TheDogs')}") read more
+      .seminars
+        .laugh-topic
+          %h3 Make‘em laugh
+        %img(src="#{$this->assetsPath}/img/title_5.png" )
+        %ul.grades
+          %li
+            %span
+              %b Grades:
+          %li
+            %span Level I Entering 5th -7th
+          %li
+            %span Level II Entering 8th -12th
+        %a.btn.laugh-button(href="#{$this->createUrl('site/MakeemLaugh')}") read more
+      .seminars
+        .story-topic
+          %h3 The power of story
+        %img(src="#{$this->assetsPath}/img/title_6.png" )
+        %ul.grades
+          %li
+            %span
+              %b Grades:
+          %li
+            %span Level I Entering 5th -7th
+          %li
+            %span Level II Entering 8th -12th
+        %a.btn.story-button(href="#{$this->createUrl('site/PowerOfStory')}") read more
+      .seminars
+        .intro-topic
+          %h3 Intro to literary analysis
+        %img(src="#{$this->assetsPath}/img/title_7.png" )
+        %ul.grades
+          %li
+            %span
+              %b Grades:
+          %li
+            %span Entering 8th-12th
+        %a.btn.intro-button(href="#{$this->createUrl('site/LiteraryAnalysis')}") read more
+      .question
+        %img(src="#{$this->assetsPath}/img/icon_help.png" )
+        %h6 Not sure what class is right for you?
+        %br
+        %p We can help! Call us right away for a free consultation:
+        %span 650-322-2671
+
+    .clear
+
+    .enrollment-form
+      .popup-messsage-table
+        %p Please
+          %span check the seminars
+          ,
+          %span weeks
+          ,
+          %span entering grades
+          and
+          %span times
+          you want. We will confirm enrollment by email. Seminars may be cancelled due to insufficient enrollment. Classes offered eleven weeks from June 17 through August 26
+        %input(type="button" class="popup-messsage-table-button" value="select classes" )
+      %a(name="calendar" )
+        %h2 Omega Teaching Summer 2014 Enrollment Form:
+      %table.register
+        %tr
+          %td(style="text-align: right")
+            %span Seminars
+          %th(data-col-id="1") Test Prep
+            %br Boot Camp
+          %th(data-col-id="2") Crafting
+            %br the personal essay statement
+          %th(data-col-id="3") Of myths and monsters
+            %br
+              %span Student favourite!
+          %th(data-col-id="4") Going to the dogs
+            %p dfhg
+            %span Student favourite!
+          %th(data-col-id="5") Make‘em laugh
+          %th(data-col-id="6") The power
+            %br of story
+          %th(data-col-id="7") Intro to
+            %br literary analysis
+        %tr.even
+          %td(rowspan="2" style="text-align: right")
+            %span Times
+          %td(data-col-id="1" data-cell-type="time") AM 9:30-12:00
+          %td(data-col-id="2" data-cell-type="time") AM 9:30-12:00
+          %td(data-col-id="3" data-cell-type="time") AM 9:30-12:00
+          %td(data-col-id="4" data-cell-type="time") AM 9:30-12:00
+          %td(data-col-id="5" data-cell-type="time") AM 9:30-12:00
+          %td(data-col-id="6" data-cell-type="time") AM 9:30-12:00
+          %td(data-col-id="7" data-cell-type="time") AM 9:30-12:00
+        %tr.even
+          %td(data-col-id="1" data-cell-type="time") PM 2:00-4:30
+          %td(data-col-id="2" data-cell-type="time") PM 2:00-4:30
+          %td(data-col-id="3" data-cell-type="time") PM 2:00-4:30
+          %td(data-col-id="4" data-cell-type="time") PM 2:00-4:30
+          %td(data-col-id="5" data-cell-type="time") PM 2:00-4:30
+          %td(data-col-id="6" data-cell-type="time") PM 2:00-4:30
+          %td(data-col-id="7" data-cell-type="time") PM 2:00-4:30
+        %tr.odd
+          %td(rowspan="4" style="text-align: right" )
+            %span Entering grades
+          %td(data-col-id="1" data-cell-type="grade") 4th-5th
+          %td(data-col-id="2" data-cell-type="grade") 4th-5th
+          %td(rowspan="2" data-col-id="3" data-cell-type="grade") 5th-7th
+          %td(rowspan="4" data-col-id="4" data-cell-type="grade") 5th-8th
+          %td(rowspan="2" data-col-id="5" data-cell-type="grade") 5th-7th
+          %td(rowspan="2" data-col-id="6" data-cell-type="grade") 8th-12th
+          %td(rowspan="4" data-col-id="7" data-cell-type="grade") 8th-12th
+        %tr.odd
+          %td(rowspan="2" data-col-id="1"  data-cell-type="grade") 6th-7th
+          %td(rowspan="2" data-col-id="2" data-cell-type="grade") 6th-8th
+        %tr.odd
+          %td(rowspan="2" data-col-id="3" data-cell-type="grade") 8th-12th
+          %td(rowspan="2" data-col-id="5" data-cell-type="grade") 8th-12th
+          %td(rowspan="2" data-col-id="6" data-cell-type="grade") 8th-12th
+        %tr.odd
+          %td(data-col-id="1"  data-cell-type="grade") 8th
+          %td(data-col-id="2" data-cell-type="grade") 9th-12th
+        %tr.even
+          %td(style="text-align: right")
+            %span Week 1
+            %br June 16-20
+          %td(data-col-id="1")
+          %td(data-col-id="2")
+          %td(data-col-id="3")
+          %td(data-col-id="4")
+          %td(data-col-id="5")
+          %td(data-col-id="6")
+          %td(data-col-id="7")
+        %tr.odd
+          %td(style="text-align: right")
+            %span Week 2
+            %br June 23-27
+          %td(data-col-id="1")
+          %td(data-col-id="2")
+          %td(data-col-id="3")
+          %td(data-col-id="4")
+          %td(data-col-id="5")
+          %td(data-col-id="6")
+          %td(data-col-id="7")
+        %tr.even
+          %td(style="text-align: right")
+            %span Week 3
+            %br June 30-July 3*
+          %td(data-col-id="1")
+          %td(data-col-id="2")
+          %td(data-col-id="3")
+          %td(data-col-id="4")
+          %td(data-col-id="5")
+          %td(data-col-id="6")
+          %td(data-col-id="7")
+        %tr.odd
+          %td(style="text-align: right")
+            %span Week 4
+            %br July 7-11
+          %td(data-col-id="1")
+          %td(data-col-id="2")
+          %td(data-col-id="3")
+          %td(data-col-id="4")
+          %td(data-col-id="5")
+          %td(data-col-id="6")
+          %td(data-col-id="7")
+        %tr.even
+          %td(style="text-align: right")
+            %span Week 5
+            %br July 14-18
+          %td(data-col-id="1")
+          %td(data-col-id="2")
+          %td(data-col-id="3")
+          %td(data-col-id="4")
+          %td(data-col-id="5")
+          %td(data-col-id="6")
+          %td(data-col-id="7")
+        %tr.odd
+          %td(style="text-align: right")
+            %span Week 6
+            %br July 21-25
+          %td(data-col-id="1")
+          %td(data-col-id="2")
+          %td(data-col-id="3")
+          %td(data-col-id="4")
+          %td(data-col-id="5")
+          %td(data-col-id="6")
+          %td(data-col-id="7")
+        %tr.even
+          %td(style="text-align: right")
+            %span Week 7
+            %br July 28-Aug 1
+          %td(data-col-id="1")
+          %td(data-col-id="2")
+          %td(data-col-id="3")
+          %td(data-col-id="4")
+          %td(data-col-id="5")
+          %td(data-col-id="6")
+          %td(data-col-id="7")
+        %tr.odd
+          %td(style="text-align: right")
+            %span Week 8
+            %br Aug 4-8
+          %td(data-col-id="1")
+          %td(data-col-id="2")
+          %td(data-col-id="3")
+          %td(data-col-id="4")
+          %td(data-col-id="5")
+          %td(data-col-id="6")
+          %td(data-col-id="7")
+        %tr.even
+          %td(style="text-align: right")
+            %span Week 9
+            %br Aug 11-15
+          %td(data-col-id="1")
+          %td(data-col-id="2")
+          %td(data-col-id="3")
+          %td(data-col-id="4")
+          %td(data-col-id="5")
+          %td(data-col-id="6")
+          %td(data-col-id="7")
+        %tr.odd
+          %td(style="text-align: right")
+            %span Week 10
+            %br Aug 18-22
+          %td(data-col-id="1")
+          %td(data-col-id="2")
+          %td(data-col-id="3")
+          %td(data-col-id="4")
+          %td(data-col-id="5")
+          %td(data-col-id="6")
+          %td(data-col-id="7")
+        %tr.even
+          %td(style="text-align: right")
+            %span Week 11
+            %br Aug 25-29
+          %td(data-col-id="1")
+          %td(data-col-id="2")
+          %td(data-col-id="3")
+          %td(data-col-id="4")
+          %td(data-col-id="5")
+          %td(data-col-id="6")
+          %td(data-col-id="7")
+      %a.table-button(href="#{$this->createUrl('site/SummerClassesRegistrationForm')}") enroll classes
+

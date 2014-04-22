@@ -14,9 +14,6 @@
 
   - Yii::app()->clientScript->registerCoreScript('jquery');
   - Yii::app()->clientScript->registerCoreScript('jquery.ui');
-  -#- Yii::app()->clientScript->registerScriptFile($this->assetsPath . DS . 'js' . DS . 'jquery.ui.widget.js');
-  -#- Yii::app()->clientScript->registerScriptFile($this->assetsPath . DS . 'js' . DS . 'jquery.fileupload.js');
-  -#- Yii::app()->clientScript->registerScriptFile($this->assetsPath . DS . 'js' . DS . 'jquery.dragdropbox.js');
   - Yii::app()->clientScript->registerScriptFile($this->assetsPath . DS . 'js' . DS . 'main.js');
 
 %body
@@ -43,7 +40,7 @@
               %li
                 %a(href="#{$this->createUrl('site/tutors')}") Tutors
               %li
-                %a(href="#{$this->createUrl('site/mainClasses')}") Classes
+                %a(href="#{$this->createUrl('site/classes')}") Classes
               %li
                 %a(href="#{$this->createUrl('site/jobs')}") Jobs
               %li
@@ -84,31 +81,37 @@
                       %input(type="submit" class="btn enter-email-button" value="get an answer" )
 
       .wrapper-page
-        %ul.bread-crumbs
-          %li
-            %a(href="#" )Classes
-          %li.bread-ico
-            %a(href="#" )Summer Seminars
-            %ul
-              %li
-                %a(href="#")Creative Writing at Oak Knoll
-              %li
-                %a(href="#")Writing Workouts at Hillview
-          %li.bread-ico
-            %a(href="#" )Crafting the personal essay statement
-            %ul
-              %li
-                %a(href="#")Test prep boot camp
-              %li
-                %a(href="#")Of myths and monsters
-              %li
-                %a(href="#")Going to the dogs
-              %li
-                %a(href="#")Make‘em laugh
-              %li
-                %a(href="#")The power of story
-              %li
-                %a(href="#")Intro to literary analysis
+        :php
+          $this->widget('zii.widgets.CMenu',array(
+              'items'=>$this->breadcrumbs,
+              'htmlOptions' => ['class' => 'bread-crumbs'],
+              'activeCssClass' => 'bread-ico'
+          ));
+        -#%ul.bread-crumbs
+        -#  %li
+        -#    %a(href="#" )Classes
+        -#  %li.bread-ico
+        -#    %a(href="#" )Summer Seminars
+        -#    %ul
+        -#      %li
+        -#        %a(href="#")Creative Writing at Oak Knoll
+        -#      %li
+        -#        %a(href="#")Writing Workouts at Hillview
+        -#  %li.bread-ico
+        -#    %a(href="#" )Crafting the personal essay statement
+        -#    %ul
+        -#      %li
+        -#        %a(href="#")Test prep boot camp
+        -#      %li
+        -#        %a(href="#")Of myths and monsters
+        -#      %li
+        -#        %a(href="#")Going to the dogs
+        -#      %li
+        -#        %a(href="#")Make‘em laugh
+        -#      %li
+        -#        %a(href="#")The power of story
+        -#      %li
+        -#        %a(href="#")Intro to literary analysis
 
         .clear
 
@@ -135,9 +138,9 @@
         .middle-top-border
         %ul.classes-list
           %li
-            %a(href="#" )Creative Writing at Oak Knoll
+            %a(href="#{$this->createUrl('site/classes', ['view' => 'knoll'])}" )Creative Writing at Oak Knoll
           %li
-            %a(href="#" )Writing Workouts at Hillview
+            %a(href="#{$this->createUrl('site/classes', ['view' => 'hillview'])}" )Writing Workouts at Hillview
           %li
             %a(href="#{$this->createUrl('site/TestPrepBootCamp')}" )Test prep boot camp
           %li

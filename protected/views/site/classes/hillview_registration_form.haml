@@ -1,0 +1,90 @@
+%section
+  .wrapper-page
+    .registration-title-knoll
+      %h1 Oak Knoll Creative Writing
+    .registration-form-wrapper
+      %h2 Registration form
+      %form(action="" method="post" )
+        %div.input-row
+          %label(class="label-name")Student Name
+            %span*
+          %div.input_block.cl
+            %div.error-message
+            %input(class="text_input" name="name" required="required" type="text")
+        %div.input-row
+          %label(class="label-name-select") Student Grade
+            %span*
+          %div.select-move
+            %select(class="select-date-knoll" name="grade" )
+              %option grade
+              %option 1th
+              %option 2th
+              %option 3th
+              %option 4th
+              %option 5th
+              %option 6th
+              %option 7th
+              %option 8th
+              %option 9th
+              %option 10th
+              %option 11th
+              %option 12th
+        %div.input-row
+          %label(class="label-name")Program Name
+          %div.input_block.cl
+            %label(class="label-name")
+              %span Writing Workouts
+        %div.input-row
+          %label(class="label-name-select") Check class day
+            %span*
+          %div.select-move
+            %select(class="select-date-knoll" name="days" )
+              %option day
+              %option Monday
+              %option Tuesday
+              %option Wednesday
+              %option Thursday
+              %option Friday
+              %option Saturday
+              %option Sunday
+        %div.input-row
+          %label(class="label-name")Parent Name
+            %span*
+          %div.input_block.cl
+            %div.error-message
+            %input(class="text_input" name="name" required="required" type="text")
+        %div.input-row
+          %label(class="label-name")Address
+          %div.input_block.cl
+            %div.error-message
+            %input(class="text_input" name="name" required="required" type="text")
+        %div.input-row
+          %label(class="label-name")Parent e-mail
+          %div.input_block.cl
+            %div.error-message
+            %input(class="text_input" name="name" required="required" type="email")
+        %div.input-row
+          %label(class="label-name")Parent phone
+            %span*
+          %div.input_block.cl
+            %div.error-message
+            %input(class="text_input" name="name" required="required" type="tel")
+        %div.input-row
+          %label(class="label-name")Please list any food
+            %br allergies
+          %div.input_block.cl
+            %div.error-message
+            %input(class="text_input" name="name" required="required" type="text")
+        %div.input-row
+          %label(class="label-name")How will your child
+            %br be picked up ?
+            %br Others issues instructor
+            %br shold know about
+            %br your child ?
+          %div.input_block.cl
+            %div.error-message
+            %textarea(class="textarea-input" )
+      %div
+        %input(type="submit" class="btn registration-button-knoll" value="create account" )
+
+    .clear

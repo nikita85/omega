@@ -434,7 +434,7 @@ header#header-bg
       &:first-child
         %a:hover
           @include custom-border-radius(4px, 0, 0, 4px)
-  .bread-ico:after
+  & > li:not(:first-child):after
     position: absolute
     right: 5px
     top: 45%
@@ -444,7 +444,7 @@ header#header-bg
     background-position: right
     width: 7px
     height: 4px
-  .bread-ico:hover:after
+  & > li:not(:first-child):hover:after
     background-image: url("../img/arrow_up.png")
     background-repeat: no-repeat
     background-position: right

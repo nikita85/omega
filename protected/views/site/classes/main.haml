@@ -1,0 +1,79 @@
+%section
+  .wrapper-page
+    .wrapper-main-classes-page
+      %h1 The list of our classes
+      .our-classes
+        %img(src="#{$this->assetsPath}/img/photo_1_1.png" )
+        %h2.summer-seminar Summer Seminars
+        %ul.our-classes-list
+          %li
+            %span
+              %b Grades:
+              %br Entering 4th and up
+          %li
+            %span
+              %b Class Size:
+              %br 4-12 students per seminar
+          %li
+            %span
+              %b Times:
+              %br Monday-Friday. 9:30-12:00 pm or 2-4:30pm.
+          %li
+            %span
+              %b Duration:
+              %br 5 days
+        %p Summer seminars include: Test Prep Boot Camp, Of Myths and Monsters, Going to the Dogs, Make ‘Em Laugh, The Power of Story and Intro to Literary Analysis.
+        %a.btn.summer-seminar-button(href="#{$this->createUrl('site/classes', ['view' => 'summer'])}") read more
+      .our-classes
+        %img(src="#{$this->assetsPath}/img/photo_2_2.png" )
+        %h2.creative-writing Creative Writing at Oak Knoll
+        %ul.our-classes-list
+          %li
+            %span
+              %b Grades:
+              %br Entering 3rd, 4th and 5th
+          %li
+            %span
+              %b Class Size:
+              %br 12 students per class
+          %li
+            %span
+              %b Times:
+              %br one class per week, 8-12 classes
+          %li
+            %span
+              %b Duration:
+              %br 8-12 weeks
+        %p This class combines the five senses with visual and verbal communication skills. Students will learn how to translate their sensory processes into drawing, speaking and writing.
+        %a.btn.creative-writing-button(href="#{$this->createUrl('site/classes', ['view' => 'knoll'])}") read more
+      .our-classes
+        %img(src="#{$this->assetsPath}/img/photo_3_3.png" )
+        %h2.writing-workouts Writing Workouts at Hillview
+        %ul.our-classes-list
+          %li
+            %span
+              %b Grades:
+              %br Entering 5th-8th
+          %li
+            %span
+              %b Class Size:
+              %br 15 students per class
+          %li
+            %span
+              %b Times:
+              %br one class per week, 11-12 classes
+          %li
+            %span
+              %b Duration:
+              %br 11-12 weeks
+        %p Students will participate and practice the common criteria needed to write well in any genre: Voice, Audience, Structure and Editing (VASE).
+        %a.btn.writing-workouts-button(href="#{$this->createUrl('site/classes', ['view' => 'hillview'])}") read more
+      .what-class
+        %img(src="#{$this->assetsPath}/img/question_sign_blue.png" )
+        %p Not sure what class is right for you?
+        %br
+        %p We can help!
+        %br
+        %p Call us right away for a free consultation:
+          %span 650-322-2671
+      .clear

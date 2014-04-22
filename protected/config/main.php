@@ -57,11 +57,14 @@ return array(
             'showScriptName' => false,
 			'rules'=>array(
 
-                'classes' => 'site/classes',
-                'main_classes' => 'site/mainClasses',
-                'opened_class' => 'site/openedClass',
+                'market' => 'site/ourMarket',
                 'jobs' => 'site/jobs',
-                'classes' => 'site/classes',
+                'tutors' => 'site/tutors',
+
+                'classes/<type:summer>/<view>'=>'site/summerClasses',
+                'classes/<type:summer>'=>'site/summerClasses',
+                'classes/<view>'  => 'site/classes',
+                'classes'  => 'site/classes',
 
                 /*
                    Admin module
@@ -75,6 +78,7 @@ return array(
 				'<controller:\w+>/<id:\d+>'=>'<controller>/view',
 				'<controller:\w+>/<action:\w+>/<id:\d+>'=>'<controller>/<action>',
 				'<controller:\w+>/<action:\w+>'=>'<controller>/<action>',
+                '<controller:\w+>/<cact:\w+>/<action:\w+>'=>'<controller>/<cact>',
 			),
 		),
 
