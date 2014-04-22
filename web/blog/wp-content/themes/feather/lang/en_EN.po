@@ -1,0 +1,596 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Language: en\n"
+"X-Generator: Poedit 1.6.3\n"
+
+#. Text in echo
+#: New folder/config.php:201 folder/config.php:204
+#: folder/sample-config.php:201 folder/sample-config.php:204
+msgid "Current theme preview"
+msgstr ""
+
+#. Text in function
+#: New folder/config.php:218 folder/sample-config.php:218
+msgid "This <a href=\"%1$s\">child theme</a> requires its parent theme, %2$s."
+msgstr ""
+
+#. Text in function
+#: New folder/page-blog.php:80 folder/single.php:62 folder/index.php:76
+#: folder/search.php:90 folder/archive.php:149
+msgid "d M , Y"
+msgstr ""
+
+#. Text in function
+#: New folder/comments.php:98
+msgid "required"
+msgstr ""
+
+#. Text in function
+#: New folder/comments.php:33 folder/comments.php:58
+msgid "% Comments"
+msgstr ""
+
+#. Text in function
+#: New folder/comments.php:33 folder/comments.php:58
+msgid "1 Comment"
+msgstr ""
+
+#. Text in function
+#: New folder/404.php:26
+msgid "404 , No Page Found ."
+msgstr ""
+
+#. Text in echo
+#: New folder/widget-ads.php:92
+msgid "Ad Image Url"
+msgstr ""
+
+#. Text in function
+#: New folder/sidebars-meta.php:1 folder/post-meta-fields.php:1
+msgid "Add Images"
+msgstr ""
+
+#. Text in function
+#: New folder/config (2).php:1
+msgid "Add Large Column Title"
+msgstr ""
+
+#. Text in echo
+#: New folder/window.php:142
+msgid "Add Shortcode"
+msgstr ""
+
+#. Text in function
+#: New folder/config (2).php:1
+msgid "Add a clear div"
+msgstr ""
+
+#. Text in function
+#: New folder/config (2).php:1
+msgid "Add a columns wrapper"
+msgstr ""
+
+#. Text in function
+#: New folder/config (2).php:1
+msgid "Add a divider"
+msgstr ""
+
+#. Text in function
+#: New folder/config (2).php:1
+msgid "Add a highlighted content"
+msgstr ""
+
+#. Text in function
+#: New folder/post-meta-fields.php:1
+msgid "Add a quote post , select quote post format ."
+msgstr ""
+
+#. Text in function
+#: New folder/config (2).php:1
+msgid ""
+"Add a single column , please wrap columns with Columns Wrapper Shortcode"
+msgstr ""
+
+#. Text in function
+#: New folder/config (2).php:1
+msgid "Add margin divider .. "
+msgstr ""
+
+#. Text in function
+#: New folder/widget-ads.php:1 folder/widget-ads.php:49
+msgid "Advertisement"
+msgstr ""
+
+#. Text in echo
+#: New folder/archives.php:98
+msgid "Archive By Month"
+msgstr ""
+
+#. Text in echo
+#: New folder/archives.php:119
+msgid "Archive By Year"
+msgstr ""
+
+#. Text in echo
+#: New folder/archives.php:197
+msgid "Authors"
+msgstr ""
+
+#. Text in function
+#: New folder/comments.php:98
+msgid "Cancel Reply"
+msgstr ""
+
+#. Text in function
+#: New folder/widget-categories.php:1 folder/widget-categories.php:78
+#: folder/archives.php:138
+msgid "Categories"
+msgstr ""
+
+#. Text in function
+#: New folder/comments.php:137
+msgid "Comments Closed"
+msgstr ""
+
+#. Text in function
+#: New folder/post-meta-fields.php:1
+msgid "Create Gallery"
+msgstr ""
+
+#. Text in function
+#: New folder/post-meta-fields.php:1
+msgid ""
+"Create gallery and upload images by clicking on upload button , For multiple "
+"images selection , hold \"CTRL (windows) / Command (mac) \" button on your "
+"keyboard when clicking ."
+msgstr ""
+
+#. Text in function
+#: New folder/widget-dribbble.php:1 folder/widget-dribbble.php:48
+msgid "Dribbble"
+msgstr ""
+
+#. Text in echo
+#: New folder/widget-dribbble.php:77
+msgid "Dribbble ID "
+msgstr ""
+
+#. Text in function
+#: New folder/post-meta-fields.php:1
+msgid "Embed Audio"
+msgstr ""
+
+#. Text in function
+#: New folder/post-meta-fields.php:1
+msgid "Embed Video"
+msgstr ""
+
+#. Text in echo
+#: New folder/widget-categories.php:125
+msgid "Enable Posts Count"
+msgstr ""
+
+#. Text in echo
+#: New folder/widget-twitter.php:117
+msgid "Enable Twitter User Link"
+msgstr ""
+
+#. Text in function
+#: New folder/widget-ads.php:1
+msgid "Feather Ads Widget"
+msgstr ""
+
+#. Text in function
+#: New folder/widget-categories.php:1
+msgid "Feather Categories"
+msgstr ""
+
+#. Text in function
+#: New folder/widget-dribbble.php:1
+msgid "Feather Dribbble Shot"
+msgstr ""
+
+#. Text in function
+#: New folder/widget-flickr.php:1
+msgid "Feather Flickr"
+msgstr ""
+
+#. Text in function
+#: New folder/widget-recent-comments.php:1
+msgid "Feather Recent Comments"
+msgstr ""
+
+#. Text in function
+#: New folder/widget-recent-comments.php:1
+msgid "Feather Recent Comments Widget"
+msgstr ""
+
+#. Text in function
+#: New folder/widget-social.php:1
+msgid "Feather Social Widget"
+msgstr ""
+
+#. Text in function
+#: New folder/widget-twitter.php:1
+msgid "Feather Twitter Widget"
+msgstr ""
+
+#. Text in function
+#: New folder/widget-top-posts.php:1
+msgid "Featrher Popular Posts Widget"
+msgstr ""
+
+#. Text in echo
+#: New folder/widget-flickr.php:97
+msgid "Flickr ID "
+msgstr ""
+
+#. Text in function
+#: New folder/widget-flickr.php:1 folder/widget-flickr.php:65
+msgid "Flickr Widget"
+msgstr ""
+
+#. Text in function
+#: New folder/config (2).php:1
+msgid "Float Direction"
+msgstr ""
+
+#. Text in function
+#: New folder/functions.php:1
+msgid "Follow Us!"
+msgstr ""
+
+#. Text in function
+#: New folder/post-meta-fields.php:1
+msgid "HTML5 Audio / Mp3"
+msgstr ""
+
+#. Text in function
+#: New folder/post-meta-fields.php:1
+msgid "HTML5 Audio / Ogg"
+msgstr ""
+
+#. Text in function
+#: New folder/post-meta-fields.php:1
+msgid "Insert audio code here for audio post format"
+msgstr ""
+
+#. Text in function
+#: New folder/widget-social.php:1 folder/widget-social.php:94
+msgid "Keep Social"
+msgstr ""
+
+#. Text in function
+#: New folder/widget-dribbble.php:36
+msgid "Latest Dribbble Project"
+msgstr ""
+
+#. Text in function
+#: New folder/widget-flickr.php:1
+msgid "Latest Flickr Photos"
+msgstr ""
+
+#. Text in echo
+#: New folder/archives.php:50
+msgid "Latest Posts"
+msgstr ""
+
+#. Text in echo
+#: New folder/comments.php:88
+msgid "Leave a Comment"
+msgstr ""
+
+#. Text in function
+#: New folder/comments.php:98
+msgid "Leave a Reply to %s or"
+msgstr ""
+
+#. Text in echo
+#: New folder/widget-categories.php:109
+msgid "Limit Categories "
+msgstr ""
+
+#. Text in echo
+#: New folder/widget-flickr.php:111
+msgid "Limit Photos "
+msgstr ""
+
+#. Text in echo
+#: New folder/widget-top-posts.php:141 folder/widget-recent-comments.php:141
+msgid "Limit Posts Number "
+msgstr ""
+
+#. Text in echo
+#: New folder/widget-twitter.php:101
+msgid "Limit Tweets"
+msgstr ""
+
+#. Text in function
+#: New folder/post-meta-fields.php:1
+msgid "Link"
+msgstr ""
+
+#. Text in echo
+#: New folder/widget-ads.php:78
+msgid "Link "
+msgstr ""
+
+#. Text in function
+#: New folder/comments.php:92
+msgid "Login / Register"
+msgstr ""
+
+#. Text in function
+#: New folder/functions.php:1
+msgid "Main Menu"
+msgstr ""
+
+#. Text in function
+#: New folder/header.php:85
+msgid "Menu"
+msgstr ""
+
+#. Text in function
+#: New folder/comments.php:33 folder/comments.php:58
+msgid "No Comments"
+msgstr ""
+
+#. Text in function
+#: New folder/comments.php:92
+msgid "Only registerd members can post a comment , "
+msgstr ""
+
+#. Text in function
+#: New folder/post-meta-fields.php:1
+msgid "Paste your video code here for video post format ."
+msgstr ""
+
+#. Text in function
+#: New folder/comments.php:1
+msgid ""
+"Please be polite. We appreciate that.<br /> Your email address will not be "
+"published and required fields are marked"
+msgstr ""
+
+#. Text in function
+#: New folder/widget-top-posts.php:1 folder/widget-top-posts.php:113
+msgid "Popular Posts"
+msgstr ""
+
+#. Text in function
+#: New folder/comments.php:98
+msgid "Post Comment"
+msgstr ""
+
+#. Text in function
+#: New folder/comments.php:15
+msgid "Post Protected"
+msgstr ""
+
+#. Text in function
+#: New folder/post-meta-fields.php:1
+msgid "Post Settings"
+msgstr ""
+
+#. Text in function
+#: New folder/archive.php:29
+msgid "Posts"
+msgstr ""
+
+#. Text in function
+#: New folder/post-meta-fields.php:1
+msgid "Quote"
+msgstr ""
+
+#. Text in function
+#: New folder/post-meta-fields.php:1
+msgid "Quote Author"
+msgstr ""
+
+#. Text in echo
+#: New folder/page-blog.php:106 folder/index.php:102 folder/search.php:116
+#: folder/archive.php:175
+msgid "Read More"
+msgstr ""
+
+#. Text in function
+#: New folder/widget-recent-comments.php:1
+#: folder/widget-recent-comments.php:113
+msgid "Recent Comments"
+msgstr ""
+
+#. Text in echo
+#: New folder/single.php:138
+msgid "Related Posts"
+msgstr ""
+
+#. Text in function
+#: New folder/search.php:14
+msgid "Search Results For "
+msgstr ""
+
+#. Text in function
+#: New folder/sidebars-meta.php:1
+msgid "Select Sidebar"
+msgstr ""
+
+#. Text in function
+#: New folder/config (2).php:1
+msgid "Select column offset"
+msgstr ""
+
+#. Text in function
+#: New folder/config (2).php:1
+msgid "Select column width"
+msgstr ""
+
+#. Text in function
+#: New folder/config (2).php:1
+msgid "Select margin width"
+msgstr ""
+
+#. Text in echo
+#: New folder/archives.php:171
+msgid "Tags"
+msgstr ""
+
+#. Text in function
+#: New folder/config (2).php:1
+msgid "Team Member Background Image"
+msgstr ""
+
+#. Text in function
+#: New folder/config (2).php:1
+msgid "Team Member Bio"
+msgstr ""
+
+#. Text in function
+#: New folder/config (2).php:1
+msgid "Team Member Facebook"
+msgstr ""
+
+#. Text in function
+#: New folder/config (2).php:1
+msgid "Team Member Googleplus"
+msgstr ""
+
+#. Text in function
+#: New folder/config (2).php:1
+msgid "Team Member Image"
+msgstr ""
+
+#. Text in function
+#: New folder/config (2).php:1
+msgid "Team Member Name"
+msgstr ""
+
+#. Text in function
+#: New folder/config (2).php:1
+msgid "Team Member Pinterest"
+msgstr ""
+
+#. Text in function
+#: New folder/config (2).php:1
+msgid "Team Member Twitter"
+msgstr ""
+
+#. Text in function
+#: New folder/config (2).php:1
+msgid "Team Member Website"
+msgstr ""
+
+#. Text in function
+#: New folder/config (2).php:1
+msgid "Team members wrapper"
+msgstr ""
+
+#. Text in echo
+#: New folder/widget-categories.php:96 folder/widget-top-posts.php:130
+#: folder/widget-recent-comments.php:130 folder/widget-social.php:110
+#: folder/widget-ads.php:66 folder/widget-dribbble.php:64
+#: folder/widget-twitter.php:79
+msgid "Title "
+msgstr ""
+
+#. Text in function
+#: New folder/share-post.php:42
+msgid "Tweet"
+msgstr ""
+
+#. Text in function
+#: New folder/widget-twitter.php:1 folder/widget-twitter.php:61
+msgid "Twitter"
+msgstr ""
+
+#. Text in echo
+#: New folder/widget-twitter.php:90
+msgid "Twitter ID"
+msgstr ""
+
+#. Text in echo
+#: New folder/widget-flickr.php:85
+msgid "Widget Title "
+msgstr ""
+
+#. Text in function
+#: New folder/config (2).php:1
+msgid "Wrap and image with shit shortcode to make to float to right or left"
+msgstr ""
+
+#. Text in function
+#: New folder/config (2).php:1
+msgid "Wrap text with shortcode to make it 300 font-wight"
+msgstr ""
+
+#. Text in function
+#: New folder/comments.php:98
+msgid "Write Message"
+msgstr ""
+
+#. Text in function
+#: New folder/comments.php:98
+msgid "Your Email *"
+msgstr ""
+
+#. Text in function
+#: New folder/comments.php:98
+msgid "Your Name *"
+msgstr ""
+
+#. Text in function
+#: New folder/comments.php:98
+msgid "Your Website "
+msgstr ""
+
+#. Text in function
+#: New folder/audio.php:43
+msgid "Your browser does not support the audio element."
+msgstr ""
+
+#. Text in function
+#: New folder/functions.php:486
+msgid "Your comment is awaiting moderation"
+msgstr ""
+
+#. Text in function
+#: New folder/functions.php:479
+msgid "about "
+msgstr ""
+
+#. Text in function
+#: New folder/post-meta-fields.php:1
+msgid "make sure link post format is selected ."
+msgstr ""
+
+#. Text in echo
+#: New folder/searchform.php:2
+msgid "search.."
+msgstr ""
+
+#. Text in function
+#: New folder/post-meta-fields.php:1
+msgid "select here , make usre to select the audio post format ."
+msgstr ""
+
+#. Text in function
+#: New folder/sidebars-meta.php:1
+msgid "select which sidebar you want to use with this page"
+msgstr ""
+
+#. Text in function
+#: New folder/post-meta-fields.php:1
+msgid "the quote author ."
+msgstr ""
+
+#. Text in echo
+#: New folder/functions.php:404
+msgid "Share"
+msgstr ""

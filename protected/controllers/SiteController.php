@@ -32,6 +32,8 @@ class SiteController extends Controller
 	 */
 	public function actionIndex()
 	{
+        $a = BreadCrumbs::getBreadCrumbs('Classes');
+       // var_dump($a);die;
 		$this->render('index');
 	}
 
