@@ -5,19 +5,21 @@
 
 // This is the main Web application configuration. Any writable
 // CWebApplication properties can be configured here.
+
 return array(
-	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
-	'name'=>'Omega Teaching',
+	'basePath' => dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
+	'name'     => 'Omega Teaching',
 
 	// preloading 'log' component
-	'preload'=>array('log'),
-    'language' => 'en',
+	'preload'  => array('log'),
+        'language' => 'en',
 
 	// autoloading model and component classes
 	'import'=>array(
 		'application.models.*',
-        'application.models.behaviors.*',
+                'application.models.behaviors.*',
 		'application.components.*',
+                'ext.giix-components.*',
 	),
 
 	'modules'=>array(
@@ -34,14 +36,17 @@ return array(
             ],
         ],
 		// uncomment the following to enable the Gii tool
-		/*
-		'gii'=>array(
-			'class'=>'system.gii.GiiModule',
-			'password'=>'Enter Your Password Here',
-			// If removed, Gii defaults to localhost only. Edit carefully to taste.
-			'ipFilters'=>array('127.0.0.1','::1'),
-		),
-		*/
+		
+//		'gii'=>array(
+//			'class'=>'system.gii.GiiModule',
+//			'password'=>'qwe123qwe',
+//			// If removed, Gii defaults to localhost only. Edit carefully to taste.
+//			'ipFilters'=>array('127.0.0.1','::1'),
+//			'generatorPaths' => array(
+//                            'ext.giix-core', // giix generator
+//                        ),
+//		),
+		
 	),
 
 	// application components
@@ -54,31 +59,31 @@ return array(
 
 		'urlManager'=>array(
 			'urlFormat'=>'path',
-            'showScriptName' => false,
+                        'showScriptName' => false,
 			'rules'=>array(
 
-                'market' => 'site/ourMarket',
-                'jobs' => 'site/jobs',
-                'tutors' => 'site/tutors',
+//                'market' => 'site/ourMarket',
+//                'jobs' => 'site/jobs',
+//                'tutors' => 'site/tutors',
+//
+//                'classes/<type:summer>/<view>'=>'site/summerClasses',
+//                'classes/<type:summer>'=>'site/summerClasses',
+//                'classes/<view>'  => 'site/classes',
+//                'classes'  => 'site/classes',
 
-                'classes/<type:summer>/<view>'=>'site/summerClasses',
-                'classes/<type:summer>'=>'site/summerClasses',
-                'classes/<view>'  => 'site/classes',
-                'classes'  => 'site/classes',
-
+//                '<controller:\w+>/<id:\d+>'                 =>'<controller>/view',
+//                '<controller:\w+>/<action:\w+>/<id:\d+>'    =>'<controller>/<action>',
+                '<controller:\w+>/<action:\w+>'             =>'<controller>/<action>',
+//                '<controller:\w+>/<cact:\w+>/<action:\w+>'  =>'<controller>/<cact>',
                 /*
                    Admin module
                */
 
-                'admin'                                         => 'admin/index/index',
-                'admin/<controller:\w+>'                        => 'admin/<controller>/index',
-                'admin/<controller:\w+>/<action:\w+>/<id:\d+>'  => 'admin/<controller>/<action>',
-                'admin/<controller:\w+>/<action:\w+>'           => 'admin/<controller>/<action>',
+//                'admin'                                         => 'admin/index/index',
+//                'admin/<controller:\w+>'                        => 'admin/<controller>/index',
+//                'admin/<controller:\w+>/<action:\w+>/<id:\d+>'  => 'admin/<controller>/<action>',
+//                'admin/<controller:\w+>/<action:\w+>'           => 'admin/<controller>/<action>',
 
-				'<controller:\w+>/<id:\d+>'=>'<controller>/view',
-				'<controller:\w+>/<action:\w+>/<id:\d+>'=>'<controller>/<action>',
-				'<controller:\w+>/<action:\w+>'=>'<controller>/<action>',
-                '<controller:\w+>/<cact:\w+>/<action:\w+>'=>'<controller>/<cact>',
 			),
 		),
 
