@@ -25,4 +25,20 @@ class EnrollFormKnoll extends BaseEnrollFormKnoll
             
             return true;
         }
+        
+        public function selectAll()
+        {
+            $criteria = new CDbCriteria();
+
+            $criteria->select = "*";
+
+            $dataProvider = new CActiveDataProvider($this, [
+                'criteria' => $criteria,
+                'pagination' => [
+                    'pageSize' => 50
+                ]
+            ]);
+
+            return $dataProvider;
+        }
 }
