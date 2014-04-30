@@ -1,66 +1,64 @@
 <?php
 
-class BreadCrumbs
+class BreadCrumbs extends Controller
 {
-    public static $breadcrumbs = [
-        'Classes' => [
-            'url' => '',
-            'items' => [
-                'Summer Seminars' => [
-                    'url' => '',
-                    'items' => [
-                        'Test prep boot camp' => ['url' => ''],
-                        'Of myths and monsters' => ['url' => ''],
-                        'Going to the dogs' => ['url' => ''],
-                        'Make‘em laugh' => ['url' => ''],
-                        'The power of story' => ['url' => ''],
-                        'Intro to literary analysis' => ['url' => ''],
-                    ]
-                ],
-                'Creative Writing at Oak Knoll' => ['url' => ''],
-                'Writing Workouts at Hillview' => ['url' => ''],
-            ]
-        ],
-    ];
 
     public static function getBreadCrumbs($activeItem)
     {
+        $breadСrumbs = [
+            'Classes' => [
+                'url' => Yii::app()->createUrl('site/classes'),
+                'items' => [
+                    'Summer Seminars' => [
+                        'url' => Yii::app()->createUrl('site/summerClasses'),
+                        'items' => [
+                            'Crafting the personal essay statement' => ['url' => Yii::app()->createUrl('site/summerClasses', ['view' => 'essay_statement'])],
+                            'Test prep boot camp' => ['url' => Yii::app()->createUrl('site/summerClasses', ['view' => 'test_prep_boot_camp'])],
+                            'Of myths and monsters' => ['url' => Yii::app()->createUrl('site/summerClasses', ['view' => 'myths_and_monsters'])],
+                            'Going to the dogs' => ['url' => Yii::app()->createUrl('site/summerClasses', ['view' => 'the_dogs'])],
+                            'Make‘em laugh' => ['url' => Yii::app()->createUrl('site/summerClasses', ['view' => 'make‘em_laugh'])],
+                            'The power of story' => ['url' => Yii::app()->createUrl('site/summerClasses', ['view' => 'power_of_story'])],
+                            'Intro to literary analysis' => ['url' => Yii::app()->createUrl('site/summerClasses', ['view' => 'literary_analysis'])],
+                        ]
+                    ],
+                    'Creative Writing at Oak Knoll' => ['url' => Yii::app()->createUrl('site/classes', ['view' => 'knoll'])],
+                    'Writing Workouts at Hillview' => ['url' => Yii::app()->createUrl('site/classes', ['view' => 'hillview'])],
+                ]
+            ],
+        ];
+
         $formattedBreadCrumbs = [];
         $selector = explode('/', $activeItem);
+        $stepArray = $breadСrumbs;
 
-        foreach ($selector as $key => $part) {
-            $formattedBreadCrumbs[$key] = [
-                'label' => $part,
-                'url' => self::$breadcrumbs[$part]['url']
-            ];
+        foreach ($selector as $key => $selectorPart) {
+
+            if (in_array($selectorPart, array_keys($stepArray))) {
+                $formattedBreadCrumbs[$key] = [];
+                foreach (array_keys($stepArray) as $stepItem) {
+                    if ($stepItem == $selectorPart) {
+                        $formattedBreadCrumbs[$key]['label'] = $stepItem;
+                        $formattedBreadCrumbs[$key]['url'] = $stepArray[$stepItem]['url'];
+                        if (!empty($stepArray[$stepItem]['items'])) {
+                            $newStepArray = $stepArray[$stepItem]['items'];
+                        }
+                    } else {
+                        $childElem = [];
+                        $childElem['label'] = $stepItem;
+                        $childElem['url'] = $stepArray[$stepItem]['url'];
+                        $formattedBreadCrumbs[$key]['items'][] = $childElem;
+                    }
+
+                }
+
+                if ($newStepArray) {
+                    $stepArray = $newStepArray;
+                }
+            }
+
         }
-
-        return current(self::$breadcrumbs[$part]);
 
         return $formattedBreadCrumbs;
     }
-
-
-
-    public $bradcrumbs = [
-        ['label' =>'Classes','url' => '/student/profile'],
-        ['label' =>'Summer Seminars','url' => 'adadadadadads',
-            'items' => [
-                ['label' => 'Creative Writing at Oak Knoll', 'url' => '4355'],
-                ['label' => ' Writing Workouts at Hillview', 'url' => 'csdc']
-            ]
-        ],
-        ['label' => 'Crafting the personal essay statement', 'url' => 'site/fpfp',
-            'items' => [
-                ['label' => 'Test prep boot camp ', 'url' => '4355'],
-                ['label' => 'Of myths and monsters', 'url' => 'csdc'],
-                ['label' => 'Going to the dogs', 'url' => 'csdc'],
-                ['label' => ' Make‘em laugh ', 'url' => 'csdc'],
-                ['label' => ' The power of story ', 'url' => 'csdc'],
-                ['label' => 'Intro to literary analysis', 'url' => 'csdc'],
-
-            ]
-        ]
-    ];
 
 }

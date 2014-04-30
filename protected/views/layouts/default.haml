@@ -44,7 +44,7 @@
               %li
                 %a(href="#{$this->createUrl('site/jobs')}") Jobs
               %li
-                %a(href="#") Blog
+                %a(href="#{Yii::app()->baseUrl}/blog") Blog
               %li
                 %a(href="#{$this->createUrl('site/OurMarket')}") Store
 
@@ -81,12 +81,13 @@
                       %input(type="submit" class="btn enter-email-button" value="get an answer" )
 
       .wrapper-page
-        :php
-          $this->widget('zii.widgets.CMenu',array(
-              'items'=>$this->breadcrumbs,
-              'htmlOptions' => ['class' => 'bread-crumbs'],
-              'activeCssClass' => 'bread-ico'
-          ));
+        -if(!empty($this->breadcrumbs))
+          :php
+            $this->widget('zii.widgets.CMenu',array(
+                'items'=>$this->breadcrumbs,
+                'htmlOptions' => ['class' => 'bread-crumbs'],
+                'activeCssClass' => 'bread-ico'
+            ));
         -#%ul.bread-crumbs
         -#  %li
         -#    %a(href="#" )Classes
