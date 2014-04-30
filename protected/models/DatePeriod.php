@@ -1,8 +1,8 @@
 <?php
 
-Yii::import('application.models._base.BaseGrade');
+Yii::import('application.models._base.BaseDatePeriod');
 
-class Grade extends BaseGrade
+class DatePeriod extends BaseDatePeriod
 {
 	public static function model($className=__CLASS__) {
 		return parent::model($className);

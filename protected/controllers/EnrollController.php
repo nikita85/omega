@@ -39,16 +39,44 @@ class EnrollController extends Controller
 
         public function actionOakknoll()
         {
-            $this->render("knoll_registration_form");
+            $this->pageTitle = 'Oak Knoll registration';
+            
+            $model = new EnrollFormKnoll();
+             
+            if(isset($_POST['EnrollFormKnoll']))
+            {
+                $model->attributes=$_POST['EnrollFormKnoll'];
+                
+                if($model->save())
+                    $this->redirect('/classes/oakknoll');
+            }
+            
+            $this->render("knoll_registration_form",array('model'=>$model));
+            
         }
         
         public function actionHillview()
         {
-            $this->render("hillview_registration_form");
+            $this->pageTitle = 'Hillview registration';
+            
+            $model = new EnrollFormHillview();
+             
+            if(isset($_POST['EnrollFormHillview']))
+            {
+                $model->attributes=$_POST['EnrollFormHillview'];
+                
+                if($model->save())
+                    $this->redirect('/classes/hillview');
+            }
+            
+            $this->render("hillview_registration_form",array('model'=>$model));
         }
 
         public function actionSummer()
         {
+            $this->pageTitle = 'Summer Classes registration';
+
+            
             $this->render("summer_classes_registration_form");
         }
 }

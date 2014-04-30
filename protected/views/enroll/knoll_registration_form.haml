@@ -4,74 +4,97 @@
       %h1 Oak Knoll Creative Writing
     .registration-form-wrapper
       %h2 Registration form
-      %form(action="" method="post" )
-        %div.input-row
-          %label(class="label-name")Student Name
-            %span*
-          %div.input_block.cl
-            %div.error-message
-            %input(class="text_input" name="name" required="required" type="text")
-        %div.input-row
-          %label(class="label-name-select") Student Grade
-            %span*
-          %div.select-move
-            %select(class="select-date-knoll" name="grade" )
-              %option grade
-              %option 1th
-              %option 2th
-              %option 3th
-              %option 4th
-              %option 5th
-              %option 6th
-              %option 7th
-              %option 8th
-              %option 9th
-              %option 10th
-              %option 11th
-              %option 12th
-        %div.input-row
-          %label(class="label-name")Program Name
-          %div.input_block.cl
-            %label(class="label-name")
-              %span Creative Writing
-        %div.input-row
-          %label(class="label-name")Parent Name
-            %span*
-          %div.input_block.cl
-            %div.error-message
-            %input(class="text_input" name="name" required="required" type="text")
-        %div.input-row
-          %label(class="label-name")Address
-          %div.input_block.cl
-            %div.error-message
-            %input(class="text_input" name="name" required="required" type="text")
-        %div.input-row
-          %label(class="label-name")Parent e-mail
-          %div.input_block.cl
-            %div.error-message
-            %input(class="text_input" name="name" required="required" type="email")
-        %div.input-row
-          %label(class="label-name")Parent phone
-            %span*
-          %div.input_block.cl
-            %div.error-message
-            %input(class="text_input" name="name" required="required" type="tel")
-        %div.input-row
-          %label(class="label-name")Please list any food
-            %br allergies
-          %div.input_block.cl
-            %div.error-message
-            %input(class="text_input" name="name" required="required" type="text")
-        %div.input-row
-          %label(class="label-name")How will your child
-            %br be picked up ?
-            %br Others issues instructor
-            %br shold know about
-            %br your child ?
-          %div.input_block.cl
-            %div.error-message
-            %textarea(class="textarea-input" )
-      %div
-        %input(type="submit" class="btn registration-button-knoll" value="create account" )
+      :php
+        $form = $this->beginWidget('CActiveForm', array(
+          'id'=>'hillview-enroll-form',
+          'enableAjaxValidation'=>false,
+          'enableClientValidation'=>true,
+          'clientOptions'=>array(
+                        'hideErrorMessage'=>true,
+                        'validateOnSubmit'=>true,
+                        'afterValidate' => 'js:function(form, data, hasError) { 
+                                if(hasError) {
+                                    for(var i in data) $("#"+i).addClass("input-error");
+                                    return false;
+                                }
+                                else {
+                                    console.log()
+                                    form.children().removeClass("input-error");
+                                    return true;
+                                }
+                        }',
+                        'afterValidateAttribute' => 'js:function(form, attribute, data, hasError) { 
+                                if(hasError) {
+                                    $("#" + attribute.inputID).addClass("input-error");
+                                    return false;
+                                }
+                                else {
+                                    console.log($("#" + attribute.inputID));
+                                    $("#" + attribute.inputID).removeClass("input-error");
+                                    return true;
+                                }
+                        }',
 
+                        
+                ),
+          'focus'=>array($model,'student_name'),
+        ));
+      -#%div
+      -#  = $form->errorSummary($model)
+      %div.input-row
+        = $form->labelEx($model, 'student_name', array("class"=>"label-name"))
+        %div.input_block.cl
+          %div.error-message
+          = $form->textField($model, 'student_name', array("class"=>"text_input"))
+          = $form->error($model, 'student_name', array("class"=>"error-message", "style"=>"margin-top:5px"))
+      %div.input-row
+        = $form->labelEx($model, 'grade', array("class"=>"label-name"))
+        %div.input_block.cl
+          %div.select-move
+            - $gradeList = array("1th"=>"1th", "2th"=>"2th", "3th"=>"3th", "4th"=>"4th", "5th"=>"5th", "6th"=>"6th", "7th"=>"7th", "8th"=>"8th", "9th"=>"9th", "10th"=>"10th", "11th"=>"11th", "12th"=>"12th")
+            = $form->dropDownList($model, 'grade', $gradeList, array("class"=>"select-date-knoll", "empty"=>"grade"))
+          = $form->error($model, 'grade', array("class"=>"error-message", "style"=>"margin-top:5px"))
+      %div.input-row
+        = $form->labelEx($model, 'parent_name', array("class"=>"label-name"))
+        %div.input_block.cl
+          %div.error-message
+          = $form->textField($model, 'parent_name', array("class"=>"text_input"))
+          = $form->error($model, 'parent_name', array("class"=>"error-message", "style"=>"margin-top:5px"))
+      %div.input-row
+        = $form->labelEx($model, 'address', array("class"=>"label-name"))
+        %div.input_block.cl
+          %div.error-message
+          = $form->textField($model, 'address', array("class"=>"text_input"))
+          = $form->error($model, 'address', array("class"=>"error-message", "style"=>"margin-top:5px"))
+      %div.input-row
+        = $form->labelEx($model, 'parent_email', array("class"=>"label-name"))
+        %div.input_block.cl
+          %div.error-message
+          = $form->emailField($model, 'parent_email', array("class"=>"text_input"))
+          = $form->error($model, 'parent_email', array("class"=>"error-message", "style"=>"margin-top:5px"))
+      %div.input-row
+        = $form->labelEx($model, 'parent_phone', array("class"=>"label-name"))
+        %div.input_block.cl
+          %div.error-message
+          = $form->textField($model, 'parent_phone', array("class"=>"text_input"))
+          = $form->error($model, 'parent_phone', array("class"=>"error-message", "style"=>"margin-top:5px"))
+      %div.input-row
+        = $form->labelEx($model, 'food_alergies', array("class"=>"label-name"))
+        %div.input_block.cl
+          %div.error-message
+          = $form->textField($model, 'food_alergies', array("class"=>"text_input"))
+          = $form->error($model, 'food_alergies', array("class"=>"error-message", "style"=>"margin-top:5px"))
+      %div.input-row
+        %label(class="label-name")How will your child
+          %br be picked up ?
+          %br Others issues instructor
+          %br shold know about
+          %br your child ?
+        %div.input_block.cl
+          %div.error-message
+          = $form->textArea($model, 'additional_comments', array("class"=>"textarea-input"))
+          = $form->error($model, 'additional_comments', array("class"=>"error-message", "style"=>"margin-top:5px"))
+      %div
+        = CHtml::submitButton('Confirm', array('class' => 'btn registration-button-knoll')); 
+      - $this->endWidget();
     .clear
