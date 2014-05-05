@@ -46,7 +46,7 @@
     Date periods:
     %br
     %br
-    - foreach ($seminarModel->date_periods as $key => $datePeriod)
+    - foreach ($seminarModel->datePeriods as $key => $datePeriod)
       - $key = $datePeriod->isNewRecord ? $key : $datePeriod->id;
         .datePeriodRow
           %label Start Date
