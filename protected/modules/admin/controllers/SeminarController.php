@@ -64,27 +64,27 @@ class SeminarController extends AdminController
 
                 if (!empty($_POST['Time'])) {
 
-                    $times = [];
+                    $timeSlots = [];
 
                     foreach ($_POST['Time'] as $id => $attributes) {
-                        $time = preg_match('/^new\-.+/', $id) ? new Time() : Time::model()->findByPk($id);
+                        $timeSlot = preg_match('/^new\-.+/', $id) ? new TimeSlot() : TimeSlot::model()->findByPk($id);
 
-                        $time->start_time =  date('H:i:s', strtotime($attributes['start_time']));
-                        $time->end_time =  date('H:i:s', strtotime($attributes['end_time']));
+                        $timeSlot->start_time =  date('H:i:s', strtotime($attributes['start_time']));
+                        $timeSlot->end_time =  date('H:i:s', strtotime($attributes['end_time']));
 
-                        $times[$id] = $time;
+                        $timeSlots[$id] = $timeSlot;
                     }
 
-                    foreach($seminarModel->times as $time) {
-                        if(!array_key_exists($time->id, $times)) {
-                            $time->delete();
+                    foreach($seminarModel->timeSlots as $timeSlot) {
+                        if(!array_key_exists($timeSlot->id, $timeSlots)) {
+                            $timeSlot->delete();
                         }
                     }
 
-                    $seminarModel->times = $times;
+                    $seminarModel->timeSlots = $timeSlots;
                 } else {
-                    foreach($seminarModel->times as $time) {
-                        $time->delete();
+                    foreach($seminarModel->timeSlots as $timeSlot) {
+                        $timeSlot->delete();
                     }
                 }
 
@@ -94,10 +94,10 @@ class SeminarController extends AdminController
                     //var_dump($_POST['DatePeriod']);die;
                     foreach ($_POST['DatePeriod'] as $id => $attributes) {
 
-                        $datePeriod = preg_match('/^new\-.+/', $id) ? new DatePeriods() : DatePeriods::model()->findByPk($id);
+                        $datePeriod = preg_match('/^new\-.+/', $id) ? new DatePeriod() : DatePeriod::model()->findByPk($id);
 
-                        $datePeriod->start_date = $attributes['start_date'];
-                        $datePeriod->end_date =  $attributes['end_date'];
+                        $datePeriod->start_date  = $attributes['start_date'];
+                        $datePeriod->end_date    = $attributes['end_date'];
                         $datePeriod->description = $attributes['description'];
 
                         $datePeriods[$id] = $datePeriod;

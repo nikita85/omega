@@ -19,7 +19,7 @@
  * @property DatePeriod[] $datePeriods
  * @property Grade[] $grades
  * @property StudentSeminars[] $studentSeminars
- * @property Time[] $times
+ * @property TimeSlot[] $timeSlots
  */
 abstract class BaseSeminar extends GxActiveRecord {
 
@@ -56,7 +56,7 @@ abstract class BaseSeminar extends GxActiveRecord {
 			'datePeriods' => array(self::HAS_MANY, 'DatePeriod', 'seminar_id'),
 			'grades' => array(self::MANY_MANY, 'Grade', 'seminar_grade(seminar_id, grade_id)'),
 			'studentSeminars' => array(self::HAS_MANY, 'StudentSeminars', 'seminar_id'),
-			'times' => array(self::HAS_MANY, 'Time', 'seminar_id'),
+			'timeSlots' => array(self::HAS_MANY, 'TimeSlot', 'seminar_id'),
 		);
 	}
 
@@ -77,7 +77,7 @@ abstract class BaseSeminar extends GxActiveRecord {
 			'datePeriods' => null,
 			'grades' => null,
 			'studentSeminars' => null,
-			'times' => null,
+			'timeSlots' => null,
 		);
 	}
 

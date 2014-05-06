@@ -25,8 +25,8 @@
     %br
     -#= $form->timepickerRow($timeModel, 'start_time', ['options' => ['showMeridian' => true, 'showSeconds' => false, 'defaultTime' => '9:00 AM']])
     -#= $form->timepickerRow($timeModel, 'end_time', ['options' => ['showMeridian' => true, 'showSeconds' => false, 'defaultTime' => '10:00 AM']])
-    - foreach ($seminarModel->times as $key => $time)
-      - $key = $time->isNewRecord ? $key : $time->id;
+    - foreach ($seminarModel->timeSlots as $key => $timeSlot)
+      - $key = $timeSlot->isNewRecord ? $key : $timeSlot->id;
       .timeRow
         %label Start Time
         .jqxWidget(name = "Time[#{$key}][start_time]" value="#{$time->start_time}")
