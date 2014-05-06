@@ -913,7 +913,7 @@ ul, li {
   nav.menu {
   	/*float: left;*/
   	margin-top: 6px;
-    margin-left: 13px;
+    margin-left: 12px;
     /*margin-right: -37px;*/
   }
   
@@ -927,7 +927,7 @@ ul, li {
   	list-style: none;
   	/*text-transform: uppercase;*/
   	position: relative;
-  	margin-right: 3px;
+  	/*margin-right: 3px;*/
   }
 
   nav.menu > ul > li {
