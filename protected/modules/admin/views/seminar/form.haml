@@ -29,15 +29,15 @@
       - $key = $timeSlot->isNewRecord ? $key : $timeSlot->id;
       .timeRow
         %label Start Time
-        .jqxWidget(name = "Time[#{$key}][start_time]" value="#{$time->start_time}")
+        .jqxWidget(name = "TimeSlot[#{$key}][start_time]" value="#{$timeSlot->start_time}")
         %label End Time
-        .jqxWidget(name = "Time[#{$key}][end_time]" value="#{$time->end_time}")
+        .jqxWidget(name = "TimeSlot[#{$key}][end_time]" value="#{$timeSlot->end_time}")
         - $this->widget('bootstrap.widgets.TbButton', ['buttonType' => 'button', 'size' => 'mini', 'htmlOptions'=>array('class'=>'newStyleSecondaryButton marginLeft removeTimeRow'), 'label' => 'Remove']);
     .timeRowTemplate.timeRow
       %label Start Time
-      .jqxWidget(name = "Time[new-##uid##][start_time]")
+      .jqxWidget(name = "TimeSlot[new-##uid##][start_time]")
       %label End Time
-      .jqxWidget(name = "Time[new-##uid##][end_time]")
+      .jqxWidget(name = "TimeSlot[new-##uid##][end_time]")
       - $this->widget('bootstrap.widgets.TbButton', ['buttonType' => 'button', 'size' => 'mini', 'htmlOptions'=>array('class'=>'newStyleSecondaryButton marginLeft removeTimeRow'), 'label' => 'Remove']);
       %br
     - $this->widget('bootstrap.widgets.TbButton', ['buttonType' => 'button', 'htmlOptions'=>array('class'=>'newStyleSecondaryButton marginLeft addTimeRow'), 'label' => 'Add Time']);
