@@ -248,6 +248,24 @@ $num_pagination = '';
 
 
 		                    <?php wp_reset_query(); ?>
+<section class="blog-pagination" id="pagination">
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12"><?php
+
+                if($blog_prev_post_link != '') echo $blog_prev_post_link;
+                echo $num_pagination;
+                if($blog_next_post_link != '') echo $blog_next_post_link;
+                ?></div>
+        </div><!-- end row -->
+    </div>
+    <!-- end container -->
+
+
+</section>
+<!-- end blog pagination  -->
 
 
                    </div>
@@ -274,22 +292,4 @@ $num_pagination = '';
 
 </section>
 <!-- end blog -->
-<section class="blog-pagination" id="pagination">
-		   	
-	
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12"><?php 
-
-				if($blog_prev_post_link != '') echo $blog_prev_post_link;
-				echo $num_pagination;
-				if($blog_next_post_link != '') echo $blog_next_post_link;
-				?></div>
-			</div><!-- end row -->
-		</div>
-		<!-- end container -->
-
-
-</section>
-<!-- end blog pagination  -->
 <?php get_footer(); ?>
