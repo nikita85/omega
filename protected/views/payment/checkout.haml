@@ -1,13 +1,33 @@
 %section
   .wrapper-page
-    .your-courses
-      .your-courses-data
-        %h3#{$orderDescription}
-        %p Preferred week:
-          %span August 25-29
-        %p Entering Grade:
-          %span#{$grade}
-        %p Price:
-          %span#{"$ $price"}
-      #{"<script $payPalData></script>"}
-    .clear
+    .payment
+      .last-step
+        %p
+          Make the last step
+          %span
+            %br
+              Finish your registration!
+      .payment-enroll
+        %h1#{$orderDescription}
+        %table.pay-data
+          %tr
+            %th Entering Grade:
+            %td.tg1
+              %b
+                #{$grade}
+              %br
+              %br
+          %tr
+            %th Duration:
+            %td.tg1
+              %b
+                Winter trimester
+              %br
+              %b January 14 - April 8
+              %br
+          %tr.tgg
+            %th Price:
+            %td
+              %span#{"$ $price"}
+        -#%input(type="button"class="pay-pall-btn")
+        #{"<script $payPalData></script>"}
