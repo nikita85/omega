@@ -131,6 +131,24 @@
         %h2 Omega Teaching Summer 2014 Enrollment Form:
       %table.register
         %tr
+          %td
+            %span Seminars
+          -foreach($seminars as $seminar)
+            %th
+              %div =$seminar->title
+                -if($seminar->favourite)
+                  %span Student favourite!
+        -for($i = 1; $i <= $timesMax; $i++)
+          %tr
+            -if($i == 1)
+              %td(rowspan="#{$i == 1? $timesMax: '';}")
+                %span Times
+            -foreach($seminars as $seminar)
+              -$seminarTime = $seminar->times[$i - 1]
+              %td= date('A g:i', strtotime($seminarTime->start_time)) . '-' .date('g:i', strtotime($seminarTime->end_time))
+
+      %table.register
+        %tr
           %td(style="text-align: right")
             %span Seminars
           %th(data-col-id="1") Test Prep

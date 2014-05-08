@@ -42,7 +42,29 @@ class ClassesController extends Controller
 
     public function actionSummer()
     {
-        $this->render("summer_classes");
+        $summerSeminars = Seminar::model()->findAllByAttributes(['type' => 'summer']);
+        $timesMax = $gradesMax = $datePeriodsMax = 0;
+
+
+        foreach($summerSeminars as $seminar){
+            if($seminar->timesCount > $timesMax){
+                $timesMax = $seminar->timesCount;
+            }
+            if($seminar->gradesCount > $gradesMax){
+                $gradesMax = $seminar->gradesCount;
+            }
+            if($seminar->datePeriodsCount > $datePeriodsMax){
+                $datePeriodsMax = $seminar->datePeriodsCount;
+            }
+
+        }
+
+        $this->render("summer_classes", [
+            'seminars' => $summerSeminars,
+            'timesMax' => $timesMax,
+            'gradesMax' => $gradesMax,
+            'datePeriodsMax' => $datePeriodsMax,
+        ]);
     }
 
     public function actionHillview()

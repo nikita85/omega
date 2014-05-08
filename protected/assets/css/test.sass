@@ -693,9 +693,11 @@ header#header-bg
     background: #ffffff
     border: none
     line-height: normal
+    height: 100%
     th.hovered
       @include linear-gradient(#6bcb64, #019140)
       color: #ffffff
+
       span
         display: inline-block
         background: url("../img/icon_favourite_small.png") no-repeat
@@ -740,6 +742,10 @@ header#header-bg
       @include custom-border-radius(10px, 10px, 0, 0)
       padding: 10px 0
       vertical-align: top
+      height: 100%
+      div
+        position: relative
+        height: 100%
       p
         text-indent: -99999px
       span
@@ -747,7 +753,11 @@ header#header-bg
         background: url("../img/icon_favourite_small_.png") no-repeat
         background-position: left
         background-size: auto auto
-        padding-left: 15px
+        //padding-left: 15px
+        position: absolute
+        width: 100%
+        left: 5px
+        bottom: 0
         color: #009933
         font-size: 11px
         font-weight: 400
