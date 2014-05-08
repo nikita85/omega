@@ -18,8 +18,10 @@
  * @property string $parent_phone
  * @property string $food_alergies
  * @property string $additional_comments
+ * @property string $order_id
  *
  * @property EnrollForms $enrollForm
+ * @property Orders $order
  */
 abstract class BaseEnrollFormKnoll extends GxActiveRecord {
 
@@ -46,15 +48,17 @@ abstract class BaseEnrollFormKnoll extends GxActiveRecord {
 			array('student_name, parent_name, address, parent_email, food_alergies', 'length', 'max'=>255),
 			array('grade', 'length', 'max'=>4),
 			array('parent_phone', 'length', 'max'=>12),
+			array('order_id', 'length', 'max'=>11),
 			array('additional_comments', 'safe'),
-			array('address, parent_email, food_alergies, additional_comments', 'default', 'setOnEmpty' => true, 'value' => null),
-			array('enroll_form_id, student_name, grade, parent_name, address, parent_email, parent_phone, food_alergies, additional_comments', 'safe', 'on'=>'search'),
+			array('address, parent_email, food_alergies, additional_comments, order_id', 'default', 'setOnEmpty' => true, 'value' => null),
+			array('enroll_form_id, student_name, grade, parent_name, address, parent_email, parent_phone, food_alergies, additional_comments, order_id', 'safe', 'on'=>'search'),
 		);
 	}
 
 	public function relations() {
 		return array(
 			'enrollForm' => array(self::BELONGS_TO, 'EnrollForms', 'enroll_form_id'),
+			'order' => array(self::BELONGS_TO, 'Orders', 'order_id'),
 		);
 	}
 
@@ -74,7 +78,9 @@ abstract class BaseEnrollFormKnoll extends GxActiveRecord {
 			'parent_phone' => Yii::t('app', 'Parent Phone'),
 			'food_alergies' => Yii::t('app', 'Food Alergies'),
 			'additional_comments' => Yii::t('app', 'Additional Comments'),
+			'order_id' => null,
 			'enrollForm' => null,
+			'order' => null,
 		);
 	}
 
@@ -90,6 +96,7 @@ abstract class BaseEnrollFormKnoll extends GxActiveRecord {
 		$criteria->compare('parent_phone', $this->parent_phone, true);
 		$criteria->compare('food_alergies', $this->food_alergies, true);
 		$criteria->compare('additional_comments', $this->additional_comments, true);
+		$criteria->compare('order_id', $this->order_id);
 
 		return new CActiveDataProvider($this, array(
 			'criteria' => $criteria,

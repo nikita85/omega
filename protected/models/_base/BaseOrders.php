@@ -14,6 +14,9 @@
  * @property string $details
  * @property string $payment_status
  *
+ * @property EnrollFormHillview[] $enrollFormHillviews
+ * @property EnrollFormKnoll[] $enrollFormKnolls
+ * @property EnrollFormSummer[] $enrollFormSummers
  * @property StudentSeminars[] $studentSeminars
  */
 abstract class BaseOrders extends GxActiveRecord {
@@ -31,22 +34,23 @@ abstract class BaseOrders extends GxActiveRecord {
 	}
 
 	public static function representingColumn() {
-		return 'payment_status';
+		return 'amount';
 	}
 
 	public function rules() {
 		return array(
-			array('payment_status', 'required'),
+			array('amount, details, payment_status', 'required'),
 			array('amount', 'length', 'max'=>10),
 			array('payment_status', 'length', 'max'=>9),
-			array('details', 'safe'),
-			array('amount, details', 'default', 'setOnEmpty' => true, 'value' => null),
 			array('id, amount, details, payment_status', 'safe', 'on'=>'search'),
 		);
 	}
 
 	public function relations() {
 		return array(
+			'enrollFormHillviews' => array(self::HAS_MANY, 'EnrollFormHillview', 'order_id'),
+			'enrollFormKnolls' => array(self::HAS_MANY, 'EnrollFormKnoll', 'order_id'),
+			'enrollFormSummers' => array(self::HAS_MANY, 'EnrollFormSummer', 'order_id'),
 			'studentSeminars' => array(self::HAS_MANY, 'StudentSeminars', 'order_id'),
 		);
 	}
@@ -62,6 +66,9 @@ abstract class BaseOrders extends GxActiveRecord {
 			'amount' => Yii::t('app', 'Amount'),
 			'details' => Yii::t('app', 'Details'),
 			'payment_status' => Yii::t('app', 'Payment Status'),
+			'enrollFormHillviews' => null,
+			'enrollFormKnolls' => null,
+			'enrollFormSummers' => null,
 			'studentSeminars' => null,
 		);
 	}

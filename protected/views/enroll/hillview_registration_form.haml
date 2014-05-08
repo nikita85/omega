@@ -18,7 +18,6 @@
                                     return false;
                                 }
                                 else {
-                                    console.log()
                                     form.children().removeClass("input-error");
                                     return true;
                                 }
@@ -29,7 +28,6 @@
                                     return false;
                                 }
                                 else {
-                                    console.log($("#" + attribute.inputID));
                                     $("#" + attribute.inputID).removeClass("input-error");
                                     return true;
                                 }
@@ -51,8 +49,7 @@
         = $form->labelEx($model, 'grade', array("class"=>"label-name"))
         %div.input_block.cl
           %div.select-move
-            - $gradeList = array("1th"=>"1th", "2th"=>"2th", "3th"=>"3th", "4th"=>"4th", "5th"=>"5th", "6th"=>"6th", "7th"=>"7th", "8th"=>"8th", "9th"=>"9th", "10th"=>"10th", "11th"=>"11th", "12th"=>"12th")
-            = $form->dropDownList($model, 'grade', $gradeList, array("class"=>"select-date-knoll", "empty"=>"grade"))
+            = $form->dropDownList($model, 'grade', $seminarGrades, array("class"=>"select-date-knoll", "empty"=>"grade"))
           = $form->error($model, 'grade', array("class"=>"error-message", "style"=>"margin-top:5px"))
       %div.input-row
         = $form->labelEx($model, 'class_day', array("class"=>"label-name"))

@@ -10,18 +10,21 @@ class EnrollFormSummer extends BaseEnrollFormSummer
         
         protected function beforeValidate()
         {
-            $from = Forms::model()->model()->findByAttributes(array('table'=>$this->tableName()));
-            
-            $enrollForm = new EnrollForms();
-            
-            $enrollForm->form_id = $from->id;
-            
-            if( !$enrollForm->save() )
+            if($this->isNewRecord)
             {
-                return false;
-            }
+                $from = Forms::model()->model()->findByAttributes(array('table'=>$this->tableName()));
+
+                $enrollForm = new EnrollForms();
+
+                $enrollForm->form_id = $from->id;
+
+                if( !$enrollForm->save() )
+                {
+                    return false;
+                }
             
-            $this->enroll_form_id = $enrollForm->id;
+                $this->enroll_form_id = $enrollForm->id;
+            }
             
             return true;
         }

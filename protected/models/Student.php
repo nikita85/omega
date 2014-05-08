@@ -7,4 +7,11 @@ class Student extends BaseStudent
 	public static function model($className=__CLASS__) {
 		return parent::model($className);
 	}
+        
+        protected function beforeValidate()
+        {
+            $this->created = date("Y-m-d H:i:s");
+            
+            return true;
+        }
 }

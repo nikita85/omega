@@ -11,6 +11,7 @@
  *
  * @property string $id
  * @property string $title
+ * @property string $description
  * @property string $price
  * @property integer $favourite
  * @property integer $active
@@ -41,13 +42,13 @@ abstract class BaseSeminar extends GxActiveRecord {
 
 	public function rules() {
 		return array(
-			array('title, price, favourite, active', 'required'),
+			array('title, price', 'required'),
 			array('favourite, active', 'numerical', 'integerOnly'=>true),
-			array('title', 'length', 'max'=>255),
+			array('title, description', 'length', 'max'=>255),
 			array('price', 'length', 'max'=>10),
 			array('type', 'length', 'max'=>9),
-			array('type', 'default', 'setOnEmpty' => true, 'value' => null),
-			array('id, title, price, favourite, active, type', 'safe', 'on'=>'search'),
+			array('description, favourite, active, type', 'default', 'setOnEmpty' => true, 'value' => null),
+			array('id, title, description, price, favourite, active, type', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -70,6 +71,7 @@ abstract class BaseSeminar extends GxActiveRecord {
 		return array(
 			'id' => Yii::t('app', 'ID'),
 			'title' => Yii::t('app', 'Title'),
+			'description' => Yii::t('app', 'Description'),
 			'price' => Yii::t('app', 'Price'),
 			'favourite' => Yii::t('app', 'Favourite'),
 			'active' => Yii::t('app', 'Active'),
@@ -86,6 +88,7 @@ abstract class BaseSeminar extends GxActiveRecord {
 
 		$criteria->compare('id', $this->id, true);
 		$criteria->compare('title', $this->title, true);
+		$criteria->compare('description', $this->description, true);
 		$criteria->compare('price', $this->price, true);
 		$criteria->compare('favourite', $this->favourite);
 		$criteria->compare('active', $this->active);
