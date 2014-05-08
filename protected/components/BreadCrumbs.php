@@ -1,6 +1,6 @@
 <?php
 
-class BreadCrumbs extends Controller
+class BreadCrumbs
 {
 
     public static function getBreadCrumbs($activeItem)
