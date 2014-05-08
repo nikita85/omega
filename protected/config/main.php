@@ -86,6 +86,14 @@ return array(
 
 			),
 		),
+            
+                'paypalButton'=>array(
+                    'class'      => 'application.components.PayPalButton',
+                    'merchantId' => 'nik_1492@yahoo.com',
+                    'callBackUrl'=> 'http://ec2-204-236-149-253.us-west-1.compute.amazonaws.com/payment/callback',
+                    'srcUrl'     => 'https://www.paypalobjects.com/js/external/paypal-button.min.js',
+                    'sandBoxMode'=> true,
+                ),
 
         'db' => require dirname(__FILE__) . DIRECTORY_SEPARATOR . 'db.php',
 		// uncomment the following to use a MySQL database
