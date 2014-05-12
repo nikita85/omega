@@ -37,15 +37,15 @@ return array(
         ],
 		// uncomment the following to enable the Gii tool
 		
-//		'gii'=>array(
-//			'class'=>'system.gii.GiiModule',
-//			'password'=>'qwe123qwe',
-//			// If removed, Gii defaults to localhost only. Edit carefully to taste.
-//			'ipFilters'=>array('127.0.0.1','::1'),
-//			'generatorPaths' => array(
-//                            'ext.giix-core', // giix generator
-//                        ),
-//		),
+		'gii'=>array(
+			'class'=>'system.gii.GiiModule',
+			'password'=>'qwe123qwe',
+			// If removed, Gii defaults to localhost only. Edit carefully to taste.
+			'ipFilters'=>array('127.0.0.1','::1'),
+			'generatorPaths' => array(
+                            'ext.giix-core', // giix generator
+                        ),
+		),
 		
 	),
 
