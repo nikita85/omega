@@ -98,8 +98,8 @@ abstract class BaseSeminar extends GxActiveRecord {
 		$criteria->compare('title', $this->title, true);
 		$criteria->compare('description', $this->description, true);
 		$criteria->compare('price', $this->price, true);
-		$criteria->compare('favourite', $this->favourite);
-		$criteria->compare('active', $this->active);
+//		$criteria->compare('favourite', $this->favourite);
+//		$criteria->compare('active', $this->active);
 		$criteria->compare('type', $this->type, true);
 
 		return new CActiveDataProvider($this, array(
