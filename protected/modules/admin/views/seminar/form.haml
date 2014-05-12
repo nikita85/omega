@@ -21,7 +21,7 @@
   %br
   = $form->dropDownListRow($seminarModel, 'type', $seminarModel->getTypes())
   %br
-  = $form->checkBoxListRow($seminarModel, 'GradesIDs', CHtml::listData(Grade::model()->findAll(), 'id', 'title'));
+  = $form->checkBoxListRow($seminarModel, 'gradesIDs', CHtml::listData(Grade::model()->findAll(), 'id', 'title'));
   %br
   .time_select_block
     Available time:

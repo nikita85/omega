@@ -49,8 +49,16 @@ abstract class BaseSeminar extends GxActiveRecord {
 			array('type', 'length', 'max'=>9),
 			array('description, favourite, active, type', 'default', 'setOnEmpty' => true, 'value' => null),
 			array('id, title, description, price, favourite, active, type', 'safe', 'on'=>'search'),
+            array('grades', 'validateGrades'),
 		);
 	}
+
+    public function validateGrades()
+    {
+        if (empty($this->grades)) {
+            $this->addError('grades', 'Please, select at least one grade');
+        }
+    }
 
 	public function relations() {
 		return array(
