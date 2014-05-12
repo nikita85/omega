@@ -2,6 +2,10 @@
   $form = $this->beginWidget('bootstrap.widgets.TbActiveForm', [
     'id' => 'seminar-form',
     'htmlOptions' => ['class' => 'well generalForm'],
+    'enableClientValidation'=>true,
+    'clientOptions'=>array(
+                            'validateOnSubmit'=>true,
+                    )
   ]);
 
 %fileset
@@ -17,7 +21,7 @@
   %br
   = $form->dropDownListRow($seminarModel, 'type', $seminarModel->getTypes())
   %br
-  = $form->checkBoxListRow($seminarModel, 'gradesIDs', CHtml::listData(Grade::model()->findAll(), 'id', 'title'));
+  = $form->checkBoxListRow($seminarModel, 'GradesIDs', CHtml::listData(Grade::model()->findAll(), 'id', 'title'));
   %br
   .time_select_block
     Available time:
@@ -51,23 +55,23 @@
         .datePeriodRow
           %label Start Date
             %span.required *
-          .jqxWidget.date(name = "DatePeriod[#{$key}][start_date]" value="#{$datePeriod->start_date}")
+          .jqxWidget.date(name = "DatePeriods[#{$key}][start_date]" value="#{$datePeriod->start_date}")
           %label End Date
             %span.required *
-          .jqxWidget.date(name = "DatePeriod[#{$key}][end_date]" value="#{$datePeriod->end_date}")
+          .jqxWidget.date(name = "DatePeriods[#{$key}][end_date]" value="#{$datePeriod->end_date}")
           %label Description
-          %input.jqxWidget.text(name = "DatePeriod[#{$key}][description]" value="#{$datePeriod->description}")
+          %input.jqxWidget.text(name = "DatePeriods[#{$key}][description]" value="#{$datePeriod->description}")
           - $this->widget('bootstrap.widgets.TbButton', ['buttonType' => 'button', 'size' => 'mini', 'htmlOptions'=>array('class'=>'newStyleSecondaryButton marginLeft removeDatePeriodRow'), 'label' => 'Remove']);
           %br
     .datePeriodRowTemplate.datePeriodRow
       %label Start Date
         %span.required *
-      .jqxWidget.date(name = "DatePeriod[new-##uid##][start_date]")
+      .jqxWidget.date(name = "DatePeriods[new-##uid##][start_date]")
       %label End Date
         %span.required *
-      .jqxWidget.date(name = "DatePeriod[new-##uid##][end_date]")
+      .jqxWidget.date(name = "DatePeriods[new-##uid##][end_date]")
       %label Description
-      %input.jqxWidget.text(name = "DatePeriod[new-##uid##][description]")
+      %input.jqxWidget.text(name = "DatePeriods[new-##uid##][description]")
       - $this->widget('bootstrap.widgets.TbButton', ['buttonType' => 'button', 'size' => 'mini', 'htmlOptions'=>array('class'=>'newStyleSecondaryButton marginLeft removeDatePeriodRow'), 'label' => 'Remove']);
       %br
     - $this->widget('bootstrap.widgets.TbButton', ['buttonType' => 'button', 'htmlOptions'=>array('class'=>'newStyleSecondaryButton marginLeft addDatePeriodRow'), 'label' => 'Add Date Period']);

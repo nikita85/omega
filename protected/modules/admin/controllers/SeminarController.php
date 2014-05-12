@@ -62,15 +62,15 @@ class SeminarController extends AdminController
 
                 $params = $_POST['Seminar'];
 
-                if (!empty($_POST['Time'])) {
+                if (!empty($_POST['TimeSlot'])) {
 
                     $timeSlots = [];
 
-                    foreach ($_POST['Time'] as $id => $attributes) {
+                    foreach ($_POST['TimeSlot'] as $id => $attributes) {
                         $timeSlot = preg_match('/^new\-.+/', $id) ? new TimeSlot() : TimeSlot::model()->findByPk($id);
 
                         $timeSlot->start_time =  date('H:i:s', strtotime($attributes['start_time']));
-                        $timeSlot->end_time =  date('H:i:s', strtotime($attributes['end_time']));
+                        $timeSlot->end_time   =  date('H:i:s', strtotime($attributes['end_time']));
 
                         $timeSlots[$id] = $timeSlot;
                     }
@@ -88,13 +88,13 @@ class SeminarController extends AdminController
                     }
                 }
 
-                if (!empty($_POST['DatePeriod'])) {
+                if (!empty($_POST['DatePeriods'])) {
 
                     $datePeriods = [];
                     //var_dump($_POST['DatePeriod']);die;
-                    foreach ($_POST['DatePeriod'] as $id => $attributes) {
+                    foreach ($_POST['DatePeriods'] as $id => $attributes) {
 
-                        $datePeriod = preg_match('/^new\-.+/', $id) ? new DatePeriod() : DatePeriod::model()->findByPk($id);
+                        $datePeriod = preg_match('/^new\-.+/', $id) ? new DatePeriods() : DatePeriods::model()->findByPk($id);
 
                         $datePeriod->start_date  = $attributes['start_date'];
                         $datePeriod->end_date    = $attributes['end_date'];
@@ -103,16 +103,16 @@ class SeminarController extends AdminController
                         $datePeriods[$id] = $datePeriod;
                     }
 
-                    foreach($seminarModel->date_periods as $datePeriod) {
+                    foreach($seminarModel->datePeriods as $datePeriod) {
                         if(!array_key_exists($datePeriod->id, $datePeriods)) {
                             $datePeriod->delete();
                         }
                     }
 
-                    $seminarModel->date_periods = $datePeriods;
+                    $seminarModel->datePeriods = $datePeriods;
 
                 } else {
-                    foreach($seminarModel->date_periods as $datePeriod) {
+                    foreach($seminarModel->datePeriods as $datePeriod) {
                         $datePeriod->delete();
                     }
                 }

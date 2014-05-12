@@ -22,7 +22,7 @@
  * @property Seminar $seminar
  * @property Grade $grade
  * @property TimeSlot $timeSlot
- * @property DatePeriod $datePeriod
+ * @property DatePeriods $datePeriod
  * @property EnrollForms $enrollForm
  * @property Orders $order
  */
@@ -60,7 +60,7 @@ abstract class BaseStudentSeminars extends GxActiveRecord {
 			'seminar' => array(self::BELONGS_TO, 'Seminar', 'seminar_id'),
 			'grade' => array(self::BELONGS_TO, 'Grade', 'grade_id'),
 			'timeSlot' => array(self::BELONGS_TO, 'TimeSlot', 'time_slot_id'),
-			'datePeriod' => array(self::BELONGS_TO, 'DatePeriod', 'date_period_id'),
+			'datePeriod' => array(self::BELONGS_TO, 'DatePeriods', 'date_period_id'),
 			'enrollForm' => array(self::BELONGS_TO, 'EnrollForms', 'enroll_form_id'),
 			'order' => array(self::BELONGS_TO, 'Orders', 'order_id'),
 		);
