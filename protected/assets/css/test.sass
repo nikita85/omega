@@ -1,7 +1,7 @@
 @import "compass"
 @import "compass/reset"
 @import "compass/css3"
-@import "_mixin"
+@import "/home/goloschapov/Projects/omegateaching/protected/assets/css/_mixin"
 /**VARIABLES**/
 $head-fonts: 'Open Sans', sans-serif
 $second-fonts: 'Ubuntu', sans-serif
@@ -1886,3 +1886,64 @@ footer
   color: #666666
   white-space: nowrap
   background: url("../img/textarea-bg.png") no-repeat
+  /**PAYMENT PAGE**/
+.payment
+  width: 940px
+  /*height: 500px
+  /*background: #64ec65
+.last-step
+  margin-top: 37px
+  width: 200px
+  font-family: $second-fonts
+  font-size: 17px
+  color: #333333
+  line-height: normal
+  span
+    font-weight: 700
+.payment-enroll
+  position: relative
+  margin: 0 auto
+  text-align: center
+  background: url("../img/payment_bg.png") no-repeat
+  border-left: 1px solid #ECECEC
+  border-right: 1px solid #ECECEC
+  border-bottom: 1px solid #ECECEC
+  @include custom-border-radius(10px, 10px, 20px, 20px)
+  width: 300px
+  height: 200px
+.payment-enroll h1
+  padding-top: 15px
+  font-size: 18px
+.pay-data
+  margin-left: 23px
+  margin-top: 60px
+  border-collapse: collapse
+  border-spacing: 0
+  font-family: $second-fonts
+  font-size: 14px
+  color: #000000
+  line-height: normal
+  span
+    font-size: 18px
+    font-weight: 700
+    color: #007c2d
+    padding: 0 0 0 10px
+.tg th
+  padding: 10px 5px
+.tg
+  text-align: right
+  padding: 1px 2px 3px 4px
+.tg1
+  padding: 15px 0 0 10px
+.pay-pall-btn
+  position: absolute
+  bottom: -14px
+  left: 69px
+  border: none
+  outline: none
+  /*padding: 5px 10px
+  background: #64ec65
+  cursor: pointer
+  background: url("../img/paypall_btn.png") no-repeat
+  width: 159px
+  height: 34px
