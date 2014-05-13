@@ -11,6 +11,7 @@
 %fileset
   = $form->error($seminarModel, 'grades')
   = $form->textFieldRow($seminarModel, 'title', ['class' => 'span6']);
+  = $form->textFieldRow($seminarModel, 'description', ['class' => 'span6']);
   = $form->textFieldRow($seminarModel, 'price', ['class' => 'span6']);
   %br
   = $form->label($seminarModel, 'favourite')
@@ -21,7 +22,7 @@
   %br
   = $form->dropDownListRow($seminarModel, 'type', $seminarModel->getTypes())
   %br
-  = $form->checkBoxListRow($seminarModel, 'GradesIDs', CHtml::listData(Grade::model()->findAll(), 'id', 'title'));
+  = $form->checkBoxListRow($seminarModel, 'gradesIDs', CHtml::listData(Grade::model()->findAll(), 'id', 'title'));
   %br
   .time_select_block
     Available time:
