@@ -3,7 +3,8 @@
 %head
   %meta(http-equiv='Content-Type' content='text/html; charset=utf-8')
   %meta(name='language' content='ru')
-  %title Page title
+  %title
+    #{$this->pageTitle}
   %link(href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css')
   %link(href='http://fonts.googleapis.com/css?family=Ubuntu:400,700' rel='stylesheet' type='text/css')
   <!--[if IE]>
@@ -44,7 +45,7 @@
               %li
                 %a(href="#{$this->createUrl('site/jobs')}") Jobs
               %li
-                %a(href="#") Blog
+                %a(href="#{Yii::app()->baseUrl}/blog") Blog
               %li
                 %a(href="#{$this->createUrl('site/OurMarket')}") Store
 

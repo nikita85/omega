@@ -37,15 +37,15 @@ return array(
         ],
 		// uncomment the following to enable the Gii tool
 		
-//		'gii'=>array(
-//			'class'=>'system.gii.GiiModule',
-//			'password'=>'qwe123qwe',
-//			// If removed, Gii defaults to localhost only. Edit carefully to taste.
-//			'ipFilters'=>array('127.0.0.1','::1'),
-//			'generatorPaths' => array(
-//                            'ext.giix-core', // giix generator
-//                        ),
-//		),
+		'gii'=>array(
+			'class'=>'system.gii.GiiModule',
+			'password'=>'qwe123qwe',
+			// If removed, Gii defaults to localhost only. Edit carefully to taste.
+			'ipFilters'=>array('127.0.0.1','::1'),
+			'generatorPaths' => array(
+                            'ext.giix-core', // giix generator
+                        ),
+		),
 		
 	),
 
@@ -86,6 +86,14 @@ return array(
 
 			),
 		),
+            
+                'paypalButton'=>array(
+                    'class'      => 'application.components.PayPalButton',
+                    'merchantId' => 'nik_1492@yahoo.com',
+                    'callBackUrl'=> 'http://ec2-204-236-149-253.us-west-1.compute.amazonaws.com/payment/callback',
+                    'srcUrl'     => 'https://www.paypalobjects.com/js/external/paypal-button.min.js',
+                    'sandBoxMode'=> true,
+                ),
 
         'db' => require dirname(__FILE__) . DIRECTORY_SEPARATOR . 'db.php',
 		// uncomment the following to use a MySQL database

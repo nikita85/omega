@@ -19,8 +19,10 @@
  * @property string $additional_comments
  * @property string $grade
  * @property string $class_day
+ * @property string $order_id
  *
  * @property EnrollForms $enrollForm
+ * @property Orders $order
  */
 abstract class BaseEnrollFormHillview extends GxActiveRecord {
 
@@ -49,15 +51,17 @@ abstract class BaseEnrollFormHillview extends GxActiveRecord {
 			array('food_alergies', 'length', 'max'=>45),
 			array('grade', 'length', 'max'=>4),
 			array('class_day', 'length', 'max'=>9),
+			array('order_id', 'length', 'max'=>11),
 			array('additional_comments', 'safe'),
-			array('address, parent_email, food_alergies, additional_comments', 'default', 'setOnEmpty' => true, 'value' => null),
-			array('enroll_form_id, student_name, parent_name, address, parent_email, parent_phone, food_alergies, additional_comments, grade, class_day', 'safe', 'on'=>'search'),
+			array('address, parent_email, food_alergies, additional_comments, order_id', 'default', 'setOnEmpty' => true, 'value' => null),
+			array('enroll_form_id, student_name, parent_name, address, parent_email, parent_phone, food_alergies, additional_comments, grade, class_day, order_id', 'safe', 'on'=>'search'),
 		);
 	}
 
 	public function relations() {
 		return array(
 			'enrollForm' => array(self::BELONGS_TO, 'EnrollForms', 'enroll_form_id'),
+			'order' => array(self::BELONGS_TO, 'Orders', 'order_id'),
 		);
 	}
 
@@ -78,7 +82,9 @@ abstract class BaseEnrollFormHillview extends GxActiveRecord {
 			'additional_comments' => Yii::t('app', 'Additional Comments'),
 			'grade' => Yii::t('app', 'Grade'),
 			'class_day' => Yii::t('app', 'Class Day'),
+			'order_id' => null,
 			'enrollForm' => null,
+			'order' => null,
 		);
 	}
 
@@ -95,6 +101,7 @@ abstract class BaseEnrollFormHillview extends GxActiveRecord {
 		$criteria->compare('additional_comments', $this->additional_comments, true);
 		$criteria->compare('grade', $this->grade, true);
 		$criteria->compare('class_day', $this->class_day, true);
+		$criteria->compare('order_id', $this->order_id);
 
 		return new CActiveDataProvider($this, array(
 			'criteria' => $criteria,

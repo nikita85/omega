@@ -1,8 +1,8 @@
 <?php
 
-Yii::import('application.models._base.BaseDatePeriods');
+Yii::import('application.models._base.BaseTimeSlot');
 
-class DatePeriods extends BaseDatePeriods
+class TimeSlot extends BaseTimeSlot
 {
 	public static function model($className=__CLASS__) {
 		return parent::model($className);

@@ -37,8 +37,10 @@
  * @property string $medication_currently_taken
  * @property string $last_tetanus_shot
  * @property string $submit_date
+ * @property string $order_id
  *
  * @property EnrollForms $enrollForm
+ * @property Orders $order
  */
 abstract class BaseEnrollFormSummer extends GxActiveRecord {
 
@@ -65,15 +67,17 @@ abstract class BaseEnrollFormSummer extends GxActiveRecord {
 			array('student_name, current_school, student_address, student_email, parent_name_1, parent_email_1, parent_name_2, parent_email_2, parent_name_emergency, person_name_emergency, person_relation_to_student, physician_name, dentist_name, food_alergies, medication_alergies, medication_currently_taken', 'length', 'max'=>255),
 			array('gender', 'length', 'max'=>6),
 			array('student_home_phone, student_cell_phone, parent_phone_emergency, parent_cell_emergency, person_cell_emergency, person_phone_emergency, physician_phone, dentist_phone', 'length', 'max'=>12),
+			array('order_id', 'length', 'max'=>11),
 			array('last_tetanus_shot', 'safe'),
-			array('current_school, student_home_phone, parent_email_1, parent_name_2, parent_email_2, food_alergies, medication_alergies, medication_currently_taken, last_tetanus_shot', 'default', 'setOnEmpty' => true, 'value' => null),
-			array('enroll_form_id, student_name, gender, current_school, student_address, student_home_phone, student_cell_phone, student_email, parent_name_1, parent_email_1, parent_name_2, parent_email_2, parent_name_emergency, parent_phone_emergency, parent_cell_emergency, person_name_emergency, person_cell_emergency, person_phone_emergency, person_relation_to_student, physician_name, physician_phone, dentist_name, dentist_phone, food_alergies, medication_alergies, medication_currently_taken, last_tetanus_shot, submit_date', 'safe', 'on'=>'search'),
+			array('current_school, student_home_phone, parent_email_1, parent_name_2, parent_email_2, food_alergies, medication_alergies, medication_currently_taken, last_tetanus_shot, order_id', 'default', 'setOnEmpty' => true, 'value' => null),
+			array('enroll_form_id, student_name, gender, current_school, student_address, student_home_phone, student_cell_phone, student_email, parent_name_1, parent_email_1, parent_name_2, parent_email_2, parent_name_emergency, parent_phone_emergency, parent_cell_emergency, person_name_emergency, person_cell_emergency, person_phone_emergency, person_relation_to_student, physician_name, physician_phone, dentist_name, dentist_phone, food_alergies, medication_alergies, medication_currently_taken, last_tetanus_shot, submit_date, order_id', 'safe', 'on'=>'search'),
 		);
 	}
 
 	public function relations() {
 		return array(
 			'enrollForm' => array(self::BELONGS_TO, 'EnrollForms', 'enroll_form_id'),
+			'order' => array(self::BELONGS_TO, 'Orders', 'order_id'),
 		);
 	}
 
@@ -112,7 +116,9 @@ abstract class BaseEnrollFormSummer extends GxActiveRecord {
 			'medication_currently_taken' => Yii::t('app', 'Medication Currently Taken'),
 			'last_tetanus_shot' => Yii::t('app', 'Last Tetanus Shot'),
 			'submit_date' => Yii::t('app', 'Submit Date'),
+			'order_id' => null,
 			'enrollForm' => null,
+			'order' => null,
 		);
 	}
 
@@ -147,6 +153,7 @@ abstract class BaseEnrollFormSummer extends GxActiveRecord {
 		$criteria->compare('medication_currently_taken', $this->medication_currently_taken, true);
 		$criteria->compare('last_tetanus_shot', $this->last_tetanus_shot, true);
 		$criteria->compare('submit_date', $this->submit_date, true);
+		$criteria->compare('order_id', $this->order_id);
 
 		return new CActiveDataProvider($this, array(
 			'criteria' => $criteria,

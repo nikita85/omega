@@ -48,10 +48,17 @@ class EnrollController extends Controller
                 $model->attributes=$_POST['EnrollFormKnoll'];
                 
                 if($model->save())
-                    $this->redirect('/classes/oakknoll');
+                    $this->redirect(array('/payment/checkout', "orderId"=>$model->order_id));
             }
             
-            $this->render("knoll_registration_form",array('model'=>$model));
+            $seminar = Seminar::model()->findAllByAttributes(array("title"=>'knoll'))[0];
+            
+            foreach ($seminar->grades as $grade) 
+            {
+                $seminarGrades[$grade->title] = $grade->title;
+            }
+
+            $this->render("knoll_registration_form",array('model'=>$model, 'seminarGrades'=> $seminarGrades));
             
         }
         
@@ -66,10 +73,17 @@ class EnrollController extends Controller
                 $model->attributes=$_POST['EnrollFormHillview'];
                 
                 if($model->save())
-                    $this->redirect('/classes/hillview');
+                    $this->redirect(array('/payment/checkout', "orderId"=>$model->order_id));
             }
             
-            $this->render("hillview_registration_form",array('model'=>$model));
+            $seminar = Seminar::model()->findAllByAttributes(array("title"=>'hillview'))[0];
+            
+            foreach ($seminar->grades as $grade) 
+            {
+                $seminarGrades[$grade->title] = $grade->title;
+            }
+            
+            $this->render("hillview_registration_form",array('model'=>$model, 'seminarGrades'=> $seminarGrades));
         }
 
         public function actionSummer()

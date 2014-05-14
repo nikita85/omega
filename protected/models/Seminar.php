@@ -30,7 +30,7 @@ class Seminar extends BaseSeminar
     protected function afterSave(){
         parent::afterSave();
 
-        foreach($this->times as $time) {
+        foreach($this->timeSlots as $time) {
             $time->seminar_id = $this->id;
             $time->save();
         }

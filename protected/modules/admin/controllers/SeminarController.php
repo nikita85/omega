@@ -62,57 +62,57 @@ class SeminarController extends AdminController
 
                 $params = $_POST['Seminar'];
 
-                if (!empty($_POST['Time'])) {
+                if (!empty($_POST['TimeSlot'])) {
 
-                    $times = [];
+                    $timeSlots = [];
 
-                    foreach ($_POST['Time'] as $id => $attributes) {
-                        $time = preg_match('/^new\-.+/', $id) ? new Time() : Time::model()->findByPk($id);
+                    foreach ($_POST['TimeSlot'] as $id => $attributes) {
+                        $timeSlot = preg_match('/^new\-.+/', $id) ? new TimeSlot() : TimeSlot::model()->findByPk($id);
 
-                        $time->start_time =  date('H:i:s', strtotime($attributes['start_time']));
-                        $time->end_time =  date('H:i:s', strtotime($attributes['end_time']));
+                        $timeSlot->start_time =  date('H:i:s', strtotime($attributes['start_time']));
+                        $timeSlot->end_time   =  date('H:i:s', strtotime($attributes['end_time']));
 
-                        $times[$id] = $time;
+                        $timeSlots[$id] = $timeSlot;
                     }
 
-                    foreach($seminarModel->times as $time) {
-                        if(!array_key_exists($time->id, $times)) {
-                            $time->delete();
+                    foreach($seminarModel->timeSlots as $timeSlot) {
+                        if(!array_key_exists($timeSlot->id, $timeSlots)) {
+                            $timeSlot->delete();
                         }
                     }
 
-                    $seminarModel->times = $times;
+                    $seminarModel->timeSlots = $timeSlots;
                 } else {
-                    foreach($seminarModel->times as $time) {
-                        $time->delete();
+                    foreach($seminarModel->timeSlots as $timeSlot) {
+                        $timeSlot->delete();
                     }
                 }
 
-                if (!empty($_POST['DatePeriod'])) {
+                if (!empty($_POST['DatePeriods'])) {
 
                     $datePeriods = [];
                     //var_dump($_POST['DatePeriod']);die;
-                    foreach ($_POST['DatePeriod'] as $id => $attributes) {
+                    foreach ($_POST['DatePeriods'] as $id => $attributes) {
 
                         $datePeriod = preg_match('/^new\-.+/', $id) ? new DatePeriods() : DatePeriods::model()->findByPk($id);
 
-                        $datePeriod->start_date = $attributes['start_date'];
-                        $datePeriod->end_date =  $attributes['end_date'];
+                        $datePeriod->start_date  = $attributes['start_date'];
+                        $datePeriod->end_date    = $attributes['end_date'];
                         $datePeriod->description = $attributes['description'];
 
                         $datePeriods[$id] = $datePeriod;
                     }
 
-                    foreach($seminarModel->date_periods as $datePeriod) {
+                    foreach($seminarModel->datePeriods as $datePeriod) {
                         if(!array_key_exists($datePeriod->id, $datePeriods)) {
                             $datePeriod->delete();
                         }
                     }
 
-                    $seminarModel->date_periods = $datePeriods;
+                    $seminarModel->datePeriods = $datePeriods;
 
                 } else {
-                    foreach($seminarModel->date_periods as $datePeriod) {
+                    foreach($seminarModel->datePeriods as $datePeriod) {
                         $datePeriod->delete();
                     }
                 }

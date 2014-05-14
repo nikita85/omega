@@ -13,18 +13,18 @@
  * @property string $student_id
  * @property string $seminar_id
  * @property string $grade_id
- * @property string $time_id
- * @property string $date_periods_id
- * @property string $cost
+ * @property string $time_slot_id
+ * @property string $date_period_id
  * @property integer $enroll_form_id
+ * @property string $order_id
  *
- * @property Payments[] $payments
  * @property Student $student
  * @property Seminar $seminar
  * @property Grade $grade
- * @property Time $time
- * @property DatePeriod $datePeriods
+ * @property TimeSlot $timeSlot
+ * @property DatePeriods $datePeriod
  * @property EnrollForms $enrollForm
+ * @property Orders $order
  */
 abstract class BaseStudentSeminars extends GxActiveRecord {
 
@@ -41,29 +41,28 @@ abstract class BaseStudentSeminars extends GxActiveRecord {
 	}
 
 	public static function representingColumn() {
-		return 'cost';
+		return 'id';
 	}
 
 	public function rules() {
 		return array(
-			array('student_id, seminar_id, grade_id, time_id, date_periods_id, enroll_form_id', 'required'),
+			array('student_id, seminar_id, grade_id, enroll_form_id, order_id', 'required'),
 			array('enroll_form_id', 'numerical', 'integerOnly'=>true),
-			array('student_id, seminar_id, grade_id, time_id, date_periods_id', 'length', 'max'=>11),
-			array('cost', 'length', 'max'=>10),
-			array('cost', 'default', 'setOnEmpty' => true, 'value' => null),
-			array('id, student_id, seminar_id, grade_id, time_id, date_periods_id, cost, enroll_form_id', 'safe', 'on'=>'search'),
+			array('student_id, seminar_id, grade_id, time_slot_id, date_period_id, order_id', 'length', 'max'=>11),
+			array('time_slot_id, date_period_id', 'default', 'setOnEmpty' => true, 'value' => null),
+			array('id, student_id, seminar_id, grade_id, time_slot_id, date_period_id, enroll_form_id, order_id', 'safe', 'on'=>'search'),
 		);
 	}
 
 	public function relations() {
 		return array(
-			'payments' => array(self::HAS_MANY, 'Payments', 'user_seminar_id'),
 			'student' => array(self::BELONGS_TO, 'Student', 'student_id'),
 			'seminar' => array(self::BELONGS_TO, 'Seminar', 'seminar_id'),
 			'grade' => array(self::BELONGS_TO, 'Grade', 'grade_id'),
-			'time' => array(self::BELONGS_TO, 'Time', 'time_id'),
-			'datePeriods' => array(self::BELONGS_TO, 'DatePeriod', 'date_periods_id'),
+			'timeSlot' => array(self::BELONGS_TO, 'TimeSlot', 'time_slot_id'),
+			'datePeriod' => array(self::BELONGS_TO, 'DatePeriods', 'date_period_id'),
 			'enrollForm' => array(self::BELONGS_TO, 'EnrollForms', 'enroll_form_id'),
+			'order' => array(self::BELONGS_TO, 'Orders', 'order_id'),
 		);
 	}
 
@@ -78,17 +77,17 @@ abstract class BaseStudentSeminars extends GxActiveRecord {
 			'student_id' => null,
 			'seminar_id' => null,
 			'grade_id' => null,
-			'time_id' => null,
-			'date_periods_id' => null,
-			'cost' => Yii::t('app', 'Cost'),
+			'time_slot_id' => null,
+			'date_period_id' => null,
 			'enroll_form_id' => null,
-			'payments' => null,
+			'order_id' => null,
 			'student' => null,
 			'seminar' => null,
 			'grade' => null,
-			'time' => null,
-			'datePeriods' => null,
+			'timeSlot' => null,
+			'datePeriod' => null,
 			'enrollForm' => null,
+			'order' => null,
 		);
 	}
 
@@ -99,10 +98,10 @@ abstract class BaseStudentSeminars extends GxActiveRecord {
 		$criteria->compare('student_id', $this->student_id);
 		$criteria->compare('seminar_id', $this->seminar_id);
 		$criteria->compare('grade_id', $this->grade_id);
-		$criteria->compare('time_id', $this->time_id);
-		$criteria->compare('date_periods_id', $this->date_periods_id);
-		$criteria->compare('cost', $this->cost, true);
+		$criteria->compare('time_slot_id', $this->time_slot_id);
+		$criteria->compare('date_period_id', $this->date_period_id);
 		$criteria->compare('enroll_form_id', $this->enroll_form_id);
+		$criteria->compare('order_id', $this->order_id);
 
 		return new CActiveDataProvider($this, array(
 			'criteria' => $criteria,
