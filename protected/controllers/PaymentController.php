@@ -37,7 +37,10 @@ class PaymentController extends Controller
     public function actionCallback( $orderId )
     {
         // proceed paypal callback request
+        $postdata = file_get_contents("php://input");
         
+        
+        Yii::log($postdata,'warning', 'application'); // temporary for debuging 
         Yii::log(print_r($_REQUEST, true),'warning', 'application'); // temporary for debuging 
 //        Yii::trace("PaymentController");
     }
