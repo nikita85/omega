@@ -1,7 +1,7 @@
 @import "compass"
 @import "compass/reset"
 @import "compass/css3"
-@import "/home/goloschapov/Projects/omegateaching/protected/assets/css/_mixin"
+@import "mixin"
 /**VARIABLES**/
 $head-fonts: 'Open Sans', sans-serif
 $second-fonts: 'Ubuntu', sans-serif
@@ -417,6 +417,7 @@ header
     margin-left: 15px
     color: #666666
   .maximize-way
+    position: relative
     display: inline-block
     vertical-align: top
     width: 219px
@@ -430,11 +431,10 @@ header
     h2
       color: #019140
     p
-      /*margin-bottom: 19px
       width: 182px
     .all-buttons
-      position: relative
-      top: 49px
+      position: absolute
+      bottom: -10px
       left: 65px
       @include linear-gradient(#6bcb64, #019140)
       padding: 5px 13px
@@ -444,11 +444,10 @@ header
     h2
       color: #18946c
     p
-      /*margin-bottom: 37px
       width: 180px
     .all-buttons
-      position: relative
-      top: 67px
+      position: absolute
+      bottom: -10px
       left: 65px
       @include linear-gradient(#50cda5, #18946c)
       padding: 5px 13px
@@ -458,11 +457,10 @@ header
     h2
       color: #3697a7
     p
-      /*margin-bottom: 37px
       width: 180px
     .all-buttons
-      position: relative
-      top: 67px
+      position: absolute
+      bottom: -10px
       left: 65px
       @include linear-gradient(#62cadb, #3697a7)
       padding: 5px 13px
@@ -475,8 +473,8 @@ header
       width: 180px
 
     .all-buttons
-      position: relative
-      top: 31px
+      position: absolute
+      bottom: -10px
       left: 65px
       @include linear-gradient(#8cc6ef, #4a98ce)
       padding: 5px 13px
@@ -1181,8 +1179,10 @@ header#header-bg
       font-weight: 400
       text-align: center
       width: 520px
-      margin-top: 60px
+      height: 110px
+      margin-top: 50px
       margin-left: 45px
+      line-height: normal
       span
         color: #039241
         font-weight: 700
@@ -1195,14 +1195,14 @@ header#header-bg
       font-size: 18px
       color: #333333
       font-weight: 700
-      text-align: left
-      padding-top: 102px
+      /*text-align: left
+      padding-top: 74px
       padding-left: 45px
   .opportunities-list
     display: inline-block
     padding-left: 59px
     padding-top: 10px
-    padding-bottom: 55px
+    padding-bottom: 49px
     width: 495px
     font-family: $second-fonts
     font-weight: 400
@@ -1226,7 +1226,7 @@ header#header-bg
       padding-bottom: 20px
       padding-top: 12px
       padding-left: 46px
-      font-size: 18px
+      font-size: 16px
       text-align: center
     .forms
       margin-left: 46px
