@@ -20,7 +20,7 @@ class PaymentController extends Controller
     {
         $this->pageTitle = 'Payment checkout';
         
-        $payPalData = Yii::app()->paypalButton->getButtonData( $orderId, 'string' );
+        $payPalData = Yii::app()->paypal->getButtonData( $orderId, 'string' );
         
         $order = Orders::model()->findByPk($orderId);
         
@@ -38,6 +38,34 @@ class PaymentController extends Controller
     {
         // proceed paypal callback request
         $postdata = file_get_contents("php://input");
+        
+        if( Yii::app()->paypal->verificateRequest( $postdata ) )
+        {
+            header("HTTP/1.1 200 OK");
+            
+            $order = Orders::model()->findByPk( (int)$orderId );
+            
+            if( !empty($order) )
+            {
+                $statusMapping = array("Completed" => "completed",
+                                       "Pending"   => "pending" 
+                                    );
+                
+                if( $order->payment_status == 'pending' )
+                {
+                    $order->payment_status = !empty($statusMapping[$_POST["payment_status"]]) ? $statusMapping[$_POST["payment_status"]] : "failed";
+                    $order->payer_email    = !empty($_POST["payer_email"]) ? $_POST["payer_email"] : NULL;
+                    $order->transaction_id = !empty($_POST["txn_id"])      ? $_POST["txn_id"] : NULL;
+                    
+                    $order->save();
+                }
+            }
+        }
+        else
+        {
+            header("HTTP/1.1 400 Bad Request");
+            exit;
+        }
         
         
         Yii::log($postdata,'warning', 'application'); // temporary for debuging 
