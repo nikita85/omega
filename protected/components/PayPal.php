@@ -1,16 +1,16 @@
 <?php
 
-/* 
- * doc http://paypal.github.io/JavaScriptButtons/
- */
 
-class PayPalButton extends CApplicationComponent
+class PayPal extends CApplicationComponent
 {
     public $merchantId  = "nik_1492@yahoo.com"; // paypal merchant email or id
     public $callBackUrl = "http://ec2-204-236-149-253.us-west-1.compute.amazonaws.com/payment/callback"; 
     public $srcUrl      = "https://www.paypalobjects.com/js/external/paypal-button.min.js"; 
     public $sandBoxMode = true; 
  
+    /* 
+     * doc http://paypal.github.io/JavaScriptButtons/
+     */
     public function getButtonData( $orderId, $format='array' ) 
     {
         
@@ -48,6 +48,31 @@ class PayPalButton extends CApplicationComponent
         }
         
         
+        
+    }
+    // accourding to https://developer.paypal.com/docs/classic/ipn/integration-guide/IPNIntro/
+    
+    public function verificateRequest( $rawPostData ) 
+    {
+        if( $this->sandBoxMode )
+        {
+            $url = "https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_notify-validate";
+        }
+        else 
+        {
+            $url = "https://www.paypal.com/cgi-bin/webscr?cmd=_notify-validate";
+        }
+        
+        $verificationResult = file_get_contents($url . "&" . $rawPostData);
+        
+        if( $verificationResult == 'VERIFIED')
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
         
     }
     

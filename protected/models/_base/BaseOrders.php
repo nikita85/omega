@@ -13,6 +13,10 @@
  * @property string $amount
  * @property string $details
  * @property string $payment_status
+ * @property string $created
+ * @property string $last_update
+ * @property string $payer_email
+ * @property string $transaction_id
  *
  * @property EnrollFormHillview[] $enrollFormHillviews
  * @property EnrollFormKnoll[] $enrollFormKnolls
@@ -42,7 +46,11 @@ abstract class BaseOrders extends GxActiveRecord {
 			array('amount, details, payment_status', 'required'),
 			array('amount', 'length', 'max'=>10),
 			array('payment_status', 'length', 'max'=>9),
-			array('id, amount, details, payment_status', 'safe', 'on'=>'search'),
+			array('payer_email', 'length', 'max'=>255),
+			array('transaction_id', 'length', 'max'=>45),
+			array('created, last_update', 'safe'),
+			array('created, last_update, payer_email, transaction_id', 'default', 'setOnEmpty' => true, 'value' => null),
+			array('id, amount, details, payment_status, created, last_update, payer_email, transaction_id', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -66,6 +74,10 @@ abstract class BaseOrders extends GxActiveRecord {
 			'amount' => Yii::t('app', 'Amount'),
 			'details' => Yii::t('app', 'Details'),
 			'payment_status' => Yii::t('app', 'Payment Status'),
+			'created' => Yii::t('app', 'Created'),
+			'last_update' => Yii::t('app', 'Last Update'),
+			'payer_email' => Yii::t('app', 'Payer Email'),
+			'transaction_id' => Yii::t('app', 'Transaction'),
 			'enrollFormHillviews' => null,
 			'enrollFormKnolls' => null,
 			'enrollFormSummers' => null,
@@ -80,6 +92,10 @@ abstract class BaseOrders extends GxActiveRecord {
 		$criteria->compare('amount', $this->amount, true);
 		$criteria->compare('details', $this->details, true);
 		$criteria->compare('payment_status', $this->payment_status, true);
+		$criteria->compare('created', $this->created, true);
+		$criteria->compare('last_update', $this->last_update, true);
+		$criteria->compare('payer_email', $this->payer_email, true);
+		$criteria->compare('transaction_id', $this->transaction_id, true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria' => $criteria,

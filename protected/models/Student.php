@@ -10,7 +10,10 @@ class Student extends BaseStudent
         
         protected function beforeValidate()
         {
-            $this->created = date("Y-m-d H:i:s");
+            if($this->isNewRecord)
+            {
+                $this->created = date("Y-m-d H:i:s");
+            }
             
             return true;
         }

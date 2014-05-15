@@ -87,8 +87,8 @@ return array(
 			),
 		),
             
-                'paypalButton'=>array(
-                    'class'      => 'application.components.PayPalButton',
+                'paypal'=>array(
+                    'class'      => 'application.components.PayPal',
                     'merchantId' => 'nik_1492@yahoo.com',
                     'callBackUrl'=> 'http://ec2-204-236-149-253.us-west-1.compute.amazonaws.com/payment/callback',
                     'srcUrl'     => 'https://www.paypalobjects.com/js/external/paypal-button.min.js',
