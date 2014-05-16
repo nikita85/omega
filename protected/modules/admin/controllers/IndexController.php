@@ -11,10 +11,9 @@ class IndexController extends AdminController
      * Init action
      */
     public function actionIndex()
-	{
-       // die(var_dump($this->module->menu, 1));
+    {
         $this->render('index');
-	}
+    }
 
     /**
      * Displays the login page
