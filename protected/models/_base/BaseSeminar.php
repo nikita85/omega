@@ -66,8 +66,7 @@ abstract class BaseSeminar extends GxActiveRecord {
 			'grades' => array(self::MANY_MANY, 'Grade', 'seminar_grade(seminar_id, grade_id)'),
 			'studentSeminars' => array(self::HAS_MANY, 'StudentSeminars', 'seminar_id'),
 			'timeSlots' => array(self::HAS_MANY, 'TimeSlot', 'seminar_id'),
-			'times' => array(self::HAS_MANY, 'Time', 'seminar_id'),
-            'timesCount' => array(self::STAT, 'Time', 'seminar_id'),
+            'timesSlotsCount' => array(self::STAT, 'TimeSlot', 'seminar_id'),
             'datePeriodsCount' => array(self::STAT, 'DatePeriods', 'seminar_id'),
             'gradesCount' => array(self::STAT, 'SeminarGrade', 'seminar_id'),
 		);

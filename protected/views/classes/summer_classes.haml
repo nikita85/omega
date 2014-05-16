@@ -116,37 +116,90 @@
     .clear
 
     .enrollment-form
-      .popup-messsage-table
-        %p Please
-          %span check the seminars
-          ,
-          %span weeks
-          ,
-          %span entering grades
-          and
-          %span times
-          you want. We will confirm enrollment by email. Seminars may be cancelled due to insufficient enrollment. Classes offered eleven weeks from June 17 through August 26
-        %input(type="button" class="popup-messsage-table-button" value="select classes" )
+      -#.popup-messsage-table
+      -#  %p Please
+      -#    %span check the seminars
+      -#    ,
+      -#    %span weeks
+      -#    ,
+      -#    %span entering grades
+      -#    and
+      -#    %span times
+      -#    you want. We will confirm enrollment by email. Seminars may be cancelled due to insufficient enrollment. Classes offered eleven weeks from June 17 through August 26
+      -#  %input(type="button" class="popup-messsage-table-button" value="select classes" )
       %a(name="calendar" )
         %h2 Omega Teaching Summer 2014 Enrollment Form:
-      %table.register
-        %tr
-          %td
+      .summer_classes_register_table
+        -$detailsCellHeight = 21;
+        .table_column.legend
+          .table_cell.table_header.vertical_align(style="text-align: right; background: #FFF; padding-right: 17px;")
             %span Seminars
-          -foreach($seminars as $seminar)
-            %th
-              %div =$seminar->title
-                -if($seminar->favourite)
-                  %span Student favourite!
-        -for($i = 1; $i <= $timesMax; $i++)
-          %tr
-            -if($i == 1)
-              %td(rowspan="#{$i == 1? $timesMax: '';}")
-                %span Times
-            -foreach($seminars as $seminar)
-              -$seminarTime = $seminar->times[$i - 1]
-              %td= date('A g:i', strtotime($seminarTime->start_time)) . '-' .date('g:i', strtotime($seminarTime->end_time))
+          -$cellHeight = $detailsCellHeight*$timesMax+$timesMax-1
+          .table_cell.even(style="height:#{$cellHeight}px; line-height:#{$cellHeight}px;")
+            %span Times
+          -$cellHeight = $detailsCellHeight*$gradesMax+$gradesMax-1
+          .table_cell.odd.vertical_align(style="height:#{$cellHeight}px;")
+            %span
+              Entering
+              %br
+              grades
+          -for($i = 1; $i <= $datePeriodsMax; $i++)
+            .table_cell(class="#{$i % 2? 'even': 'odd';}")
+              %span Week #{$i}
+              %br
+              -$firstSeminar = $seminars[0]
+              - $startMonth = date( 'm', strtotime($firstSeminar->datePeriods[$i - 1]->start_date) )
+              - $endMonth = date( 'm', strtotime($firstSeminar->datePeriods[$i - 1]->end_date) )
+              -echo date( 'M j', strtotime($firstSeminar->datePeriods[$i - 1]->start_date) ) . ' -'
+              - if($startMonth !== $endMonth)
+                - echo date( 'M j', strtotime($firstSeminar->datePeriods[$i - 1]->end_date) )
+              -else
+                -echo date( 'j', strtotime($firstSeminar->datePeriods[$i - 1]->end_date) )
+        -$colId = 1
+        -foreach($seminars as $seminar)
+          .table_column(data-col-id="#{$colId}")
+            .table_cell.table_header =$seminar->title
+              -if($seminar->favourite)
+                %span.students_favourite Student favourite!
+            -foreach($seminar->timeSlots as $timeSlot)
+              .table_cell.even.details_cell(data-cell-type="time")
+                = date('A g:i', strtotime($timeSlot->start_time)) . '-' .date('g:i', strtotime($timeSlot->end_time))
+            -$curSeminarGradesCount = count($seminar->grades)
+            -$cellHeight = $gradesMax/$curSeminarGradesCount*$detailsCellHeight+($gradesMax-$curSeminarGradesCount)/$curSeminarGradesCount
+            -foreach($seminar->grades as $grade)
+              .table_cell.odd.details_cell(style="height:#{$cellHeight}px; line-height:#{$cellHeight}px" data-cell-type="grade")
+                =$grade
+            -$j = 1;
+            -foreach($seminar->datePeriods as $datePeriod)
+              .table_cell(class="#{$j % 2? 'even': 'odd';}")
+              -$j++
+            -$colId++
 
+
+
+
+
+
+
+
+      -#%table.register
+      -#  %tr
+      -#    %td
+      -#      %span Seminars
+      -#    -foreach($seminars as $seminar)
+      -#      %th
+      -#        %div =$seminar->title
+      -#          -if($seminar->favourite)
+      -#            %span Student favourite!
+      -#  -for($i = 1; $i <= $timesMax; $i++)
+      -#    %tr
+      -#      -if($i == 1)
+      -#        %td(rowspan="#{$i == 1? $timesMax: '';}")
+      -#          %span Times
+      -#      -foreach($seminars as $seminar)
+      -#        -$seminarTime = $seminar->timeSlots[$i - 1]
+      -#        %td= date('A g:i', strtotime($seminarTime->start_time)) . '-' .date('g:i', strtotime($seminarTime->end_time))
+      %div(style="height: 50px;")
       %table.register
         %tr
           %td(style="text-align: right")
