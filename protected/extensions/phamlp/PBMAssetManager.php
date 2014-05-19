@@ -102,65 +102,65 @@ class PBMAssetManager extends CAssetManager {
 	 * @throws CException if the asset to be published does not exist.
 	 */
 	public function publish($path, $hashByName = false, $level = -1)
-    {
+        {
 
-		if (isset($this->_published[$path])) {
+            if (isset($this->_published[$path])) {
 
-            return $this->_published[$path];
+                return $this->_published[$path];
 
-		} elseif (($src = realpath($path)) !== false) {
+            } elseif (($src = realpath($path)) !== false) {
 
-			if (is_file($src)) {
+                if (is_file($src)) {
 
-                $dir = $this->hash($hashByName ? basename($src) : dirname($src));
+                    $dir = $this->hash($hashByName ? basename($src) : dirname($src));
 
-				$fileName = basename($src);
-				$suffix   = substr(strrchr($fileName, '.'), 1);
-				$dstDir   = $this->getBasePath() . DIRECTORY_SEPARATOR . $dir;
+                    $fileName = basename($src);
+                    $suffix   = substr(strrchr($fileName, '.'), 1);
+                    $dstDir   = $this->getBasePath() . DIRECTORY_SEPARATOR . $dir;
 
-				if (array_key_exists($suffix, $this->parsers)) {
-					$fileName = basename($src, $suffix) . $this->parsers[$suffix]['output'];
-				}
+                    if (array_key_exists($suffix, $this->parsers)) {
+                        $fileName = basename($src, $suffix) . $this->parsers[$suffix]['output'];
+                    }
 
-				$dstFile = $dstDir . DIRECTORY_SEPARATOR . $fileName;
+                    $dstFile = $dstDir . DIRECTORY_SEPARATOR . $fileName;
 
-				if ($this->force || @filemtime($dstFile) < @filemtime($src)) {
+                    if ($this->force || @filemtime($dstFile) < @filemtime($src)) {
 
-                    if (!is_dir($dstDir)) {
-						mkdir($dstDir);
-						@chmod($dstDir, 0777);
-					}
+                        if (!is_dir($dstDir)) {
+                            mkdir($dstDir);
+                            @chmod($dstDir, 0777);
+                        }
 
-					if (array_key_exists($suffix, $this->parsers)) {
+                        if (array_key_exists($suffix, $this->parsers)) {
 
-                        $parserClass = Yii::import($this->parsers[$suffix]['class']);
-						$parser      = new $parserClass($this->parsers[$suffix]['options']);
+                            $parserClass = Yii::import($this->parsers[$suffix]['class']);
+                            $parser      = new $parserClass($this->parsers[$suffix]['options']);
 
-						file_put_contents($dstFile, $parser->parse($src));
+                            file_put_contents($dstFile, $parser->parse($src));
 
-					} else {
-						copy($src, $dstFile);
-					}
+                        } else {
+                                copy($src, $dstFile);
+                        }
 
-				}
+                    }
 
-				return $this->_published[$path] = $this->getBaseUrl() . DIRECTORY_SEPARATOR . $dir . DIRECTORY_SEPARATOR . $fileName;
+                    return $this->_published[$path] = $this->getBaseUrl() . DIRECTORY_SEPARATOR . $dir . DIRECTORY_SEPARATOR . $fileName;
 
-			} elseif (is_dir($src)) {
+                } elseif (is_dir($src)) {
 
-                $dir    = $this->hash($hashByName ? basename($src) : $src);
-                $dstDir = $this->getBasePath() . DIRECTORY_SEPARATOR . $dir;
+                    $dir    = $this->hash($hashByName ? basename($src) : $src);
+                    $dstDir = $this->getBasePath() . DIRECTORY_SEPARATOR . $dir;
 
-                if ($this->force || @filemtime($dstDir) < @filemtime($src)) {
-                    CFileHelper::copyDirectory($src, $dstDir, array('exclude' => array('.svn', '.git'), 'level' => $level));
-                    $this->parseDir($dstDir);
+                    if ($this->force || @filemtime($dstDir) < @filemtime($src)) {
+                        CFileHelper::copyDirectory($src, $dstDir, array('exclude' => array('.svn', '.git'), 'level' => $level));
+                        $this->parseDir($dstDir);
+                    }
+
+                    return $this->_published[$path] = $this->getBaseUrl() . DIRECTORY_SEPARATOR . $dir;
                 }
+            }
 
-				return $this->_published[$path] = $this->getBaseUrl() . DIRECTORY_SEPARATOR . $dir;
-			}
-		}
-
-		throw new CException(Yii::t('yii','The asset "{asset}" to be published does not exist.', array('{asset}' => $path)));
+            throw new CException(Yii::t('yii','The asset "{asset}" to be published does not exist.', array('{asset}' => $path)));
 	}
 
     private function parseDir($path)
@@ -196,12 +196,12 @@ class PBMAssetManager extends CAssetManager {
 
                         file_put_contents($path . DIRECTORY_SEPARATOR . $fileName, $parser->parse($filePath));
 
-                        if (file_exists($filePath)) {
-                            unlink($filePath);
-                        }
+//                        if (file_exists($filePath)) { // @TODO how to avoid reading of deleted file
+////                            unlink($filePath);    
+//                        }
 
                     }
-
+                    
                 }
 
             }
