@@ -90,6 +90,7 @@ $(document).ready(function () {
     for (var i = 1; i <= enrollmentForm.selectableColCount; i++) {
         var column = {
             id: i,
+            seminarID: enrollmentForm.node.find('.table_column[data-col-id=' + i + ']').attr('data-seminar-id'),
             node: enrollmentForm.node.find('.table_column[data-col-id=' + i + ']').children(),
             head: enrollmentForm.node.find('.table_column[data-col-id=' + i + '] .table_header'),
             timeSelectCells: enrollmentForm.node.find('.table_column[data-col-id=' + i + '] .table_cell[data-cell-type="time"]'),
@@ -160,18 +161,27 @@ $(document).ready(function () {
     enrollmentForm.confirmButton.on('click', function (e) {
 
         if (enrollmentForm.isReady) {
-            var isValid = true;
+            var isValid = true,
+                selection = {};
 
             for (var i = 0; i < enrollmentForm.columns.length; i++) {
                 var curColumn = enrollmentForm.columns[i];
                 if (curColumn.hasSelection() && !curColumn.hasFullSelection()) {
                     curColumn.showErrors();
                     isValid = false;
+                } else if(curColumn.hasSelection() && curColumn.hasFullSelection()){
+                    var columnSelection = selection[curColumn.seminarID] = {};
+                    columnSelection.gradeID = curColumn.gradeSelection.attr('data-grade-id');
+                    columnSelection.timeSlotID = curColumn.timeSelection.attr('data-timeSlot-id');
+                    columnSelection.datePeriodID = curColumn.weekSelection.attr('data-datePeriod-id');
+
                 }
             }
 
             if (isValid) {
                 return true;
+            } else {
+                selection = {};
             }
 
         } else {
@@ -179,4 +189,31 @@ $(document).ready(function () {
         }
         e.preventDefault();
     });
+
+
+    var Ajax = {
+        inProgress : false
+    };
+
+    Ajax.sendRequest = function(url, params, callback) {
+        this.inProgress = true;
+        $.ajax(url, {
+            type: 'POST',
+            cache: false,
+            data: params,
+            dataType: 'json',
+            success: function (data) {
+                if (callback) {
+                    callback(data);
+                }
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                console.log(xhr.status);
+                console.log(thrownError);
+            },
+            complete: function () {
+                Ajax.inProgress = false;
+            }
+        });
+    }
 });

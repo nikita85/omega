@@ -157,7 +157,7 @@
                 -echo date( 'j', strtotime($firstSeminar->datePeriods[$i - 1]->end_date) )
         -$colId = 1
         -foreach($seminars as $seminar)
-          .table_column(data-col-id="#{$colId}")
+          .table_column(data-col-id="#{$colId}" data-seminar-id="#{$seminar->id}")
             .table_cell.table_header =$seminar->title
               -if($seminar->favourite)
                 %span.students_favourite Student favourite!
@@ -171,7 +171,7 @@
                 =$grade
             -$j = 1;
             -foreach($seminar->datePeriods as $datePeriod)
-              .table_cell(class="#{$j % 2? 'even': 'odd';}" data-cell-type="week" data-date-period-id="#{$datePeriod->id}")
+              .table_cell(class="#{$j % 2? 'even': 'odd';}" data-cell-type="week" data-datePeriod-id="#{$datePeriod->id}")
               -$j++
             -$colId++
         .clear
