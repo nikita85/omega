@@ -773,6 +773,7 @@ header#header-bg
   text-align: center
   width: 100%
   height: 590px
+  z-index: 9
   background-color: rgba(0, 153, 51, 0.2)
   @include border-radius(10px)
   box-sizing: border-box
@@ -853,6 +854,8 @@ header#header-bg
         border-left: 1px solid #ECECEC
         border-top: 1px solid #ECECEC
         padding: 0 16px 0 17px
+        &[data-cell-type]
+          cursor: pointer
         &.vertical_align
           position: relative
           span
@@ -892,14 +895,34 @@ header#header-bg
             color: #009933
             font-size: 11px
             font-weight: 400
+          &.hovered
+            @include linear-gradient(#6bcb64, #019140)
+            color: #ffffff
+            .students_favourite
+              background: url("../img/icon_favourite_small.png") no-repeat
+              background-position: left
+              background-size: auto auto
+              color: #fcd234
         &.even
           background: #fbfbfb
-          .hovered
+          &.hovered
             background-color: #b9dbc6
         &.odd
           background: #ffffff
-          .hovered
+          &.hovered
             background-color: #cef4dc
+        &.select
+          background: url("../img/tick.png") no-repeat
+          background-position: center
+          background-size: auto auto
+          background-color: #159c47 !important
+          &.details_cell
+            background-repeat: no-repeat
+            background-position: 3px center
+            background-size: auto auto
+            background-color: #159c47 !important
+            padding: 0 0 0 17px
+            color: #ffffff
 
 
 

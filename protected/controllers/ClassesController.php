@@ -40,6 +40,8 @@ class ClassesController extends Controller
 
         }
 
+        Yii::app()->clientScript->registerScriptFile($this->assetsPath . DS . 'js' . DS . 'summer_classes.js');
+
         $this->render("summer_classes", [
             'seminars' => $summerSeminars,
             'timesMax' => $timesMax,
