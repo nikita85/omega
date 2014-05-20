@@ -88,6 +88,10 @@ class EnrollController extends Controller
 
         public function actionSummer()
         {
+            if(Yii::app()->request->isAjaxRequest) {
+                echo json_encode($_POST);
+                die;
+            }
             $this->pageTitle = 'Summer Classes registration';
 
             

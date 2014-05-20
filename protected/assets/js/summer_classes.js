@@ -9,6 +9,32 @@ $(document).ready(function () {
     });
 
 
+    var Ajax = {
+        inProgress : false
+    };
+
+    Ajax.sendRequest = function(url, params, callback) {
+        this.inProgress = true;
+        $.ajax(url, {
+            type: 'POST',
+            cache: false,
+            data: params,
+            dataType: 'json',
+            success: function (data) {
+                if (callback) {
+                    callback(data);
+                }
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                console.log(xhr.status);
+                console.log(thrownError);
+            },
+            complete: function () {
+                Ajax.inProgress = false;
+            }
+        });
+    }
+
     function attachColumnClicks(column) {
         var cellTypes = enrollmentForm.cellTypes;
 
@@ -179,7 +205,10 @@ $(document).ready(function () {
             }
 
             if (isValid) {
-                return true;
+
+                Ajax.sendRequest('/enroll/summer', selection, function(data){
+                    console.log(data);
+                })
             } else {
                 selection = {};
             }
@@ -191,29 +220,5 @@ $(document).ready(function () {
     });
 
 
-    var Ajax = {
-        inProgress : false
-    };
 
-    Ajax.sendRequest = function(url, params, callback) {
-        this.inProgress = true;
-        $.ajax(url, {
-            type: 'POST',
-            cache: false,
-            data: params,
-            dataType: 'json',
-            success: function (data) {
-                if (callback) {
-                    callback(data);
-                }
-            },
-            error: function (xhr, ajaxOptions, thrownError) {
-                console.log(xhr.status);
-                console.log(thrownError);
-            },
-            complete: function () {
-                Ajax.inProgress = false;
-            }
-        });
-    }
 });
