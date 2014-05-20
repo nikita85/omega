@@ -1,5 +1,68 @@
 %section
   .wrapper-page
+    .tutor-popup
+      .tutor-text
+        %a.popup-close(href="#" )close
+          %img(src="#{$this->assetsPath}/img/close-button.png" )
+        %h1 Please fill in your request form
+        .registration-form-popup
+          %form(action="" method="post" )
+            %div.input-row
+              %label(class="label-name")Teacher's name
+              %div.input_block.cl
+                %label(class="label-name")
+                  %span Jennifer Tsay
+            %div.input-row
+              %label(class="label-name-select") Desired time
+                %span*
+              %div.select-desired-time
+                %select(class="select-date-time" name="Date & time" )
+                  %option Date & time
+                  %option Mondays 11AM-4PM
+                  %option Tuesdays 10AM-4PM
+                  %option Thursdays 10AM-4PM
+                  %option Saturdays 11AM-3PM
+            %div.input-row
+              %label(class="label-name-select") Alternative time
+              %div.select-alternative-time
+                %select(class="select-date-time" name="Date & time" )
+                  %option Date & time
+                  %option Mondays 11AM-4PM
+                  %option Tuesdays 10AM-4PM
+                  %option Thursdays 10AM-4PM
+                  %option Saturdays 11AM-3PM
+            %div.input-roww
+              %label(class="label-name")Other requests
+              %div.input_block.cl
+                %div.error-message
+                %textarea(class="textarea-input" )
+            %h2 Your personal information
+            %div.input-row
+              %label(class="label-name")First Name
+                %span*
+              %div.input_block.cl
+                %div.error-message
+                %input(class="text_input" name="name" required="required" type="text")
+            %div.input-row
+              %label(class="label-name")Second Name
+                %span*
+              %div.input_block.cl
+                %div.error-message
+                %input(class="text_input" name="name" required="required" type="text")
+            %div.input-row
+              %label(class="label-name")Phone number
+                %span*
+              %div.input_block.cl
+                %div.error-message
+                %input(class="text_input" name="name" required="required" type="tel")
+            %div.input-row
+              %label(class="label-name")E-mail
+                %span*
+              %div.input_block.cl
+                %div.error-message
+                %input(class="text_input" name="name" required="required" type="email" )
+            %div
+              %input(type="submit" class="btn registration-button-knoll" value="send" )
     .wrapper-tutors-page
       %h1 Our tutors
       .our-tutors
@@ -38,7 +101,7 @@
             %li
               %span Saturdays
               11AM-3PM
-            %input(type="button" class="btn our-tutors-button" value="contact now" )
+            %input(type="button" class="btn our-tutors-button" value="contact now" data-popup-open="tutor-popup")
       .clear
       .other-tutors
         %h2 Other tutors

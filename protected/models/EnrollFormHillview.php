@@ -106,6 +106,14 @@ class EnrollFormHillview extends BaseEnrollFormHillview
             $criteria = new CDbCriteria();
 
             $criteria->select = "*";
+            
+//            $criteria->with = array( 'order' );
+//
+//            $criteria->compare( 'order.id', $this->order_id, true );
+//            
+//            $criteria->alias = 'form';
+//            
+//            $criteria->join= 'JOIN orders ON (form.order_id != orders.id)';
 
             $dataProvider = new CActiveDataProvider($this, [
                 'criteria' => $criteria,
