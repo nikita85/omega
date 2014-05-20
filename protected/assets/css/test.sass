@@ -774,6 +774,7 @@ header#header-bg
   text-align: center
   width: 100%
   height: 590px
+  z-index: 9
   background-color: rgba(0, 153, 51, 0.2)
   @include border-radius(10px)
   box-sizing: border-box
@@ -828,6 +829,107 @@ header#header-bg
     font-weight: 700
     font-size: 18px
     color: #333333
+  .summer_classes_register_table
+    margin-bottom: 30px
+    width: 940px
+    page-break-inside: avoid
+    border-spacing: 1px
+    background: #ffffff
+    border: none
+    line-height: normal
+    height: 100%
+    font-family: $head-fonts
+    font-size: 12px
+    color: #333333
+    .table_column
+      width: 116px
+      float: left
+      &.legend
+        width: 126px
+        text-align: right
+        span
+          color: #159C47
+          font-weight: 700
+      .table_cell
+        height: 35px
+        border-left: 1px solid #ECECEC
+        border-top: 1px solid #ECECEC
+        padding: 0 16px 0 17px
+        &[data-cell-type]
+          cursor: pointer
+        &.vertical_align
+          position: relative
+          span
+            display: inline-block
+            vertical-align: middle
+        &.vertical_align:after
+          content: ''
+          display: inline-block
+          vertical-align: middle
+          width: 1px
+          height: 100%
+          margin: 0
+        &.details_cell
+          height: 21px
+        &.table_header
+          //width: 115px
+          height: 52px
+          font-family: $second-fonts
+          font-weight: 700
+          font-size: 13px
+          color: #333333
+          position: relative
+          text-align: center
+          @include linear-gradient(#fcfbfb, #f1f1f1)
+          @include custom-border-radius(10px, 10px, 0, 0)
+          padding: 10px 5px
+          vertical-align: top
+          .students_favourite
+            display: inline-block
+            background: url("../img/icon_favourite_small_.png") no-repeat
+            background-position: left
+            background-size: auto auto
+            position: absolute
+            width: 100%
+            left: 5px
+            bottom: 5px
+            color: #009933
+            font-size: 11px
+            font-weight: 400
+          &.hovered
+            @include linear-gradient(#6bcb64, #019140)
+            color: #ffffff
+            .students_favourite
+              background: url("../img/icon_favourite_small.png") no-repeat
+              background-position: left
+              background-size: auto auto
+              color: #fcd234
+        &.even
+          background: #fbfbfb
+          &.hovered
+            background-color: #b9dbc6
+        &.odd
+          background: #ffffff
+          &.hovered
+            background-color: #cef4dc
+        &.select
+          background: url("../img/tick.png") no-repeat
+          background-position: center
+          background-size: auto auto
+          background-color: #159c47 !important
+          &.details_cell
+            background-repeat: no-repeat
+            background-position: 3px center
+            background-size: auto auto
+            background-color: #159c47 !important
+            padding: 0 0 0 17px
+            color: #ffffff
+
+
+
+
+
+
   .register
     margin-bottom: 30px
     width: 940px

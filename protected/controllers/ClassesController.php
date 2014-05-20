@@ -22,14 +22,14 @@ class ClassesController extends Controller
     public function actionSummer()
     {
         $this->breadcrumbs = BreadCrumbs::getBreadCrumbs('Classes/Summer Seminars');
-        $this->render("summer_classes");
+//        $this->render("summer_classes");
         $summerSeminars = Seminar::model()->findAllByAttributes(['type' => 'summer']);
         $timesMax = $gradesMax = $datePeriodsMax = 0;
 
 
         foreach($summerSeminars as $seminar){
-            if($seminar->timesCount > $timesMax){
-                $timesMax = $seminar->timesCount;
+            if($seminar->timesSlotsCount > $timesMax){
+                $timesMax = $seminar->timesSlotsCount;
             }
             if($seminar->gradesCount > $gradesMax){
                 $gradesMax = $seminar->gradesCount;
@@ -39,6 +39,8 @@ class ClassesController extends Controller
             }
 
         }
+
+        Yii::app()->clientScript->registerScriptFile($this->assetsPath . DS . 'js' . DS . 'summer_classes.js');
 
         $this->render("summer_classes", [
             'seminars' => $summerSeminars,
