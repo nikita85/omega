@@ -30,8 +30,8 @@
                                 </div>
                                 <!-- end logo -->
                                 <?php endif; ?>
-                                <div class="phone"><div class="icon-phone"><img src="<?php echo get_template_directory_uri(); ?>/img/icon_phone.png" alt=""></div>650-322-2671</div>
-                                <div class="logins"><a href="#">login</a><a href="#" class="login-button">sign up</a></div>
+                                <div class="phone"><div class="icon-phone"><img src="<?php echo get_template_directory_uri(); ?>/img/icon_phone.png" alt=""></div>&shy;650-322-2671</div>
+                                <!--<div class="logins"><a href="#">login</a><a href="#" class="login-button">sign up</a></div>-->
                             </div>
                             <!-- end top content -->
                     </div>
