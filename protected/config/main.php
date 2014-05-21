@@ -62,9 +62,9 @@ return array(
                         'showScriptName' => false,
 			'rules'=>array(
 
-//                'market' => 'site/ourMarket',
-//                'jobs' => 'site/jobs',
-//                'tutors' => 'site/tutors',
+                'market' => 'site/ourMarket',
+                'jobs' => 'site/jobs',
+                'tutors' => 'site/tutors',
 //
 //                'classes/<type:summer>/<view>'=>'site/summerClasses',
 //                'classes/<type:summer>'=>'site/summerClasses',

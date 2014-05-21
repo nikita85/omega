@@ -129,7 +129,7 @@
         %input(type="button" class="popup-messsage-table-button" value="select classes" )
       %a(name="calendar" )
         %h2 Omega Teaching Summer 2014 Enrollment Form:
-      .summer_classes_register_table
+      .summer_classes_register_table(data-action="#{$this->createUrl('enroll/summer')}")
         -$detailsCellHeight = 21;
         .table_column.legend
           .table_cell.table_header.vertical_align(style="text-align: right; background: #FFF; padding-right: 17px;")

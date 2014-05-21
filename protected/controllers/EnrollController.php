@@ -88,7 +88,7 @@ class EnrollController extends Controller
 
         public function actionSummer()
         {
-            if(Yii::app()->request->isAjaxRequest) {
+            if(Yii::app()->request->isPostRequest) {
                 echo json_encode($_POST);
                 die;
             }

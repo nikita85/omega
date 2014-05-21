@@ -33,7 +33,7 @@ $(document).ready(function () {
                 Ajax.inProgress = false;
             }
         });
-    }
+    };
 
     function attachColumnClicks(column) {
         var cellTypes = enrollmentForm.cellTypes;
@@ -93,6 +93,7 @@ $(document).ready(function () {
         node: $('.summer_classes_register_table'),
         curColId: null,
         selectableColCount: 7,
+        actionUrl: $('.summer_classes_register_table').attr('data-action'),
         infoColumn: $('.table_column.legend'),
         columns: [],
         confirmButton: $('.table-button'),
@@ -185,7 +186,7 @@ $(document).ready(function () {
     });
 
     enrollmentForm.confirmButton.on('click', function (e) {
-
+        e.preventDefault();
         if (enrollmentForm.isReady) {
             var isValid = true,
                 selection = {};
@@ -206,17 +207,25 @@ $(document).ready(function () {
 
             if (isValid) {
 
-                Ajax.sendRequest('/enroll/summer', selection, function(data){
-                    console.log(data);
-                })
+                var newForm = $('<form>', {
+                    'action': enrollmentForm.actionUrl,
+                    'method': 'POST'
+                }).append(jQuery('<input>', {
+                        'name': 'selected_seminars',
+                        'value': JSON.stringify(selection),
+                        'type': 'hidden'
+                    }));
+                newForm.appendTo(document.body).submit();
+
+
             } else {
                 selection = {};
             }
 
         } else {
-            console.log(false);
+            return false;
         }
-        e.preventDefault();
+
     });
 
 
