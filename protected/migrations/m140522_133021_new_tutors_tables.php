@@ -9,7 +9,7 @@ class m140522_133021_new_tutors_tables extends CDbMigration
                       `id` INT(11) UNSIGNED NOT NULL AUTO_INCREMENT ,
                       `name` VARCHAR(255) NOT NULL ,
                       `subjects` VARCHAR(255) NULL DEFAULT NULL ,
-                      `expirience` TEXT NULL DEFAULT NULL ,
+                      `experience` TEXT NULL DEFAULT NULL ,
                       `education` VARCHAR(255) NULL DEFAULT NULL ,
                       `active` TINYINT(1) NOT NULL DEFAULT '1' ,
                       PRIMARY KEY (`id`) )
@@ -70,7 +70,7 @@ class m140522_133021_new_tutors_tables extends CDbMigration
 
 	public function down()
 	{
-		$this->execute("DROP table tutor_students, DROP table tutors_days_times, DROP table tutors");
+		$this->execute("DROP table tutor_students, tutors_days_times, tutors");
 	}
 
 	/*

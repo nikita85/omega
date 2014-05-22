@@ -1,0 +1,61 @@
+:php
+  $form = $this->beginWidget('bootstrap.widgets.TbActiveForm', [
+    'id' => 'tutor-form',
+    'htmlOptions' => ['class' => 'well generalForm'],
+    'enableClientValidation'=>true,
+    'clientOptions'=>array(
+                            'validateOnSubmit'=>true,
+                    )
+  ]);
+
+%fileset
+  = $form->error($tutor, 'grades')
+  = $form->textFieldRow($tutor, 'name', ['class' => 'span6']);
+  = $form->textFieldRow($tutor, 'education', ['class' => 'span6']);
+  = $form->textFieldRow($tutor, 'subjects', ['class' => 'span6']);
+  %br
+  = $form->label($tutor, 'experience')
+  = $form->textArea($tutor,'experience',array('rows' => 6, 'cols' => 66, 'style' => 'width:555px;'));
+    %br
+    = $form->label($tutor, 'active')
+    = $form->checkBox($tutor, 'active')
+  %br
+  .time_select_block
+    Available time:
+    %br
+    %br
+    -#= $form->timepickerRow($timeModel, 'start_time', ['options' => ['showMeridian' => true, 'showSeconds' => false, 'defaultTime' => '9:00 AM']])
+    -#= $form->timepickerRow($timeModel, 'end_time', ['options' => ['showMeridian' => true, 'showSeconds' => false, 'defaultTime' => '10:00 AM']])
+    - foreach ($tutor->tutorsDaysTimes as $key => $dayTime)
+      - $key = $dayTime->isNewRecord ? $key : $dayTime->id;
+      .timeRow
+        %label Day
+        %select(name="TutorDayTime[new-##uid##][weekday]")
+          -foreach($weekDays as $key => $weekDay)
+            %option(value="#{$key}" )
+              = $weekDay
+        %label Start Time
+        .jqxWidget(name = "TutorDayTime[#{$key}][start_time]" value="#{$dayTime->start_time}")
+        %label End Time
+        .jqxWidget(name = "TutorDayTime[#{$key}][end_time]" value="#{$dayTime->end_time}")
+        - $this->widget('bootstrap.widgets.TbButton', ['buttonType' => 'button', 'size' => 'mini', 'htmlOptions'=>array('class'=>'newStyleSecondaryButton marginLeft removeTimeRow'), 'label' => 'Remove']);
+    .timeRowTemplate.timeRow
+      %label Day
+      %select(name="TutorDayTime[new-##uid##][weekday]")
+        -foreach($weekDays as $key => $weekDay)
+          %option(value="#{$key}" )
+            = $weekDay
+      %label Start Time
+      .jqxWidget(name = "TutorDayTime[new-##uid##][start_time]")
+      %label End Time
+      .jqxWidget(name = "TutorDayTime[new-##uid##][end_time]")
+      - $this->widget('bootstrap.widgets.TbButton', ['buttonType' => 'button', 'size' => 'mini', 'htmlOptions'=>array('class'=>'newStyleSecondaryButton marginLeft removeTimeRow'), 'label' => 'Remove']);
+      %br
+    - $this->widget('bootstrap.widgets.TbButton', ['buttonType' => 'button', 'htmlOptions'=>array('class'=>'newStyleSecondaryButton marginLeft addTimeRow'), 'label' => 'Add Time']);
+  %br
+
+.form-actions
+:php
+  $this->widget('bootstrap.widgets.TbButton', ['buttonType' => 'submit', 'htmlOptions'=>array('class'=>'newStyleContentButton'), 'type' => 'primary', 'label' => 'Save']);
+  $this->widget('bootstrap.widgets.TbButton', ['buttonType' => 'reset', 'htmlOptions'=>array('class'=>'newStyleSecondaryButton marginLeft'), 'label' => 'Clear Form']);
+  $this->endWidget();
