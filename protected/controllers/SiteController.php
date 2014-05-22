@@ -106,6 +106,7 @@ class SiteController extends Controller
 
     public function actionTutors()
     {
+        Yii::app()->clientScript->registerScriptFile($this->assetsPath . DS . 'js' . DS . 'tutors.js');
         $this->render('tutors');
     }
 
