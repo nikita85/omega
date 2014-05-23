@@ -37,7 +37,7 @@ class EnrollFormKnoll extends BaseEnrollFormKnoll
                 {
                     // fill student, student_seminar, orders
                     
-                    $seminar = Seminar::model()->findAllByAttributes(array('title'=>'knoll'))[0];
+                    $seminar = Seminar::model()->findByAttributes(array('title'=>'knoll'));
                     
                     foreach ($seminar->grades as $availableGrade) 
                     {
@@ -67,6 +67,8 @@ class EnrollFormKnoll extends BaseEnrollFormKnoll
                     {
                         return false;
                     }
+                    
+                    exit;
                     
                     $this->order_id = $order->id;
                     

@@ -83,18 +83,68 @@ class EnrollController extends Controller
                 $seminarGrades[$grade->title] = $grade->title;
             }
             
-            $this->render("hillview_registration_form",array('model'=>$model, 'seminarGrades'=> $seminarGrades));
+            $this->render("hillview_registration_form", array('model'=>$model, 'seminarGrades'=> $seminarGrades));
         }
 
         public function actionSummer()
         {
-            if(Yii::app()->request->isPostRequest) {
-                echo json_encode($_POST);
-                die;
-            }
             $this->pageTitle = 'Summer Classes registration';
 
+            $model = new EnrollFormSummer();
             
-            $this->render("summer_classes_registration_form");
+            if( !empty($_POST["selected_seminars"]) ) 
+            {
+                $selectedSeminars  = json_decode($_POST["selected_seminars"], true);
+                
+                $yourSeminars = $this->parseSelectedSemimars($selectedSeminars);
+                
+                if( !empty($_POST["EnrollFormSummer"]))
+                {
+                    $model->attributes=$_POST['EnrollFormSummer'];
+
+                    if($model->save( $selectedSeminars ))
+                        $this->redirect(array('/payment/checkout', "orderId"=>$model->order_id));
+                   
+                }
+//                
+                $data = array('model'             => $model , 
+                              'selected_seminars' => htmlspecialchars($_POST["selected_seminars"]), 
+                              'yourSeminars'      => $yourSeminars
+                        );
+                
+                $this->render("summer_classes_registration_form",  $data);
+            }
+            else 
+            {
+                $this->redirect(array('/classes/summer'));
+            }
+           
         }
+        
+        private function parseSelectedSemimars( $selectedSeminars ) 
+        {
+            $seminars = array();
+            
+            foreach($selectedSeminars as $seminarId => $seminarOptions)
+            {
+                $seminar    = Seminar::model()->findByPk( $seminarId );
+                $grade      = Grade::model()->findByPk( $seminarOptions["gradeID"] );
+                $datePeriod = DatePeriods::model()->findByPk( $seminarOptions["datePeriodID"] );
+                $timeSlot   = TimeSlot::model()->findByPk( $seminarOptions["timeSlotID"] );
+                
+                $startDate = DateTime::createFromFormat('Y-m-d', $datePeriod->start_date);
+                $endDate   = DateTime::createFromFormat('Y-m-d', $datePeriod->end_date);
+//            echo $date->format('Y-m-d');
+                
+                $seminars[] = array(
+                                "description" => $seminar->description,
+                                "grade"       => $grade->title,
+                                "date_period" => $startDate->format('M d') .  ' - ' . $endDate->format('M d') ,
+                                "time_slot"   => substr($timeSlot->start_time, 0, 5) .  ' - ' . substr($timeSlot->end_time, 0, 5),
+                            );
+            }
+            
+            return $seminars;
+        }
+       
 }

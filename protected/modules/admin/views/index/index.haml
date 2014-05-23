@@ -108,3 +108,157 @@
  
     ]
   ]);
+
+
+
+%h2 Summer seminars
+:php
+  $enrollSummer = new EnrollFormSummer();
+ 
+  $this->widget('bootstrap.widgets.TbExtendedGridView', [
+    'type'         => 'striped bordered condensed',
+    'htmlOptions'  => ['class' => 'studentManagement'],
+    'dataProvider' => $enrollSummer->selectAll(),
+    'columns'=> [
+      [
+        'header' => 'Student name',
+        'name'   => 'student_name',
+        'value'  => '$data->student_name',
+      ] ,
+      [
+        'header' => 'Gender',
+        'name'   => 'gender',
+        'value'  => '$data->gender',
+      ] ,
+      [
+        'header' => 'Current school',
+        'name'   => 'current_school',
+        'value'  => '$data->current_school',
+      ] ,
+      [
+        'header' => 'Student address',
+        'name'   => 'student_address',
+        'value'  => '$data->student_address',
+      ] ,
+      [
+        'header' => 'Student home phone',
+        'name'   => 'student_home_phone',
+        'value'  => '$data->student_home_phone',
+      ] ,
+      [
+        'header' => 'Student cell phone',
+        'name'   => 'student_cell_phone',
+        'value'  => '$data->student_cell_phone',
+      ] ,
+      [
+        'header' => 'Student email',
+        'name'   => 'student_email',
+        'value'  => '$data->student_email',
+      ] ,
+      [
+        'header' => 'First parent name',
+        'name'   => 'parent_name_1',
+        'value'  => '$data->parent_name_1',
+      ] ,
+      [
+        'header' => 'First parent email',
+        'name'   => 'parent_email_1',
+        'value'  => '$data->parent_email_1',
+      ] ,
+      [
+        'header' => 'Second parent name',
+        'name'   => 'parent_name_2',
+        'value'  => '$data->parent_name_2',
+      ] ,
+      [
+        'header' => 'Second parent email',
+        'name'   => 'parent_email_2',
+        'value'  => '$data->parent_email_2',
+      ] ,
+      [
+        'header' => 'Parent name emergency',
+        'name'   => 'parent_name_emergency',
+        'value'  => '$data->parent_name_emergency',
+      ] ,
+      [
+        'header' => 'Parent phone emergency',
+        'name'   => 'parent_phone_emergency',
+        'value'  => '$data->parent_phone_emergency',
+      ] ,
+      [
+        'header' => 'Parent cell emergency',
+        'name'   => 'parent_cell_emergency',
+        'value'  => '$data->parent_cell_emergency',
+      ] ,
+      [
+        'header' => 'Person name emergency',
+        'name'   => 'person_name_emergency',
+        'value'  => '$data->person_name_emergency',
+      ] ,
+      [
+        'header' => 'Person cell emergency',
+        'name'   => 'person_cell_emergency',
+        'value'  => '$data->person_cell_emergency',
+      ] ,
+      [
+        'header' => 'Person phone emergency',
+        'name'   => 'person_phone_emergency',
+        'value'  => '$data->person_phone_emergency',
+      ] ,
+      [
+        'header' => 'Person relation to student',
+        'name'   => 'person_relation_to_student',
+        'value'  => '$data->person_relation_to_student',
+      ] ,
+      [
+        'header' => 'Physician name',
+        'name'   => 'physician_name',
+        'value'  => '$data->physician_name',
+      ] ,
+      [
+        'header' => 'Physician phone',
+        'name'   => 'physician_phone',
+        'value'  => '$data->physician_phone',
+      ] ,
+      [
+        'header' => 'Dentist name',
+        'name'   => 'dentist_name',
+        'value'  => '$data->dentist_name',
+      ] ,
+      [
+        'header' => 'Dentist_phone',
+        'name'   => 'dentist_phone',
+        'value'  => '$data->dentist_phone',
+      ] ,
+      [
+        'header' => 'Food alergies',
+        'name'   => 'food_alergies',
+        'value'  => '$data->food_alergies',
+      ] ,
+      [
+        'header' => 'Medication alergies',
+        'name'   => 'medication_alergies',
+        'value'  => '$data->medication_alergies',
+      ] ,
+      [
+        'header' => 'Medication currently taken',
+        'name'   => 'medication_currently_taken',
+        'value'  => '$data->medication_currently_taken',
+      ] ,
+      [
+        'header' => 'Last tetanus shot',
+        'name'   => 'last_tetanus_shot',
+        'value'  => '$data->last_tetanus_shot',
+      ] ,
+      [
+        'header' => 'Submit date',
+        'name'   => 'submit_date',
+        'value'  => '$data->submit_date',
+      ] ,
+      [
+        'header' => 'Payment',
+        'name'   => 'food_alergies',
+        'value'  => '$data->order->payment_status',
+      ] ,
+    ]
+  ]);
