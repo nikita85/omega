@@ -48,6 +48,7 @@ class TutorController extends AdminController
     {
         $this->initEntityActions($tutor);
         $weekDays = Yii::app()->params['weekDays'];
+        $tutorsImgFolder = '/uploads/tutors_img/';
 
         if (isset($_POST['Tutor'])) {
 
@@ -84,8 +85,14 @@ class TutorController extends AdminController
                     }
                 }
 
-
                 $tutor->attributes = $params;
+
+                $imgFiles = $_FILES['Tutor'];
+                if(!empty($imgFiles)) {
+                    (empty($imgFiles['name']['big_image']))?:$tutor->big_image=CUploadedFile::getInstance($tutor,'big_image');
+                    (empty($imgFiles['name']['small_image']))?:$tutor->small_image=CUploadedFile::getInstance($tutor,'small_image');
+                }
+
 
                 if (!$tutor->save()) {
                     throw new Exception;
@@ -94,11 +101,10 @@ class TutorController extends AdminController
                 $transaction->commit();
 
                 Yii::app()->user->setFlash('success', 'Saved Successfully');
-
                 $this->redirect(['index']);
 
             } catch (Exception $e) {
-                echo "<pre>";var_dump($e); echo "</pre>";
+                //echo "<pre>";var_dump($e); echo "</pre>";
                 //Yii::app()->user->setFlash('error', 'Error occurred');
                 $transaction->rollback();
             }
@@ -109,6 +115,7 @@ class TutorController extends AdminController
         $this->render('form', [
             'tutor' => $tutor,
             'weekDays' => $weekDays,
+            'tutorsImgFolder' => $tutorsImgFolder,
         ]);
     }
 
@@ -119,12 +126,12 @@ class TutorController extends AdminController
      */
     public function actionUpdate($id)
     {
-        $model = $this->loadModel($id, 'Seminar');
+        $model = $this->loadModel($id, 'Tutor');
 
         $this->layout = '/layouts/column2';
-        $this->actionTitle = 'Edit Seminar';
-        $this->pushBreadcrumb('Seminar', ['/admin/seminar/index']);
-        $this->pushBreadcrumb('Edit Seminar', ['/admin/seminar/create']);
+        $this->actionTitle = 'Edit Tutor';
+        $this->pushBreadcrumb('Tutor', ['/admin/tutor/index']);
+        $this->pushBreadcrumb('Edit Tutor', ['/admin/tutor/create']);
 
         $this->handleForm($model);
     }
@@ -134,10 +141,10 @@ class TutorController extends AdminController
      */
     public function actionDelete($id)
     {
-        $seminar = Seminar::model()->findByPk($id);
-        if (!empty($seminar)) {
+        $tutor = Tutor::model()->findByPk($id);
+        if (!empty($tutor)) {
 
-            $seminar->delete();
+            $tutor->delete();
         }
 
         // if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser

@@ -47,8 +47,9 @@ $(document).ready(function(){
         }
     };*/
 
-    $('#seminar-form').on('submit', function(){
-       $('.datePeriodRowTemplate input.text').attr('name', '');
+    $('form').on('submit', function(){
+        $(this).find('[name*="##uid##"]').attr('name', '');
+       //$('.datePeriodRowTemplate input.text').attr('name', '');
     });
 
     /*TIME ROW*/

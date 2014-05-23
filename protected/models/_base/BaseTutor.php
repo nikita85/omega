@@ -14,6 +14,8 @@
  * @property string $subjects
  * @property string $experience
  * @property string $education
+ * @property string $big_image
+ * @property string $small_image
  * @property integer $active
  *
  * @property TutorStudents[] $tutorStudents
@@ -45,13 +47,14 @@ abstract class BaseTutor extends GxActiveRecord {
 			array('experience', 'safe'),
 			array('subjects, experience, education, active', 'default', 'setOnEmpty' => true, 'value' => null),
 			array('id, name, subjects, experience, education, active', 'safe', 'on'=>'search'),
+            array('big_image, small_image', 'file', 'allowEmpty' => true, 'types'=>'jpg, png'),
 		);
 	}
 
 	public function relations() {
 		return array(
 			'tutorStudents' => array(self::HAS_MANY, 'TutorStudents', 'tutors_id'),
-			'tutorsDaysTimes' => array(self::HAS_MANY, 'TutorsDaysTimes', 'tutors_id'),
+			'tutorsDaysTimes' => array(self::HAS_MANY, 'TutorDayTime', 'tutors_id'),
 		);
 	}
 
@@ -68,6 +71,7 @@ abstract class BaseTutor extends GxActiveRecord {
 			'experience' => Yii::t('app', 'Experience'),
 			'education' => Yii::t('app', 'Education'),
 			'active' => Yii::t('app', 'Active'),
+            'big_image' => Yii::t('app', 'Big Image'),
 			'tutorStudents' => null,
 			'tutorsDaysTimes' => null,
 		);
@@ -87,4 +91,27 @@ abstract class BaseTutor extends GxActiveRecord {
 			'criteria' => $criteria,
 		));
 	}
+
+    public function afterValidate()
+    {
+        $uploadPath = Yii::getPathOfAlias('webroot') . '/uploads/tutors_img/';
+
+        if(!empty($this->big_image) && empty($this->errors)) {
+
+            $imagePath = uniqid('tutor-img-', false) . '.' . $this->big_image->getExtensionName();
+
+            if($this->big_image->saveAs($uploadPath . $imagePath)) {
+                $this->big_image = $imagePath;
+            }
+        }
+
+        if(!empty($this->small_image) && empty($this->errors)) {
+
+            $imagePath = uniqid('tutor-img-', false) . '.' . $this->small_image->getExtensionName();
+
+            if($this->small_image->saveAs($uploadPath . $imagePath)) {
+                $this->small_image = $imagePath;
+            }
+        }
+    }
 }
