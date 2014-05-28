@@ -104,12 +104,6 @@ class SiteController extends Controller
         $this->render('main_classes');
     }
 
-    public function actionTutors()
-    {
-        Yii::app()->clientScript->registerScriptFile($this->assetsPath . DS . 'js' . DS . 'tutors.js');
-        $this->render('tutors');
-    }
-
     public function actionSummerClassesRegistrationForm()
     {
         $this->render('summer_classes_registration_form');

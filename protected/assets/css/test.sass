@@ -1479,7 +1479,7 @@ header#header-bg
     color: #007c2d
     margin-top: 20px
     margin-bottom: 10px
-  .our-tutors
+  .tutor-details-image
     float: left
   .tutors-info
     float: right
@@ -1556,6 +1556,7 @@ header#header-bg
       font-size: 13px
       color: #666666
       line-height: 1.5
+      position: relative
       li
         width: 220px
         margin-left: 20px
@@ -1570,6 +1571,30 @@ header#header-bg
         padding: 0 5px 0 0
         span
           color: #069342
+      .slider-list
+        height: 591px
+        margin: 0
+        overflow: hidden
+        padding: 0
+        position: relative
+        width: 100%
+        .slider-wrap
+          left: 0
+          position: relative
+          width: 2000px
+      .slider_nav
+        cursor: pointer
+        height: 23px
+        position: absolute
+        top: 50%
+        width: 23px
+        z-index: 2
+        &.prev_
+          background: url("../img/arrow_left.png") 0 0 no-repeat
+          left: -11px
+        &.next_
+          background: url("../img/arrow_right.png") 0 0 no-repeat
+          right: -9px
       .teachers
         position: relative
         width: 218px

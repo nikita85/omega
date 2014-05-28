@@ -89,8 +89,8 @@ class TutorController extends AdminController
 
                 $imgFiles = $_FILES['Tutor'];
                 if(!empty($imgFiles)) {
-                    (empty($imgFiles['name']['big_image']))?:$tutor->big_image=CUploadedFile::getInstance($tutor,'big_image');
-                    (empty($imgFiles['name']['small_image']))?:$tutor->small_image=CUploadedFile::getInstance($tutor,'small_image');
+                    (empty($imgFiles['name']['big_image']))?:$tutor->big_image = CUploadedFile::getInstance($tutor,'big_image');
+                    (empty($imgFiles['name']['small_image']))?:$tutor->small_image = CUploadedFile::getInstance($tutor,'small_image');
                 }
 
 

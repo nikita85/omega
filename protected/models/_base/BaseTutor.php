@@ -96,7 +96,7 @@ abstract class BaseTutor extends GxActiveRecord {
     {
         $uploadPath = Yii::getPathOfAlias('webroot') . '/uploads/tutors_img/';
 
-        if(!empty($this->big_image) && empty($this->errors)) {
+        if(($this->big_image instanceof CUploadedFile) && empty($this->errors)) {
 
             $imagePath = uniqid('tutor-img-', false) . '.' . $this->big_image->getExtensionName();
 
@@ -105,7 +105,7 @@ abstract class BaseTutor extends GxActiveRecord {
             }
         }
 
-        if(!empty($this->small_image) && empty($this->errors)) {
+        if(($this->small_image instanceof CUploadedFile) && empty($this->errors)) {
 
             $imagePath = uniqid('tutor-img-', false) . '.' . $this->small_image->getExtensionName();
 
