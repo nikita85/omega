@@ -5,6 +5,33 @@
 
 $(document).ready(function () {
 
+
+    var Ajax = {
+        inProgress : false
+    };
+
+    Ajax.sendRequest = function(url, params, callback) {
+        this.inProgress = true;
+        $.ajax(url, {
+            type: 'POST',
+            cache: false,
+            data: params,
+            dataType: 'json',
+            success: function (data) {
+                if (callback) {
+                    callback(data);
+                }
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                console.log(xhr.status);
+                console.log(thrownError);
+            },
+            complete: function () {
+                Ajax.inProgress = false;
+            }
+        });
+    };
+
     /*slider*/
 
     function teacherSlider(teacherTab) {
@@ -123,5 +150,22 @@ $(document).ready(function () {
     new teacherSlider($('.wrapper-tutors-page'));
 
     /*end slider*/
+
+    $('.thank-close').on('click', function(e){
+        e.preventDefault();
+        $('.tutor-popup').fadeOut(500);
+    });
+
+    $('.contact-tutor').on('click', function(e){
+        e.preventDefault();
+        var tutorId = $(this).attr('data-tutor-id');
+
+
+
+        Ajax.sendRequest('tutors/form', {tutor_id: tutorId}, function(data){
+            $('.tutor-text').html(data.popup_content);
+        })
+
+    });
 
 });

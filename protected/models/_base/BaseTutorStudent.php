@@ -42,10 +42,11 @@ abstract class BaseTutorStudent extends GxActiveRecord {
 
 	public function rules() {
 		return array(
-			array('id, first_name, second_name, phone, email, tutors_days_times_id, tutors_id', 'required'),
+			array('first_name, second_name, phone, email, tutors_days_times_id, tutors_id', 'required'),
 			array('id', 'numerical', 'integerOnly'=>true),
 			array('first_name, second_name, phone, email, alternative_time', 'length', 'max'=>255),
 			array('tutors_days_times_id, tutors_id', 'length', 'max'=>11),
+            array('email', 'email'),
 			array('other_requests', 'safe'),
 			array('alternative_time, other_requests', 'default', 'setOnEmpty' => true, 'value' => null),
 			array('id, first_name, second_name, phone, email, alternative_time, other_requests, tutors_days_times_id, tutors_id', 'safe', 'on'=>'search'),
