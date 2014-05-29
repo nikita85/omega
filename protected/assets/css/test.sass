@@ -243,6 +243,25 @@ header
           @include linear-gradient(#6bcb64, #019140)
           &:hover
             @include linear-gradient(#019140, #6bcb64)
+/**THANK YOU POPUP**/
+.thank-text
+  text-align: center
+  position: relative
+  top: 200px
+  h1, p, a
+    text-align: center !important
+  p
+    padding-top: 10px
+    font-size: 13px
+    padding-bottom: 30px
+  a.thank-close
+    color: #0a9643
+    font-family: $second-fonts
+    font-size: 13px
+.thank-img
+  position: absolute
+  bottom: -3px
+  left: 70px
 /**TUTORS POPUP**/
 .tutor-popup-main
   background: none repeat scroll 0 0 rgba(0, 0, 0, 0.5)
@@ -272,7 +291,7 @@ header
   border-bottom: 1px solid #ECECEC
   padding: 0 10px 0 10px
   @include custom-border-radius(0, 0, 10px, 10px)
-  a
+  a.popup-close
     position: relative
     bottom: 20px
     right: 10px
