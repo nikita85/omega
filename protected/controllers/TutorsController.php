@@ -20,4 +20,22 @@ class TutorsController extends Controller
         ]);
     }
 
+    public function actionForm()
+    {
+        $tutorStudent = new TutorStudent();
+        $tutor = Tutor::model()->findByPk(7);
+
+        $tutorStudent->tutors = $tutor;
+        $weekDays = Yii::app()->params['weekDays'];
+
+
+
+
+        $this->render('form', [
+            'tutor' => $tutor,
+            'tutorStudent' => $tutorStudent,
+            'weekDays' => $weekDays,
+        ]);
+    }
+
 }

@@ -82,4 +82,10 @@ abstract class BaseTutorDayTime extends GxActiveRecord {
 			'criteria' => $criteria,
 		));
 	}
+
+    public function __toString() {
+        $weekDays = Yii::app()->params['weekDays'];
+        return $weekDays[$this->weekday]. ' ' . date('gA', strtotime($this->start_time)) . '-' .date('gA', strtotime($this->end_time));
+    }
+
 }
