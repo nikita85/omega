@@ -23,7 +23,7 @@
   #main-wrapper
     #bg-layer
     .inner-wrap
-      - $isHomePage = ($this->action->id=='index')? true: false;
+      - $isHomePage = ($this->action->id=='index' && $this->id == 'site')? true: false;
       %header(id="#{$isHomePage? '': 'header-bg'}")
         .wrapper-page
           .header
