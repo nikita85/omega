@@ -151,20 +151,27 @@ $(document).ready(function () {
 
     /*end slider*/
 
-    $('.thank-close').on('click', function(e){
+    $('.tutor-popup').on('click', '.thank-close, .popup-close', function(e){
         e.preventDefault();
-        $('.tutor-popup').fadeOut(500);
+        $('#bg-layer').fadeOut(500);
+        $('.tutor-popup').fadeOut(500, function(){
+            $('.popup-content').empty();
+            $('.popup-loading').show();
+        });
     });
 
     $('.contact-tutor').on('click', function(e){
         e.preventDefault();
         var tutorId = $(this).attr('data-tutor-id');
 
-
-
         Ajax.sendRequest('tutors/form', {tutor_id: tutorId}, function(data){
-            $('.tutor-text').html(data.popup_content);
-        })
+            $('.popup-loading').hide();
+            $('.popup-content').html(data.popup_content);
+        });
+
+        $('html, body').animate({
+            scrollTop: $(".wrapper-tutors-page").offset().top
+        }, 1000);
 
     });
 

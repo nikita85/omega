@@ -21,6 +21,7 @@
   #loading
     %img(src="#{$this->assetsPath}/img/preloader.gif")
   #main-wrapper
+    #bg-layer
     .inner-wrap
       - $isHomePage = ($this->action->id=='index')? true: false;
       %header(id="#{$isHomePage? '': 'header-bg'}")
@@ -40,7 +41,7 @@
               %li
                 %a(href="/") Home
               %li
-                %a(href="#{$this->createUrl('site/tutors')}") Tutors
+                %a(href="#{$this->createUrl('/tutors')}") Tutors
               %li
                 %a(href="#{$this->createUrl('/classes/selection')}") Classes 
               %li
@@ -60,7 +61,7 @@
               .puzzle
                 %a(href="#" data-popup-open="puzzle-popup")
                   %img(src="#{$this->assetsPath}/img/button_puzzle.png" )
-              .puzzle-popup
+              .puzzle-popup.popup
                 .popup-text
                   %a.popup-close(href="#" )close
                     %img(src="#{$this->assetsPath}/img/close-button.png" )

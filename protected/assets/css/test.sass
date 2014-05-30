@@ -11,6 +11,7 @@ body, html
   height: 100%
 #main-wrapper
   min-height: 100%
+  position: relative
 .inner-wrap
   padding-bottom: 210px
 h1
@@ -58,6 +59,8 @@ a
   font-family: $second-fonts
   text-transform: uppercase
   @include border-radius(20px)
+.popup
+  z-index: 60 !important
 /**HEADER**/
 header
   background: url("../img/header_bg_light.png") no-repeat
@@ -275,10 +278,11 @@ header
   width: 100%
   z-index: 100
 .tutor-popup
-  //display: none
+  display: none
   position: absolute
   top: 0
-  left: 20%
+  left: 50%
+  margin-left: -222px
   background: url("../img/tutor_popup.png") no-repeat
   background-position: top center
   width: 444px
@@ -2020,6 +2024,13 @@ footer
     font-family: $head-fonts
     font-size: 10px
     height: 1em
+#bg-layer
+  background: rgba(0,0,0, 0.5)
+  display: none
+  height: 100%
+  width: 100%
+  position: absolute
+  z-index: 50
 #loading
   background: rgba(0,0,0, 0.5)
   display: none
@@ -2035,6 +2046,11 @@ footer
     top: 50%
     margin-top: -64px
     display: block
+.popup-loading
+  position: absolute
+  left: 50%
+  top: 50%
+  margin: -25px 0 0 -25px
 .textarea-input
   border: none
   outline: none

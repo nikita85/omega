@@ -55,8 +55,8 @@ abstract class BaseTutorStudent extends GxActiveRecord {
 
 	public function relations() {
 		return array(
-			'tutorsDaysTimes' => array(self::BELONGS_TO, 'TutorsDaysTimes', 'tutors_days_times_id'),
-			'tutors' => array(self::BELONGS_TO, 'Tutors', 'tutors_id'),
+			'tutorDayTime' => array(self::BELONGS_TO, 'TutorDayTime', 'tutors_days_times_id'),
+			'tutors' => array(self::BELONGS_TO, 'Tutor', 'tutors_id'),
 		);
 	}
 

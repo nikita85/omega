@@ -10,6 +10,10 @@ $menu = [
         'url' => ['/admin/tutor/index'],
     ],
     [
+        'label' => AdminModule::t('ui', "Tutors' Students"),
+        'url' => ['/admin/tutorStudent/index'],
+    ],
+    [
         'label' => AdminModule::t('ui', 'Day Off'),
         'url' => ['/admin/dayOff/index'],
     ],
