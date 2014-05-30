@@ -1,8 +1,20 @@
 %section
-  .wrapper-page(style="width:1327px;padding-left:220px;height:900px")
+  .wrapper-page
     .registration-title
       %h1 Summer Classes
       %p Registration form
+      .your-courses
+        %h2 Your courses
+        - foreach($yourSeminars as $seminar){
+        .your-courses-data
+          %h3#{$seminar["description"]}
+          %p Preferred week:
+            %span#{$seminar["date_period"]}
+          %p Entering Grade:
+            %span#{$seminar["grade"]}
+          %p Scheduled time:
+            %span#{$seminar["time_slot"]}
+        -}
     .registration-form-wrapper
       :php
             $form = $this->beginWidget('CActiveForm', array(
@@ -12,7 +24,7 @@
               'clientOptions'=>array(
                             'hideErrorMessage'=>true,
                             'validateOnSubmit'=>true,
-                            'afterValidate' => 'js:function(form, data, hasError) { 
+                            'afterValidate' => 'js:function(form, data, hasError) {
                                     if(hasError) {
                                         for(var i in data) $("#"+i).addClass("input-error");
                                         return false;
@@ -22,7 +34,7 @@
                                         return true;
                                     }
                             }',
-                            'afterValidateAttribute' => 'js:function(form, attribute, data, hasError) { 
+                            'afterValidateAttribute' => 'js:function(form, attribute, data, hasError) {
                                     if(hasError) {
                                         $("#" + attribute.inputID).addClass("input-error");
                                         return false;
@@ -37,7 +49,7 @@
                     ),
               'focus'=>array($model,'student_name'),
             ));
-      %input(class="text_input" name="selected_seminars" required="" type="hidden" value="#{$selected_seminars}")  
+      %input(class="text_input" name="selected_seminars" required="" type="hidden" value="#{$selected_seminars}")
       %div.steps
         %ul.tabs
           %li.actived
@@ -96,7 +108,7 @@
               %div.error-message
               = $form->emailField($model, 'student_email', array("class"=>"text_input"))
               = $form->error($model, 'student_email', array("class"=>"error-message", "style"=>"margin-top:5px"))
-          %input(type="submit" class="btn registration-button" value="continue" )
+          %input(type="button" class="btn registration-button" value="continue")
         %div.tab_content#tab2
           %div.input-row
             = $form->labelEx($model, 'parent_name_1', array("class"=>"label-name"))
@@ -170,7 +182,7 @@
               %div.error-message
               = $form->textField($model, 'person_relation_to_student', array("class"=>"text_input"))
               = $form->error($model, 'person_relation_to_student', array("class"=>"error-message", "style"=>"margin-top:5px"))
-          %input(type="submit" class="btn registration-button" value="continue" )
+          %input(type="button" class="btn registration-button" value="continue" )
         %div.tab_content#tab3
           %div.input-row
             = $form->labelEx($model, 'physician_name', array("class"=>"label-name"))
@@ -223,20 +235,8 @@
           %div.text-form
             %b I grant permission to authorized Omega Teaching personnel to administer basic first aid to:
           %div.text-form
-            %span Name of Student
+            //%span Name of Student
             as appropriate.  In case of accident or acute illness, I grant permission for authorized Omega Teaching LLC personnel to arrange transportation for my child to the closest hospital or dentist.  I understand that an effort will be made to notify me before such action is taken and the expense of this service and any subsequent medical expenses will be assumed by me.  I give permission for the student enrolled to participate in the seminar and activities above and I further agree to indemnify Omega Teaching LLC, its employees and agents, and the independent consultants retained by Omega Teaching from and against any and all liability for any injury or harm suffered by the student which may arise out of or in any way be connected to the student’s participation in the above activities.  I further agree to permit the use of event or activity photography and/or video media production, which may include images of the student.
           %input(type="submit" class="btn registration-button" value="send form" )
-    .your-courses
-      %h2 Your courses
-      - foreach($yourSeminars as $seminar){
-      .your-courses-data
-        %h3#{$seminar["description"]}
-        %p Preferred week:
-          %span#{$seminar["date_period"]}
-        %p Entering Grade:
-          %span#{$seminar["grade"]}
-        %p Scheduled time:
-          %span#{$seminar["time_slot"]}
-      -}
     -$this->endWidget();
     .clear

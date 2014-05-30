@@ -104,11 +104,6 @@ class SiteController extends Controller
         $this->render('main_classes');
     }
 
-    public function actionTutors()
-    {
-        $this->render('tutors');
-    }
-
     public function actionSummerClassesRegistrationForm()
     {
         $this->render('summer_classes_registration_form');

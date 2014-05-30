@@ -1,0 +1,73 @@
+%section
+  .wrapper-page
+    .tutor-popup.popup
+      .tutor-text
+        %a.popup-close(href="#" )close
+          %img(src="#{$this->assetsPath}/img/close-button.png" )
+        .popup-loading
+          %img(src="#{$this->assetsPath}/img/preloader_small.gif")
+        .popup-content
+    .wrapper-tutors-page
+      %h1 Our tutors
+      .tutor-details-wrap
+        -$i = 1
+        -foreach($tutors as $tutor)
+          .tutor-details(style="#{$i == 1 ? 'display:block;': 'display:none;';}" data-rel="tutor#{$tutor->id}")
+            .tutor-details-image
+              %img(src="#{$tutorsImgFolder . $tutor->big_image}" )
+            .tutors-info
+              %h2 = $tutor->name
+              %li
+                %span Subjects:
+              %br
+              %p
+                %span = $tutor->subjects
+              %br
+              %li
+                %span Education:
+              %br
+              %p = $tutor->education
+              %br
+              %li
+                %span Experience:
+              %br
+              %p = $tutor->experience
+              %div.days-times-wrapper
+                %li
+                  %span Days/times available:
+                %br
+                %ul.days-times
+                  -foreach($tutor->tutorsDaysTimes as $dayTime)
+                    %li
+                      %span = $weekDays[$dayTime->weekday]
+                      = date('gA', strtotime($dayTime->start_time)) . '-' .date('gA', strtotime($dayTime->end_time))
+                  %input(type="button" class="btn our-tutors-button contact-tutor" value="contact now" data-popup-open="tutor-popup" data-tutor-id="#{$tutor->id}")
+            .clear
+            -$i++
+      .other-tutors
+        %h2 Other tutors
+        .tutors-carousel
+          .slider_nav.prev_
+          .slider-list
+            .slider-wrap
+              -foreach($tutors as $tutor)
+                .teachers(id="tutor#{$tutor->id}")
+                  %a(href="#" )
+                    %img(class="tutor-preview" src="#{$tutorsImgFolder . $tutor->small_image}" )
+                  %h2 = $tutor->name
+                  %li
+                    %span Subjects:
+                  %p
+                    %span = $tutor->subjects
+                  %div.time-avalibe-wrapper
+                    %li
+                      %span Days/times available:
+                    -foreach($tutor->tutorsDaysTimes as $dayTime)
+                      %p = $weekDays[$dayTime->weekday]. ' ' . date('gA', strtotime($dayTime->start_time)) . '-' .date('gA', strtotime($dayTime->end_time))
+                    %a(class="full-info" href="#" ) Watch full info
+                      %img(src="#{$this->assetsPath}/img/button_more.png" )
+                    .clear
+                    %input(type="button" class="btn all-buttons contact-tutor" value="contact now" data-popup-open="tutor-popup" data-tutor-id="#{$tutor->id}")
+            .clear
+          .slider_nav.next_
+      .clear
