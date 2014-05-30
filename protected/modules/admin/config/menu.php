@@ -6,8 +6,12 @@ $menu = [
         'url' => ['/admin/seminar/index'],
     ],
     [
-        'label' => AdminModule::t('ui', 'Clients'),
-        'url' => ['/admin/seminar/index'],
+        'label' => AdminModule::t('ui', 'Tutors'),
+        'url' => ['/admin/tutor/index'],
+    ],
+    [
+        'label' => AdminModule::t('ui', "Tutors' Students"),
+        'url' => ['/admin/tutorStudent/index'],
     ],
     [
         'label' => AdminModule::t('ui', 'Day Off'),

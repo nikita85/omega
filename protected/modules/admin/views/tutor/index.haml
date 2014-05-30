@@ -1,0 +1,20 @@
+- $this->widget('bootstrap.widgets.TbExtendedGridView', [ |
+  'type'=>'striped bordered condensed', |
+  'dataProvider' => $model->search(), |
+  'htmlOptions' => ['class' => 'generalGrid'], |
+  'nullDisplay' => 'no set', |
+  'template'=>"{items}{pager}", |
+  'filter' => $model, |
+  'bulkActions' => [ |
+          'actionButtons' => [ |
+           ], |
+            'checkBoxColumnConfig' => [ |
+                'name' => 'name', |
+            ], |
+        ], |
+  'columns'=> [ |
+    ['name' => 'name'], |
+    ['name' => 'subjects'], |
+    ['class' => 'bootstrap.widgets.TbButtonColumn', 'template'=>'{view}{update}{delete}',] |
+  ,] |
+]); |

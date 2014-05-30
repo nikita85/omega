@@ -47,8 +47,9 @@ $(document).ready(function(){
         }
     };*/
 
-    $('#seminar-form').on('submit', function(){
-       $('.datePeriodRowTemplate input.text').attr('name', '');
+    $('form').on('submit', function(){
+        $(this).find('[name*="##uid##"]').attr('name', '');
+       //$('.datePeriodRowTemplate input.text').attr('name', '');
     });
 
     /*TIME ROW*/
@@ -74,10 +75,12 @@ $(document).ready(function(){
         var timeRow = $('.timeRowTemplate').clone(true).removeClass('timeRowTemplate').show(),
             uiid = guid();
 
-        timeRow.find('.jqxWidget').each(function(){
+        timeRow.find('[name]').each(function(){
             var nameAttr = $(this).attr('name');
             $(this).attr('name' , nameAttr.replace('##uid##', uiid));
-            $(this).jqxDateTimeInput({ width: '100px', height: '25px', formatString: 'HH:mm', showCalendarButton: false});
+            if($(this).hasClass('jqxWidget')){
+                $(this).jqxDateTimeInput({ width: '100px', height: '25px', formatString: 'HH:mm', showCalendarButton: false});
+            }
         });
         timeRow.insertBefore($('.addTimeRow'));
     }

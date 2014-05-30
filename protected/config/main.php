@@ -64,7 +64,7 @@ return array(
 
                 'market' => 'site/ourMarket',
                 'jobs' => 'site/jobs',
-                'tutors' => 'site/tutors',
+//                'tutors' => 'site/tutors',
 //
 //                'classes/<type:summer>/<view>'=>'site/summerClasses',
 //                'classes/<type:summer>'=>'site/summerClasses',
@@ -193,5 +193,14 @@ return array(
 	'params'=>array(
 		// this is used in contact page
 		'adminEmail'=>'webmaster@example.com',
+        'weekDays' => [
+            '1' => 'Mondays',
+            '2' => 'Tuesdays',
+            '3' => 'Wednesdays',
+            '4' => 'Thursdays',
+            '5' => 'Fridays',
+            '6' => 'Saturdays',
+            '7' => 'Sundays',
+        ]
 	),
 );

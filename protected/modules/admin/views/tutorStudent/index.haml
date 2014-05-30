@@ -1,0 +1,26 @@
+:php
+  $this->widget('bootstrap.widgets.TbExtendedGridView', [
+    'type'=>'striped bordered condensed',
+    'dataProvider' => $model->search(),
+    'htmlOptions' => ['class' => 'generalGrid'],
+    'template'=>"{items}{pager}",
+    'columns'=> [
+      ['name' => 'first_name'],
+      ['name' => 'second_name'],
+      ['name' => 'phone'],
+      ['name' => 'email'],
+      [
+        'header' => 'Tutor',
+        'name'   => 'tutors_id',
+        'value'  => '$data->tutors->name',
+      ] ,
+      [
+        'header' => 'Preferred Time',
+        'name'   => 'tutors_days_times_id',
+        'value'  => '$data->tutorDayTime',
+      ] ,
+      ['name' => 'alternative_time'],
+      ['name' => 'other_requests'],
+      ['class' => 'bootstrap.widgets.TbButtonColumn', 'template'=>'{delete}',]
+    ,]
+  ]);

@@ -1,13 +1,16 @@
 $(document).ready(function () {
 
 
+
     $('[data-popup-open]').on('click', function(e){
         e.preventDefault();
+        $('#bg-layer').fadeIn(500);
         $('.' + $(this).attr('data-popup-open')).fadeIn(500);
     });
 
     $('.popup-close').on('click', function(e){
         e.preventDefault();
+        $('#bg-layer').fadeOut(500);
         $(this).parent().parent().fadeOut(500);
     });
 
@@ -18,7 +21,9 @@ $(document).ready(function () {
         e.preventDefault();
         $('.applicant_form_success').hide();
         $('#applicant-form').show();
-    })
+    });
+
+
 
     var link = window.location.pathname;
     $('.header-menu li a[href="'+link+'"]').parent().addClass('active');
