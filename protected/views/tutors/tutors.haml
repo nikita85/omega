@@ -17,21 +17,25 @@
               %img(src="#{$tutorsImgFolder . $tutor->big_image}" )
             .tutors-info
               %h2 = $tutor->name
-              %li
-                %span Subjects:
-              %br
+              %ul
+                %li
+                  %span Subjects:
+                %br
               %p
                 %span = $tutor->subjects
               %br
-              %li
-                %span Education:
-              %br
+              %ul
+                %li
+                  %span Education:
+                %br
               %p = $tutor->education
               %br
-              %li
-                %span Experience:
-              %br
-              %p = $tutor->experience
+              .experience
+                %ul
+                  %li
+                    %span Experience:
+                  %br
+                %p = $tutor->experience
               %div.days-times-wrapper
                 %li
                   %span Days/times available:
@@ -52,20 +56,23 @@
             .slider-wrap
               -foreach($tutors as $tutor)
                 .teachers(id="tutor#{$tutor->id}")
-                  %a(href="#" )
-                    %img(class="tutor-preview" src="#{$tutorsImgFolder . $tutor->small_image}" )
+                  .teachers-image.even
+                    %a(href="#" )
+                      %img(class="tutor-preview" src="#{$tutorsImgFolder . $tutor->small_image}" )
                   %h2 = $tutor->name
-                  %li
-                    %span Subjects:
-                  %p
-                    %span = $tutor->subjects
+                  %div.subjects
+                    .green-point
+                      Subjects:
+                    %p
+                      %span = $tutor->subjects
                   %div.time-avalibe-wrapper
-                    %li
-                      %span Days/times available:
-                    -foreach($tutor->tutorsDaysTimes as $dayTime)
-                      %p = $weekDays[$dayTime->weekday]. ' ' . date('gA', strtotime($dayTime->start_time)) . '-' .date('gA', strtotime($dayTime->end_time))
-                    %a(class="full-info" href="#" ) Watch full info
-                      %img(src="#{$this->assetsPath}/img/button_more.png" )
+                    .green-point
+                      Days/times available:
+                      %ul
+                        -foreach($tutor->tutorsDaysTimes as $dayTime)
+                          %li = $weekDays[$dayTime->weekday]. ' ' . date('gA', strtotime($dayTime->start_time)) . '-' .date('gA', strtotime($dayTime->end_time))
+                  %a(class="full-info" href="#" ) Watch full info
+                    %img(src="#{$this->assetsPath}/img/button_more.png" )
                     .clear
                     %input(type="button" class="btn all-buttons contact-tutor" value="contact now" data-popup-open="tutor-popup" data-tutor-id="#{$tutor->id}")
             .clear

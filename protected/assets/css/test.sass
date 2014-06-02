@@ -284,7 +284,7 @@ header
   left: 50%
   margin-left: -222px
   background: url("../img/tutor_popup.png") no-repeat
-  background-position: top center
+  background-position: right top
   width: 444px
   z-index: 10
 .tutor-text
@@ -296,7 +296,7 @@ header
   border-right: 1px solid #ECECEC
   border-bottom: 1px solid #ECECEC
   padding: 0 10px 0 10px
-  @include custom-border-radius(0, 0, 10px, 10px)
+  @include custom-border-radius(10px, 0, 10px, 10px)
   a.popup-close
     position: relative
     bottom: 20px
@@ -362,12 +362,14 @@ header
     font-size: 10px
     height: 10px
     text-align: center
-  .input-row, .field-select, .input-roww
+  .input-row, .field-select
     clear: both
     text-align: right
     width: 410px
   .input-row
     border-bottom: 1px solid #ececec
+  .border-none
+    border-bottom: none
   .text_input
     border: none
     outline: none
@@ -1505,11 +1507,18 @@ header#header-bg
     margin-top: 20px
     margin-bottom: 10px
   .tutor-details-image
+    display: block
     float: left
+    height: 503px
+    width: 299px
+    border-bottom: 1px solid #ECECEC
+    border-left: 1px solid #ECECEC
+    border-top: 1px solid #ECECEC
+    @include custom-border-radius(10px, 0, 0, 10px)
   .tutors-info
     float: right
     position: relative
-    height: 502px
+    min-height: 503px
     width: 639px
     border-top: 1px solid #ececec
     border-right: 1px solid #ececec
@@ -1521,7 +1530,7 @@ header#header-bg
     h2
       margin-left: 20px
       margin-top: 10px
-    li
+    //li
       margin-left: 20px
       list-style: inside
       color: #007c2d
@@ -1533,11 +1542,27 @@ header#header-bg
       margin-left: 40px
       line-height: 20px
       padding: 0 30px 0 0
+      word-wrap: break-word
       span
         color: #069342
+  .green-point
+    margin-left: 15px
+    color: #666666
+    font-weight: 700
+    font-size: 15px
+    line-height: 15px
+  .green-point:before
+    display: inline-block
+    content: ""
+    background: url("../img/point_description.png") 0 0 no-repeat
+    background-position: 1px 2px
+    width: 14px
+    height: 14px
+  .experience
+    height: 190px
   .days-times-wrapper
-    position: absolute
-    bottom: 30px
+    /*position: absolute
+    /*bottom: 30px
     .days-times
       height: 81px
       width: 560px
@@ -1582,22 +1607,20 @@ header#header-bg
       color: #666666
       line-height: 1.5
       position: relative
-      li
+      //li
         width: 220px
-        margin-left: 20px
+        margin-left: 32px
         list-style: inside
         color: #007c2d
-        span
-          color: #666666
-          font-weight: 700
-          font-size: 15px
+        color: #666666
+        font-size: 15px
       p
         margin-left: 34px
         padding: 0 5px 0 0
         span
           color: #069342
       .slider-list
-        height: 591px
+        height: 650px
         margin: 0
         overflow: hidden
         padding: 0
@@ -1623,31 +1646,57 @@ header#header-bg
       .teachers
         position: relative
         width: 218px
-        height: 580px
+        min-height: 620px
         float: left
         margin: 0 18px 0 0
         @include borders-left-right-bottom
         @include border-radius(20px)
-        .time-avalibe-wrapper
-          position: absolute
-          bottom: 0
-          padding-bottom: 30px
-          p+p+p+p
-            padding-bottom: 50px
-          a
-            margin-left: 34px
-            font-family: $head-fonts
-            font-size: 15px
-            color: #069442
-            text-decoration: none
-            &:hover
-              text-decoration: underline
         &:last-child
           margin: 0 0 0 2px
+      a.full-info
+        padding-left: 34px
+        font-family: $head-fonts
+        font-size: 15px
+        color: #069442
+        text-decoration: none
+        &:hover
+          text-decoration: underline
       .teachers h2
         font-size: 24px !important
         color: #007c2d
         text-align: center
+      div.subjects
+        height: 110px
+      div.time-avalibe-wrapper
+        height: 180px
+      .teachers-image
+        img
+          max-width: 220px
+          height: 219px
+          @include custom-border-radius(10px, 10px, 0, 0)
+        a
+          display: block
+      .teachers-image
+        position: relative
+        display: inline-block
+        width: 220px
+        height: 219px
+      .even:after
+        position: absolute
+        left: 0
+        bottom: 0
+        content: ""
+        background: url("../img/mask_right.png") 0 0 no-repeat
+        width: 220px
+        height: 30px
+      .add:after
+        position: absolute
+        left: 0
+        bottom: 0
+        content: ""
+        background: url("../img/mask_left.png") 0 0 no-repeat
+        width: 220px
+        height: 30px
       .all-buttons
         position: absolute
         left: 60px
