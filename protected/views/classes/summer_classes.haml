@@ -128,7 +128,8 @@
           you want. We will confirm enrollment by email. Seminars may be cancelled due to insufficient enrollment. Classes offered eleven weeks from June 17 through August 26
         %input(type="button" class="popup-messsage-table-button" value="select classes" )
       %a(name="calendar" )
-        %h2 Omega Teaching Summer 2014 Enrollment Form:
+        %h2
+          %a(name="popup-messsage-table" )Omega Teaching Summer 2014 Enrollment Form:
       .summer_classes_register_table(data-action="#{$this->createUrl('enroll/summer')}")
         -$detailsCellHeight = 21;
         .table_column.legend

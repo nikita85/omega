@@ -5,6 +5,7 @@
       %p Registration form
       .your-courses
         %h2 Your courses
+          %a(href="/classes/summer/#popup-messsage-table" )change
         - foreach($yourSeminars as $seminar){
         .your-courses-data
           %h3#{$seminar["description"]}
