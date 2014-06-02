@@ -39,6 +39,7 @@ abstract class BaseApplicant extends GxActiveRecord {
 		return array(
 			array('name, phone, email, cv, created', 'required'),
 			array('name, phone, email, cv', 'length', 'max'=>255),
+            array('email', 'email'),
 			array('id, name, phone, email, cv, created', 'safe', 'on'=>'search'),
 		);
 	}

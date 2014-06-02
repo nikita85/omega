@@ -4,6 +4,8 @@ Yii::import('application.models._base.BaseEnrollFormKnoll');
 
 class EnrollFormKnoll extends BaseEnrollFormKnoll
 {
+    public $payment_status; // this property is for search purposes only
+    
 	public static function model($className=__CLASS__) {
 		return parent::model($className);
 	}
@@ -68,8 +70,6 @@ class EnrollFormKnoll extends BaseEnrollFormKnoll
                         return false;
                     }
                     
-                    exit;
-                    
                     $this->order_id = $order->id;
                     
                     $studentSeminar = new StudentSeminars();
@@ -100,11 +100,28 @@ class EnrollFormKnoll extends BaseEnrollFormKnoll
         
         }
         
-        public function selectAll()
+        public function search() 
         {
             $criteria = new CDbCriteria();
 
             $criteria->select = "*";
+            
+            $criteria->with = [
+               'order'
+            ];
+            
+            $criteria->compare('student_name',         $this->student_name, true);
+            $criteria->compare('grade',                $this->grade);
+            $criteria->compare('parent_name',          $this->parent_name, true);
+            $criteria->compare('address',              $this->address, true);
+            $criteria->compare('parent_email',         $this->parent_email);
+            $criteria->compare('parent_phone',         $this->parent_phone);
+            $criteria->compare('food_alergies',        $this->food_alergies, true);
+            $criteria->compare('additional_comments',  $this->additional_comments, true);
+            
+            $criteria->compare('order.payment_status', $this->payment_status);
+            
+ 
 
             $dataProvider = new CActiveDataProvider($this, [
                 'criteria' => $criteria,
@@ -114,5 +131,6 @@ class EnrollFormKnoll extends BaseEnrollFormKnoll
             ]);
 
             return $dataProvider;
+            
         }
 }

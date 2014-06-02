@@ -1,11 +1,13 @@
 %h2 Oak Knoll
+%a(href="/admin/EnrollFormKnoll/create")
+  %h3 + Add new
 :php
-  $enrollKnoll = new EnrollFormKnoll();
- 
   $this->widget('bootstrap.widgets.TbExtendedGridView', [
     'type'         => 'striped bordered condensed',
     'htmlOptions'  => ['class' => 'studentManagement'],
-    'dataProvider' => $enrollKnoll->selectAll(),
+    'dataProvider' => $enrollKnoll->search(),
+
+    'filter'       => $enrollKnoll,
     'columns'=> [
       [
         'header' => 'Student name',
@@ -43,18 +45,36 @@
         'value'  => '$data->food_alergies',
       ] ,
       [
-        'header' => 'Payment',
-        'name'   => 'food_alergies',
-        'value'  => '$data->order->payment_status',
+        'header' => 'Additional comments',
+        'name'   => 'additional_comments',
+        'value'  => '$data->additional_comments',
       ] ,
+      [
+        'header' => 'Payment',
+        'name'   => 'payment_status',
+        'value'  => '$data->order->payment_status',
+        'filter' => ['pending'=>'pending', 'completed'=>'completed', 'canceled'=>'canceled', 'failed'=>'failed' ]
+      ] ,
+      [
+        'class'       => 'bootstrap.widgets.TbButtonColumn',
+        'template'    => '{update}{delete}',
+        'buttons'     => [
+          'update'=> [
+            'label'=>'Update',       
+            'url'  =>'Yii::app()->controller->createUrl("/admin/enrollFormKnoll/update/id/" . $data->enroll_form_id)'
+          ],
+          'delete'=> [
+            'label'=>'Delete',       
+            'url'  =>'Yii::app()->controller->createUrl("/admin/enrollFormKnoll/delete/id/" . $data->enroll_form_id)'
+          ],
+        ],
+      ],
  
     ]
   ]);
 
 %h2 Hillview
 :php
-  $enrollHillview = new EnrollFormHillview();
- 
   $this->widget('bootstrap.widgets.TbExtendedGridView', [
     'type'         => 'striped bordered condensed',
     'htmlOptions'  => ['class' => 'studentManagement'],
@@ -113,8 +133,6 @@
 
 %h2 Summer seminars
 :php
-  $enrollSummer = new EnrollFormSummer();
- 
   $this->widget('bootstrap.widgets.TbExtendedGridView', [
     'type'         => 'striped bordered condensed',
     'htmlOptions'  => ['class' => 'studentManagement'],

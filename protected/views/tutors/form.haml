@@ -1,0 +1,102 @@
+.tutor-thank-you
+  %div.thank-text
+    %h1 Thank you for request!
+    %p Your submission has been recieved.
+      %br
+        Please wait for us to confirm your request.
+    %a.thank-close(href="#" )close
+  %div.thank-img
+    %img(src="#{$this->assetsPath}/img/thank_clock.png" )
+.tutor-contact-form
+  %h1 Please fill in your request form
+  .registration-form-popup
+    :php
+      $form = $this->beginWidget('CActiveForm',array(
+        'id'=>'tutorStudent-form',
+        'enableClientValidation'=>true,
+        'enableAjaxValidation'=>true,
+        'action'=>$this->createUrl('tutors/form'),
+        'htmlOptions'=>array(
+            'class'=>'forms',
+        ),
+      ));
+    %div.input-row
+      %label(class="label-name")Teacher's name
+      %div.input_block.cl
+        %label(class="label-name")
+          %span = $tutorStudent->tutors->name
+    %div.input-row
+      %label(class="label-name-select") Desired time
+        %span*
+      %div.select-desired-time
+        =$form->dropDownList($tutorStudent, 'tutors_days_times_id', CHtml::listData($tutorStudent->tutors->tutorsDaysTimes, 'id', function($dayTime){ return $dayTime;}), ['class' => 'select-date-time']);
+    %div.input-row
+      %label(class="label-name-select") Alternative time
+      %div.input_block.cl
+        %div.error-message
+          =$form->error($tutorStudent,'alternative_time')
+        =$form->textField($tutorStudent,'alternative_time', ['class' => 'text_input'])
+    %div.input-roww
+      %label(class="label-name")Other requests
+      %div.input_block.cl
+        %div.error-message
+          =$form->error($tutorStudent,'other_requests')
+        =$form->textArea($tutorStudent,'other_requests', ['class' => 'textarea-input'])
+    %h2 Your personal information
+    %div.input-row
+      %label(class="label-name")First Name
+        %span*
+      %div.input_block.cl
+        %div.error-message
+          =$form->error($tutorStudent,'first_name')
+        =$form->textField($tutorStudent,'first_name', ['class' => 'text_input'])
+    %div.input-row
+      %label(class="label-name")Second Name
+        %span*
+      %div.input_block.cl
+        %div.error-message
+          =$form->error($tutorStudent,'second_name')
+        =$form->textField($tutorStudent,'second_name', ['class' => 'text_input'])
+    %div.input-row
+      %label(class="label-name")Phone number
+        %span*
+      %div.input_block.cl
+        %div.error-message
+          =$form->error($tutorStudent,'phone')
+        =$form->textField($tutorStudent,'phone', ['class' => 'text_input'])
+    %div.input-row
+      %label(class="label-name")E-mail
+        %span*
+      %div.input_block.cl
+        %div.error-message
+          =$form->error($tutorStudent,'email')
+        =$form->textField($tutorStudent,'email', ['class' => 'text_input'])
+    =$form->hiddenField($tutorStudent,'tutors_id', ['value' => $tutorStudent->tutors->id])
+    %div
+      :php
+        echo CHtml::ajaxSubmitButton('SEND',CHtml::normalizeUrl(array('tutors/form')),
+          array(
+            'dataType'=>'json',
+            'type'=>'post',
+            'beforeSend' => 'function(){$("#loading").show();}',
+            'success'=>'function(data)
+              {
+                $("#loading").hide();
+                if(data.status=="success")
+                {
+                  $(".tutor-contact-form").hide();
+                  $("#tutorStudent-form")[0].reset();
+                  $(".tutor-thank-you").show();
+                }
+                else
+                {
+                  $.each(data, function(key, val)
+                  {
+                    $("#tutorStudent-form #"+key+"_em_").text(val);
+                    $("#tutorStudent-form #"+key+"_em_").show();
+                  });
+                }
+              }'
+            ),
+            ['class' => 'btn registration-button-knoll']);
+    -$this->endWidget();

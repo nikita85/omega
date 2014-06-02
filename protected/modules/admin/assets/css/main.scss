@@ -102,7 +102,7 @@
 }
 
 .time_select_block {
-  label, .jqxWidget{
+  label, .jqxWidget, select{
     display: inline-block;
     vertical-align: middle;
     margin-bottom: 0 !important;
@@ -116,7 +116,7 @@
 }
 
 .date_period_block {
-  label, .jqxWidget{
+  label, .jqxWidget, select{
     display: inline-block;
     vertical-align: middle;
     margin-bottom: 0 !important;

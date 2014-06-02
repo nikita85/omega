@@ -49,9 +49,9 @@ abstract class BaseEnrollFormKnoll extends GxActiveRecord {
 			array('grade', 'length', 'max'=>4),
 			array('parent_phone', 'length', 'max'=>12),
 			array('order_id', 'length', 'max'=>11),
-			array('additional_comments', 'safe'),
 			array('address, parent_email, food_alergies, additional_comments, order_id', 'default', 'setOnEmpty' => true, 'value' => null),
-			array('enroll_form_id, student_name, grade, parent_name, address, parent_email, parent_phone, food_alergies, additional_comments, order_id', 'safe', 'on'=>'search'),
+			array('additional_comments, payment_status', 'safe'),
+			array('enroll_form_id, student_name, grade, parent_name, address, parent_email, parent_phone, food_alergies, additional_comments, order_id, payment_status', 'safe', 'on'=>'search'),
 		);
 	}
 
