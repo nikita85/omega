@@ -68,9 +68,9 @@
                   .time-avalibe-wrapper
                     .green-point
                       Days/times available:
-                      %ul
-                        -foreach($tutor->tutorsDaysTimes as $dayTime)
-                          %li = $weekDays[$dayTime->weekday]. ' ' . date('gA', strtotime($dayTime->start_time)) . '-' .date('gA', strtotime($dayTime->end_time))
+                    %ul
+                      -foreach($tutor->tutorsDaysTimes as $dayTime)
+                        %li = $weekDays[$dayTime->weekday]. ' ' . date('gA', strtotime($dayTime->start_time)) . '-' .date('gA', strtotime($dayTime->end_time))
                   %a(class="full-info" href="#" ) Watch full info
                     %img(src="#{$this->assetsPath}/img/button_more.png" )
                     .clear
