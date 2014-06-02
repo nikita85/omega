@@ -1571,21 +1571,22 @@ header#header-bg
       @include linear-gradient(#fcfbfb, #f1f1f1)
       @include border-radius(10px)
       li
+        font-size: 12px
         list-style: none
         position: relative
-        left: 7px
-        margin-top: 15px
+        /*left: 7px
+        margin-top: 20px
         text-align: center
         float: left
-        width: 95px
         color: #666666 !important
-        /*font-size: 15px
+        @include box-sizing ('border-box')
         span
+          display: block
           color: #039241
           font-weight: 400 !important
       li+li
         border-left: 1px solid #ececec
-        padding: 0 0 0 20px
+        /*padding: 0 0 0 20px
       .our-tutors-button
         position: absolute
         left: 252px
@@ -1613,7 +1614,6 @@ header#header-bg
         margin-left: 34px
       li
         font-weight: 400
-        width: 220px
         color: #666666
         font-size: 13px
         line-height: normal

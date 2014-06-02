@@ -40,8 +40,9 @@
                   Days/times available:
                 %br
                 %ul.days-times
+                  -$dayTimeCount = count($tutor->tutorsDaysTimes)
                   -foreach($tutor->tutorsDaysTimes as $dayTime)
-                    %li
+                    %li(style="width:#{100/$dayTimeCount}%;")
                       %span = $weekDays[$dayTime->weekday]
                       = date('gA', strtotime($dayTime->start_time)) . '-' .date('gA', strtotime($dayTime->end_time))
                   %input(type="button" class="btn our-tutors-button contact-tutor" value="contact now" data-popup-open="tutor-popup" data-tutor-id="#{$tutor->id}")
