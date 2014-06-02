@@ -1579,6 +1579,7 @@ header#header-bg
         float: left
         width: 95px
         color: #666666 !important
+        /*font-size: 15px
         span
           color: #039241
           font-weight: 400 !important
@@ -1607,13 +1608,15 @@ header#header-bg
       color: #666666
       line-height: 1.5
       position: relative
-      //li
+      ul
+        margin-top: 20px
+      li
+        font-weight: 400
         width: 220px
-        margin-left: 32px
-        list-style: inside
-        color: #007c2d
+        margin-left: 18px
         color: #666666
-        font-size: 15px
+        font-size: 13px
+        line-height: normal
       p
         margin-left: 34px
         padding: 0 5px 0 0
@@ -1646,7 +1649,7 @@ header#header-bg
       .teachers
         position: relative
         width: 218px
-        min-height: 620px
+        min-height: 630px
         float: left
         margin: 0 18px 0 0
         @include borders-left-right-bottom
@@ -1661,12 +1664,14 @@ header#header-bg
         text-decoration: none
         &:hover
           text-decoration: underline
+        img
+          vertical-align: middle
       .teachers h2
         font-size: 24px !important
         color: #007c2d
         text-align: center
-      div.subjects
-        height: 110px
+      div.subjects,.formation
+        height: 120px
       div.time-avalibe-wrapper
         height: 180px
       .teachers-image
@@ -1681,7 +1686,7 @@ header#header-bg
         display: inline-block
         width: 220px
         height: 219px
-      .even:after
+      .even:after, .add:after
         position: absolute
         left: 0
         bottom: 0
@@ -1690,13 +1695,7 @@ header#header-bg
         width: 220px
         height: 30px
       .add:after
-        position: absolute
-        left: 0
-        bottom: 0
-        content: ""
         background: url("../img/mask_left.png") 0 0 no-repeat
-        width: 220px
-        height: 30px
       .all-buttons
         position: absolute
         left: 60px

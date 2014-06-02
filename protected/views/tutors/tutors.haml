@@ -17,28 +17,27 @@
               %img(src="#{$tutorsImgFolder . $tutor->big_image}" )
             .tutors-info
               %h2 = $tutor->name
-              %ul
-                %li
-                  %span Subjects:
+              .subjects
+                .green-point
+                  Subjects:
                 %br
-              %p
-                %span = $tutor->subjects
+                  %p
+                    %span = $tutor->subjects
               %br
-              %ul
-                %li
-                  %span Education:
+              .formation
+                .green-point
+                  Education:
                 %br
-              %p = $tutor->education
+                  %p = $tutor->education
               %br
               .experience
-                %ul
-                  %li
-                    %span Experience:
-                  %br
+                .green-point
+                  Experience:
+                %br
                 %p = $tutor->experience
-              %div.days-times-wrapper
-                %li
-                  %span Days/times available:
+              .days-times-wrapper
+                .green-point
+                  Days/times available:
                 %br
                 %ul.days-times
                   -foreach($tutor->tutorsDaysTimes as $dayTime)
@@ -60,12 +59,13 @@
                     %a(href="#" )
                       %img(class="tutor-preview" src="#{$tutorsImgFolder . $tutor->small_image}" )
                   %h2 = $tutor->name
-                  %div.subjects
+                  .subjects
                     .green-point
                       Subjects:
+                    %br
                     %p
                       %span = $tutor->subjects
-                  %div.time-avalibe-wrapper
+                  .time-avalibe-wrapper
                     .green-point
                       Days/times available:
                       %ul
