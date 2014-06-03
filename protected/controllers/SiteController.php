@@ -40,6 +40,20 @@ class SiteController extends Controller
             {
                 $monthPuzzleParticipant->save();
 
+                $monthPuzzle = MonthPuzzle::model()->findByAttributes(['active' => 1]);
+
+                try {
+                    $message = new YiiMailMessage;
+
+                    $message->subject = 'Month Puzzle';
+
+                    $message->setTo($monthPuzzleParticipant->email);
+                    $message->from = 'noreply@maximumtest.ru';
+                    $message->setBody($monthPuzzle->answer, 'text/html');
+                    Yii::app()->mail->send($message);
+                } catch (Exception $e) {
+                }
+
                 echo CJSON::encode(array(
                     'status'=>'success'
                 ));
@@ -51,13 +65,6 @@ class SiteController extends Controller
             }
             Yii::app()->end();
         }
-
-//        echo CJSON::encode([
-//            'popup_content'=>$this->renderPartial('form', [
-//                    'tutorStudent' => $tutorStudent,
-//                ], true, true)
-//        ]);
-
 
     }
 
