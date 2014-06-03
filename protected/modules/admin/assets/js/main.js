@@ -35,21 +35,9 @@ $(document).ready(function(){
       location.pathname="/";
    });
 
-/*    var myForm = document.getElementById('seminar-form');
-    myForm.onsubmit = function() {
-        var allInputs = myForm.getElementsByTagName('input');
-        var input, i;
-
-        for(i = 0; input = allInputs[i]; i++) {
-            if(input.getAttribute('name') && !input.value) {
-                input.setAttribute('name', '');
-            }
-        }
-    };*/
 
     $('form').on('submit', function(){
         $(this).find('[name*="##uid##"]').attr('name', '');
-       //$('.datePeriodRowTemplate input.text').attr('name', '');
     });
 
     /*TIME ROW*/
@@ -91,17 +79,9 @@ $(document).ready(function(){
     $('.datePeriodRow').not('.datePeriodRowTemplate').each(function(){
         var row = $(this); console.log(this);
         row.find('.jqxWidget.date').each(function(){
-            var dateValue = $(this).attr('value');
-
             $(this).jqxDateTimeInput({width: '200px', height: '25px', formatString: 'yyyy-MM-dd'});
-/*            console.log('asd');
-            if(dateValue){
-                $(this).jqxDateTimeInput('setDate', new Date(ConvertToDate(timeValue)));
-            }*/
         });
         row.find('.jqxWidget.text').each(function(){
-/*            var nameAttr = $(this).attr('name');
-            $(this).attr('name' , nameAttr.replace('##uid##', uiid));*/
             $(this).jqxInput({height: 25, width: 200 });
         });
     });
@@ -133,6 +113,39 @@ $(document).ready(function(){
     });
 
     /*END DATE PERIOD ROW*/
+
+    /*MONTH PUZZLE*/
+
+    if ($('#monthPuzzle').length){
+
+        var radioButtons = $('input[name="active_month_puzzle"]');
+
+        radioButtons.each(function(){
+            if($(this).attr('data-checked') == 1){
+                $(this).prop("checked", true);
+            }
+        });
+
+        radioButtons.on('change', function(){
+            var puzzleId = $(this).val();
+
+            $.ajax("switchActivePuzzle", {
+                type: 'POST',
+                cache: false,
+                data: {puzzleId: puzzleId},
+                dataType:'JSON',
+                success: function(data) {
+                    if (data.success) {
+                       console.log(data)
+                    } else {
+                        //window.location.href = "/admin/knowledgeBase/index";
+                    }
+                }
+            });
+        });
+    }
+
+    /*END MONTH PUZZLE*/
 
 
 

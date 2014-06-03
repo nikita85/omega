@@ -18,6 +18,10 @@ $menu = [
         'url' => ['/admin/dayOff/index'],
     ],
     [
+        'label' => AdminModule::t('ui', 'Month Puzzle'),
+        'url' => ['/admin/monthPuzzle/index'],
+    ],
+    [
         'label' => AdminModule::t('ui', 'Grade'),
         'url' => ['/admin/grade/index'],
     ],

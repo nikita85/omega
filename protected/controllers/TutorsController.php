@@ -63,9 +63,6 @@ class TutorsController extends Controller
                     'tutorStudent' => $tutorStudent,
                 ], true, true)
         ]);
-//        $this->renderPartial('form', [
-//            'tutorStudent' => $tutorStudent,
-//        ], true, true);
     }
 
 }

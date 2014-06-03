@@ -54,9 +54,10 @@
           .slider_nav.prev_
           .slider-list
             .slider-wrap
+              -$j = 1
               -foreach($tutors as $tutor)
                 .teachers(id="tutor#{$tutor->id}")
-                  .teachers-image.even
+                  .teachers-image(class="#{$j%2 ? 'even': 'odd';}")
                     %a(href="#" )
                       %img(class="tutor-preview" src="#{$tutorsImgFolder . $tutor->small_image}" )
                   %h2 = $tutor->name
@@ -76,6 +77,7 @@
                     %img(src="#{$this->assetsPath}/img/button_more.png" )
                     .clear
                     %input(type="button" class="btn all-buttons contact-tutor" value="contact now" data-popup-open="tutor-popup" data-tutor-id="#{$tutor->id}")
+                -$j++
             .clear
           .slider_nav.next_
       .clear

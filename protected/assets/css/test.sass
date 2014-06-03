@@ -227,6 +227,8 @@ header
         font-family: $second-fonts
         font-size: 13px
         color: #333333
+        &.pre-wrap
+          white-space: pre-wrap
       .enter-your-mail
         padding-bottom: 30px
         .enter-mail
@@ -247,7 +249,7 @@ header
           &:hover
             @include linear-gradient(#019140, #6bcb64)
 /**THANK YOU POPUP**/
-.tutor-thank-you
+.tutor-thank-you, .puzzle-thank-you
   display: none
 .thank-text
   text-align: center
@@ -267,6 +269,11 @@ header
   position: absolute
   bottom: -3px
   left: 70px
+.error-message
+  color: #c01
+  font-family: $head-fonts
+  font-size: 10px
+  height: 10px
 /**TUTORS POPUP**/
 .tutor-popup-main
   background: none repeat scroll 0 0 rgba(0, 0, 0, 0.5)

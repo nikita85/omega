@@ -4,6 +4,8 @@ class SiteController extends Controller
 {
 
     public $layout = '//layouts/default';
+    public $monthPuzzle = null;
+    public $monthPuzzleParticipant = null;
 
     /**
      * This is the default 'index' action that is invoked
@@ -11,17 +13,52 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-            $this->render('index');
+        $this->monthPuzzle = MonthPuzzle::model()->findByAttributes(['active' => 1]);
+        $this->monthPuzzleParticipant = new MonthPuzzleParticipant();
+        $this->render('index', []);
     }
 
-    public function actionClasses($view = 'main')
+    public function actionMonthPuzzleForm()
     {
-        $this->render("classes/{$view}");
-    }
+        if (!Yii::app()->request->isAjaxRequest) {
+            $this->redirect(['index']);
+        }
 
-    public  function actionSummerClasses($view = 'main')
-    {
-        $this->render("classes/summer/{$view}");
+        $monthPuzzleParticipant = new MonthPuzzleParticipant();
+
+        if(isset($_POST['ajax']) && $_POST['ajax']==='monthPuzzleParticipant-form')
+        {
+            echo CActiveForm::validate($monthPuzzleParticipant);
+            Yii::app()->end();
+        }
+
+        if(isset($_POST['MonthPuzzleParticipant']))
+        {
+            $monthPuzzleParticipant->attributes=$_POST['MonthPuzzleParticipant'];
+            $valid = $monthPuzzleParticipant->validate();
+            if($valid)
+            {
+                $monthPuzzleParticipant->save();
+
+                echo CJSON::encode(array(
+                    'status'=>'success'
+                ));
+            } else
+            {
+                $error = CActiveForm::validate($monthPuzzleParticipant);
+                if($error!='[]')
+                    echo $error;
+            }
+            Yii::app()->end();
+        }
+
+//        echo CJSON::encode([
+//            'popup_content'=>$this->renderPartial('form', [
+//                    'tutorStudent' => $tutorStudent,
+//                ], true, true)
+//        ]);
+
+
     }
 
     public function actionJobs()
@@ -64,60 +101,60 @@ class SiteController extends Controller
         ]);
     }
 
-    public function actionLiteraryAnalysis()
-    {
-        $this->render('literary_analysis');
-    }
-
-    public function actionTestPrepBootCamp()
-    {
-        $this->render('test_prep_boot_camp');
-    }
-
-    public function actionEssayStatement()
-    {
-        $this->render('essay_statement');
-    }
-
-    public function actionMythsAndMonsters()
-    {
-        $this->render('myths_and_monsters');
-    }
-
-    public function actionTheDogs()
-    {
-        $this->render('the_dogs');
-    }
-
-    public function actionMakeemLaugh()
-    {
-        $this->render('make‘em_laugh');
-    }
-
-    public function actionPowerOfStory()
-    {
-        $this->render('power_of_story');
-    }
-
-    public function actionMainClasses()
-    {
-        $this->render('main_classes');
-    }
-
-    public function actionSummerClassesRegistrationForm()
-    {
-        $this->render('summer_classes_registration_form');
-    }
-
-    public function actionknollregistrationform()
-    {
-        $this->render('knoll_registration_form');
-    }
-
-    public function actionhillviewregistrationform()
-    {
-        $this->render('hillview_registration_form');
-    }
+//    public function actionLiteraryAnalysis()
+//    {
+//        $this->render('literary_analysis');
+//    }
+//
+//    public function actionTestPrepBootCamp()
+//    {
+//        $this->render('test_prep_boot_camp');
+//    }
+//
+//    public function actionEssayStatement()
+//    {
+//        $this->render('essay_statement');
+//    }
+//
+//    public function actionMythsAndMonsters()
+//    {
+//        $this->render('myths_and_monsters');
+//    }
+//
+//    public function actionTheDogs()
+//    {
+//        $this->render('the_dogs');
+//    }
+//
+//    public function actionMakeemLaugh()
+//    {
+//        $this->render('make‘em_laugh');
+//    }
+//
+//    public function actionPowerOfStory()
+//    {
+//        $this->render('power_of_story');
+//    }
+//
+//    public function actionMainClasses()
+//    {
+//        $this->render('main_classes');
+//    }
+//
+//    public function actionSummerClassesRegistrationForm()
+//    {
+//        $this->render('summer_classes_registration_form');
+//    }
+//
+//    public function actionknollregistrationform()
+//    {
+//        $this->render('knoll_registration_form');
+//    }
+//
+//    public function actionhillviewregistrationform()
+//    {
+//        $this->render('hillview_registration_form');
+//    }
 
     public function actionOurMarket()
     {
@@ -147,16 +184,16 @@ class SiteController extends Controller
 
         Yii::app()->end();
     }
-
-    public function actionknoll()
-    {
-        $this->render('knoll');
-    }
-
-    public function actionhillview()
-    {
-        $this->render('hillview');
-    }
+//
+//    public function actionknoll()
+//    {
+//        $this->render('knoll');
+//    }
+//
+//    public function actionhillview()
+//    {
+//        $this->render('hillview');
+//    }
 
 	/**
 	 * This is the action to handle external exceptions.
