@@ -109,7 +109,7 @@
               %div.error-message
               = $form->emailField($model, 'student_email', array("class"=>"text_input"))
               = $form->error($model, 'student_email', array("class"=>"error-message", "style"=>"margin-top:5px"))
-          %input(type="button" class="btn registration-button" value="continue")
+          %input(type="button" class="btn registration-button js-continue-button" value="continue" data-next-tab="tab2" data-current-tab="tab1")
         %div.tab_content#tab2
           %div.input-row
             = $form->labelEx($model, 'parent_name_1', array("class"=>"label-name"))
@@ -183,7 +183,7 @@
               %div.error-message
               = $form->textField($model, 'person_relation_to_student', array("class"=>"text_input"))
               = $form->error($model, 'person_relation_to_student', array("class"=>"error-message", "style"=>"margin-top:5px"))
-          %input(type="button" class="btn registration-button" value="continue" )
+          %input(type="button" class="btn registration-button js-continue-button" value="continue"  data-next-tab="tab3" data-current-tab="tab2")
         %div.tab_content#tab3
           %div.input-row
             = $form->labelEx($model, 'physician_name', array("class"=>"label-name"))
