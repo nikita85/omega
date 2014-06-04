@@ -195,16 +195,49 @@ header
     display: none
     top: 226px
     left: 782px
-    background: url("../img/button_puzzle_opened2.png") no-repeat
-    background-position: top center
+    /*background: url("../img/button_puzzle_opened2.png") no-repeat
+    /*background-position: top center
     width: 360px
+    height: 100px
     margin-left: -222px
+  &.puzzle-popup:after
+    content: ''
+    position: absolute
+    width: 100%
+    height: 100%
+    left: 0
+    top: 0
+    background: #FFFFFF
+    z-index: -1
+    @include custom-border-radius(10px, 10px, 0, 0)
+    -ms-transform-origin: 97% 100%
+    -webkit-transform-origin: 97% 100%
+    transform-origin:  97% 100%
+    -ms-transform: skewY(-5deg)
+    -webkit-transform: skewY(-5deg)
+    transform:  skewY(-5deg)
   &.tutor-popup
     left: 30%
     top: 0
-    background: url("../img/tutor_popup.png") no-repeat
-    background-position: right top
+    /*background: url("../img/tutor_popup.png") no-repeat
+    /*background-position: right top
     width: 444px
+  &.tutor-popup:after
+    content: ''
+    position: absolute
+    width: 100%
+    height: 100%
+    left: 0
+    top: 0
+    background: #FFFFFF
+    z-index: -1
+    @include custom-border-radius(10px, 10px, 10px, 10px)
+    -ms-transform-origin: 0 100%
+    -webkit-transform-origin: 0 100%
+    transform-origin:  0 100%
+    -ms-transform: skewY(-5deg)
+    -webkit-transform: skewY(-5deg)
+    transform:  skewY(-5deg)
     /**POPUP TEXT**/
   .popup-text
     min-height: 240px
@@ -250,6 +283,10 @@ header
   display: none
   .thank-text
     text-align: center
+    position: relative
+    top: 100px
+    &.tutor-thank
+      top: 200px
     h1, p, a
       text-align: center !important
     p
