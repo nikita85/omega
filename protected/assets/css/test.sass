@@ -59,8 +59,6 @@ a
   font-family: $second-fonts
   text-transform: uppercase
   @include border-radius(20px)
-.popup
-  z-index: 60 !important
 /**HEADER**/
 header
   background: url("../img/header_bg_light.png") no-repeat
@@ -189,86 +187,83 @@ header
         height: 65px
         cursor: pointer
     /**POPUPS**/
-    .puzzle-popup
-      display: none
-      position: absolute
-      top: 225px
-      left: 560px
-      background: url("../img/button_puzzle_opened2.png") no-repeat
-      background-position: top center
-      width: 360px
-      z-index: 1
-    .popup-text
-      margin-top: 40px
-      background-color: #ffffff
-      line-height: normal
-      padding: 0 10px 0 10px
-      @include custom-border-radius(0, 0, 10px, 10px)
-      a
-        position: relative
-        bottom: 20px
-        right: 10px
-        float: right
-        font-family: $second-fonts
-        font-size: 13px
-        color: #333333
-        text-decoration: none
-        &:hover
-          text-decoration: underline
-      h1
-        padding-top: 20px
-        font-family: $second-fonts
-        font-size: 13px
-        color: #333333
-      h2
-        font-size: 18px
-        color: #0a9643
-      p, .enter-your-mail
-        font-family: $second-fonts
-        font-size: 13px
-        color: #333333
-        &.pre-wrap
-          white-space: pre-wrap
-      .enter-your-mail
-        padding-bottom: 30px
-        .enter-mail
-          border: none
-          outline: none
-          margin-top: 5px
-          background: url("../img/input.png") no-repeat
-          width: 212px
-          height: 24px
-          padding: 0 10px
-        .enter-email-button
-          margin-top: 4px
-          font-family: $head-fonts
-          font-size: 10px
-          font-weight: 700
-          padding: 4px 6px
-          @include linear-gradient(#6bcb64, #019140)
-          &:hover
-            @include linear-gradient(#019140, #6bcb64)
+.popup
+  display: none
+  position: absolute
+  z-index: 60
+  &.puzzle-popup
+    display: none
+    top: 226px
+    left: 782px
+    background: url("../img/button_puzzle_opened2.png") no-repeat
+    background-position: top center
+    width: 360px
+    margin-left: -222px
+  &.tutor-popup
+    left: 30%
+    top: 0
+    background: url("../img/tutor_popup.png") no-repeat
+    background-position: right top
+    width: 444px
+    /**POPUP TEXT**/
+  .popup-text
+    min-height: 240px
+    margin-top: 40px
+    background-color: #ffffff
+    line-height: normal
+    padding: 0 10px 0 10px
+    @include custom-border-radius(0, 0, 10px, 10px)
+      padding-top: 20px
+      font-family: $second-fonts
+      font-size: 13px
+      color: #333333
+    h2
+      font-size: 18px
+      color: #0a9643
+    p, .enter-your-mail
+      font-family: $second-fonts
+      font-size: 13px
+      color: #333333
+      &.pre-wrap
+        white-space: pre-wrap
+  .enter-your-mail
+    padding-bottom: 30px
+    .enter-mail
+      border: none
+      outline: none
+      margin-top: 5px
+      background: url("../img/input.png") no-repeat
+      width: 212px
+      height: 24px
+      padding: 0 10px
+    .enter-email-button
+      margin-top: 4px
+      font-family: $head-fonts
+      font-size: 10px
+      font-weight: 700
+      padding: 4px 6px
+      @include linear-gradient(#6bcb64, #019140)
+      &:hover
+        @include linear-gradient(#019140, #6bcb64)
 /**THANK YOU POPUP**/
 .tutor-thank-you, .puzzle-thank-you
   display: none
-.thank-text
-  text-align: center
-  position: relative
-  top: 200px
-  h1, p, a
-    text-align: center !important
-  p
-    padding-top: 10px
-    font-size: 13px
-    padding-bottom: 30px
-  a.thank-close
+  .thank-text
+    text-align: center
+    h1, p, a
+      text-align: center !important
+    p
+      padding-top: 10px
+      font-size: 13px
+      padding-bottom: 30px
+  .thank-close
     color: #0a9643
     font-family: $second-fonts
     font-size: 13px
-.thank-img
-  position: absolute
-  bottom: -3px
-  left: 70px
+  .thank-img
+    position: absolute
+    bottom: -3px
+    left: 80px
 .error-message
   color: #c01
   font-family: $head-fonts
@@ -284,18 +279,19 @@ header
   top: 0
   width: 100%
   z-index: 100
-.tutor-popup
-  display: none
-  position: absolute
-  top: 0
-  left: 50%
-  margin-left: -222px
-  background: url("../img/tutor_popup.png") no-repeat
-  background-position: right top
-  width: 444px
-  z-index: 10
+.popup-close
+  position: relative
+  bottom: 20px
+  right: 10px
+  float: right
+  font-family: $second-fonts
+  font-size: 13px
+  color: #333333
+  text-decoration: none
+  &:hover
+    text-decoration: underline
 .tutor-text
-  height: 609px
+  min-height: 609px
   margin-top: 40px
   background-color: #ffffff
   line-height: normal
@@ -304,17 +300,6 @@ header
   border-bottom: 1px solid #ECECEC
   padding: 0 10px 0 10px
   @include custom-border-radius(10px, 0, 10px, 10px)
-  a.popup-close
-    position: relative
-    bottom: 20px
-    right: 10px
-    float: right
-    font-family: $second-fonts
-    font-size: 13px
-    color: #333333
-    text-decoration: none
-    &:hover
-      text-decoration: underline
   h1
     padding-top: 20px
     font-family: $second-fonts
