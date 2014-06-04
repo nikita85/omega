@@ -2,6 +2,14 @@
 
 $menu = [
     [
+        'label' => AdminModule::t('ui', 'Day Off'),
+        'url' => ['/admin/dayOff/index'],
+    ],
+    [
+        'label' => AdminModule::t('ui', 'Grade'),
+        'url' => ['/admin/grade/index'],
+    ],
+    [
         'label' => AdminModule::t('ui', 'Seminar'),
         'url' => ['/admin/seminar/index'],
     ],
@@ -14,16 +22,12 @@ $menu = [
         'url' => ['/admin/tutorStudent/index'],
     ],
     [
-        'label' => AdminModule::t('ui', 'Day Off'),
-        'url' => ['/admin/dayOff/index'],
-    ],
-    [
         'label' => AdminModule::t('ui', 'Month Puzzle'),
         'url' => ['/admin/monthPuzzle/index'],
     ],
     [
-        'label' => AdminModule::t('ui', 'Grade'),
-        'url' => ['/admin/grade/index'],
+        'label' => AdminModule::t('ui', 'Puzzle Emails'),
+        'url' => ['/admin/monthPuzzleParticipant/index'],
     ],
     [
         'label' => AdminModule::t('ui', 'Admin Logout'),

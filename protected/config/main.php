@@ -132,7 +132,7 @@ return array(
             'transportType' => 'smtp',
             'transportOptions' => array(
                 'host' => 'smtp.gmail.com',
-                'username' => 'omegateaching@gmail.com',
+                'username' => 'omegateaching5@gmail.com',
                 'password' => 'omegateaching',
                 'port' => '465',
                 'encryption' => 'ssl',
