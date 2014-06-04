@@ -7,10 +7,10 @@ $(document).ready(function () {
         $('.' + $(this).attr('data-popup-open')).fadeIn(500);
     });
 
-    $('.popup-close').on('click', function (e) {
+    $('.popup-close, .thank-close').on('click', function (e) {
         e.preventDefault();
         $('#bg-layer').fadeOut(500);
-        $(this).parent().parent().fadeOut(500);
+        $(this).parents('.popup').fadeOut(500);
     });
 
     /* Apploicant Form */

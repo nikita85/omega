@@ -7,7 +7,11 @@ class TutorsController extends Controller
 
     public function actionIndex()
     {
-        Yii::app()->clientScript->registerScriptFile($this->assetsPath . DS . 'js' . DS . 'tutors.js');
+
+        $cs=Yii::app()->getClientScript();
+        $cs->registerCoreScript('yiiactiveform');
+        $cs->registerScriptFile($this->assetsPath . DS . 'js' . DS . 'tutors.js');
+
 
         $tutors = Tutor::model()->findAllByAttributes(['active' => true]);
         $tutorsImgFolder = '/uploads/tutors_img/';
@@ -58,6 +62,7 @@ class TutorsController extends Controller
             Yii::app()->end();
         }
 
+        Yii::app()->clientScript->corePackages = array();
         echo CJSON::encode([
             'popup_content'=>$this->renderPartial('form', [
                     'tutorStudent' => $tutorStudent,
