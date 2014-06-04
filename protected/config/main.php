@@ -20,6 +20,7 @@ return array(
                 'application.models.behaviors.*',
 		'application.components.*',
                 'ext.giix-components.*',
+        'ext.yii-mail.YiiMailMessage',
 	),
 
 	'modules'=>array(
@@ -131,8 +132,8 @@ return array(
             'transportType' => 'smtp',
             'transportOptions' => array(
                 'host' => 'smtp.gmail.com',
-                'username' => 'noreply@maximumtest.ru',
-                'password' => 'Ga3ySY=Z.',
+                'username' => 'omegateaching5@gmail.com',
+                'password' => 'omegateaching',
                 'port' => '465',
                 'encryption' => 'ssl',
             ),
