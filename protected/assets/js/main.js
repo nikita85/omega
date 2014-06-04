@@ -38,7 +38,19 @@ $(document).ready(function() {
     $("ul.tabs li:first").addClass("actived").show();
     $(".tab_content:first").show();
 
+     
+    $(".js-continue-button").click(function() {
+        
+        $("li:has(a[href='#" + $(this).data("currentTab") + "'])").removeClass("actived");
+        $("li:has(a[href='#" + $(this).data("nextTab") + "'])").addClass("actived");
 
+        $(".tab_content").hide();
+        
+        $(".tab_content#" + $(this).data("nextTab")).fadeIn();
+        
+        return false;
+    });
+    
     $("ul.tabs li").click(function() {
         $("ul.tabs li").removeClass("actived");
         $(this).addClass("actived");
