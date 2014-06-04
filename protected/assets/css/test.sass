@@ -227,6 +227,8 @@ header
         font-family: $second-fonts
         font-size: 13px
         color: #333333
+        &.pre-wrap
+          white-space: pre-wrap
       .enter-your-mail
         padding-bottom: 30px
         .enter-mail
@@ -247,7 +249,7 @@ header
           &:hover
             @include linear-gradient(#019140, #6bcb64)
 /**THANK YOU POPUP**/
-.tutor-thank-you
+.tutor-thank-you, .puzzle-thank-you
   display: none
 .thank-text
   text-align: center
@@ -267,6 +269,11 @@ header
   position: absolute
   bottom: -3px
   left: 70px
+.error-message
+  color: #c01
+  font-family: $head-fonts
+  font-size: 10px
+  height: 10px
 /**TUTORS POPUP**/
 .tutor-popup-main
   background: none repeat scroll 0 0 rgba(0, 0, 0, 0.5)
@@ -284,7 +291,7 @@ header
   left: 50%
   margin-left: -222px
   background: url("../img/tutor_popup.png") no-repeat
-  background-position: top center
+  background-position: right top
   width: 444px
   z-index: 10
 .tutor-text
@@ -296,7 +303,7 @@ header
   border-right: 1px solid #ECECEC
   border-bottom: 1px solid #ECECEC
   padding: 0 10px 0 10px
-  @include custom-border-radius(0, 0, 10px, 10px)
+  @include custom-border-radius(10px, 0, 10px, 10px)
   a.popup-close
     position: relative
     bottom: 20px
@@ -362,12 +369,14 @@ header
     font-size: 10px
     height: 10px
     text-align: center
-  .input-row, .field-select, .input-roww
+  .input-row, .field-select
     clear: both
     text-align: right
     width: 410px
   .input-row
     border-bottom: 1px solid #ececec
+  .border-none
+    border-bottom: none
   .text_input
     border: none
     outline: none
@@ -1511,11 +1520,18 @@ header#header-bg
     margin-top: 20px
     margin-bottom: 10px
   .tutor-details-image
+    display: block
     float: left
+    height: 503px
+    width: 299px
+    border-bottom: 1px solid #ECECEC
+    border-left: 1px solid #ECECEC
+    border-top: 1px solid #ECECEC
+    @include custom-border-radius(10px, 0, 0, 10px)
   .tutors-info
     float: right
     position: relative
-    height: 502px
+    min-height: 503px
     width: 639px
     border-top: 1px solid #ececec
     border-right: 1px solid #ececec
@@ -1527,7 +1543,7 @@ header#header-bg
     h2
       margin-left: 20px
       margin-top: 10px
-    li
+    //li
       margin-left: 20px
       list-style: inside
       color: #007c2d
@@ -1539,11 +1555,27 @@ header#header-bg
       margin-left: 40px
       line-height: 20px
       padding: 0 30px 0 0
+      word-wrap: break-word
       span
         color: #069342
+  .green-point
+    margin-left: 15px
+    color: #666666
+    font-weight: 700
+    font-size: 15px
+    line-height: 15px
+  .green-point:before
+    display: inline-block
+    content: ""
+    background: url("../img/point_description.png") 0 0 no-repeat
+    background-position: 1px 2px
+    width: 14px
+    height: 14px
+  .experience
+    height: 190px
   .days-times-wrapper
-    position: absolute
-    bottom: 30px
+    /*position: absolute
+    /*bottom: 30px
     .days-times
       height: 81px
       width: 560px
@@ -1552,20 +1584,22 @@ header#header-bg
       @include linear-gradient(#fcfbfb, #f1f1f1)
       @include border-radius(10px)
       li
+        font-size: 12px
         list-style: none
         position: relative
-        left: 7px
-        margin-top: 15px
+        /*left: 7px
+        margin-top: 20px
         text-align: center
         float: left
-        width: 95px
         color: #666666 !important
+        @include box-sizing ('border-box')
         span
+          display: block
           color: #039241
           font-weight: 400 !important
       li+li
         border-left: 1px solid #ececec
-        padding: 0 0 0 20px
+        /*padding: 0 0 0 20px
       .our-tutors-button
         position: absolute
         left: 252px
@@ -1588,22 +1622,21 @@ header#header-bg
       color: #666666
       line-height: 1.5
       position: relative
+      ul
+        margin-top: 20px
+        margin-left: 34px
       li
-        width: 220px
-        margin-left: 20px
-        list-style: inside
-        color: #007c2d
-        span
-          color: #666666
-          font-weight: 700
-          font-size: 15px
+        font-weight: 400
+        color: #666666
+        font-size: 13px
+        line-height: normal
       p
         margin-left: 34px
         padding: 0 5px 0 0
         span
           color: #069342
       .slider-list
-        height: 591px
+        height: 650px
         margin: 0
         overflow: hidden
         padding: 0
@@ -1629,31 +1662,53 @@ header#header-bg
       .teachers
         position: relative
         width: 218px
-        height: 580px
+        min-height: 630px
         float: left
         margin: 0 18px 0 0
         @include borders-left-right-bottom
         @include border-radius(20px)
-        .time-avalibe-wrapper
-          position: absolute
-          bottom: 0
-          padding-bottom: 30px
-          p+p+p+p
-            padding-bottom: 50px
-          a
-            margin-left: 34px
-            font-family: $head-fonts
-            font-size: 15px
-            color: #069442
-            text-decoration: none
-            &:hover
-              text-decoration: underline
         &:last-child
           margin: 0 0 0 2px
+      a.full-info
+        padding-left: 34px
+        font-family: $head-fonts
+        font-size: 15px
+        color: #069442
+        text-decoration: none
+        &:hover
+          text-decoration: underline
+        img
+          vertical-align: middle
       .teachers h2
         font-size: 24px !important
         color: #007c2d
         text-align: center
+      div.subjects,.formation
+        height: 120px
+      div.time-avalibe-wrapper
+        height: 180px
+      .teachers-image
+        img
+          max-width: 220px
+          height: 219px
+          @include custom-border-radius(10px, 10px, 0, 0)
+        a
+          display: block
+      .teachers-image
+        position: relative
+        display: inline-block
+        width: 220px
+        height: 219px
+      .even:after, .odd:after
+        position: absolute
+        left: 0
+        bottom: 0
+        content: ""
+        background: url("../img/mask_right.png") 0 0 no-repeat
+        width: 220px
+        height: 30px
+      .odd:after
+        background: url("../img/mask_left.png") 0 0 no-repeat
       .all-buttons
         position: absolute
         left: 60px
@@ -2041,7 +2096,8 @@ footer
     font-size: 10px
     height: 1em
 #bg-layer
-  background: rgba(0,0,0, 0.5)
+  background: #000
+  opacity: 0.5
   display: none
   height: 100%
   width: 100%

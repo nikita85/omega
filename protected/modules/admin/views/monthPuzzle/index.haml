@@ -1,0 +1,15 @@
+:php
+  $this->widget('bootstrap.widgets.TbExtendedGridView', [
+    'type'=>'striped bordered condensed',
+    'dataProvider' => $model->search(),
+    'htmlOptions' => ['class' => 'generalGrid'],
+    'template'=>"{items}{pager}",
+    'columns'=> [
+      ['header' => 'Active', 'type' => 'raw', 'value' => '\'<input type="radio" name="active_month_puzzle" data-checked="\' . $data->active . \'" value="\' . $data->id . \'" />\''],
+      ['name' => 'month'],
+      ['name' => 'title'],
+      ['name' => 'question'],
+      ['name' => 'answer'],
+      ['class' => 'bootstrap.widgets.TbButtonColumn', 'template'=>'{view}{update}{delete}',]
+    ,]
+  ]);
