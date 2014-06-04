@@ -141,10 +141,10 @@ class AdminController extends Controller
     {
         $this->menu = array_merge($this->menu, [
             ($this->action->id == 'update'
-                ? ['label' => AdminModule::t('ui', 'View'), 'url' => ['/admin/' . $this->getId() . '/view/' . $model->id], 'icon' => 'eye-open']
-                : ['label' => AdminModule::t('ui', 'Edit'), 'url' => ['/admin/' . $this->getId() . '/update/' . $model->id], 'icon' => 'pencil']
+                ? ['label' => AdminModule::t('ui', 'View'), 'url' => ['/admin/' . $this->getId() . '/view/id/' . $model->id], 'icon' => 'eye-open']
+                : ['label' => AdminModule::t('ui', 'Edit'), 'url' => ['/admin/' . $this->getId() . '/update/id/' . $model->id], 'icon' => 'pencil']
             ),
-            ['label' => AdminModule::t('ui', 'Delete'), 'url' => ['/admin/' . $this->getId() . '/delete/' . $model->id], 'icon' => 'trash'],
+            ['label' => AdminModule::t('ui', 'Delete'), 'url' => ['/admin/' . $this->getId() . '/delete/id/' . $model->id], 'icon' => 'trash'],
         ]);
     }
 

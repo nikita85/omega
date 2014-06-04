@@ -42,7 +42,7 @@ class TutorController extends AdminController
     }
 
     /**
-     * @param Seminar $model
+     * @param Tutor $model
      */
     protected function handleForm(Tutor $tutor)
     {
@@ -104,8 +104,8 @@ class TutorController extends AdminController
                 $this->redirect(['index']);
 
             } catch (Exception $e) {
-                //echo "<pre>";var_dump($e); echo "</pre>";
-                //Yii::app()->user->setFlash('error', 'Error occurred');
+          /*      echo "<pre>";var_dump($e); echo "</pre>";*/
+                Yii::app()->user->setFlash('error', $e->errorInfo[2]);
                 $transaction->rollback();
             }
 

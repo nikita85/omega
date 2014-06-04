@@ -1,0 +1,12 @@
+:php
+  $this->widget('bootstrap.widgets.TbExtendedGridView', [
+    'type'=>'striped bordered condensed',
+    'dataProvider' => $model->search(),
+    'htmlOptions' => ['class' => 'generalGrid'],
+    'template'=>"{items}{pager}",
+    'columns'=> [
+      ['name' => 'email'],
+      ['name' => 'created'],
+      ['class' => 'bootstrap.widgets.TbButtonColumn', 'template'=>'{delete}',]
+    ,]
+  ]);

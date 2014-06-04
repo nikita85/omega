@@ -17,28 +17,32 @@
               %img(src="#{$tutorsImgFolder . $tutor->big_image}" )
             .tutors-info
               %h2 = $tutor->name
-              %li
-                %span Subjects:
+              .subjects
+                .green-point
+                  Subjects:
+                %br
+                  %p
+                    %span = $tutor->subjects
               %br
-              %p
-                %span = $tutor->subjects
+              .formation
+                .green-point
+                  Education:
+                %br
+                  %p = $tutor->education
               %br
-              %li
-                %span Education:
-              %br
-              %p = $tutor->education
-              %br
-              %li
-                %span Experience:
-              %br
-              %p = $tutor->experience
-              %div.days-times-wrapper
-                %li
-                  %span Days/times available:
+              .experience
+                .green-point
+                  Experience:
+                %br
+                %p = $tutor->experience
+              .days-times-wrapper
+                .green-point
+                  Days/times available:
                 %br
                 %ul.days-times
+                  -$dayTimeCount = count($tutor->tutorsDaysTimes)
                   -foreach($tutor->tutorsDaysTimes as $dayTime)
-                    %li
+                    %li(style="width:#{100/$dayTimeCount}%;")
                       %span = $weekDays[$dayTime->weekday]
                       = date('gA', strtotime($dayTime->start_time)) . '-' .date('gA', strtotime($dayTime->end_time))
                   %input(type="button" class="btn our-tutors-button contact-tutor" value="contact now" data-popup-open="tutor-popup" data-tutor-id="#{$tutor->id}")
@@ -50,24 +54,30 @@
           .slider_nav.prev_
           .slider-list
             .slider-wrap
+              -$j = 1
               -foreach($tutors as $tutor)
                 .teachers(id="tutor#{$tutor->id}")
-                  %a(href="#" )
-                    %img(class="tutor-preview" src="#{$tutorsImgFolder . $tutor->small_image}" )
+                  .teachers-image(class="#{$j%2 ? 'even': 'odd';}")
+                    %a(href="#" )
+                      %img(class="tutor-preview" src="#{$tutorsImgFolder . $tutor->small_image}" )
                   %h2 = $tutor->name
-                  %li
-                    %span Subjects:
-                  %p
-                    %span = $tutor->subjects
-                  %div.time-avalibe-wrapper
-                    %li
-                      %span Days/times available:
-                    -foreach($tutor->tutorsDaysTimes as $dayTime)
-                      %p = $weekDays[$dayTime->weekday]. ' ' . date('gA', strtotime($dayTime->start_time)) . '-' .date('gA', strtotime($dayTime->end_time))
-                    %a(class="full-info" href="#" ) Watch full info
-                      %img(src="#{$this->assetsPath}/img/button_more.png" )
+                  .subjects
+                    .green-point
+                      Subjects:
+                    %br
+                    %p
+                      %span = $tutor->subjects
+                  .time-avalibe-wrapper
+                    .green-point
+                      Days/times available:
+                    %ul
+                      -foreach($tutor->tutorsDaysTimes as $dayTime)
+                        %li = $weekDays[$dayTime->weekday]. ' ' . date('gA', strtotime($dayTime->start_time)) . '-' .date('gA', strtotime($dayTime->end_time))
+                  %a(class="full-info" href="#" ) Watch full info
+                    %img(src="#{$this->assetsPath}/img/button_more.png" )
                     .clear
                     %input(type="button" class="btn all-buttons contact-tutor" value="contact now" data-popup-open="tutor-popup" data-tutor-id="#{$tutor->id}")
+                -$j++
             .clear
           .slider_nav.next_
       .clear

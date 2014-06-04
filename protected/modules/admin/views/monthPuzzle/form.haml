@@ -1,0 +1,31 @@
+:php
+  $form = $this->beginWidget('bootstrap.widgets.TbActiveForm', [
+    'id' => 'monthPuzzle-form',
+    'htmlOptions' => ['class' => 'well generalForm'],
+    'enableClientValidation'=>true,
+    'clientOptions'=>array(
+                            'validateOnSubmit'=>true,
+                    )
+  ]);
+
+%fieldset
+
+  = $form->textFieldRow($monthPuzzle, 'month', ['class' => 'span6']);
+  = $form->textFieldRow($monthPuzzle, 'title', ['class' => 'span6']);
+
+  %br
+  = $form->labelEx($monthPuzzle, 'question')
+  = $form->textArea($monthPuzzle,'question',array('rows' => 8, 'cols' => 66, 'style' => 'width:555px;'));
+  = $form->error($monthPuzzle, 'question')
+  %br
+  %br
+  = $form->labelEx($monthPuzzle, 'answer')
+  = $form->textArea($monthPuzzle,'answer',array('rows' => 8, 'cols' => 66, 'style' => 'width:555px;'));
+  = $form->error($monthPuzzle, 'answer')
+  %br
+
+.form-actions
+:php
+  $this->widget('bootstrap.widgets.TbButton', ['buttonType' => 'submit', 'htmlOptions'=>array('class'=>'newStyleContentButton'), 'type' => 'primary', 'label' => 'Save']);
+  $this->widget('bootstrap.widgets.TbButton', ['buttonType' => 'reset', 'htmlOptions'=>array('class'=>'newStyleSecondaryButton marginLeft'), 'label' => 'Clear Form']);
+  $this->endWidget();
