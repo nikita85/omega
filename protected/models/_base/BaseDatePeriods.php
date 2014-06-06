@@ -83,4 +83,19 @@ abstract class BaseDatePeriods extends GxActiveRecord {
 			'criteria' => $criteria,
 		));
 	}
+
+    public function __toString()
+    {
+        $datePeriod = '';
+        $startMonth = date('m', strtotime($this->start_date));
+        $endMonth = date('m', strtotime($this->end_date));
+        $datePeriod .= date('M j', strtotime($this->start_date)) . ' -';
+        if ($startMonth !== $endMonth){
+            $datePeriod .= date('M j', strtotime($this->end_date));
+        } else{
+            $datePeriod .= date('j', strtotime($this->end_date));
+        }
+
+        return $datePeriod;
+    }
 }

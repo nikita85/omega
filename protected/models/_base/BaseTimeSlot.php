@@ -80,4 +80,8 @@ abstract class BaseTimeSlot extends GxActiveRecord {
 			'criteria' => $criteria,
 		));
 	}
+
+    public function __toString() {
+        return  date('g:iA', strtotime($this->start_time)) . '-' .date('g:iA', strtotime($this->end_time));
+    }
 }
