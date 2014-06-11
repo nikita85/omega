@@ -184,11 +184,11 @@
         'buttons'     => [
           'update'=> [
             'label'=>'Update',
-            'url'  =>'Yii::app()->controller->createUrl("/admin/enrollFormSummer/update/id/" . $data->enroll_form_id)'
+            'url'  =>'Yii::app()->controller->createUrl("/admin/orders/update/id/" . $data->enroll_form_id)'
           ],
           'delete'=> [
             'label'=>'Delete',
-            'url'  =>'Yii::app()->controller->createUrl("/admin/enrollFormSummer/delete/id/" . $data->enroll_form_id)'
+            'url'  =>'Yii::app()->controller->createUrl("/admin/orders/delete/id/" . $data->order->id)'
           ],
         ],
       ],
