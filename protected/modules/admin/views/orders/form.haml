@@ -1,0 +1,58 @@
+:php
+  $form = $this->beginWidget('bootstrap.widgets.TbActiveForm', [
+    'id' => 'order-form',
+    'htmlOptions' => ['class' => 'well generalForm'],
+    'enableClientValidation'=>true,
+    'clientOptions'=>array(
+                            'validateOnSubmit'=>true,
+                    )
+  ]);
+
+%fieldeset
+  -$studentInfo = $order->enrollFormSummers
+
+  = $form->textFieldRow($studentInfo, 'student_name', ['class' => 'span6']);
+  = $form->radioButtonListInlineRow($studentInfo,'gender', array('male'=>'male', 'female'=>'female'));
+  = $form->textFieldRow($studentInfo, 'current_school', ['class' => 'span6']);
+  = $form->textFieldRow($studentInfo, 'student_address', ['class' => 'span6']);
+  = $form->textFieldRow($studentInfo, 'student_home_phone', ['class' => 'span6']);
+  = $form->textFieldRow($studentInfo, 'student_cell_phone', ['class' => 'span6']);
+  = $form->textFieldRow($studentInfo, 'student_email', ['class' => 'span6']);
+  = $form->textFieldRow($studentInfo, 'parent_name_1', ['class' => 'span6']);
+  = $form->textFieldRow($studentInfo, 'parent_email_1', ['class' => 'span6']);
+  = $form->textFieldRow($studentInfo, 'parent_name_2', ['class' => 'span6']);
+  = $form->textFieldRow($studentInfo, 'parent_email_2', ['class' => 'span6']);
+  = $form->textFieldRow($studentInfo, 'parent_name_emergency', ['class' => 'span6']);
+  = $form->textFieldRow($studentInfo, 'parent_phone_emergency', ['class' => 'span6']);
+  = $form->textFieldRow($studentInfo, 'parent_cell_emergency', ['class' => 'span6']);
+  = $form->textFieldRow($studentInfo, 'person_phone_emergency', ['class' => 'span6']);
+  = $form->textFieldRow($studentInfo, 'person_phone_emergency', ['class' => 'span6']);
+  = $form->textFieldRow($studentInfo, 'person_phone_emergency', ['class' => 'span6']);
+  = $form->textFieldRow($studentInfo, 'person_relation_to_student', ['class' => 'span6']);
+  = $form->textFieldRow($studentInfo, 'physician_name', ['class' => 'span6']);
+  = $form->textFieldRow($studentInfo, 'physician_phone', ['class' => 'span6']);
+  = $form->textFieldRow($studentInfo, 'dentist_name', ['class' => 'span6']);
+  = $form->textFieldRow($studentInfo, 'dentist_phone', ['class' => 'span6']);
+  = $form->textFieldRow($studentInfo, 'food_alergies', ['class' => 'span6']);
+  = $form->textFieldRow($studentInfo, 'medication_alergies', ['class' => 'span6']);
+  = $form->textFieldRow($studentInfo, 'medication_currently_taken', ['class' => 'span6']);
+  = $form->textFieldRow($studentInfo, 'last_tetanus_shot', ['class' => 'span6']);
+  = $form->textFieldRow($studentInfo, 'submit_date', ['class' => 'span6']);
+%br
+%br
+.selected_courses
+  Selected courses:
+  %br
+  %br
+  - foreach ($order->studentSeminars as $studentSeminar)
+    = $form->dropDownListRow($studentSeminar, 'seminar', CHtml::listData(Seminar::model()->findAll(), 'id', 'title'));
+    = $form->dropDownListRow($studentSeminar, 'grade', CHtml::listData($studentSeminar->seminar->grades, 'id', 'title'));
+    = $form->dropDownListRow($studentSeminar, 'timeSlot', CHtml::listData($studentSeminar->seminar->timeSlots, 'id', function($item){return $item;}));
+    = $form->dropDownListRow($studentSeminar, 'datePeriod', CHtml::listData($studentSeminar->seminar->datePeriods, 'id', function($item){return $item;}));
+    %br
+    %br
+.form-actions
+:php
+  $this->widget('bootstrap.widgets.TbButton', ['buttonType' => 'submit', 'htmlOptions'=>array('class'=>'newStyleContentButton'), 'type' => 'primary', 'label' => 'Save']);
+  $this->widget('bootstrap.widgets.TbButton', ['buttonType' => 'reset', 'htmlOptions'=>array('class'=>'newStyleSecondaryButton marginLeft'), 'label' => 'Clear Form']);
+  $this->endWidget();

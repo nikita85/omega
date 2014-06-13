@@ -47,19 +47,20 @@ class OrdersController extends AdminController
      */
     protected function handleForm(Orders $order)
     {
+        //echo '<pre>';var_dump($order->enrollFormSummers);echo'</pre>';die;
         $order->attachBehavior('ManyToManyBehavior', new ManyToManyBehavior);
         //var_dump($seminarModel->grades);die;
         $this->initEntityActions($order);
 
-        if (isset($_POST['Seminar'])) {
+        if (!empty($_POST)) {
 
             $transaction = Yii::app()->db->beginTransaction();
 
             try {
 
-                $params = $_POST['Seminar'];
+                $params = $_POST;
 
-                if (!empty($_POST['TimeSlot'])) {
+/*                if (!empty($_POST['TimeSlot'])) {
 
                     $timeSlots = [];
 
@@ -116,19 +117,20 @@ class OrdersController extends AdminController
 
                 if (array_key_exists('gradesIDs', $params)) {
                     $seminarModel->grades = $params['gradesIDs'];
-                }
+                }*/
 
-                $seminarModel->attributes = $params;
+                $order->attributes = $params;
+                $order->enrollFormSummers = $_POST['EnrollFormSummer'];
 
-                if (!$seminarModel->save()) {
+                if (!$order->save()) {
                     throw new Exception;
                 }
-
+                //echo '<pre>';var_dump($order->enrollFormSummers);echo'</pre>';die;
                 $transaction->commit();
 
                 Yii::app()->user->setFlash('success', 'Saved Successfully');
 
-                $this->redirect(['index']);
+               // $this->redirect(['index']);
 
             } catch (Exception $e) {
                 //Yii::app()->user->setFlash('error', 'Error occurred');
@@ -153,9 +155,9 @@ class OrdersController extends AdminController
         $model = $this->loadModel($id, 'Orders');
 
         $this->layout = '/layouts/column2';
-        $this->actionTitle = 'Edit Seminar';
-        $this->pushBreadcrumb('Seminar', ['/admin/seminar/index']);
-        $this->pushBreadcrumb('Edit Seminar', ['/admin/seminar/create']);
+        $this->actionTitle = 'Edit Order';
+        $this->pushBreadcrumb('Order', ['/admin/seminar/index']);
+        $this->pushBreadcrumb('Edit Order', ['/admin/ordrs/create']);
 
         $this->handleForm($model);
     }
