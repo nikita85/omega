@@ -24,14 +24,14 @@
   %br
   %br
   - if (!empty($tutor->big_image))
-    %img(src="#{$tutorsImgFolder.$tutor->big_image}")
+    %img(src="#{$tutorsImgFolder.$tutor->big_image}" height="503" width="299")
   = $form->error($tutor, 'big_image')
   = $form->label($tutor, 'big_image')
   = $form->fileField($tutor, 'big_image', ['accept' => 'image/png, image/jpeg'])
   %br
   %br
   - if (!empty($tutor->small_image))
-    %img(src="#{$tutorsImgFolder.$tutor->small_image}")
+    %img(src="#{$tutorsImgFolder.$tutor->small_image}" height="220" width="220")
   = $form->error($tutor, 'small_image')
   = $form->label($tutor, 'small_image')
   = $form->fileField($tutor, 'small_image', ['accept' => 'image/png, image/jpeg'])
