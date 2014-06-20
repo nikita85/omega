@@ -844,45 +844,48 @@ header#header-bg
   background-color: rgba(0, 153, 51, 0.2)
   @include border-radius(10px)
   box-sizing: border-box
-  p
-    margin-top: 260px
-    margin-left: 240px
-    width: 472px
-    font-family: $head-fonts
-    font-size: 14px
-    line-height: normal
-    color: #333333
-    span
-      color: #009933
-  .popup-messsage-table-button
-    border: none
-    outline: none
-    margin-top: 50px
-    font-family: $head-fonts
-    font-size: 10px
-    font-weight: 700
-    text-transform: uppercase
-    color: #ffffff
-    padding: 4px 7px
-    cursor: pointer
-    @include linear-gradient(#6bcb64, #019140)
-    @include border-radius(20px)
-    &:hover
-      @include linear-gradient(#019140, #6bcb64)
-  .table-button-popup
-    position: relative
-    top: 5px
-    left: 412px
-    text-align: center
-    color: #cccccc
-    font-family: $second-fonts
-    font-weight: 700
-    font-size: 10px
-    text-transform: uppercase
-    text-decoration: none
-    padding: 3px 10px
-    @include border-radius(20px)
-    @include linear-gradient(#6bcb64, #019140)
+.messsage-table
+  margin-top: 260px
+  margin-left: 240px
+  width: 472px
+  font-family: $head-fonts
+  font-size: 14px
+  line-height: normal
+  color: #333333
+  span
+    color: #009933
+  ul
+    text-align: left
+    margin-left: 70px
+.popup-messsage-table-button
+  border: none
+  outline: none
+  margin-top: 50px
+  font-family: $head-fonts
+  font-size: 10px
+  font-weight: 700
+  text-transform: uppercase
+  color: #ffffff
+  padding: 4px 7px
+  cursor: pointer
+  @include linear-gradient(#6bcb64, #019140)
+  @include border-radius(20px)
+  &:hover
+    @include linear-gradient(#019140, #6bcb64)
+.table-button-popup
+  position: relative
+  top: 5px
+  left: 412px
+  text-align: center
+  color: #cccccc
+  font-family: $second-fonts
+  font-weight: 700
+  font-size: 10px
+  text-transform: uppercase
+  text-decoration: none
+  padding: 3px 10px
+  @include border-radius(20px)
+  @include linear-gradient(#6bcb64, #019140)
 .enrollment-form
   position: relative
   margin-top: 50px
@@ -1879,7 +1882,7 @@ header#header-bg
   .select-move, .select-move-date
     margin: 20px 76px 0 0
     padding: 0 0 5px
-    background: url("../img/check_radio.png") no-repeat right
+    /*background: url("../img/check_radio.png") no-repeat right
   .select-move-date
     margin-right: 30px
   .select-date, .select-date-knoll
