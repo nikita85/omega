@@ -194,6 +194,7 @@ return array(
 	'params'=>array(
 		// this is used in contact page
 		'adminEmail'=>['alexandra.titova@easternpeak.com', 'michael_lazich@yahoo.com'],
+        'emailFrom' => ['noreply@omegateaching.com' => 'Omega Teaching'],
         'weekDays' => [
             '1' => 'Mondays',
             '2' => 'Tuesdays',

@@ -48,7 +48,7 @@ class SiteController extends Controller
                     $message->subject = 'Month Puzzle';
 
                     $message->setTo($monthPuzzleParticipant->email);
-                    $message->from = 'noreply@omegateaching.com';
+                    $message->from = Yii::app()->params['emailFrom'];
                     $message->setBody($this->renderPartial('/emails/puzzle_email', ['answer' => $monthPuzzle->answer], true), 'text/html');
 
                     Yii::app()->mail->send($message);
@@ -98,7 +98,7 @@ class SiteController extends Controller
                     $message->subject = "New candidate applied for a position of Omega's teacher";
 
                     $message->setTo(Yii::app()->params['adminEmail']);
-                    $message->from = 'noreply@omegateaching.com';
+                    $message->from = Yii::app()->params['emailFrom'];
                     $message->setBody("Hi! Please see contact details and the resume that was sent through the Jobs section (Omega Teaching website).<br/><br/>".
                                          "Name: " . $applicant->name . "<br />
                                          Email: " . $applicant->email . "<br />
