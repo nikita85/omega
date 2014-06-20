@@ -48,7 +48,7 @@ class SiteController extends Controller
                     $message->subject = 'Month Puzzle';
 
                     $message->setTo($monthPuzzleParticipant->email);
-                    $message->from = 'noreply@maximumtest.ru';
+                    $message->from = 'noreply@omegateaching.com';
                     $message->setBody($this->renderPartial('/emails/puzzle_email', ['answer' => $monthPuzzle->answer], true), 'text/html');
 
                     Yii::app()->mail->send($message);

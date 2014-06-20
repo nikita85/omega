@@ -17,6 +17,7 @@
  * @property string $big_image
  * @property string $small_image
  * @property integer $active
+ * @property string $email
  *
  * @property TutorStudents[] $tutorStudents
  * @property TutorsDaysTimes[] $tutorsDaysTimes
@@ -45,6 +46,7 @@ abstract class BaseTutor extends GxActiveRecord {
 			array('active', 'numerical', 'integerOnly'=>true),
 			array('name, subjects, education', 'length', 'max'=>255),
 			array('experience', 'safe'),
+            array('email', 'email'),
 			array('subjects, experience, education, active', 'default', 'setOnEmpty' => true, 'value' => null),
 			array('id, name, subjects, experience, education, active', 'safe', 'on'=>'search'),
             array('big_image, small_image', 'file', 'allowEmpty' => true, 'types'=>'jpg, png'),
