@@ -13,6 +13,7 @@
  * @property string $student_name
  * @property string $parent_name
  * @property string $address
+ * @property string $city
  * @property string $parent_email
  * @property string $parent_phone
  * @property string $food_alergies
@@ -44,9 +45,9 @@ abstract class BaseEnrollFormHillview extends GxActiveRecord {
 
 	public function rules() {
 		return array(
-			array('enroll_form_id, student_name, parent_name, parent_phone, grade, class_day', 'required'),
+			array('enroll_form_id, student_name, parent_name, parent_phone, grade, class_day, city', 'required'),
 			array('enroll_form_id', 'numerical', 'integerOnly'=>true),
-			array('student_name, parent_name, address, parent_email', 'length', 'max'=>255),
+			array('student_name, parent_name, address, parent_email, city', 'length', 'max'=>255),
 			array('parent_phone', 'length', 'max'=>12),
 			array('food_alergies', 'length', 'max'=>45),
 			array('grade', 'length', 'max'=>4),
@@ -54,7 +55,7 @@ abstract class BaseEnrollFormHillview extends GxActiveRecord {
 			array('order_id', 'length', 'max'=>11),
 			array('additional_comments', 'safe'),
 			array('address, parent_email, food_alergies, additional_comments, order_id', 'default', 'setOnEmpty' => true, 'value' => null),
-			array('enroll_form_id, student_name, parent_name, address, parent_email, parent_phone, food_alergies, additional_comments, grade, class_day, order_id', 'safe', 'on'=>'search'),
+			array('enroll_form_id, student_name, parent_name, address, parent_email, parent_phone, food_alergies, additional_comments, grade, class_day, order_id, city', 'safe', 'on'=>'search'),
 		);
 	}
 

@@ -93,6 +93,12 @@
               = $form->textField($model, 'student_address', array("class"=>"text_input"))
               = $form->error($model, 'student_address', array("class"=>"error-message", "style"=>"margin-top:5px"))
           %div.input-row
+            = $form->labelEx($model, 'city', array("class"=>"label-name"))
+            %div.input_block.cl
+              %div.error-message
+              = $form->textField($model, 'city', array("class"=>"text_input"))
+              = $form->error($model, 'city', array("class"=>"error-message", "style"=>"margin-top:5px"))
+          %div.input-row
             = $form->labelEx($model, 'student_home_phone', array("class"=>"label-name"))
             %div.input_block.cl
               %div.error-message
