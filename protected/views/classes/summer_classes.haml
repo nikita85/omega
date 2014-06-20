@@ -119,15 +119,18 @@
 
     .enrollment-form
       .popup-messsage-table
-        %p Please
-          %span check the seminars
-          ,
-          %span weeks
-          ,
-          %span entering grades
-          and
-          %span times
-          you want. We will confirm enrollment by email. Seminars may be cancelled due to insufficient enrollment. Classes offered eleven weeks from June 17 through August 26
+        %div.messsage-table
+          %p Enrolling is simple. Just follow these 3 easy steps:
+          %ul
+            %li 1. Select
+              %span Class + Week
+              (Row/Column);
+            %li 2. Specify
+              %span the time
+            %li 3. Specify
+              %span grade
+              of student
+            %li We will confirm enrollment by email.
         %input(type="button" class="popup-messsage-table-button" value="select classes" )
       %a(name="calendar" )
         %h2
