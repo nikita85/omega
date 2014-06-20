@@ -48,7 +48,7 @@ class SiteController extends Controller
                     $message->subject = 'Month Puzzle';
 
                     $message->setTo($monthPuzzleParticipant->email);
-                    $message->from = 'noreply@omegateaching.com';
+                    $message->from = Yii::app()->params['emailFrom'];
                     $message->setBody($this->renderPartial('/emails/puzzle_email', ['answer' => $monthPuzzle->answer], true), 'text/html');
 
                     Yii::app()->mail->send($message);
@@ -91,6 +91,24 @@ class SiteController extends Controller
                 $cvSaveFolder = Yii::getPathOfAlias('webroot') . '/uploads/saved_cv/';
 
                 rename($tempFolder.$applicant->cv, $cvSaveFolder.$applicant->cv);
+
+                try {
+                    $message = new YiiMailMessage;
+
+                    $message->subject = "New candidate applied for a position of Omega's teacher";
+
+                    $message->setTo(Yii::app()->params['adminEmail']);
+                    $message->from = Yii::app()->params['emailFrom'];
+                    $message->setBody("Hi! Please see contact details and the resume that was sent through the Jobs section (Omega Teaching website).<br/><br/>".
+                                         "Name: " . $applicant->name . "<br />
+                                         Email: " . $applicant->email . "<br />
+                                         Phone: " . $applicant->phone . "<br />
+                                         Resume: " . Yii::app()->request->getBaseUrl(true). '/uploads/saved_cv/'.$applicant->cv . "<br />
+                                         Sent date: " . date("Y-m-d H:i:s"), 'text/html');
+
+                    Yii::app()->mail->send($message);
+                } catch (Exception $e) {
+                }
 
                 echo CJSON::encode(array(
                     'status'=>'success'

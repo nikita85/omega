@@ -66,6 +66,7 @@ abstract class BaseEnrollFormSummer extends GxActiveRecord {
 			array('enroll_form_id', 'numerical', 'integerOnly'=>true),
 			array('student_name, current_school, student_address, student_email, parent_name_1, parent_email_1, parent_name_2, parent_email_2, parent_name_emergency, person_name_emergency, person_relation_to_student, physician_name, dentist_name, food_alergies, medication_alergies, medication_currently_taken', 'length', 'max'=>255),
 			array('gender', 'length', 'max'=>6),
+            array('student_email', 'email'),
 			array('student_home_phone, student_cell_phone, parent_phone_emergency, parent_cell_emergency, person_cell_emergency, person_phone_emergency, physician_phone, dentist_phone', 'length', 'max'=>12),
 			array('order_id', 'length', 'max'=>11),
 			array('last_tetanus_shot', 'safe'),

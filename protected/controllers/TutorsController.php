@@ -58,7 +58,7 @@ class TutorsController extends Controller
                     $to = Yii::app()->params['adminEmail'];
                     array_push($to, $tutorStudent->tutors->email);
                     $message->setTo($to);
-                    $message->from = 'noreply@omegateaching.com';
+                    $message->from = Yii::app()->params['emailFrom'];
                     $message->setBody("Dear ". $tutorStudent->tutors->name. ",<br/>".
                                         "You've got a new request for tutoring from Omega Teaching student. Please see below for details.<br/><br/>
                                          Student's first name: " . $tutorStudent->first_name . "<br />
