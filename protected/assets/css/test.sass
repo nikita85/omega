@@ -1995,13 +1995,15 @@ header#header-bg
     border: 1px solid #ececec
     padding: 20px 40px 0 40px
     margin: 0 0 50px 0
-    height: 295px
+    height: 291px
     @include border-radius(10px)
     @include horizontal-gradient(#ececec, #ffffff)
+    &:nth-child(1)
+      height: 188px
     img
       float: left
       margin-right: 30px
-      margin-top: 3px
+      /*margin-top: 3px
     h2
       width: 423px
       font-size: 18px
@@ -2031,7 +2033,14 @@ header#header-bg
       bottom: 16px
       background: url("../img/price_back.png") no-repeat
       height: 30px
-    .market-button
+    .store-image
+      position: relative
+      display: inline-block
+      margin-right: 30px
+      width: 182px
+      height: 260px
+      float: left
+    .market-button, .store-button, .store-button-google
       position: absolute
       left: 300px
       bottom: -17px
@@ -2048,6 +2057,28 @@ header#header-bg
         font-size: 10px
         color: #ade0aa
         text-transform: none
+    .store-button, .store-button-google
+      left: 223px
+      padding: 3px 17px 6px 10px
+      font-size: 11px
+      font-weight: 400
+      text-transform: none
+      line-height: 1
+      span
+        font-size: 15px
+        font-weight: 700
+        color: #ffffff
+        text-transform: none
+      img
+        margin-right: 10px
+        margin-top: 1px
+    .store-button-google
+      padding: 3px 17px 6px 16px
+      left: 379px
+      span
+        font-weight: 400
+      img
+        margin-top: 4px
 /**FOOTER**/
 footer
   @include linear-gradient(#fbfbfb, #e3e3e3)

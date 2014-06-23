@@ -14,7 +14,26 @@
             %span 650-322-2671.
       .our-products
         .product
-          %img(src="#{$this->assetsPath}/img/book_1.png" )
+          .store-image
+            %img(src="#{$this->assetsPath}/img/krypto_icon.png")
+          .product-description
+            %h2 Krypto Plus!
+            %br
+            %p Krypto is a mathematics strategy game suitable for everyone. Exercise your mental math skills in this challenging and addictive arithmetic game!
+          %a(class="btn store-button" href='https://itunes.apple.com/tt/app/krypto-plus!/id848330968?mt=8' target="_blank")
+            %img(src="#{$this->assetsPath}/img/apple_logo.png" )
+              Available on the
+              %br
+                %span App Store
+          %a(class="btn store-button-google" href='https://play.google.com/store/apps/details?id=com.kryptoplus.app' target="_blank")
+            %img(src="#{$this->assetsPath}/img/google_play_logo.png")
+              Available on the
+              %br
+                %span Google play
+        //.clear
+        .product
+          .store-image
+            %img(src="#{$this->assetsPath}/img/book_1.png" )
           .product-description
             %h2 Massachusetts Tests for Educator Licensure (MTEL) 03
             %br
@@ -24,12 +43,13 @@
             %p It has over 50 lessons, 600 practice questions, detailed explanations, and quizzes to cover each of the concepts covered on the new subtest, and like the new test, all areas focus on critical thought and a deep understanding of the topics. It also includes two comprehensive sample tests.
             .price
               %span 33,20$
-            %button(class="btn market-button" type="button" onclick="location='http://www.amazon.com/'" )buy now
+            %a(class="btn market-button" href="location='http://www.amazon.com/'" target="_blank")buy now
               %br
                 %span amazon.com
         //.clear
         .product
-          %img(src="#{$this->assetsPath}/img/book_2.png" )
+          .store-image
+            %img(src="#{$this->assetsPath}/img/book_2.png" )
           .product-description
             %h2 California Subject Exam for Teachers (CSET)
             %br
@@ -44,7 +64,7 @@
             %p "When I first took the CSET I received the lowest possible score on Subtest 2. I turned to Omega one month before I was going to retake it, and I easily passed and received the highest possible score. Effective materials made by expert teachers. Thank you." -- Beth, Teacher
             .price
               %span 15,95$
-            %button(class="btn market-button" type="button"  onclick="location='http://www.amazon.com/'" )buy now
+            %a(class="btn market-button" href="location='http://www.amazon.com/'" target="_blank")buy now
               %br
                 %span amazon.com
       .clear
