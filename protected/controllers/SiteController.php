@@ -45,7 +45,7 @@ class SiteController extends Controller
                 try {
                     $message = new YiiMailMessage;
 
-                    $message->subject = 'Month Puzzle';
+                    $message->subject = 'Puzzle Answer';
 
                     $message->setTo($monthPuzzleParticipant->email);
                     $message->from = Yii::app()->params['emailFrom'];

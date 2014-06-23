@@ -14,6 +14,7 @@
  * @property string $gender
  * @property string $current_school
  * @property string $student_address
+ * @property string $city
  * @property string $student_home_phone
  * @property string $student_cell_phone
  * @property string $student_email
@@ -62,16 +63,16 @@ abstract class BaseEnrollFormSummer extends GxActiveRecord {
 
 	public function rules() {
 		return array(
-			array('enroll_form_id, student_name, gender, student_address, student_cell_phone, student_email, parent_name_1, parent_name_emergency, parent_phone_emergency, parent_cell_emergency, person_name_emergency, person_cell_emergency, person_phone_emergency, person_relation_to_student, physician_name, physician_phone, dentist_name, dentist_phone, submit_date', 'required'),
+			array('enroll_form_id, student_name, gender, student_address, student_cell_phone, student_email, parent_name_1, parent_name_emergency, parent_phone_emergency, parent_cell_emergency, person_name_emergency, person_cell_emergency, person_phone_emergency, person_relation_to_student, physician_name, physician_phone, dentist_name, dentist_phone, submit_date, city', 'required'),
 			array('enroll_form_id', 'numerical', 'integerOnly'=>true),
-			array('student_name, current_school, student_address, student_email, parent_name_1, parent_email_1, parent_name_2, parent_email_2, parent_name_emergency, person_name_emergency, person_relation_to_student, physician_name, dentist_name, food_alergies, medication_alergies, medication_currently_taken', 'length', 'max'=>255),
+			array('student_name, current_school, student_address, student_email, parent_name_1, parent_email_1, parent_name_2, parent_email_2, parent_name_emergency, person_name_emergency, person_relation_to_student, physician_name, dentist_name, food_alergies, medication_alergies, medication_currently_taken, city', 'length', 'max'=>255),
 			array('gender', 'length', 'max'=>6),
             array('student_email', 'email'),
 			array('student_home_phone, student_cell_phone, parent_phone_emergency, parent_cell_emergency, person_cell_emergency, person_phone_emergency, physician_phone, dentist_phone', 'length', 'max'=>12),
 			array('order_id', 'length', 'max'=>11),
 			array('last_tetanus_shot', 'safe'),
 			array('current_school, student_home_phone, parent_email_1, parent_name_2, parent_email_2, food_alergies, medication_alergies, medication_currently_taken, last_tetanus_shot, order_id', 'default', 'setOnEmpty' => true, 'value' => null),
-			array('enroll_form_id, student_name, gender, current_school, student_address, student_home_phone, student_cell_phone, student_email, parent_name_1, parent_email_1, parent_name_2, parent_email_2, parent_name_emergency, parent_phone_emergency, parent_cell_emergency, person_name_emergency, person_cell_emergency, person_phone_emergency, person_relation_to_student, physician_name, physician_phone, dentist_name, dentist_phone, food_alergies, medication_alergies, medication_currently_taken, last_tetanus_shot, submit_date, order_id', 'safe', 'on'=>'search'),
+			array('enroll_form_id, student_name, gender, current_school, student_address, student_home_phone, student_cell_phone, student_email, parent_name_1, parent_email_1, parent_name_2, parent_email_2, parent_name_emergency, parent_phone_emergency, parent_cell_emergency, person_name_emergency, person_cell_emergency, person_phone_emergency, person_relation_to_student, physician_name, physician_phone, dentist_name, dentist_phone, food_alergies, medication_alergies, medication_currently_taken, last_tetanus_shot, submit_date, order_id, city', 'safe', 'on'=>'search'),
 		);
 	}
 
