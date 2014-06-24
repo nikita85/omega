@@ -8,6 +8,8 @@
 <?php $feather_theme_options = get_option('feather'); ?>
 <head>
     <meta charset="utf-8">
+    <link rel="icon" href="http://omega.local/blog/wp-content/uploads/2014/06/favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="http://omega.local/blog/wp-content/uploads/2014/06/favicon.ico" type="image/x-icon" />
     <?php if(isset($feather_theme_options['enable_basic_seo']) && $feather_theme_options['enable_basic_seo'] != 0) : ?>
     <title><?php wp_title( '|', true, 'right' ); bloginfo( 'name' ); 
     // Add the blog description for the home/front page.

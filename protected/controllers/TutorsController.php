@@ -50,6 +50,33 @@ class TutorsController extends Controller
             {
                 $tutorStudent->save();
 
+                try {
+                    $message = new YiiMailMessage;
+
+                    $message->subject = 'New tutor request - Omega Teaching';
+
+                    $to = Yii::app()->params['adminEmail'];
+                    array_push($to, $tutorStudent->tutors->email);
+                    $message->setTo($to);
+                    $message->from = Yii::app()->params['emailFrom'];
+                    $message->setBody("Dear ". $tutorStudent->tutors->name. ",<br/>".
+                                        "You've got a new request for tutoring from Omega Teaching student. Please see below for details.<br/><br/>
+                                         Student's first name: " . $tutorStudent->first_name . "<br />
+                                         Student's second name: " . $tutorStudent->second_name . "<br />
+                                         Student's phone number: " . $tutorStudent->phone . "<br />
+                                         Student's e-mail: " . $tutorStudent->email . "<br /><br />
+                                         Teacher's name: " . $tutorStudent->tutors->name . "<br />
+                                         Desired time: " . $tutorStudent->tutorDayTime . "<br />
+                                         Alternative time: " . $tutorStudent->alternative_time . "<br />
+                                         Other requests: " . $tutorStudent->other_requests . "<br />
+                                         Sent date: " . date("Y-m-d H:i:s"). "<br /><br />
+                                         Thank you,<br />
+                                         The Omega Teaching team", 'text/html');
+
+                    Yii::app()->mail->send($message);
+                } catch (Exception $e) {
+                }
+
                 echo CJSON::encode(array(
                     'status'=>'success'
                 ));

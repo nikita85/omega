@@ -193,7 +193,8 @@ return array(
 	// using Yii::app()->paramsarray('paramName')
 	'params'=>array(
 		// this is used in contact page
-		'adminEmail'=>'webmaster@example.com',
+		'adminEmail'=>['alexandra.titova@easternpeak.com', 'michael_lazich@yahoo.com'],
+        'emailFrom' => ['noreply@omegateaching.com' => 'Omega Teaching'],
         'weekDays' => [
             '1' => 'Mondays',
             '2' => 'Tuesdays',

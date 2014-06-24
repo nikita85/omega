@@ -14,6 +14,7 @@
  * @property string $grade
  * @property string $parent_name
  * @property string $address
+ * @property string $city
  * @property string $parent_email
  * @property string $parent_phone
  * @property string $food_alergies
@@ -43,15 +44,15 @@ abstract class BaseEnrollFormKnoll extends GxActiveRecord {
 
 	public function rules() {
 		return array(
-			array('enroll_form_id, student_name, grade, parent_name, parent_phone', 'required'),
+			array('enroll_form_id, student_name, grade, parent_name, parent_phone, city', 'required'),
 			array('enroll_form_id', 'numerical', 'integerOnly'=>true),
-			array('student_name, parent_name, address, parent_email, food_alergies', 'length', 'max'=>255),
+			array('student_name, parent_name, address, parent_email, food_alergies, city', 'length', 'max'=>255),
 			array('grade', 'length', 'max'=>4),
 			array('parent_phone', 'length', 'max'=>12),
 			array('order_id', 'length', 'max'=>11),
 			array('address, parent_email, food_alergies, additional_comments, order_id', 'default', 'setOnEmpty' => true, 'value' => null),
 			array('additional_comments, payment_status', 'safe'),
-			array('enroll_form_id, student_name, grade, parent_name, address, parent_email, parent_phone, food_alergies, additional_comments, order_id, payment_status', 'safe', 'on'=>'search'),
+			array('enroll_form_id, student_name, grade, parent_name, address, parent_email, parent_phone, food_alergies, additional_comments, order_id, payment_status, city', 'safe', 'on'=>'search'),
 		);
 	}
 

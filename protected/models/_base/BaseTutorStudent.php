@@ -19,7 +19,7 @@
  * @property string $tutors_days_times_id
  * @property string $tutors_id
  *
- * @property TutorsDaysTimes $tutorsDaysTimes
+ * @property TutorsDaysTimes $tutorDayTime
  * @property Tutors $tutors
  */
 abstract class BaseTutorStudent extends GxActiveRecord {

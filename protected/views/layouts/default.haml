@@ -7,6 +7,8 @@
     #{$this->pageTitle}
   %link(href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css')
   %link(href='http://fonts.googleapis.com/css?family=Ubuntu:400,700' rel='stylesheet' type='text/css')
+  %link(rel="icon" href="#{$this->assetsPath}/img/favicon.ico" type="image/x-icon")
+  %link(rel="shortcut icon" href="#{$this->assetsPath}/img/favicon.ico" type="image/x-icon")
   <!--[if IE]>
   <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
@@ -28,7 +30,8 @@
         .wrapper-page
           .header
             .logo
-              %img(src="#{$this->assetsPath}/img/omega_logo.png" )
+              %a(href="/" )
+                %img(src="#{$this->assetsPath}/img/omega_logo.png" )
             .phone
               %img(src="#{$this->assetsPath}/img/icon_phone.png" )
               %h1 650&shy;-322-2671
@@ -141,36 +144,36 @@
           %li
             %a(href="/" )Home
           %li
-            %a(href="#{$this->createUrl('site/Tutors')}" )Tutors
+            %a(href="#{$this->createUrl('tutors/')}" )Tutors
           %li
-            %a(href="#{$this->createUrl('site/MainClasses')}" )Classes
+            %a(href="#{$this->createUrl('classes/selection')}" )Classes
           %li
-            %a(href="#{$this->createUrl('site/Classes')}" )Summer Seminars
+            %a(href="#{$this->createUrl('classes/summer')}" )Summer Seminars
           %li
-            %a(href="#" )blog
+            %a(href="/blog" )Blog
       .classes
         %h1 Classes:
         .middle-top-border
         %ul.classes-list
           %li
-            %a(href="#{$this->createUrl('site/classes', ['view' => 'knoll'])}" )Creative Writing at Oak Knoll
+            %a(href="#{$this->createUrl('classes/oakknoll')}" )Creative Writing at Oak Knoll
           %li
-            %a(href="#{$this->createUrl('site/classes', ['view' => 'hillview'])}" )Writing Workouts at Hillview
+            %a(href="#{$this->createUrl('classes/hillview')}" )Writing Workouts at Hillview
           %li
-            %a(href="#{$this->createUrl('site/TestPrepBootCamp')}" )Test prep boot camp
+            %a(href="#{$this->createUrl('classes/details', array('classIdentifier'=>'test_prep_boot_camp'))}" )Test prep boot camp
           %li
-            %a(href="#{$this->createUrl('site/EssayStatement')}" )Crafting the personal essay statement
+            %a(href="#{$this->createUrl('classes/details', array('classIdentifier'=>'essay_statement'))}" )Crafting the personal essay statement
           %li
-            %a(href="#{$this->createUrl('site/MythsAndMonsters')}" )Of myths and monsters
+            %a(href="#{$this->createUrl('classes/details', array('classIdentifier'=>'myths_and_monsters'))}" )Of myths and monsters
         %ul.classes-spisok-isee
           %li
-            %a(href="#{$this->createUrl('site/TheDogs')}" )Going to the dogs
+            %a(href="#{$this->createUrl('classes/details', array('classIdentifier'=>'the_dogs'))}" )Going to the dogs
           %li
-            %a(href="#{$this->createUrl('site/MakeemLaugh')}" )Make‘em laugh
+            %a(href="#{$this->createUrl('classes/details', array('classIdentifier'=>'make_them_laugh'))}" )Make‘em laugh
           %li
-            %a(href="#{$this->createUrl('site/PowerOfStory')}" )The power of story
+            %a(href="#{$this->createUrl('classes/details', array('classIdentifier'=>'power_of_story'))}" )The power of story
           %li
-            %a(href="#{$this->createUrl('site/LiteraryAnalysis')}" )Intro to literary analysis
+            %a(href="#{$this->createUrl('classes/details', array('classIdentifier'=>'literary_analysis'))}" )Intro to literary analysis
       .contact-us
         %h1 Contact us
         .right-top-border

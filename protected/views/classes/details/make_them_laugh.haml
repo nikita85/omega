@@ -66,20 +66,20 @@
         .enroll-border
           %p Spots available:
             %span 12
-        %a.enroll-button(href="#{$this->createUrl('site/Classes#calendar')}") Pick a time
+        %a.enroll-button(href="#{$this->createUrl('classes/summer')}#calendar") Pick a time
 
       .clear
 
       .other-summer-classes
         %h2 Other summer classes:
         .borders
-          %a.intro-button(href="#{$this->createUrl('site/LiteraryAnalysis')}") Intro to Literary Analysis
-          %a.crafting-button(href="#{$this->createUrl('site/EssayStatement')}") Crafting The Personal Essay Statement
-          %a.myth-button(href="#{$this->createUrl('site/MythsAndMonsters')}") Of Myth and Monsters
+          %a.intro-button(href="#{$this->createUrl('classes/details', array('classIdentifier'=>'literary_analysis') )}") Intro to Literary Analysis
+          %a.crafting-button(href="#{$this->createUrl('classes/details', array('classIdentifier'=>'essay_statement') )}") Crafting The Personal Essay Statement
+          %a.myth-button(href="#{$this->createUrl('classes/details', array('classIdentifier'=>'myths_and_monsters') )}") Of Myth and Monsters
           .clear
-          %a.going-button(href="#{$this->createUrl('site/TheDogs')}") Going to the dogs
-          %a.make-button(href="#{$this->createUrl('site/MakeemLaugh')}") Make ’Em Laugh
-          %a.power-button(href="#{$this->createUrl('site/PowerOfStory')}") The Power of Story
+          %a.going-button(href="#{$this->createUrl('classes/details', array('classIdentifier'=>'the_dogs') )}") Going to the dogs
+          %a.make-button(href="#{$this->createUrl('classes/details', array('classIdentifier'=>'make_them_laugh') )}") Make ’Em Laugh
+          %a.power-button(href="#{$this->createUrl('classes/details', array('classIdentifier'=>'power_of_story') )}") The Power of Story
 
       .not-sure
         .not-sure-inner
