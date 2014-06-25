@@ -15,6 +15,7 @@
   = $form->radioButtonListInlineRow($studentInfo,'gender', array('male'=>'male', 'female'=>'female'));
   = $form->textFieldRow($studentInfo, 'current_school', ['class' => 'span6']);
   = $form->textFieldRow($studentInfo, 'student_address', ['class' => 'span6']);
+  = $form->textFieldRow($studentInfo, 'city', ['class' => 'span6']);
   = $form->textFieldRow($studentInfo, 'student_home_phone', ['class' => 'span6']);
   = $form->textFieldRow($studentInfo, 'student_cell_phone', ['class' => 'span6']);
   = $form->textFieldRow($studentInfo, 'student_email', ['class' => 'span6']);
@@ -45,12 +46,28 @@
   %br
   %br
   - foreach ($order->studentSeminars as $studentSeminar)
-    = $form->dropDownListRow($studentSeminar, 'seminar', CHtml::listData(Seminar::model()->findAll(), 'id', 'title'));
-    = $form->dropDownListRow($studentSeminar, 'grade', CHtml::listData($studentSeminar->seminar->grades, 'id', 'title'));
-    = $form->dropDownListRow($studentSeminar, 'timeSlot', CHtml::listData($studentSeminar->seminar->timeSlots, 'id', function($item){return $item;}));
-    = $form->dropDownListRow($studentSeminar, 'datePeriod', CHtml::listData($studentSeminar->seminar->datePeriods, 'id', function($item){return $item;}));
+    .seminar_edit_block
+      %label Seminar
+      %div =$studentSeminar->seminar->title
+      %br
+      -#= $form->dropDownListRow($studentSeminar, 'seminar', CHtml::listData(Seminar::model()->findAllByAttributes(['type' => 'summer']), 'id', 'title'), ['name' => 'StudentSeminars['.$studentSeminar->id.'][seminar]', 'class' => 'edit_seminar']);
+      = $form->dropDownListRow($studentSeminar, 'grade', CHtml::listData($studentSeminar->seminar->grades, 'id', 'title'), ['name' => 'StudentSeminars['.$studentSeminar->id.'][grade]', 'class' => 'edit_grade']);
+      = $form->dropDownListRow($studentSeminar, 'timeSlot', CHtml::listData($studentSeminar->seminar->timeSlots, 'id', function($item){return $item;}), ['name' => 'StudentSeminars['.$studentSeminar->id.'][timeSlot]', 'class' => 'edit_timeSlot']);
+      = $form->dropDownListRow($studentSeminar, 'datePeriod', CHtml::listData($studentSeminar->seminar->datePeriods, 'id', function($item){return $item;}), ['name' => 'StudentSeminars['.$studentSeminar->id.'][datePeriod]', 'class' => 'edit_datePeriod']);
     %br
     %br
+  .payment_status
+    Payment status:
+    =$order->payment_status
+    %br
+    %br
+  .payment_actions
+    -if($order->payment_status != 'completed' && $order->payment_status != 'completed_by_check')
+      %a.btn.btn-primary(href="#{$this->createUrl('orders/changePaymentStatus',['orderId'=> $order->id,'status'=>'completed_by_check']);}")
+        Completed by check
+    -if($order->payment_status == 'completed_by_check')
+      %a.btn.btn-primary(href="#{$this->createUrl('orders/changePaymentStatus',['orderId'=> $order->id,'status'=>'pending']);}")
+        Revoke check
 .form-actions
 :php
   $this->widget('bootstrap.widgets.TbButton', ['buttonType' => 'submit', 'htmlOptions'=>array('class'=>'newStyleContentButton'), 'type' => 'primary', 'label' => 'Save']);

@@ -65,12 +65,6 @@ return array(
 
                 'market' => 'site/ourMarket',
                 'jobs' => 'site/jobs',
-//                'tutors' => 'site/tutors',
-//
-//                'classes/<type:summer>/<view>'=>'site/summerClasses',
-//                'classes/<type:summer>'=>'site/summerClasses',
-//                'classes/<view>'  => 'site/classes',
-//                'classes'  => 'site/classes',
 
 //                '<controller:\w+>/<id:\d+>'                 =>'<controller>/view',
 //                '<controller:\w+>/<action:\w+>/<id:\d+>'    =>'<controller>/<action>',

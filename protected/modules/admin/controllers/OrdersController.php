@@ -27,19 +27,51 @@ class OrdersController extends AdminController
         $this->render('index', ['model' => $seminar]);
     }
 
-    /**
-     * Create time
-     */
-    public function actionCreate()
+    public function actionGetSeminarDetails()
     {
-        $seminarModel = new Seminar();
+        if (!Yii::app()->request->isAjaxRequest) {
+            $this->redirect(['index']);
+        }
 
-        $this->layout = '/layouts/column1';
-        $this->actionTitle = 'New Seminar';
-        $this->pushBreadcrumb('Seminar', ['/admin/seminar/index']);
-        $this->pushBreadcrumb('New Seminar', ['/admin/seminar/create']);
+        $seminarId = $_POST['seminarId'];
+        $seminar = Seminar::model()->findByPk($seminarId);
 
-        $this->handleForm($seminarModel);
+        $data= [];
+
+        $data['grades'] = $seminar->grades;
+        $data['timeSlots'] = [];
+        foreach($seminar->timeSlots as $timeSlot){
+            $formattedTimeSlot['id'] = $timeSlot->id;
+            $formattedTimeSlot['title'] = $timeSlot->__toString();
+
+            array_push($data['timeSlots'], $formattedTimeSlot);
+        }
+
+        $data['datePeriods'] = [];
+        foreach($seminar->datePeriods as $datePeriod){
+            $formattedDatePeriod['id'] = $datePeriod->id;
+            $formattedDatePeriod['title'] = $datePeriod->__toString();
+
+            array_push($data['datePeriods'], $formattedDatePeriod);
+        }
+
+        echo CJSON::encode([
+            'success' => true,
+            'details' => $data
+        ]);
+    }
+
+    public function actionChangePaymentStatus($orderId, $status)
+    {
+        $order = Orders::model()->findByPk($orderId);
+        $order->payment_status = $status;
+
+        if($order->save()){
+            Yii::app()->user->setFlash('success', 'Saved Successfully');
+            $this->redirect(['orders/update', 'id' => $orderId]);
+        } else {
+            echo CActiveForm::validate($order);
+        }
     }
 
     /**
@@ -49,7 +81,7 @@ class OrdersController extends AdminController
     {
         //echo '<pre>';var_dump($order->enrollFormSummers);echo'</pre>';die;
         $order->attachBehavior('ManyToManyBehavior', new ManyToManyBehavior);
-        //var_dump($seminarModel->grades);die;
+
         $this->initEntityActions($order);
 
         if (!empty($_POST)) {
@@ -60,67 +92,31 @@ class OrdersController extends AdminController
 
                 $params = $_POST;
 
-/*                if (!empty($_POST['TimeSlot'])) {
+                if (!empty($_POST['StudentSeminars'])) {
 
-                    $timeSlots = [];
+                    $studentSeminars = [];
 
-                    foreach ($_POST['TimeSlot'] as $id => $attributes) {
-                        $timeSlot = preg_match('/^new\-.+/', $id) ? new TimeSlot() : TimeSlot::model()->findByPk($id);
+                    foreach ($_POST['StudentSeminars'] as $id => $attributes) {
+                        $studentSeminar = StudentSeminars::model()->findByPk($id);
+                       // echo '<pre>';var_dump($studentSeminar);echo'</pre>';
+                       // $studentSeminar->seminar_id =  $attributes['seminar'];
+                        $studentSeminar->grade_id   =   $attributes['grade'];
+                        $studentSeminar->time_slot_id   =   $attributes['timeSlot'];
+                        $studentSeminar->date_period_id  =   $attributes['datePeriod'];
+                      //  echo '<pre>';var_dump($studentSeminar);echo'</pre>';die;
 
-                        $timeSlot->start_time =  date('H:i:s', strtotime($attributes['start_time']));
-                        $timeSlot->end_time   =  date('H:i:s', strtotime($attributes['end_time']));
+                        $studentSeminar->save();
 
-                        $timeSlots[$id] = $timeSlot;
+                        $studentSeminars[$id] = $studentSeminar;
                     }
 
-                    foreach($seminarModel->timeSlots as $timeSlot) {
-                        if(!array_key_exists($timeSlot->id, $timeSlots)) {
-                            $timeSlot->delete();
-                        }
-                    }
 
-                    $seminarModel->timeSlots = $timeSlots;
-                } else {
-                    foreach($seminarModel->timeSlots as $timeSlot) {
-                        $timeSlot->delete();
-                    }
+                    $order->studentSeminars = $studentSeminars;
                 }
-
-                if (!empty($_POST['DatePeriods'])) {
-
-                    $datePeriods = [];
-                    //var_dump($_POST['DatePeriod']);die;
-                    foreach ($_POST['DatePeriods'] as $id => $attributes) {
-
-                        $datePeriod = preg_match('/^new\-.+/', $id) ? new DatePeriods() : DatePeriods::model()->findByPk($id);
-
-                        $datePeriod->start_date  = $attributes['start_date'];
-                        $datePeriod->end_date    = $attributes['end_date'];
-                        $datePeriod->description = $attributes['description'];
-
-                        $datePeriods[$id] = $datePeriod;
-                    }
-
-                    foreach($seminarModel->datePeriods as $datePeriod) {
-                        if(!array_key_exists($datePeriod->id, $datePeriods)) {
-                            $datePeriod->delete();
-                        }
-                    }
-
-                    $seminarModel->datePeriods = $datePeriods;
-
-                } else {
-                    foreach($seminarModel->datePeriods as $datePeriod) {
-                        $datePeriod->delete();
-                    }
-                }
-
-                if (array_key_exists('gradesIDs', $params)) {
-                    $seminarModel->grades = $params['gradesIDs'];
-                }*/
 
                 $order->attributes = $params;
-                $order->enrollFormSummers = $_POST['EnrollFormSummer'];
+                $order->enrollFormSummers->attributes = $_POST['EnrollFormSummer'];
+                $order->enrollFormSummers->save(null);
 
                 if (!$order->save()) {
                     throw new Exception;
@@ -130,13 +126,12 @@ class OrdersController extends AdminController
 
                 Yii::app()->user->setFlash('success', 'Saved Successfully');
 
-               // $this->redirect(['index']);
 
             } catch (Exception $e) {
-                //Yii::app()->user->setFlash('error', 'Error occurred');
+                //  Yii::app()->user->setFlash('error', 'Error occurred');
+                echo '<pre>';var_dump($e);echo'</pre>';die;
                 $transaction->rollback();
             }
-
 
         }
 

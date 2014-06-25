@@ -45,7 +45,7 @@ abstract class BaseOrders extends GxActiveRecord {
 		return array(
 			array('amount, details, payment_status', 'required'),
 			array('amount', 'length', 'max'=>10),
-			array('payment_status', 'length', 'max'=>9),
+			array('payment_status', 'length', 'max'=>18),
 			array('payer_email', 'length', 'max'=>255),
 			array('transaction_id', 'length', 'max'=>45),
 			array('created, last_update', 'safe'),

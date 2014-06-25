@@ -51,7 +51,7 @@ class SeminarController extends AdminController
     protected function handleForm(Seminar $seminarModel)
     {
         $seminarModel->attachBehavior('ManyToManyBehavior', new ManyToManyBehavior);
-        //var_dump($seminarModel->grades);die;
+
         $this->initEntityActions($seminarModel);
 
         if (isset($_POST['Seminar'])) {
@@ -91,7 +91,7 @@ class SeminarController extends AdminController
                 if (!empty($_POST['DatePeriods'])) {
 
                     $datePeriods = [];
-                    //var_dump($_POST['DatePeriod']);die;
+
                     foreach ($_POST['DatePeriods'] as $id => $attributes) {
 
                         $datePeriod = preg_match('/^new\-.+/', $id) ? new DatePeriods() : DatePeriods::model()->findByPk($id);

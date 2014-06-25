@@ -1,10 +1,3 @@
-/**
- * Created with JetBrains PhpStorm.
- * User: steale
- * Date: 6/14/13
- * Time: 4:00 PM
- * To change this template use File | Settings | File Templates.
- */
 $(document).ajaxStart(function () {
     showLayer();
 });
@@ -147,6 +140,63 @@ $(document).ready(function(){
 
     /*END MONTH PUZZLE*/
 
+    /*EDIT ORDERS*/
+
+    $('.seminar_edit_block').on('change', '.edit_seminar', function(){
+        var seminarId = $(this).val(),
+            editBlock = $(this).parent(),
+            gradeSelect = editBlock.find('.edit_grade'),
+            timeSlotSelect = editBlock.find('.edit_timeSlot'),
+            datePeriodSelect = editBlock.find('.edit_datePeriod');
+
+
+        console.log(editBlock, gradeSelect);
+
+
+        $.ajax("/admin/orders/getSeminarDetails", {
+            type: 'POST',
+            cache: false,
+            data: {seminarId: seminarId},
+            dataType:'JSON',
+            success: function(data) {
+                if (data.success) {
+
+                   var details = data.details;
+
+                    gradeSelect.empty();
+                    timeSlotSelect.empty();
+                    datePeriodSelect.empty();
+
+                    $.each(details.grades, function(key, grade) {
+                        gradeSelect.append($("<option/>", {
+                            value: grade.id,
+                            text: grade.title
+                        }));
+                    });
+
+                    $.each(details.timeSlots, function(key, timeSlot) {
+                        timeSlotSelect.append($("<option/>", {
+                            value: timeSlot.id,
+                            text: timeSlot.title
+                        }));
+                    });
+
+                    $.each(details.datePeriods, function(key, datePeriod) {
+                        datePeriodSelect.append($("<option/>", {
+                            value: datePeriod.id,
+                            text: datePeriod.title
+                        }));
+                    });
+
+
+                } else {
+                    //window.location.href = "/admin/knowledgeBase/index";
+                }
+            }
+        });
+    });
+
+    /*END EDIT ORDERS*/
 
 
     function guid() {
