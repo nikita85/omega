@@ -53,7 +53,15 @@
         'header' => 'Payment',
         'name'   => 'payment_status',
         'value'  => '$data->order->payment_status',
-        'filter' => ['pending'=>'pending', 'completed'=>'completed', 'canceled'=>'canceled', 'failed'=>'failed' ]
+        'filter' => ['pending'=>'pending', 'completed'=>'completed', 'canceled'=>'canceled', 'failed'=>'failed', 'completed_by_check'=>'completed_by_check' ]
+      ] ,
+      [
+        'header' => 'Submit date',
+        'name'   => 'created',
+        'type' => 'raw',
+        'value'  => function($data){
+          return date('m/d/Y', strtotime($data->created));
+          },
       ] ,
       [
         'class'       => 'bootstrap.widgets.TbButtonColumn',
@@ -124,6 +132,14 @@
         'header' => 'Payment',
         'name'   => 'food_alergies',
         'value'  => '$data->order->payment_status',
+      ] ,
+      [
+        'header' => 'Submit date',
+        'name'   => 'created',
+        'type' => 'raw',
+        'value'  => function($data){
+          return date('m/d/Y', strtotime($data->created));
+          },
       ] ,
  
     ]

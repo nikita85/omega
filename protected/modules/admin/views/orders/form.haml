@@ -38,7 +38,8 @@
   = $form->textFieldRow($studentInfo, 'medication_alergies', ['class' => 'span6']);
   = $form->textFieldRow($studentInfo, 'medication_currently_taken', ['class' => 'span6']);
   = $form->textFieldRow($studentInfo, 'last_tetanus_shot', ['class' => 'span6']);
-  = $form->textFieldRow($studentInfo, 'submit_date', ['class' => 'span6']);
+  %label Submit Date
+  %div = $studentInfo->submit_date
 %br
 %br
 .selected_courses
