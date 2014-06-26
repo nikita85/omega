@@ -1,0 +1,31 @@
+:php
+  $form = $this->beginWidget('bootstrap.widgets.TbActiveForm', [
+    'id' => 'seminar-form',
+    'htmlOptions' => ['class' => 'well generalForm'],
+    'enableClientValidation'=>true,
+    'clientOptions'=>array(
+                            'validateOnSubmit'=>true,
+                    )
+  ]);
+%h1
+  = $form->errorSummary($model)
+%fileset
+  - $seminarGrades = ["1th"=>"1th", "2th"=>"2th"]
+  = $form->textFieldRow($model, 'student_name',        ['class' => 'span6']);
+  = $form->labelEx($model, 'grade', array("class"=>"label-name"))
+  = $form->dropDownList($model, 'grade', $seminarGrades, [ "empty"=>"grade"]);
+  = $form->labelEx($model, 'class_day', array("class"=>"label-name"))
+  = $form->dropDownList($model, 'class_day', $model->getClassDays(), [ "empty"=>"class day"]);
+  = $form->textFieldRow($model, 'address',             ['class' => 'span6']);
+  = $form->textFieldRow($model, 'city',             ['class' => 'span6']);
+  = $form->textFieldRow($model, 'parent_name',         ['class' => 'span6']);
+  = $form->textFieldRow($model, 'parent_email',        ['class' => 'span6']);
+  = $form->textFieldRow($model, 'parent_phone',        ['class' => 'span6']);
+  = $form->textAreaRow($model,  'food_alergies',       ['class' => 'span6']);
+  = $form->textAreaRow($model,  'additional_comments', ['class' => 'span6']);
+
+.form-actions
+:php
+  $this->widget('bootstrap.widgets.TbButton', ['buttonType' => 'submit', 'htmlOptions'=>array('class'=>'newStyleContentButton'), 'type' => 'primary', 'label' => 'Save']);
+  $this->widget('bootstrap.widgets.TbButton', ['buttonType' => 'reset', 'htmlOptions'=>array('class'=>'newStyleSecondaryButton marginLeft'), 'label' => 'Clear Form']);
+  $this->endWidget();

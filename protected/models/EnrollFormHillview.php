@@ -124,4 +124,9 @@ class EnrollFormHillview extends BaseEnrollFormHillview
 
             return $dataProvider;
         }
+
+        public static function getClassDays()
+        {
+            return ['monday' => 'monday','tuesday' => 'tuesday','wednesday' => 'wednesday','thursday' => 'thursday','friday' =>'friday','saturday' => 'saturday','sunday' => 'sunday'];
+        }
 }

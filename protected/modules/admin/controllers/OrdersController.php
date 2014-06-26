@@ -79,10 +79,10 @@ class OrdersController extends AdminController
      */
     protected function handleForm(Orders $order)
     {
-        //echo '<pre>';var_dump($order->enrollFormSummers);echo'</pre>';die;
+
         $order->attachBehavior('ManyToManyBehavior', new ManyToManyBehavior);
 
-        $this->initEntityActions($order);
+        //$this->initEntityActions($order);
 
         if (!empty($_POST)) {
 

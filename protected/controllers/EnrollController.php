@@ -85,6 +85,7 @@ class EnrollController extends Controller
                     $model->attributes=$_POST['EnrollFormSummer'];
 
                     if($model->save( $selectedSeminars ))
+                        $this->sendNotification('summer', $model->order_id);
                         $this->redirect(array('/payment/checkout', "orderId"=>$model->order_id));
                    
                 }
@@ -127,6 +128,28 @@ class EnrollController extends Controller
             }
             
             return $seminars;
+        }
+
+        private function sendNotification($seminarType, $id)
+        {
+
+            $link = $this->createAbsoluteUrl("/admin/orders/update", ["id" => $id]);
+            try {
+                $message = new YiiMailMessage;
+
+                $message->subject = 'New student registration - Omega Teaching';
+
+                $message->setTo('steblin@inbox.ru');
+                $message->from = Yii::app()->params['emailFrom'];
+                $message->setBody("Dear ,<br/>".
+                                         '<a href="'. $link .'">Click here</a> for details<br />'.
+                                         "Sent date: " . date("Y-m-d H:i:s"). "<br /><br />
+                                         Thank you,<br />
+                                         The Omega Teaching team", 'text/html');
+
+                Yii::app()->mail->send($message);
+            } catch (Exception $e) {
+            }
         }
        
 }

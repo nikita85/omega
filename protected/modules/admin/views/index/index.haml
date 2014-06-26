@@ -1,6 +1,6 @@
 %h2 Oak Knoll
-%a(href="/admin/EnrollFormKnoll/create")
-  %h3 + Add new
+-#%a(href="/admin/EnrollFormKnoll/create")
+-#  %h3 + Add new
 :php
   $this->widget('bootstrap.widgets.TbExtendedGridView', [
     'type'         => 'striped bordered condensed',
@@ -141,6 +141,20 @@
           return date('m/d/Y', strtotime($data->created));
           },
       ] ,
+      [
+        'class'       => 'bootstrap.widgets.TbButtonColumn',
+        'template'    => '{update}{delete}',
+        'buttons'     => [
+          'update'=> [
+            'label'=>'Update',
+            'url'  =>'Yii::app()->controller->createUrl("/admin/enrollFormHillview/update/id/" . $data->enroll_form_id)'
+          ],
+          'delete'=> [
+            'label'=>'Delete',
+            'url'  =>'Yii::app()->controller->createUrl("/admin/enrollFormHillview/delete/id/" . $data->enroll_form_id)'
+          ],
+        ],
+      ],
  
     ]
   ]);
