@@ -164,7 +164,7 @@ class EnrollController extends Controller
 
                 $message->subject = 'New student registered';
 
-                $message->setTo('steblin@inbox.ru');
+                $message->setTo(Yii::app()->params['adminEmail']);
                 $message->from = Yii::app()->params['emailFrom'];
                 $message->setBody($courses.
                                         "Studnet name: ". $model->student_name. "<br /><br />".
