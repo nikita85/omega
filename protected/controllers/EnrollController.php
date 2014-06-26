@@ -28,6 +28,7 @@ class EnrollController extends Controller
                 $model->attributes=$_POST['EnrollFormKnoll'];
                 
                 if($model->save())
+                    $this->sendNotification('oak', $model);
                     $this->redirect(array('/payment/checkout', "orderId"=>$model->order_id));
             }
             
@@ -54,6 +55,7 @@ class EnrollController extends Controller
                 $model->attributes=$_POST['EnrollFormHillview'];
                 
                 if($model->save())
+                    $this->sendNotification('hillview', $model);
                     $this->redirect(array('/payment/checkout', "orderId"=>$model->order_id));
             }
             
@@ -85,7 +87,7 @@ class EnrollController extends Controller
                     $model->attributes=$_POST['EnrollFormSummer'];
 
                     if($model->save( $selectedSeminars ))
-                        $this->sendNotification('summer', $model->order_id);
+                        $this->sendNotification('summer', $model);
                         $this->redirect(array('/payment/checkout', "orderId"=>$model->order_id));
                    
                 }
@@ -130,18 +132,42 @@ class EnrollController extends Controller
             return $seminars;
         }
 
-        private function sendNotification($seminarType, $id)
+        private function sendNotification($seminarType, $model)
         {
 
-            $link = $this->createAbsoluteUrl("/admin/orders/update", ["id" => $id]);
+            switch($seminarType){
+                case "summer":
+                    $controllerName = "orders";
+                    break;
+                case "oak":
+                    $controllerName = "EnrollFormKnoll";
+                    break;
+                case "hillview":
+                    $controllerName = "EnrollFormHillview";
+                    break;
+            }
+
+            $courses = '';
+            foreach ($model->order->studentSeminars as $studentSeminar) {
+                $courses .= "Class: " .$studentSeminar->seminar->description . '<br/>';
+                $courses .= "Grade: " .$studentSeminar->grade->title . '<br/>';
+                if($seminarType == "summer") {
+                    $courses .= "Time: " .$studentSeminar->timeSlot . '<br/>';
+                    $courses .= "Date Period: " .$studentSeminar->datePeriod . '<br/><br/>';
+                }
+
+            }
+
+            $link = $this->createAbsoluteUrl("/admin/".$controllerName."/update", ["id" => $model->order_id]);
             try {
                 $message = new YiiMailMessage;
 
-                $message->subject = 'New student registration - Omega Teaching';
+                $message->subject = 'New student registered';
 
                 $message->setTo('steblin@inbox.ru');
                 $message->from = Yii::app()->params['emailFrom'];
-                $message->setBody("Dear ,<br/>".
+                $message->setBody($courses.
+                                        "Studnet name: ". $model->student_name. "<br /><br />".
                                          '<a href="'. $link .'">Click here</a> for details<br />'.
                                          "Sent date: " . date("Y-m-d H:i:s"). "<br /><br />
                                          Thank you,<br />
