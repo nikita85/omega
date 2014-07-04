@@ -88,6 +88,7 @@ abstract class BaseOrders extends GxActiveRecord {
 	public function search() {
 		$criteria = new CDbCriteria;
 
+        $criteria->with = ['studentSeminars'];
 		$criteria->compare('id', $this->id, true);
 		$criteria->compare('amount', $this->amount, true);
 		$criteria->compare('details', $this->details, true);

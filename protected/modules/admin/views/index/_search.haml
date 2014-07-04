@@ -1,0 +1,34 @@
+%div.wide.form
+
+:php
+  $form = $this->beginWidget('bootstrap.widgets.TbActiveForm', [
+    'action' => Yii::app()->createUrl($this->route),
+    'method' => 'get',
+  ]);
+
+%div(class="row")
+%label seminar:
+=$form->dropDownList($model, 'filter_seminar', CHtml::listData(Seminar::model()->findAllByAttributes(['type' => 'summer']), 'id', 'title'), ['empty'=>'']);
+%label grade:
+=$form->dropDownList($model, 'filter_grade', CHtml::listData(Grade::model()->findAll(), 'id', 'title'), ['empty'=>'']);
+
+-#= $form->dropDownListRow($model, 'filter_type', [ |
+-#      '' => '', |
+-#      'no_type' => AdminModule::t('ui', 'No task type'), |
+-#      EducationTest::TEST_TYPE_AFTER_THEORY => AdminModule::t('ui', 'Load after theory task'), |
+-#      EducationTest::TEST_TYPE_ONLINE => AdminModule::t('ui', 'Load online task'), |
+-#      EducationTest::TEST_TYPE_OFFLINE => AdminModule::t('ui', 'Load offline task'), |
+-#    ]); |
+-#
+-#%div(class="row")
+-#= $form->label($model, 'filter_file');
+-#= $form->textField($model, 'filter_file');
+-#
+-#%div(class="row")
+-#= $form->label($model, 'filter_content');
+-#= $form->textField($model, 'filter_content');
+
+%div.row.buttons
+= CHtml::submitButton('Search');
+
+- $this->endWidget();

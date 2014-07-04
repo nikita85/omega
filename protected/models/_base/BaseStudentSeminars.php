@@ -94,6 +94,8 @@ abstract class BaseStudentSeminars extends GxActiveRecord {
 	public function search() {
 		$criteria = new CDbCriteria;
 
+        $criteria->with = ['grade'];
+
 		$criteria->compare('id', $this->id, true);
 		$criteria->compare('student_id', $this->student_id);
 		$criteria->compare('seminar_id', $this->seminar_id);

@@ -160,13 +160,38 @@
   ]);
 
 
-
 %h2 Summer seminars
+:php
+  Yii::app()->clientScript->registerScript('search', "
+    $('.search-button').click(function(){
+        $('.search-form').toggle();
+        return false;
+    });
+    $('.search-form form').submit(function(){
+        $('#summer-seminars-grid').yiiGridView('update', {
+            data: $(this).serialize()
+        });
+        return false;
+    });
+
+  ");
+%br
+= CHtml::link('Search','#', ['class' => 'search-button']);
+%div.search-form
+  :php
+    $this->renderPartial('_search', [
+      'model' => $enrollSummer,
+    ]);
+
+
+
 :php
   $this->widget('bootstrap.widgets.TbExtendedGridView', [
     'type'         => 'striped bordered condensed',
+    'id' => "summer-seminars-grid",
     'htmlOptions'  => ['class' => 'studentManagement'],
-    'dataProvider' => $enrollSummer->selectAll(),
+    'dataProvider' => $enrollSummer->search(),
+    'filter'       => $enrollSummer,
     'columns'=> [
       [
         'header' => 'Student name',

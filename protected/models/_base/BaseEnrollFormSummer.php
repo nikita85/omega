@@ -45,6 +45,11 @@
  */
 abstract class BaseEnrollFormSummer extends GxActiveRecord {
 
+    public $filter_seminar;
+    public $filter_grade;
+    public $filter_timeSlot;
+    public $filter_datePeriod;
+
 	public static function model($className=__CLASS__) {
 		return parent::model($className);
 	}
@@ -72,7 +77,7 @@ abstract class BaseEnrollFormSummer extends GxActiveRecord {
 			array('order_id', 'length', 'max'=>11),
 			array('last_tetanus_shot', 'safe'),
 			array('current_school, student_home_phone, parent_email_1, parent_name_2, parent_email_2, food_alergies, medication_alergies, medication_currently_taken, last_tetanus_shot, order_id', 'default', 'setOnEmpty' => true, 'value' => null),
-			array('enroll_form_id, student_name, gender, current_school, student_address, student_home_phone, student_cell_phone, student_email, parent_name_1, parent_email_1, parent_name_2, parent_email_2, parent_name_emergency, parent_phone_emergency, parent_cell_emergency, person_name_emergency, person_cell_emergency, person_phone_emergency, person_relation_to_student, physician_name, physician_phone, dentist_name, dentist_phone, food_alergies, medication_alergies, medication_currently_taken, last_tetanus_shot, submit_date, order_id, city', 'safe', 'on'=>'search'),
+			array('filter_seminar, filter_grade, filter_timeSlot, filter_datePeriod, enroll_form_id, student_name, gender, current_school, student_address, student_home_phone, student_cell_phone, student_email, parent_name_1, parent_email_1, parent_name_2, parent_email_2, parent_name_emergency, parent_phone_emergency, parent_cell_emergency, person_name_emergency, person_cell_emergency, person_phone_emergency, person_relation_to_student, physician_name, physician_phone, dentist_name, dentist_phone, food_alergies, medication_alergies, medication_currently_taken, last_tetanus_shot, submit_date, order_id, city', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -125,8 +130,28 @@ abstract class BaseEnrollFormSummer extends GxActiveRecord {
 	}
 
 	public function search() {
+     //    die($this->filter_grade);
+      //  $this->filter_grade = '15';
+//        $this->filter_seminar = '15';
 		$criteria = new CDbCriteria;
 
+        if(!empty($this->filter_seminar) || !empty($this->filter_grade) || !empty($this->filter_timeSlot) || !empty($this->filter_datePeriod)){
+            $criteria->join ="INNER JOIN orders ON t.order_id = orders.id";
+            $criteria->join .=" INNER JOIN student_seminars ON orders.id = student_seminars.order_id";
+        }
+
+        if(!empty($this->filter_seminar)){
+            $criteria->compare('student_seminars.seminar_id', $this->filter_seminar, true);
+        }
+        if(!empty($this->filter_grade)){
+            $criteria->compare('student_seminars.grade_id', $this->filter_grade, true);
+        }
+        if(!empty($this->filter_timeSlot)){
+            $criteria->compare('student_seminars.time_slot_id', $this->filter_timeSlot, true);
+        }
+        if(!empty($this->filter_datePeriod)){
+            $criteria->compare('student_seminars.date_period_id', $this->filter_datePeriod, true);
+        }
 		$criteria->compare('enroll_form_id', $this->enroll_form_id);
 		$criteria->compare('student_name', $this->student_name, true);
 		$criteria->compare('gender', $this->gender, true);
@@ -156,6 +181,7 @@ abstract class BaseEnrollFormSummer extends GxActiveRecord {
 		$criteria->compare('last_tetanus_shot', $this->last_tetanus_shot, true);
 		$criteria->compare('submit_date', $this->submit_date, true);
 		$criteria->compare('order_id', $this->order_id);
+
 
 		return new CActiveDataProvider($this, array(
 			'criteria' => $criteria,

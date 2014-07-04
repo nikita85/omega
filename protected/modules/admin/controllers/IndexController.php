@@ -13,12 +13,16 @@ class IndexController extends AdminController
     public function actionIndex()
     {
         $enrollKnoll    = new EnrollFormKnoll();
-        
-        if (isset($_GET['EnrollFormKnoll'])) // filters
-            $enrollKnoll->setAttributes($_GET['EnrollFormKnoll']);
-        
         $enrollHillview = new EnrollFormHillview();
-        $enrollSummer   = new EnrollFormSummer();
+        $enrollSummer   = new EnrollFormSummer('search');
+
+        $enrollSummer->unsetAttributes();
+
+        if (isset($_GET['EnrollFormSummer'])) {
+            $enrollSummer->attributes = $_GET['EnrollFormSummer'];
+//            var_dump($_GET['EnrollFormSummer']);
+//            die($enrollSummer->filter_grade);
+        }
         
         $this->render('index',[
                     "enrollKnoll"   => $enrollKnoll,

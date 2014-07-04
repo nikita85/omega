@@ -4,6 +4,9 @@ Yii::import('application.models._base.BaseEnrollFormSummer');
 
 class EnrollFormSummer extends BaseEnrollFormSummer
 {
+
+
+
 	public static function model($className=__CLASS__) {
 		return parent::model($className);
 	}
