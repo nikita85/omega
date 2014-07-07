@@ -1,10 +1,10 @@
 <?php
 
 $menu = [
-    [
-        'label' => AdminModule::t('ui', 'Day Off'),
-        'url' => ['/admin/dayOff/index'],
-    ],
+//    [
+//        'label' => AdminModule::t('ui', 'Day Off'),
+//        'url' => ['/admin/dayOff/index'],
+//    ],
     [
         'label' => AdminModule::t('ui', 'Grade'),
         'url' => ['/admin/grade/index'],

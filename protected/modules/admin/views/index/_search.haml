@@ -11,7 +11,21 @@
 =$form->dropDownList($model, 'filter_seminar', CHtml::listData(Seminar::model()->findAllByAttributes(['type' => 'summer']), 'id', 'title'), ['empty'=>'']);
 %label grade:
 =$form->dropDownList($model, 'filter_grade', CHtml::listData(Grade::model()->findAll(), 'id', 'title'), ['empty'=>'']);
-
+%label time:
+.time_select_block
+  .timeRow
+    %label Start Time
+    .jqxWidget(name = "EnrollFormSummer[filter_timeSlot][start_time]" value="")
+    %label End Time
+    .jqxWidget(name = "EnrollFormSummer[filter_timeSlot][end_time]" value="")
+%br
+%label date:
+.date_period_block
+  .datePeriodRow
+    %label Start Date
+    .jqxWidget.date(name = "EnrollFormSummer[filter_datePeriod][start_date]" value="")
+    %label End Date
+    .jqxWidget.date(name = "EnrollFormSummer[filter_datePeriod][end_date]" value="")
 -#= $form->dropDownListRow($model, 'filter_type', [ |
 -#      '' => '', |
 -#      'no_type' => AdminModule::t('ui', 'No task type'), |

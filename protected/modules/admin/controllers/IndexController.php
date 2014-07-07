@@ -20,8 +20,8 @@ class IndexController extends AdminController
 
         if (isset($_GET['EnrollFormSummer'])) {
             $enrollSummer->attributes = $_GET['EnrollFormSummer'];
-//            var_dump($_GET['EnrollFormSummer']);
-//            die($enrollSummer->filter_grade);
+//           var_dump($enrollSummer->filter_timeSlot);die;
+  //         die();
         }
         
         $this->render('index',[

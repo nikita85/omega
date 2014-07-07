@@ -130,28 +130,59 @@ abstract class BaseEnrollFormSummer extends GxActiveRecord {
 	}
 
 	public function search() {
-     //    die($this->filter_grade);
-      //  $this->filter_grade = '15';
-//        $this->filter_seminar = '15';
+
 		$criteria = new CDbCriteria;
 
-        if(!empty($this->filter_seminar) || !empty($this->filter_grade) || !empty($this->filter_timeSlot) || !empty($this->filter_datePeriod)){
-            $criteria->join ="INNER JOIN orders ON t.order_id = orders.id";
-            $criteria->join .=" INNER JOIN student_seminars ON orders.id = student_seminars.order_id";
-        }
+//        if(!empty($this->filter_seminar) || !empty($this->filter_grade) || !empty($this->filter_timeSlot) || !empty($this->filter_datePeriod)){
+//            $criteria->join ="INNER JOIN orders ON t.order_id = orders.id";
+//            $criteria->join .=" INNER JOIN student_seminars ON orders.id = student_seminars.order_id";
+//        }
 
         if(!empty($this->filter_seminar)){
-            $criteria->compare('student_seminars.seminar_id', $this->filter_seminar, true);
+            //$criteria->compare('student_seminars.seminar_id', $this->filter_seminar, true);
+            $criteria->addCondition('t.order_id IN (
+                SELECT orders.id
+                FROM orders
+                INNER JOIN student_seminars ON orders.id = student_seminars.order_id
+                WHERE student_seminars.seminar_id = '. $this->filter_seminar .')
+            ');
         }
         if(!empty($this->filter_grade)){
-            $criteria->compare('student_seminars.grade_id', $this->filter_grade, true);
+            //$criteria->compare('student_seminars.grade_id', $this->filter_grade, true);
+            $criteria->addCondition('t.order_id IN (
+                SELECT orders.id
+                FROM orders
+                INNER JOIN student_seminars ON orders.id = student_seminars.order_id
+                WHERE student_seminars.grade_id = '. $this->filter_grade .')
+            ');
         }
+
         if(!empty($this->filter_timeSlot)){
-            $criteria->compare('student_seminars.time_slot_id', $this->filter_timeSlot, true);
+            //$criteria->compare('student_seminars.time_slot_id', $this->filter_timeSlot, true);
+
+            $criteria->addCondition('t.order_id IN (
+                SELECT orders.id
+                FROM orders
+                INNER JOIN student_seminars ON orders.id = student_seminars.order_id
+                INNER JOIN time_slot ON student_seminars.time_slot_id = time_slot.id
+                WHERE time_slot.start_time >= "'. date('H:i:s', strtotime($this->filter_timeSlot["start_time"])) .'"
+                AND time_slot.end_time <= "'. date('H:i:s', strtotime($this->filter_timeSlot["end_time"])) .'")
+            ');
         }
+
         if(!empty($this->filter_datePeriod)){
-            $criteria->compare('student_seminars.date_period_id', $this->filter_datePeriod, true);
+            //$criteria->compare('student_seminars.date_period_id', $this->filter_datePeriod, true);
+
+            $criteria->addCondition('t.order_id IN (
+                SELECT orders.id
+                FROM orders
+                INNER JOIN student_seminars ON orders.id = student_seminars.order_id
+                INNER JOIN date_periods ON student_seminars.date_period_id = date_periods.id
+                WHERE date_periods.start_date >= "'. $this->filter_datePeriod["start_date"] .'"
+                AND date_periods.end_date <= "'. $this->filter_datePeriod["end_date"] .'")
+            ');
         }
+
 		$criteria->compare('enroll_form_id', $this->enroll_form_id);
 		$criteria->compare('student_name', $this->student_name, true);
 		$criteria->compare('gender', $this->gender, true);
