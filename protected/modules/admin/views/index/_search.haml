@@ -8,13 +8,13 @@
 
 %div(class="row")
 .search_filters
-  .filter_name enable seminar filter:
+  .filter_name enable seminar filter
   .filter_content(data-input-name="filter_seminar")
     =$form->dropDownList($model, 'filter_seminar', CHtml::listData(Seminar::model()->findAllByAttributes(['type' => 'summer']), 'id', 'title'), ['empty'=>'']);
-  .filter_name enable grade filter:
+  .filter_name enable grade filter
   .filter_content(data-input-name="filter_grade")
     =$form->dropDownList($model, 'filter_grade', CHtml::listData(Grade::model()->findAll(), 'id', 'title'), ['empty'=>'']);
-  .filter_name enable time filter:
+  .filter_name enable time filter
   .filter_content(data-input-name="filter_timeSlot")
     .time_select_block
       .timeRow
@@ -22,7 +22,7 @@
         .jqxWidget(name = "EnrollFormSummer[filter_timeSlot][start_time]" value="")
         %label End Time
         .jqxWidget(name = "EnrollFormSummer[filter_timeSlot][end_time]" value="")
-  .filter_name enable date filter:
+  .filter_name enable date filter
   .filter_content(data-input-name="filter_datePeriod")
     .date_period_block
       .datePeriodRow
