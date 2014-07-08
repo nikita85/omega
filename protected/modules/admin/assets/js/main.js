@@ -213,12 +213,15 @@ $(document).ready(function(){
     });
 
     $('.filter_name').click(function () {
-        var filterContent = $(this).next(),
+        var filterName = $(this),
+            filterContent = $(this).next(),
             filterInputName = filterContent.attr('data-input-name');
         $(this).next().slideToggle(400, function () {
             if ($(this).is(":hidden")) {
+                filterName.text(filterName.text().replace('disable', 'enable'));
                 $(this).find('select, input').attr('name', '');
             } else {
+                filterName.text(filterName.text().replace('enable', 'disable'));
                 $(this).find('select, input').attr('name', modelName + '[' + filterInputName + ']');
                 if (filterInputName === 'filter_datePeriod') {
                     var curInputName = $(this).find('input:eq( 0 )').attr('name');
