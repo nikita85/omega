@@ -129,4 +129,17 @@
   }
 }
 
+.search-form{
+  display: none;
+}
+.search_filters {
+  padding-left: 15px;
+  .filter_name{
+    cursor: pointer;
+    color: #0088cc;
+  }
+  .filter_content{
+    display: none;
+  }
+}
 

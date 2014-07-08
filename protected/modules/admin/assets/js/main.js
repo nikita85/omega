@@ -37,7 +37,7 @@ $(document).ready(function(){
     $('.timeRow').not('.timeRowTemplate').find('.jqxWidget').each(function(){
         var timeValue = $(this).attr('value');
 
-        $(this).jqxDateTimeInput({ width: '100px', height: '25px', formatString: 'HH:mm', showCalendarButton: false});
+        $(this).jqxDateTimeInput({ width: '100px', height: '25px', formatString: 'hh:mm tt', showCalendarButton: false});
 
         if(timeValue){
             $(this).jqxDateTimeInput('setDate', new Date(ConvertToDate(timeValue)));
@@ -60,7 +60,7 @@ $(document).ready(function(){
             var nameAttr = $(this).attr('name');
             $(this).attr('name' , nameAttr.replace('##uid##', uiid));
             if($(this).hasClass('jqxWidget')){
-                $(this).jqxDateTimeInput({ width: '100px', height: '25px', formatString: 'HH:mm', showCalendarButton: false});
+                $(this).jqxDateTimeInput({ width: '100px', height: '25px', formatString: 'hh:mm tt', showCalendarButton: false});
             }
         });
         timeRow.insertBefore($('.addTimeRow'));
@@ -70,7 +70,7 @@ $(document).ready(function(){
     /*DATE PERIOD ROW*/
 
     $('.datePeriodRow').not('.datePeriodRowTemplate').each(function(){
-        var row = $(this); console.log(this);
+        var row = $(this);
         row.find('.jqxWidget.date').each(function(){
             $(this).jqxDateTimeInput({width: '200px', height: '25px', formatString: 'yyyy-MM-dd'});
         });
@@ -198,6 +198,49 @@ $(document).ready(function(){
 
     /*END EDIT ORDERS*/
 
+    /*SEARCH FILTERS*/
+
+    var modelName = 'EnrollFormSummer';
+    $('.search-button').click(function(){
+        $('.search-form').slideToggle();
+        return false;
+    });
+    $('.search-form form').submit(function(){
+        $('#summer-seminars-grid').yiiGridView('update', {
+            data: $(this).serialize()
+        });
+        return false;
+    });
+
+    $('.filter_name').click(function () {
+        var filterContent = $(this).next(),
+            filterInputName = filterContent.attr('data-input-name');
+        $(this).next().slideToggle(400, function () {
+            if ($(this).is(":hidden")) {
+                $(this).find('select, input').attr('name', '');
+            } else {
+                $(this).find('select, input').attr('name', modelName + '[' + filterInputName + ']');
+                if (filterInputName === 'filter_datePeriod') {
+                    var curInputName = $(this).find('input:eq( 0 )').attr('name');
+                    $(this).find('input:eq( 0 )').attr('name', curInputName + '[start_date]');
+                    $(this).find('input:eq( 1 )').attr('name', curInputName + '[end_date]');
+                } else if (filterInputName === 'filter_timeSlot') {
+                    curInputName = $(this).find('input:eq( 0 )').attr('name');
+                    $(this).find('input:eq( 0 )').attr('name', curInputName + '[start_time]');
+                    $(this).find('input:eq( 1 )').attr('name', curInputName + '[end_time]');
+                }
+            }
+        })
+    });
+
+    setTimeout(function(){
+        $('.search-form').find('input, select').each(function(){
+            $(this).attr('name', '');
+        })
+   }, 0);
+
+
+    /*END SEARCH FILTERS*/
 
     function guid() {
         function s4() {

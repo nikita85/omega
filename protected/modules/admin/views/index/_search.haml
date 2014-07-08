@@ -7,42 +7,30 @@
   ]);
 
 %div(class="row")
-%label seminar:
-=$form->dropDownList($model, 'filter_seminar', CHtml::listData(Seminar::model()->findAllByAttributes(['type' => 'summer']), 'id', 'title'), ['empty'=>'']);
-%label grade:
-=$form->dropDownList($model, 'filter_grade', CHtml::listData(Grade::model()->findAll(), 'id', 'title'), ['empty'=>'']);
-%label time:
-.time_select_block
-  .timeRow
-    %label Start Time
-    .jqxWidget(name = "EnrollFormSummer[filter_timeSlot][start_time]" value="")
-    %label End Time
-    .jqxWidget(name = "EnrollFormSummer[filter_timeSlot][end_time]" value="")
-%br
-%label date:
-.date_period_block
-  .datePeriodRow
-    %label Start Date
-    .jqxWidget.date(name = "EnrollFormSummer[filter_datePeriod][start_date]" value="")
-    %label End Date
-    .jqxWidget.date(name = "EnrollFormSummer[filter_datePeriod][end_date]" value="")
--#= $form->dropDownListRow($model, 'filter_type', [ |
--#      '' => '', |
--#      'no_type' => AdminModule::t('ui', 'No task type'), |
--#      EducationTest::TEST_TYPE_AFTER_THEORY => AdminModule::t('ui', 'Load after theory task'), |
--#      EducationTest::TEST_TYPE_ONLINE => AdminModule::t('ui', 'Load online task'), |
--#      EducationTest::TEST_TYPE_OFFLINE => AdminModule::t('ui', 'Load offline task'), |
--#    ]); |
--#
--#%div(class="row")
--#= $form->label($model, 'filter_file');
--#= $form->textField($model, 'filter_file');
--#
--#%div(class="row")
--#= $form->label($model, 'filter_content');
--#= $form->textField($model, 'filter_content');
-
-%div.row.buttons
-= CHtml::submitButton('Search');
+.search_filters
+  .filter_name seminar filter:
+  .filter_content(data-input-name="filter_seminar")
+    =$form->dropDownList($model, 'filter_seminar', CHtml::listData(Seminar::model()->findAllByAttributes(['type' => 'summer']), 'id', 'title'), ['empty'=>'']);
+  .filter_name grade filter:
+  .filter_content(data-input-name="filter_grade")
+    =$form->dropDownList($model, 'filter_grade', CHtml::listData(Grade::model()->findAll(), 'id', 'title'), ['empty'=>'']);
+  .filter_name time filter:
+  .filter_content(data-input-name="filter_timeSlot")
+    .time_select_block
+      .timeRow
+        %label Start Time
+        .jqxWidget(name = "EnrollFormSummer[filter_timeSlot][start_time]" value="")
+        %label End Time
+        .jqxWidget(name = "EnrollFormSummer[filter_timeSlot][end_time]" value="")
+  .filter_name date filter:
+  .filter_content(data-input-name="filter_datePeriod")
+    .date_period_block
+      .datePeriodRow
+        %label Start Date
+        .jqxWidget.date(name = "EnrollFormSummer[filter_datePeriod][start_date]" value="")
+        %label End Date
+        .jqxWidget.date(name = "EnrollFormSummer[filter_datePeriod][end_date]" value="")
+  %div.row.buttons
+  = CHtml::submitButton('Search');
 
 - $this->endWidget();
