@@ -1,0 +1,78 @@
+%h2 Hillview
+:php
+  $this->widget('bootstrap.widgets.TbExtendedGridView', [
+    'type'         => 'striped bordered condensed',
+    'htmlOptions'  => ['class' => 'studentManagement'],
+    'dataProvider' => $enrollHillview->selectAll(),
+    'columns'=> [
+      [
+        'header' => 'Student name',
+        'name'   => 'student_name',
+        'value'  => '$data->student_name',
+      ] ,
+      [
+        'header' => 'Grade',
+        'name'   => 'grade',
+        'value'  => '$data->grade',
+      ] ,
+      [
+        'header' => 'Class day',
+        'name'   => 'class_day',
+        'value'  => '$data->class_day',
+      ] ,
+      [
+        'header' => 'Parent name',
+        'name'   => 'parent_name',
+        'value'  => '$data->parent_name',
+      ] ,
+      [
+        'header' => 'Address',
+        'name'   => 'address',
+        'value'  => '$data->address',
+      ] ,
+      [
+        'header' => 'Parent email',
+        'name'   => 'parent_email',
+        'value'  => '$data->parent_email',
+      ] ,
+      [
+        'header' => 'Parent phone',
+        'name'   => 'parent_phone',
+        'value'  => '$data->parent_phone',
+      ] ,
+      [
+        'header' => 'Food alergies',
+        'name'   => 'food_alergies',
+        'value'  => '$data->food_alergies',
+      ] ,
+      [
+        'header' => 'Payment',
+        'name'   => 'food_alergies',
+        'value'  => '$data->order->payment_status',
+      ] ,
+      [
+        'header' => 'Submit date',
+        'name'   => 'created',
+        'type' => 'raw',
+        'value'  => function($data){
+          return date('m/d/Y', strtotime($data->created));
+          },
+      ] ,
+      [
+        'class'       => 'bootstrap.widgets.TbButtonColumn',
+        'template'    => '{update}{delete}',
+        'buttons'     => [
+          'update'=> [
+            'label'=>'Update',
+            'url'  =>'Yii::app()->controller->createUrl("/admin/enrollFormHillview/update/id/" . $data->enroll_form_id)'
+          ],
+          'delete'=> [
+            'label'=>'Delete',
+            'url'  =>'Yii::app()->controller->createUrl("/admin/enrollFormHillview/delete/id/" . $data->enroll_form_id)'
+          ],
+        ],
+      ],
+
+    ]
+  ]);
+

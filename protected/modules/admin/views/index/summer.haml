@@ -1,0 +1,86 @@
+%h2 Summer seminars
+-#:php
+-#  Yii::app()->clientScript->registerScript('search', "
+-#    $('.search-button').click(function(){
+-#        $('.search-form').slideToggle();
+-#        return false;
+-#    });
+-#    $('.search-form form').submit(function(){
+-#        $('#summer-seminars-grid').yiiGridView('update', {
+-#            data: $(this).serialize()
+-#        });
+-#        return false;
+-#    });
+-#
+-#  ");
+%br
+= CHtml::link('Search filters:','#', ['class' => 'search-button']);
+%div.search-form
+  :php
+    $this->renderPartial('_search', [
+      'model' => $enrollSummer,
+    ]);
+
+:php
+  $this->widget('bootstrap.widgets.TbExtendedGridView', [
+    'type'         => 'striped bordered condensed',
+    'id' => "summer-seminars-grid",
+    'htmlOptions'  => ['class' => 'studentManagement'],
+    'dataProvider' => $enrollSummer->search(),
+    'columns'=> [
+      [
+        'header' => 'Student name',
+        'name'   => 'student_name',
+        'value'  => '$data->student_name',
+      ] ,
+      [
+        'header' => 'Student cell phone',
+        'name'   => 'student_cell_phone',
+        'value'  => '$data->student_cell_phone',
+      ] ,
+      [
+        'header' => 'Student email',
+        'name'   => 'student_email',
+        'value'  => '$data->student_email',
+      ] ,
+      [
+        'header' => 'Submit date',
+        'name'   => 'submit_date',
+        'value'  => '$data->submit_date',
+      ] ,
+      [
+        'header' => 'Courses',
+        'name'   => 'food_alergies',
+        'type'   => 'raw',
+        'value'  => function($data){
+            $courses = '';
+            foreach ($data->order->studentSeminars as $studentSeminar) {
+              $courses .= $studentSeminar->seminar->title . '<br/>';
+              $courses .= $studentSeminar->grade->title . '<br/>';
+              $courses .= $studentSeminar->timeSlot . '<br/>';
+              $courses .= $studentSeminar->datePeriod . '<br/><br/>';
+            }
+            return $courses;
+            },
+      ] ,
+      [
+        'header' => 'Payment',
+        'name'   => 'food_alergies',
+        'value'  => '$data->order->payment_status',
+      ] ,
+      [
+        'class'       => 'bootstrap.widgets.TbButtonColumn',
+        'template'    => '{update}{delete}',
+        'buttons'     => [
+          'update'=> [
+            'label'=>'Update',
+            'url'  =>'Yii::app()->controller->createUrl("/admin/orders/update/id/" . $data->enroll_form_id)'
+          ],
+          'delete'=> [
+            'label'=>'Delete',
+            'url'  =>'Yii::app()->controller->createUrl("/admin/orders/delete/id/" . $data->order->id)'
+          ],
+        ],
+      ],
+    ]
+  ]);

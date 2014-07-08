@@ -12,24 +12,40 @@ class IndexController extends AdminController
      */
     public function actionIndex()
     {
-        $enrollKnoll    = new EnrollFormKnoll();
-        $enrollHillview = new EnrollFormHillview();
-        $enrollSummer   = new EnrollFormSummer('search');
+        $this->render('index');
+    }
 
+    public function actionOakknoll()
+    {
+        $this->pushBreadcrumb('Oak Knoll', ['/admin/index/oakknoll']);
+        $enrollKnoll    = new EnrollFormKnoll();
+        $this->render('oakknoll',[
+            "enrollKnoll"   => $enrollKnoll,
+        ]);
+    }
+
+    public function actionHillview()
+    {
+        $this->pushBreadcrumb('Hillview', ['/admin/index/hillview']);
+        $enrollHillview = new EnrollFormHillview();
+        $this->render('hillview',[
+            "enrollHillview"=> $enrollHillview,
+        ]);
+    }
+
+    public function actionSummer()
+    {
+        $this->pushBreadcrumb('Summer Seminars', ['/admin/index/summer']);
+        $enrollSummer   = new EnrollFormSummer('search');
         $enrollSummer->unsetAttributes();
 
         if (isset($_GET['EnrollFormSummer'])) {
             $enrollSummer->attributes = $_GET['EnrollFormSummer'];
-//           var_dump($enrollSummer->filter_timeSlot);die;
-  //         die();
         }
-        
-        $this->render('index',[
-                    "enrollKnoll"   => $enrollKnoll,
-                    "enrollHillview"=> $enrollHillview,
-                    "enrollSummer"  => $enrollSummer
+
+        $this->render('summer',[
+            "enrollSummer"  => $enrollSummer
         ]);
-        
     }
 
     /**
