@@ -28,6 +28,7 @@
     %img(src="#{$tutorsImgFolder.$tutor->big_image}" height="503" width="299")
   = $form->error($tutor, 'big_image')
   = $form->label($tutor, 'big_image')
+  %p (503px:299px)
   = $form->fileField($tutor, 'big_image', ['accept' => 'image/png, image/jpeg'])
   %br
   %br
@@ -35,6 +36,7 @@
     %img(src="#{$tutorsImgFolder.$tutor->small_image}" height="220" width="220")
   = $form->error($tutor, 'small_image')
   = $form->label($tutor, 'small_image')
+  %p (220px:220px)
   = $form->fileField($tutor, 'small_image', ['accept' => 'image/png, image/jpeg'])
   %br
   %br
