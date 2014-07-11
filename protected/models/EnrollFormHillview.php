@@ -4,6 +4,9 @@ Yii::import('application.models._base.BaseEnrollFormHillview');
 
 class EnrollFormHillview extends BaseEnrollFormHillview
 {
+
+    public $payment_status; // this property is for search purposes only
+
 	public static function model($className=__CLASS__) {
 		return parent::model($className);
 	}
@@ -114,6 +117,41 @@ class EnrollFormHillview extends BaseEnrollFormHillview
 //            $criteria->alias = 'form';
 //            
 //            $criteria->join= 'JOIN orders ON (form.order_id != orders.id)';
+
+            $dataProvider = new CActiveDataProvider($this, [
+                'criteria' => $criteria,
+                'pagination' => [
+                    'pageSize' => 50
+                ]
+            ]);
+
+            return $dataProvider;
+        }
+
+        public function search()
+        {
+            $criteria = new CDbCriteria;
+
+            $criteria->select = "*";
+
+            $criteria->with = [
+                'order'
+            ];
+
+            $criteria->compare('enroll_form_id', $this->enroll_form_id);
+            $criteria->compare('student_name', $this->student_name, true);
+            $criteria->compare('parent_name', $this->parent_name, true);
+            $criteria->compare('address', $this->address, true);
+            $criteria->compare('parent_email', $this->parent_email, true);
+            $criteria->compare('parent_phone', $this->parent_phone, true);
+            $criteria->compare('food_alergies', $this->food_alergies, true);
+            $criteria->compare('additional_comments', $this->additional_comments, true);
+            $criteria->compare('grade', $this->grade, true);
+            $criteria->compare('class_day', $this->class_day, true);
+            $criteria->compare('order_id', $this->order_id);
+            $criteria->compare('created', $this->created);
+
+            $criteria->compare('order.payment_status', $this->payment_status);
 
             $dataProvider = new CActiveDataProvider($this, [
                 'criteria' => $criteria,

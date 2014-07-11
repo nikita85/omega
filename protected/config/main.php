@@ -52,6 +52,9 @@ return array(
 
 	// application components
 	'components'=>array(
+        'csvExport' => array(
+            'class' => 'application.components.CsvExport'
+        ),
 		'user'=>array(
 			// enable cookie-based authentication
 			'allowAutoLogin'=>true,

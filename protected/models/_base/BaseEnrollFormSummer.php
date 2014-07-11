@@ -133,13 +133,7 @@ abstract class BaseEnrollFormSummer extends GxActiveRecord {
 
 		$criteria = new CDbCriteria;
 
-//        if(!empty($this->filter_seminar) || !empty($this->filter_grade) || !empty($this->filter_timeSlot) || !empty($this->filter_datePeriod)){
-//            $criteria->join ="INNER JOIN orders ON t.order_id = orders.id";
-//            $criteria->join .=" INNER JOIN student_seminars ON orders.id = student_seminars.order_id";
-//        }
-
         if(!empty($this->filter_seminar)){
-            //$criteria->compare('student_seminars.seminar_id', $this->filter_seminar, true);
             $criteria->addCondition('t.order_id IN (
                 SELECT orders.id
                 FROM orders
@@ -148,7 +142,6 @@ abstract class BaseEnrollFormSummer extends GxActiveRecord {
             ');
         }
         if(!empty($this->filter_grade)){
-            //$criteria->compare('student_seminars.grade_id', $this->filter_grade, true);
             $criteria->addCondition('t.order_id IN (
                 SELECT orders.id
                 FROM orders
@@ -158,8 +151,6 @@ abstract class BaseEnrollFormSummer extends GxActiveRecord {
         }
 
         if(!empty($this->filter_timeSlot)){
-            //$criteria->compare('student_seminars.time_slot_id', $this->filter_timeSlot, true);
-
             $criteria->addCondition('t.order_id IN (
                 SELECT orders.id
                 FROM orders
@@ -171,8 +162,6 @@ abstract class BaseEnrollFormSummer extends GxActiveRecord {
         }
 
         if(!empty($this->filter_datePeriod)){
-            //$criteria->compare('student_seminars.date_period_id', $this->filter_datePeriod, true);
-
             $criteria->addCondition('t.order_id IN (
                 SELECT orders.id
                 FROM orders

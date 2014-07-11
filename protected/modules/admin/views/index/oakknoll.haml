@@ -1,10 +1,12 @@
+= CHtml::link('Export data', $this->createUrl('exportOakknoll'), ['id'=>'export-button', 'class' => '']);
+
 %h2 Oak Knoll
 -#%a(href="/admin/EnrollFormKnoll/create")
 -#  %h3 + Add new
 :php
   $this->widget('bootstrap.widgets.TbExtendedGridView', [
     'type'         => 'striped bordered condensed',
-    'htmlOptions'  => ['class' => 'studentManagement'],
+    'htmlOptions'  => ['class' => 'studentManagement grid-view'],
     'dataProvider' => $enrollKnoll->search(),
 
     'filter'       => $enrollKnoll,

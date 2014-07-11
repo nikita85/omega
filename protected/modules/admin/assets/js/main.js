@@ -150,9 +150,6 @@ $(document).ready(function(){
             datePeriodSelect = editBlock.find('.edit_datePeriod');
 
 
-        console.log(editBlock, gradeSelect);
-
-
         $.ajax("/admin/orders/getSeminarDetails", {
             type: 'POST',
             cache: false,

@@ -1,3 +1,5 @@
+= CHtml::link('Export data', $this->createUrl('exportSummer'), ['id'=>'export-button', 'class' => '']);
+
 %h2 Summer seminars
 -#:php
 -#  Yii::app()->clientScript->registerScript('search', "
@@ -25,8 +27,12 @@
   $this->widget('bootstrap.widgets.TbExtendedGridView', [
     'type'         => 'striped bordered condensed',
     'id' => "summer-seminars-grid",
-    'htmlOptions'  => ['class' => 'studentManagement'],
+    'htmlOptions'  => ['class' => 'studentManagement grid-view'],
     'dataProvider' => $enrollSummer->search(),
+    'filter' => $enrollSummer,
+    'afterAjaxUpdate' => "function() {
+      $('#export-button').attr('href', $('#export-button').attr('href').replace(/\?.+$/, '') + '?' + $('.grid-view').yiiGridView('getUrl').replace(/^(.+\?)/, ''));
+      }",
     'columns'=> [
       [
         'header' => 'Student name',
