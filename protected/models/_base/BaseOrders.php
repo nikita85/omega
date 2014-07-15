@@ -56,8 +56,8 @@ abstract class BaseOrders extends GxActiveRecord {
 
 	public function relations() {
 		return array(
-			'enrollFormHillviews' => array(self::HAS_MANY, 'EnrollFormHillview', 'order_id'),
-			'enrollFormKnolls' => array(self::HAS_MANY, 'EnrollFormKnoll', 'order_id'),
+			'enrollFormHillviews' => array(self::HAS_ONE, 'EnrollFormHillview', 'order_id'),
+			'enrollFormKnolls' => array(self::HAS_ONE, 'EnrollFormKnoll', 'order_id'),
 			'enrollFormSummers' => array(self::HAS_ONE, 'EnrollFormSummer', 'order_id'),
 			'studentSeminars' => array(self::HAS_MANY, 'StudentSeminars', 'order_id'),
 		);

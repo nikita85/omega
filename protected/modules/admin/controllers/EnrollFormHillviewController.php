@@ -64,6 +64,20 @@ class EnrollFormHillviewController extends AdminController {
         ));
     }
 
+    public function actionChangePaymentStatus($orderId, $status)
+    {
+        $order = Orders::model()->findByPk($orderId);
+        $order->payment_status = $status;
+
+        if($order->save()){
+            Yii::app()->user->setFlash('success', 'Saved Successfully');
+            $hillviewFormId = $order->enrollFormHillviews->enroll_form_id;
+            $this->redirect(['enrollFormHillview/update', 'id' => $hillviewFormId]);
+        } else {
+            echo CActiveForm::validate($order);
+        }
+    }
+
     public function actionDelete($id) {
         if (Yii::app()->getRequest()->getIsPostRequest()) {
             $this->loadModel($id, 'EnrollFormHillview')->delete();

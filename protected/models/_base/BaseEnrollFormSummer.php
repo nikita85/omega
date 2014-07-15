@@ -49,6 +49,7 @@ abstract class BaseEnrollFormSummer extends GxActiveRecord {
     public $filter_grade;
     public $filter_timeSlot;
     public $filter_datePeriod;
+    public $payment_status; // this property is for search purposes only
 
 	public static function model($className=__CLASS__) {
 		return parent::model($className);
@@ -77,7 +78,7 @@ abstract class BaseEnrollFormSummer extends GxActiveRecord {
 			array('order_id', 'length', 'max'=>11),
 			array('last_tetanus_shot', 'safe'),
 			array('current_school, student_home_phone, parent_email_1, parent_name_2, parent_email_2, food_alergies, medication_alergies, medication_currently_taken, last_tetanus_shot, order_id', 'default', 'setOnEmpty' => true, 'value' => null),
-			array('filter_seminar, filter_grade, filter_timeSlot, filter_datePeriod, enroll_form_id, student_name, gender, current_school, student_address, student_home_phone, student_cell_phone, student_email, parent_name_1, parent_email_1, parent_name_2, parent_email_2, parent_name_emergency, parent_phone_emergency, parent_cell_emergency, person_name_emergency, person_cell_emergency, person_phone_emergency, person_relation_to_student, physician_name, physician_phone, dentist_name, dentist_phone, food_alergies, medication_alergies, medication_currently_taken, last_tetanus_shot, submit_date, order_id, city', 'safe', 'on'=>'search'),
+			array('filter_seminar, filter_grade, filter_timeSlot, filter_datePeriod, enroll_form_id, student_name, gender, current_school, student_address, student_home_phone, student_cell_phone, student_email, parent_name_1, parent_email_1, parent_name_2, parent_email_2, parent_name_emergency, parent_phone_emergency, parent_cell_emergency, person_name_emergency, person_cell_emergency, person_phone_emergency, person_relation_to_student, physician_name, physician_phone, dentist_name, dentist_phone, food_alergies, medication_alergies, medication_currently_taken, last_tetanus_shot, submit_date, order_id, city, payment_status', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -169,6 +170,14 @@ abstract class BaseEnrollFormSummer extends GxActiveRecord {
                 INNER JOIN date_periods ON student_seminars.date_period_id = date_periods.id
                 WHERE date_periods.start_date >= "'. $this->filter_datePeriod["start_date"] .'"
                 AND date_periods.end_date <= "'. $this->filter_datePeriod["end_date"] .'")
+            ');
+        }
+
+        if(!empty($this->payment_status)){
+            $criteria->addCondition('t.order_id IN (
+                SELECT orders.id
+                FROM orders
+                WHERE orders.payment_status = "'. $this->payment_status .'")
             ');
         }
 

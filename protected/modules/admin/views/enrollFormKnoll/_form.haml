@@ -9,7 +9,7 @@
   ]);
 %h1
   = $form->errorSummary($model)
-%fileset
+%fieldset
   - $seminarGrades = ["1th"=>"1th", "2th"=>"2th"]
   = $form->textFieldRow($model, 'student_name',        ['class' => 'span6']);
   = $form->labelEx($model, 'grade', array("class"=>"label-name"))
@@ -21,6 +21,19 @@
   = $form->textFieldRow($model, 'parent_phone',        ['class' => 'span6']);
   = $form->textAreaRow($model,  'food_alergies',       ['class' => 'span6']);
   = $form->textAreaRow($model,  'additional_comments', ['class' => 'span6']);
+
+  .payment_status
+    Payment status:
+    =$model->order->payment_status
+    %br
+    %br
+  .payment_actions
+    -if($model->order->payment_status != 'completed' && $model->order->payment_status != 'completed_by_check')
+      %a.btn.btn-primary(href="#{$this->createUrl('enrollFormKnoll/changePaymentStatus',['orderId'=> $model->order->id,'status'=>'completed_by_check']);}")
+        Completed by check
+    -if($model->order->payment_status == 'completed_by_check')
+      %a.btn.btn-primary(href="#{$this->createUrl('enrollFormKnoll/changePaymentStatus',['orderId'=> $model->order->id,'status'=>'pending']);}")
+        Revoke check
 
 .form-actions
 :php

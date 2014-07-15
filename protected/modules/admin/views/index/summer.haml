@@ -1,20 +1,6 @@
 = CHtml::link('Export data', $this->createUrl('exportSummer'), ['id'=>'export-button', 'class' => '']);
 
 %h2 Summer seminars
--#:php
--#  Yii::app()->clientScript->registerScript('search', "
--#    $('.search-button').click(function(){
--#        $('.search-form').slideToggle();
--#        return false;
--#    });
--#    $('.search-form form').submit(function(){
--#        $('#summer-seminars-grid').yiiGridView('update', {
--#            data: $(this).serialize()
--#        });
--#        return false;
--#    });
--#
--#  ");
 %br
 = CHtml::link('Search filters:','#', ['class' => 'search-button']);
 %div.search-form
@@ -71,8 +57,9 @@
       ] ,
       [
         'header' => 'Payment',
-        'name'   => 'food_alergies',
+        'name'   => 'payment_status',
         'value'  => '$data->order->payment_status',
+        'filter' => ['pending'=>'pending', 'completed'=>'completed', 'canceled'=>'canceled', 'failed'=>'failed', 'completed_by_check'=>'completed_by_check' ]
       ] ,
       [
         'class'       => 'bootstrap.widgets.TbButtonColumn',

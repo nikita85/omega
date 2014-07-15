@@ -38,31 +38,43 @@ public $layout = '/layouts/column1';
 		$this->render('create', array( 'model' => $model, "seminarGrades"=>$seminarGrades));
 	}
 
-	public function actionUpdate($id) {
-		$model = $this->loadModel($id, 'EnrollFormKnoll');
+    public function actionUpdate($id)
+    {
+        $model = $this->loadModel($id, 'EnrollFormKnoll');
 
+        if (isset($_POST['EnrollFormKnoll'])) {
+            $model->setAttributes($_POST['EnrollFormKnoll']);
 
-		if (isset($_POST['EnrollFormKnoll'])) {
-			$model->setAttributes($_POST['EnrollFormKnoll']);
+            if ($model->save()) {
+                $this->redirect(array('//admin'));
+            }
+        }
 
-			if ($model->save()) {
-//				$this->redirect(array('view', 'id' => $model->enroll_form_id));
-				$this->redirect(array('//admin'));
-			}
-		}
+        $seminar = Seminar::model()->findAllByAttributes(array("title" => 'knoll'))[0];
 
-                $seminar = Seminar::model()->findAllByAttributes(array("title"=>'knoll'))[0];
-            
-                foreach ($seminar->grades as $grade) 
-                {
-                    $seminarGrades[$grade->title] = $grade->title;
-                }
-                
-		$this->render('update', array(
-				'model' => $model,
-                                'seminarGrades'=>$seminarGrades
-				));
-	}
+        foreach ($seminar->grades as $grade) {
+            $seminarGrades[$grade->title] = $grade->title;
+        }
+
+        $this->render('update', array(
+            'model' => $model,
+            'seminarGrades' => $seminarGrades
+        ));
+    }
+
+    public function actionChangePaymentStatus($orderId, $status)
+    {
+        $order = Orders::model()->findByPk($orderId);
+        $order->payment_status = $status;
+
+        if($order->save()){
+            Yii::app()->user->setFlash('success', 'Saved Successfully');
+            $knollFormId = $order->enrollFormKnolls->enroll_form_id;
+            $this->redirect(['enrollFormKnoll/update', 'id' => $knollFormId]);
+        } else {
+            echo CActiveForm::validate($order);
+        }
+    }
 
 	public function actionDelete($id) {
 		if (Yii::app()->getRequest()->getIsPostRequest()) {
