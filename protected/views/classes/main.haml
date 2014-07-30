@@ -1,7 +1,7 @@
 %section
   .wrapper-page
     .wrapper-main-classes-page
-      %h1 The list of our classes
+      %h1 Our classes
       .our-classes
         %img(src="#{$this->assetsPath}/img/photo_1_1.png" )
         %h2.summer-seminar Summer Seminars
@@ -13,7 +13,7 @@
           %li
             %span
               %b Class Size:
-              %br 4-12 students per seminar
+              %br max 4-12 students per seminar
           %li
             %span
               %b Times:
@@ -35,7 +35,7 @@
           %li
             %span
               %b Class Size:
-              %br 12 students per class
+              %br max 12 students per class
           %li
             %span
               %b Times:
@@ -57,7 +57,7 @@
           %li
             %span
               %b Class Size:
-              %br 15 students per class
+              %br max 12 students per class
           %li
             %span
               %b Times:
@@ -70,10 +70,12 @@
         %a.btn.creative-writing-button(href="#{$this->createUrl('classes/hillview')}") read more
       .what-class
         %img(src="#{$this->assetsPath}/img/question_sign_blue.png" )
-        %p Not sure what class is right for you?
+        %p Not sure which class is right for you?
         %br
         %p We can help!
         %br
-        %p Call us right away for a free consultation:
+        %p
+          %a(href="mailto:info@omegateaching.com" )Email
+          or call us for a free consultation:
           %span 650-322-2671
       .clear
