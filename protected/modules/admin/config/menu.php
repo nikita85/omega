@@ -31,7 +31,7 @@ $menu = [
     ],
     [
         'label' => AdminModule::t('ui', 'Admin Logout'),
-        'url'=>['/user/logout'],
+        'url'=>['/admin/user/logout'],
     ],
 
 ];

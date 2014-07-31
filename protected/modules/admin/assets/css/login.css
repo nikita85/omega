@@ -1,0 +1,20 @@
+body {
+    background: none repeat scroll 0 0 #a2a2a2;
+}
+.wrapper {
+    padding-top: 10%;
+}
+.wrapper .login-form {
+    margin: 0 auto;
+    width: 350px;
+}
+form {
+    margin: 0;
+}
+form .form-actions {
+    margin-bottom: 10px;
+    padding-bottom: 0;
+}
+form .help-block {
+    display: none;
+}

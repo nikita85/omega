@@ -50,6 +50,12 @@ class AdminController extends Controller
     {
         parent::init();
 
+        if(Yii::app()->user->isGuest) {
+            Yii::app()->request->redirect(
+                Yii::app()->createAbsoluteUrl('/admin/user/login')
+            );
+        }
+
         $this->assetsPath = Yii::app()->assetManager->publish(Yii::getPathOfAlias('application.assets'));
 
         /* JS Scripts */
@@ -65,6 +71,9 @@ class AdminController extends Controller
         $this->registerCssFile($this->module->assetsPath . '/css/main.css', 'screen, projection');
 
     }
+
+
+
 
     /**
      * Log leads for all systems users
