@@ -15,28 +15,28 @@
       %h2 Choose the way to maximize your score:
       .maximize-way
         .tutoring
-          %img(src="#{$this->assetsPath}/img/photo_1.png" )
+          %img(src="#{$this->assetsPath}/img/Tutors-block.png" )
           %h2 Tutors
           %p Tutoring by our expert teachers at our center or in the convenience of your home
           %a.all-buttons(href="#{$this->createUrl('tutors/')}") read more
       .maximize-way
         .classes
-          %img(src="#{$this->assetsPath}/img/photo_2.png" )
+          %img(src="#{$this->assetsPath}/img/classes-block.png" )
           %h2 Classes
           %p Test prep and enrichment classes throughout the year
           %a.all-buttons(href="#{$this->createUrl('classes/selection')}") read more
       .maximize-way
         .sat
-          %img(src="#{$this->assetsPath}/img/photo_3.png" )
-          %h2 SAT and ACT
-          %p Ace the SAT and get accepted by the college of your dreams!
-          %a.all-buttons(href="#") read more
+          %img(src="#{$this->assetsPath}/img/SAT-and-ACT-block.png" )
+          %h2 Blog
+          %p We will keep you updated on all news around education.
+          %a.all-buttons(href="#{Yii::app()->baseUrl}/blog") read more
       .maximize-way
         .isee
-          %img(src="#{$this->assetsPath}/img/photo_4.png" )
-          %h2 ISEE and HSPT
-          %p Intensive tutoring and classes to prepare students for the entrance exams into private schools
-          %a.all-buttons(href="#") read more
+          %img(src="#{$this->assetsPath}/img/ISEE-and-HSPT-block.png" )
+          %h2 Store
+          %p Here you can find materials created by our expert teachers to help you succeed on your tests.
+          %a.all-buttons(href="#{$this->createUrl('site/OurMarket')}") read more
 
     .clear
 

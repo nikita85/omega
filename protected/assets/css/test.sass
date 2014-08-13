@@ -1496,7 +1496,7 @@ header#header-bg
         font-family: $second-fonts
         font-size: 13px
         color: #666666
-  .our-classes h2
+  .our-classes h2, .what-class h2
     font-size: 15px
     text-align: center
     margin-top: 10px
@@ -1504,6 +1504,7 @@ header#header-bg
     margin-bottom: 10px
     line-height: normal
     word-wrap: break-word
+    height: 35px
   .summer-seminar
     color: #129a46
     width: 127px
@@ -1534,27 +1535,34 @@ header#header-bg
     &:hover
       @include linear-gradient(#3797a8,  #4ac2d6)
   .what-class
-    background: rgba(41, 159, 246, 0.1)
-    text-align: center
+    //background: rgba(41, 159, 246, 0.1)
+    //text-align: center
     line-height: normal
     img
-      margin-top: 100px
+      //margin-top: 100px
       margin-bottom: 5px
     p
-      width: 160px
-      margin-left: 25px
-      font-family: $second-fonts
-      font-size: 16px
-      color: #333333
-      span
-        color: #3888c4
-        font-weight: 700
+      height: 140px
+      margin-top: 30px
+      font-family: $head-fonts
+      font-size: 13px
+      color: #666666
+      padding: 0 20px
+    //span
+    //  color: #3888c4
+    //  font-weight: 700
     a
-      color: #4d9ad3
+      color: #FFFFFF
       text-decoration: none
 /**TUTORS PAGE**/
 .wrapper-tutors-page
   margin-bottom: 50px
+  .tutor-details-wrap
+    width: 940px
+    height: 534px
+    padding: 10px 0 0 0
+    background: url("../img/our-tutuors-bg.jpg") 0 0 no-repeat
+    @include custom-border-radius(5px, 5px, 5px, 5px)
   h1, .tutors-info h2
     font-family: $second-fonts
     font-size: 30px
@@ -1562,35 +1570,37 @@ header#header-bg
     color: #007c2d
     margin-top: 20px
     margin-bottom: 10px
-  .tutor-details-image
-    display: block
-    float: left
-    height: 503px
-    width: 299px
-    border-bottom: 1px solid #ECECEC
-    border-left: 1px solid #ECECEC
-    border-top: 1px solid #ECECEC
-    @include custom-border-radius(10px, 0, 0, 10px)
-  .tutor-details-image
-    img
-      height: 503px
-      width: 299px
-      @include custom-border-radius(10px, 0, 0, 10px)
+  //.tutor-details-image
+  //  display: block
+  //  float: left
+  //  height: 503px
+  //  width: 299px
+  //  border-bottom: 1px solid #ECECEC
+  //  border-left: 1px solid #ECECEC
+  //  border-top: 1px solid #ECECEC
+  //  @include custom-border-radius(10px, 0, 0, 10px)
+  //.tutor-details-image
+  //  img
+  //    height: 503px
+  //    width: 299px
+  //    @include custom-border-radius(10px, 0, 0, 10px)
   .tutors-info
-    float: right
+    margin: 0 auto
+    //float: right
     position: relative
-    min-height: 503px
-    width: 639px
-    border-top: 1px solid #ececec
-    border-right: 1px solid #ececec
-    border-bottom: 1px solid #ececec
-    @include custom-border-radius(0, 10px, 10px, 0)
+    min-height: 493px
+    width: 779px
+    background: rgba(255,255,255, 0.9)
+    @include custom-border-radius(10px, 10px, 10px, 10px)
     font-family: $head-fonts
     font-size: 13px
     color: #666666
+    padding: 0 0 0 10px
     h2
       margin-left: 20px
       margin-top: 10px
+      padding: 20px 0 0 0
+      color: #727272
     //li
       margin-left: 20px
       list-style: inside
@@ -1620,16 +1630,16 @@ header#header-bg
     width: 14px
     height: 14px
   .experience
-    height: 190px
+    height: 140px
   .days-times-wrapper
     /*position: absolute
     /*bottom: 30px
     .days-times
       height: 81px
-      width: 560px
+      width: 700px
       margin-left: 40px
       line-height: normal
-      @include linear-gradient(#fcfbfb, #f1f1f1)
+      @include linear-gradient(#fcfbfb, #dadada)
       @include border-radius(10px)
       li
         font-size: 12px
@@ -1650,8 +1660,8 @@ header#header-bg
         /*padding: 0 0 0 20px
       .our-tutors-button
         position: absolute
-        left: 252px
-        bottom: -15px
+        left: 330px
+        bottom: 45px
         font-family: $head-fonts
         font-size: 14px
         font-weight: 700

@@ -13,8 +13,8 @@
         -$i = 1
         -foreach($tutors as $tutor)
           .tutor-details(style="#{$i == 1 ? 'display:block;': 'display:none;';}" data-rel="tutor#{$tutor->id}")
-            -#.tutor-details-image
-            -#  %img(src="#{$tutorsImgFolder . $tutor->big_image}" )
+            .tutor-details-image
+              %img(src="#{$tutorsImgFolder . $tutor->big_image}" )
             .tutors-info
               %h2 = $tutor->name
               .subjects
