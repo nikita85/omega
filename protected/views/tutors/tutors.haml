@@ -59,7 +59,8 @@
                 .teachers(id="tutor#{$tutor->id}")
                   .teachers-image(class="#{$j%2 ? 'even': 'odd';}")
                     %a(href="#" )
-                      %img(class="tutor-preview" src="#{$tutorsImgFolder . $tutor->small_image}" )
+                      -#%img(class="tutor-preview" src="#{$tutorsImgFolder . $tutor->small_image}" )
+                      %img(src="#{$this->assetsPath}/img/place-image.png" )
                   %h2 = $tutor->name
                   .subjects
                     .green-point
